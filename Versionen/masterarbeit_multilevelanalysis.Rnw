@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{apacite}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{a4wide}
+\usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
+\renewcommand{\baselinestretch}{1.5}
+
+\title{Multilevel Analyse als Möglichkeit im Umgang mit genesteten Daten}
+\author{Masterarbeit von \\ Noah Bosshart \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
+
+\begin{document}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width = 8cm]{uzh_logo}
+\end{figure}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Abstract}
+Hallo hier kommt der Abstract. Im Abstract wird eine kurze Zusammenfassung meiner Arbeit stehen. Wobei ich auf die wichtigsten Punkte eingehe und einen abschliessenden Kommentar gebe. Anlässlich meines Versuches \LaTeX\ besser zu verstehen werde ich nun noch mehr Text schreiben. 
+
+\section{Einleitung}
+\subsection{Motivation}
+\subsection{Genestete Datenstrukturen}
+\subsection{Problematik von linearen Modellen}
+Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.
+
+Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler zu \cite{dorman2008effect}.
+
+\section{Multilevel Modelle als Antwort}
+\subsection{Wann werden Multilevel Modelle eingesetzt?}
+\subsection{Aufbau von Multilevel Modellen}
+Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. > Nullmodell bis hin zu Cross-Level Modellen etc. \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
+
+\subsection{Vergleich von Multilevel Modellen}
+Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
+
+\subsection{Kennwerte von Multilevel Modellen}
+\section{Programmierung einer Shiny App zur Erläuterung von MLM}
+\section{Diskussion}
+\newpage
+\bibliography{literatur_masterarbeit}
+\bibliographystyle{apacite}
+
+\section{Abbildungsverzeichnis}
+\section{Anhang}
+
+
+
+
+\end{document}

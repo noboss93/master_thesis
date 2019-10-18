@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{apacite}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{a4wide}
+\usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
+\renewcommand{\baselinestretch}{1.5}
+
+\title{Multilevel Analyse als Möglichkeit im Umgang mit genesteten Daten}
+\author{Masterarbeit von \\ Noah Bosshart \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width = 8cm]{uzh_logo}
+\end{figure}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Abstract}
+Hallo hier kommt der Abstract. Im Abstract wird eine kurze Zusammenfassung meiner Arbeit stehen. Wobei ich auf die wichtigsten Punkte eingehe und einen abschliessenden Kommentar gebe. Anlässlich meines Versuches \LaTeX\ besser zu verstehen werde ich nun noch mehr Text schreiben. 
+
+\section{Einleitung}
+\subsection{Motivation}
+\subsection{Genestete Datenstrukturen}
+\subsection{Problematik von linearen Modellen}
+Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.
+
+Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler zu \cite{dorman2008effect}.
+
+\section{Multilevel Modelle als Antwort}
+\subsection{Wann werden Multilevel Modelle eingesetzt?}
+\subsection{Aufbau von Multilevel Modellen}
+Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. > Nullmodell bis hin zu Cross-Level Modellen etc. \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
+
+\subsection{Vergleich von Multilevel Modellen}
+Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
+
+\subsection{Kennwerte von Multilevel Modellen}
+\section{Programmierung einer Shiny App zur Erläuterung von MLM}
+\section{Diskussion}
+\newpage
+\bibliography{literatur_masterarbeit}
+\bibliographystyle{apacite}
+
+\section{Abbildungsverzeichnis}
+\section{Anhang}
+
+
+
+
+\end{document}

@@ -1,0 +1,54 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Dorman%
+}{%
+Dorman%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+dorman2008effect}
+\APACinsertmetastar {%
+dorman2008effect}%
+\begin{APACrefauthors}%
+Dorman, J\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The effect of clustering on statistical tests: an
+  illustration using classroom environment data} {The effect of clustering on
+  statistical tests: an illustration using classroom environment data}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Educational Psychology}{28}{5}{583--595}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Snijders%
+\ \BBA {} Bosker%
+}{%
+Snijders%
+\ \BBA {} Bosker%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+SnijdersTomA.B2012Ma:a}
+\APACinsertmetastar {%
+SnijdersTomA.B2012Ma:a}%
+\begin{APACrefauthors}%
+Snijders, T\BPBI A\BPBI B.%
+\BCBT {}\ \BBA {} Bosker, R\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2012}.
+\newblock
+\APACrefbtitle {Multilevel analysis : an introduction to basic and advanced
+  multilevel modeling} {Multilevel analysis : an introduction to basic and
+  advanced multilevel modeling}\ (\PrintOrdinal{2nd edition}\ \BEd).
+\newblock
+\APACaddressPublisher{Los Angeles}{SAGE}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
