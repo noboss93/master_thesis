@@ -9,7 +9,7 @@
 \usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
 \renewcommand{\baselinestretch}{1.5}
 
-\title{Multilevel Analyse als Möglichkeit im Umgang mit genesteten Daten}
+\title{Umgang mit genesteten Daten mittels \\ Multilevel Analyse in R}
 \author{Masterarbeit von \\ Noah Bosshart \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 
 \begin{document}
@@ -30,12 +30,14 @@
 \newpage
 
 \section{Einleitung}
-Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Klassen in Schulen, Teams in Organisationen oder Kinder in Familien, um einige Beispiele zu nennen. Der Umgang mit diesen Datenstrukturen erfordert den Einsatz von Multilevel Analyse, die 
+Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Schüler in Klassen, Teams in Organisationen, Kinder in Familien oder Messungen von Längsschnittdaten. In diesen Datenstrukturen bestehen gewissen Abhängigkeiten zwischen den einzelnen Messeinheiten. Das bedeutet, dass beispielsweise Messungen innerhalb einer Klasse höhere Korrelationen aufweisen als Messungen zwischen den Klassen. Etwas einfacher ausgedrückt, werden Schüler aus der selben Klasse zueinander ähnlicher sein als zu Schülern aus anderen Klassen. Diese Gegebenheit können auf viele verschiedene Ursachen zurückzuführen sein, wie zum Beispiel die Fähigkeiten der Lehrperson oder die Qualität der Lehrmaterialien. Diese Arbeit befasst sich nun damit, wie solche Datenstrukturen  mittels Multilevel Analyse berücksichtigt werden können, um Fehlschlüsse zu vermeiden.
 
-In dieser Arbeit werden genestete Datenstrukturen und wie diese Strukturen optimal in der Analyse dieser Daten berücksichtigt werden. Dazu wird zuerst besprochen, wie genau genestete Datenstrukturen beschrieben werden können und welche Situationen zu solchen Datenstrukturen führen. 
+Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befassen können, muss geklärt werden, wie genau solche genesteten Datenstrukturen aufgebaut sind. Dazu werden im folgenden Abschnitt genestete Datenstrukturen genauer beschrieben und es wird aufgezeigt, wie man Daten mit solchen Strukturen in der Statistiksoftware R simmulieren kann \cite{R}.
 
 
-\subsection{Motivation}
+
+
+
 \subsection{Genestete Datenstrukturen}
 \subsection{Problematik von linearen Modellen}
 Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.

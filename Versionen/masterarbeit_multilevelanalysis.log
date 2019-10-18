@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  18 OCT 2019 10:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  18 OCT 2019 13:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -305,27 +305,33 @@ ogo-eps-converted-to.pdf>] (./masterarbeit_multilevelanalysis.toc)
 \tf@toc=\write3
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
- [2] [3] [4] [5]
-(./masterarbeit_multilevelanalysis.bbl) [6]
+ [2] [3]
+Overfull \hbox (14.67786pt too wide) in paragraph at lines 83--84
+\OT1/cmr/m/n/12 Klas-sen, Teams in Or-ga-ni-sa-tio-nen, Kin-der in Fa-mi-li-en 
+oder Mes-sun-gen von L[]angsschnittdaten.
+ []
+
+[4] [5] (./masterarbeit_multilevelanalysis.bbl) [6]
 (./masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 3848 strings out of 492609
- 51979 string characters out of 6129048
- 136663 words of memory out of 5000000
- 7677 multiletter control sequences out of 15000+600000
- 10280 words of font info for 37 fonts, out of 8000000 for 9000
+ 3853 strings out of 492609
+ 52012 string characters out of 6129048
+ 137747 words of memory out of 5000000
+ 7681 multiletter control sequences out of 15000+600000
+ 10449 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,35p,502b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,35p,920b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (6 pages, 112416 bytes).
+pe1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb>
+Output written on masterarbeit_multilevelanalysis.pdf (6 pages, 118121 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 55 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

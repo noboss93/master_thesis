@@ -1,9 +1,8 @@
 \babel@toc {german}{}
 \contentsline {section}{\numberline {1}Abstract}{3}% 
 \contentsline {section}{\numberline {2}Einleitung}{4}% 
-\contentsline {subsection}{\numberline {2.1}Motivation}{4}% 
-\contentsline {subsection}{\numberline {2.2}Genestete Datenstrukturen}{4}% 
-\contentsline {subsection}{\numberline {2.3}Problematik von linearen Modellen}{4}% 
+\contentsline {subsection}{\numberline {2.1}Genestete Datenstrukturen}{4}% 
+\contentsline {subsection}{\numberline {2.2}Problematik von linearen Modellen}{4}% 
 \contentsline {section}{\numberline {3}Multilevel Modelle als Antwort}{5}% 
 \contentsline {subsection}{\numberline {3.1}Wann werden Multilevel Modelle eingesetzt?}{5}% 
 \contentsline {subsection}{\numberline {3.2}Aufbau von Multilevel Modellen}{5}% 
