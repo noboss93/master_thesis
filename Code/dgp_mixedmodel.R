@@ -7,7 +7,7 @@ library(viridis)
 
 # generating one random intercept model -----------------------------------
 
-ran_inter <- function(n = 1000, nklassen = 20, sd_intercept = 40){
+ran_inter <- function(n = 300, nklassen = 8, sd_intercept = 10){
   stunden <- round(runif(n, 1, 30), digits = 0)
   klasse <- sample(1:nklassen, n, replace = TRUE)
   effekt <- round(rnorm(nklassen, 0, sd_intercept), digits = 1)
@@ -18,7 +18,9 @@ ran_inter <- function(n = 1000, nklassen = 20, sd_intercept = 40){
   }
   
   error <- round(rnorm(n, 0, 5), digits = 1)
-  leistung <- round(30 + 2.5 * stunden + random_intercept + error, digits = 0)
+  leistung <- round(20 + 2.5 * stunden + random_intercept + error, digits = 0)
+  leistung <- ifelse(leistung > 100, 100, leistung)
+  leistung <- ifelse(leistung < 0, 0, leistung)
   
   klasse <- as.factor(klasse)
   levels(klasse) <- paste(1:nklassen, "md", sep = "")
@@ -53,5 +55,5 @@ ran_inter <- function(n = 1000, nklassen = 20, sd_intercept = 40){
     ylim(0,NA)
 }
 
-ran_inter(n = 240, nklassen = 8, sd_intercept = 50)
+ran_inter(n = 240, nklassen = 8, sd_intercept = 20)
 

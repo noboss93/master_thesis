@@ -30,9 +30,13 @@
 \newpage
 
 \section{Einleitung}
-Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Schüler in Klassen, Teams in Organisationen, Kinder in Familien oder Messungen von Längsschnittdaten. In diesen Datenstrukturen bestehen gewissen Abhängigkeiten zwischen den einzelnen Messeinheiten. Das bedeutet, dass beispielsweise Messungen innerhalb einer Klasse höhere Korrelationen aufweisen als Messungen zwischen den Klassen. Etwas einfacher ausgedrückt, werden Schüler aus der selben Klasse zueinander ähnlicher sein als zu Schülern aus anderen Klassen. Diese Gegebenheit können auf viele verschiedene Ursachen zurückzuführen sein, wie zum Beispiel die Fähigkeiten der Lehrperson oder die Qualität der Lehrmaterialien. Diese Arbeit befasst sich nun damit, wie solche Datenstrukturen  mittels Multilevel Analyse berücksichtigt werden können, um Fehlschlüsse zu vermeiden.
+Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Schüler in Klassen, Teams in Organisationen, Kinder in Familien oder Messungen von Längsschnittdaten. In diesen Datenstrukturen bestehen gewissen Abhängigkeiten zwischen den einzelnen Messeinheiten. Das bedeutet, dass beispielsweise Messungen innerhalb einer Klasse höhere Korrelationen aufweisen als Messungen zwischen den Klassen. Etwas einfacher ausgedrückt, werden Schüler aus der selben Klasse zueinander ähnlicher sein als zu Schülern aus anderen Klassen. Diese Gegebenheit können auf viele verschiedene Ursachen zurückzuführen sein, wie zum Beispiel die Fähigkeiten der Lehrperson oder die Qualität der Lehrmaterialien. 
 
-Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befassen können, muss geklärt werden, wie genau solche genesteten Datenstrukturen aufgebaut sind. Dazu werden im folgenden Abschnitt genestete Datenstrukturen genauer beschrieben und es wird aufgezeigt, wie man Daten mit solchen Strukturen in der Statistiksoftware R simmulieren kann \cite{R}.
+Würden Daten mit diesen Strukturen mit einem linearen Regressionsmodell analysiert werden, könnte das zu fehlerhaften Ergebnissen führen, da diese Form der Anal Diese Arbeit befasst sich nun damit, wie solche Datenstrukturen  mittels Multilevel Analyse berücksichtigt werden können, um Fehlschlüsse zu vermeiden.
+
+% mehr relevanz
+
+Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befassen können, muss geklärt werden, wie genau solche genesteten Datenstrukturen aufgebaut sind. Dazu werden im folgenden Abschnitt genestete Datenstrukturen genauer beschrieben und es wird beschrieben, wie man Daten mit solchen Strukturen in der Statistiksoftware R simmulieren kann \cite{R}.
 
 
 
@@ -40,6 +44,8 @@ Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befas
 
 \subsection{Genestete Datenstrukturen}
 \subsection{Problematik von linearen Modellen}
+Was passiert wenn genestete Strukturern ignoriert (aggregiert) werden \cite{SnijdersTomA.B2012Ma:a}.
+
 Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.
 
 Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler zu \cite{dorman2008effect}.
