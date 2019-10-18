@@ -26,9 +26,15 @@
 
 \newpage
 \section{Abstract}
-Hallo hier kommt der Abstract. Im Abstract wird eine kurze Zusammenfassung meiner Arbeit stehen. Wobei ich auf die wichtigsten Punkte eingehe und einen abschliessenden Kommentar gebe. Anlässlich meines Versuches \LaTeX\ besser zu verstehen werde ich nun noch mehr Text schreiben. 
+
+\newpage
 
 \section{Einleitung}
+Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Klassen in Schulen, Teams in Organisationen oder Kinder in Familien, um einige Beispiele zu nennen. Der Umgang mit diesen Datenstrukturen erfordert den Einsatz von Multilevel Analyse, die 
+
+In dieser Arbeit werden genestete Datenstrukturen und wie diese Strukturen optimal in der Analyse dieser Daten berücksichtigt werden. Dazu wird zuerst besprochen, wie genau genestete Datenstrukturen beschrieben werden können und welche Situationen zu solchen Datenstrukturen führen. 
+
+
 \subsection{Motivation}
 \subsection{Genestete Datenstrukturen}
 \subsection{Problematik von linearen Modellen}

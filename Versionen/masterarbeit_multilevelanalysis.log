@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  18 OCT 2019 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  18 OCT 2019 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -287,7 +287,7 @@ Package epstopdf Info: Source file: <uzh_logo.eps>
 (epstopdf)                    date: 2019-07-24 14:32:54
 (epstopdf)                    size: 509174 bytes
 (epstopdf)             Output file: <uzh_logo-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-10-18 10:13:54
+(epstopdf)                    date: 2019-10-18 10:31:27
 (epstopdf)                    size: 42683 bytes
 (epstopdf)             Command: <repstopdf --outfile=uzh_logo-eps-converted-to.
 pdf uzh_logo.eps>
@@ -305,8 +305,8 @@ ogo-eps-converted-to.pdf>] (./masterarbeit_multilevelanalysis.toc)
 \tf@toc=\write3
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
- [2] [3] [4]
-(./masterarbeit_multilevelanalysis.bbl) [5]
+ [2] [3] [4] [5]
+(./masterarbeit_multilevelanalysis.bbl) [6]
 (./masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
  3848 strings out of 492609
@@ -321,12 +321,11 @@ nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmti12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (5 pages, 119627 bytes).
+pe1/public/amsfonts/cm/cmti12.pfb>
+Output written on masterarbeit_multilevelanalysis.pdf (6 pages, 112416 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 51 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
