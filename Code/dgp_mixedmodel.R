@@ -7,7 +7,7 @@ library(viridis)
 
 # generating one random intercept model -----------------------------------
 
-ran_inter <- function(n = 300, nklassen = 8, sd_intercept = 10){
+ran_inter <- function(n = 240, nklassen = 8, sd_intercept = 10){
   stunden <- round(runif(n, 1, 30), digits = 0)
   klasse <- sample(1:nklassen, n, replace = TRUE)
   effekt <- round(rnorm(nklassen, 0, sd_intercept), digits = 1)
@@ -19,8 +19,9 @@ ran_inter <- function(n = 300, nklassen = 8, sd_intercept = 10){
   
   error <- round(rnorm(n, 0, 5), digits = 1)
   leistung <- round(20 + 2.5 * stunden + random_intercept + error, digits = 0)
-  leistung <- ifelse(leistung > 100, 100, leistung)
-  leistung <- ifelse(leistung < 0, 0, leistung)
+  # leistung <- ifelse(leistung > 100, 100, leistung)
+  # leistung <- ifelse(leistung < 0, 0, leistung)
+  # Als Fussnote erwähnen im Beispiel
   
   klasse <- as.factor(klasse)
   levels(klasse) <- paste(1:nklassen, "md", sep = "")
@@ -50,10 +51,10 @@ ran_inter <- function(n = 300, nklassen = 8, sd_intercept = 10){
     geom_point() +
     scale_color_viridis_d() +
     geom_abline(slope = slope, intercept = intercept, col = viridis(n = nklassen)) +
-    geom_abline(slope = mean(slope), intercept = mean(intercept), col = "red", size = 1) +
+    # geom_abline(slope = mean(slope), intercept = mean(intercept), col = "red", size = 1) +
     labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
     ylim(0,NA)
 }
 
-ran_inter(n = 240, nklassen = 8, sd_intercept = 20)
+ran_inter(n = 240, nklassen = 8, sd_intercept = 3)
 
