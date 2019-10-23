@@ -43,8 +43,8 @@ tabPanel(title = "Grafiken",
              
            ),
            mainPanel(
-             plotOutput(outputId = "multiplot")
-             
+             plotOutput(outputId = "multiplot"),
+             verbatimTextOutput(outputId = "summary", placeholder = TRUE)
            )
            )
          )
@@ -109,6 +109,13 @@ server <- function(input, output) {
       geom_abline(slope = mean(slope()), intercept = mean(intercept()), col = "red", size = 1) +
       labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
       ylim(0,NA)
+    
+  })
+  
+  # PLot des Summarys
+  output$summary <- renderPrint({
+    summary(ri_model())
+    # VarCorr(ri_model())
     
   })
    
