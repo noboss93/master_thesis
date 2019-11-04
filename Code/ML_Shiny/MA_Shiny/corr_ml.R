@@ -1,10 +1,16 @@
-ran_inter <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0){
+ran_inter <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, corr = 0){
   stunden <- round(runif(n, 1, 30), digits = 0)
   klasse <- sample(1:nklassen, n, replace = TRUE)
-  effekt_int <- round(rnorm(nklassen, 0, sd_intercept), digits = 1)
-  effekt_int <- sort(effekt_int)
-  effekt_slope <- round(rnorm(nklassen, 0, sd_slope), digits = 1)
-  effekt_slope <- sort(effekt_slope)
+  # effekt_int <- round(rnorm(nklassen, 0, sd_intercept), digits = 1)
+  # effekt_int <- sort(effekt_int)
+  # effekt_slope <- round(rnorm(nklassen, 0, sd_slope), digits = 1)
+  # effekt_slope <- sort(effekt_slope)
+  
+  effekte_cov_matrix <- matrix(c(sd_intercept^2,corr * sqrt(sd_intercept^2 * sd_slope^2),corr * sqrt(sd_intercept^2 * sd_slope^2),sd_slope^2), 2, 2)
+  effekte <- mvrnorm(n = nklassen, mu = c(0,0), Sigma = effekte_cov_matrix, empirical = TRUE)
+  
+  effekt_int <- effekte[,1]
+  effekt_slope <- effekte[,2]
   
   random_intercept <- numeric(n)
   for (i in 1:n){

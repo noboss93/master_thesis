@@ -5,6 +5,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(viridis)
+library(MASS)
 
 ui <- navbarPage(title = "Multilevel Analyse von genesteten Daten", 
 tabPanel(title = "Einführung",
@@ -17,23 +18,23 @@ tabPanel(title = "Einführung",
 tabPanel(title = "Grafiken",
          sidebarLayout(
            sidebarPanel(
-             h4("Parameter"),
-             sliderInput(inputId = "n_total",
-                          label = "Gesamtanzahl an Schülern",
-                          value = 240,
-                          min = 100,
-                          max = 1000,
-                          step = 10),
-             
-             hr(),
-             
-             sliderInput(inputId = "n_klassen",
-                          label = "Anzahl Klassen",
-                          value = 8,
-                          min = 2,
-                          max = 20),
-             
-             hr(),
+             h4("Datensatz Eigenschaften"),
+             # sliderInput(inputId = "n_total",
+             #              label = "Gesamtanzahl an Schülern",
+             #              value = 240,
+             #              min = 100,
+             #              max = 1000,
+             #              step = 10),
+             # 
+             # hr(),
+             # 
+             # sliderInput(inputId = "n_klassen",
+             #              label = "Anzahl Klassen",
+             #              value = 8,
+             #              min = 2,
+             #              max = 20),
+             # 
+             # hr(),
              
              sliderInput(inputId = "int_sd",
                          label = "Standardabweichung des Intercepts",
@@ -49,15 +50,34 @@ tabPanel(title = "Grafiken",
                          max = 5,
                          value = 0,
                          step = 0.1),
-             checkboxInput(inputId = "corr_slope",
-                           label = "Korrelierter Slope",
-                           value = FALSE)
+             sliderInput(inputId = "corr",
+                         label = "Korrelation zwischen Slope und Intercept",
+                         min = -1,
+                         max = 1,
+                         value = 0,
+                         step = 0.1),
+             actionButton(inputId = "gen_data",
+                          label = "Datensatz generieren"),
+             hr(),
+             h4("Analysemethoden"),
+             selectInput(inputId = "method",
+                         label = "Wähle eine Methode aus:",
+                         choices = c("Lineares Regressionsmodell" = "lm", 
+                                     "Random Intercept Modell" = "ri", 
+                                     "Random Intercept und Slope Modell" = "rs"),
+                         multiple = FALSE)
            ),
            mainPanel(
-             plotOutput(outputId = "multiplot"),
-             h4("Summary Output"),
-             verbatimTextOutput(outputId = "summary", placeholder = TRUE),
-             verbatimTextOutput(outputId = "test", placeholder = TRUE)
+             tabsetPanel(type = "tabs",
+                         tabPanel(
+                           h4("Grafik"),
+                           plotOutput(outputId = "multiplot")
+                         ),
+                         tabPanel(
+                           h4("Summary Output"),
+                           verbatimTextOutput(outputId = "summary", placeholder = TRUE)
+                         )
+             )
            )
            )
          )
@@ -66,40 +86,59 @@ tabPanel(title = "Grafiken",
 server <- function(input, output) {
   
   # Laden der richtigen Funktion
-  observeEvent(input$corr_slope, {
-    if (input$corr_slope == FALSE){
-      source("uncorr_ml.R")
-    } else {
-      source("corr_ml.R")
-    }
-  })
+  source("corr_ml.R")
+  
+  # Generieren des Datensatzes
+  data_model  <- eventReactive(input$gen_data, {
+    ran_inter(n = 240, nklassen = 8, sd_intercept = input$int_sd, sd_slope = input$slope_sd, corr = input$corr)
+    })
 
-  data_model <- reactive(ran_inter(n = input$n_total, nklassen = input$n_klassen, sd_intercept = input$int_sd, sd_slope = input$slope_sd))
+
   
   # Model und Koeffizienten berechnen
-  
-  ri_model <- reactive({
-    if (input$slope_sd == 0) {
-    lmer(leistung ~ stunden + (1|klasse), data = data_model())
-   } else {
-    lmer(leistung ~ stunden + (stunden|klasse), data = data_model())
-   }
+  ri_model <- eventReactive(c(input$method, input$gen_data), {
+    switch(input$method,
+           "lm" = lm(leistung ~ stunden, data = data_model()),
+           "ri" = lmer(leistung ~ stunden + (1|klasse), data = data_model()),
+           "rs" = lmer(leistung ~ stunden + (stunden|klasse), data = data_model())
+    )
   })
   
-  intercept <- reactive(coef(ri_model())$klasse[,1])
-  slope <- reactive(coef(ri_model())$klasse[,2])
+  intercept <- eventReactive(c(input$method, input$gen_data), {
+    if (input$method == "lm"){
+      coef(ri_model())[1]
+    } else {
+      coef(ri_model())$klasse[,1]
+    }
+  })
+  
+  slope <- eventReactive(c(input$method, input$gen_data), {
+  if (input$method == "lm"){
+    coef(ri_model())[2]
+  } else {
+    coef(ri_model())$klasse[,2]
+  }
+  })
   
   
   # Ploten der Grafik
   output$multiplot <- renderPlot({
-    ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
-      geom_point() +
-      scale_color_viridis_d() +
-      geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = input$n_klassen)) +
-      geom_abline(slope = mean(slope()), intercept = mean(intercept()), col = "red", size = 1) +
-      labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
-      ylim(0,NA)
-    
+    if (input$method == "lm"){
+      ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
+        geom_point() +
+        scale_color_viridis_d() +
+        geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
+        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
+        ylim(0,NA)  
+    } else {
+      ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
+        geom_point() +
+        scale_color_viridis_d() +
+        geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8)) +
+        geom_abline(slope = mean(slope()), intercept = mean(intercept()), col = "red", size = 1) +
+        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
+        ylim(0,NA)
+    }
   })
   
   # PLot des Summarys
