@@ -13,7 +13,8 @@ tabPanel(title = "Einführung",
            tags$style(HTML("hr{border-top: 1px solid #95a5a6})")
                       )
            ),
-         p("Kurze Einführung in die Thematik und vorstellen eines Beispiels z.B. Schüler in Klassen, die eine Prüfung schreiben müssen..")
+         p("Kurze Einführung in die Thematik und vorstellen eines 
+           Beispiels z.B. Schüler in Klassen, die eine Prüfung schreiben müssen..")
          ),
 tabPanel(title = "Grafiken",
          sidebarLayout(
@@ -70,12 +71,21 @@ tabPanel(title = "Grafiken",
            mainPanel(
              tabsetPanel(type = "tabs",
                          tabPanel(
-                           h4("Grafik"),
+                           "Regressions Geraden",
                            plotOutput(outputId = "multiplot")
                          ),
                          tabPanel(
-                           h4("Summary Output"),
-                           verbatimTextOutput(outputId = "summary", placeholder = TRUE)
+                           "Residuen Plot",
+                           plotOutput(outputId = "residual")
+                           ),
+                         tabPanel(
+                           "Q-Q Plot",
+                           plotOutput(outputId = "qq")
+                         ),
+                         tabPanel(
+                           "Summary Output",
+                           verbatimTextOutput(outputId = "summary", 
+                                              placeholder = FALSE)
                          )
              )
            )
@@ -90,7 +100,8 @@ server <- function(input, output) {
   
   # Generieren des Datensatzes
   data_model  <- eventReactive(input$gen_data, {
-    ran_inter(n = 240, nklassen = 8, sd_intercept = input$int_sd, sd_slope = input$slope_sd, corr = input$corr)
+    ran_inter(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
+              sd_slope = input$slope_sd, corr = input$corr)
     })
 
 
@@ -121,24 +132,42 @@ server <- function(input, output) {
   })
   
   
-  # Ploten der Grafik
+  # Ploten der Regressions Geraden
   output$multiplot <- renderPlot({
     if (input$method == "lm"){
       ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
-        geom_point() +
+        geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
-        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
+        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
         ylim(0,NA)  
     } else {
       ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
-        geom_point() +
+        geom_point(size = 2) +
         scale_color_viridis_d() +
-        geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8)) +
-        geom_abline(slope = mean(slope()), intercept = mean(intercept()), col = "red", size = 1) +
-        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte", title = "Erreichte Punktzahl nach Klassen") +
+        geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8), size = 1) +
+        geom_abline(slope = mean(slope()), 
+                    intercept = mean(intercept()), col = "red", size = 1) +
+        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
         ylim(0,NA)
     }
+  })
+  
+  # Plotten der Residuenplots
+  output$residual <- renderPlot({
+    ggplot(ri_model(), aes(x = .fitted, y = .resid)) +
+      geom_point(shape = 1, size = 3) +
+      geom_hline(yintercept = 0, col = "black") + 
+      stat_smooth(method = "loess", se = FALSE, col = "red") +
+      labs(x = "Fitted Values", y = "Residuals")
+  })
+  
+  # Plot des QQ-Plots
+  output$qq <- renderPlot({
+    ggplot(ri_model(), aes(sample = .resid)) +
+      geom_qq(shape = 1, size = 3) +
+      geom_qq_line() + 
+      labs(x = "Standardisierte Residuen", y = "Theoretische Quantile")
   })
   
   # PLot des Summarys
