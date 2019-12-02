@@ -8,14 +8,14 @@ library(viridis)
 library(MASS)
 
 ui <- navbarPage(title = "Multilevel Analyse von genesteten Daten", 
-tabPanel(title = "Einführung",
-         tags$head(
-           tags$style(HTML("hr{border-top: 1px solid #95a5a6})")
-                      )
-           ),
-         p("Kurze Einführung in die Thematik und vorstellen eines 
-           Beispiels z.B. Schüler in Klassen, die eine Prüfung schreiben müssen..")
-         ),
+# tabPanel(title = "Einführung",
+#          tags$head(
+#            tags$style(HTML("hr{border-top: 1px solid #95a5a6})")
+#                       )
+#            ),
+#          p("Kurze Einführung in die Thematik und vorstellen eines 
+#            Beispiels z.B. Schüler in Klassen, die eine Prüfung schreiben müssen..")
+#          ),
 tabPanel(title = "Grafiken",
          sidebarLayout(
            sidebarPanel(
@@ -103,11 +103,9 @@ server <- function(input, output) {
     ran_inter(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
               sd_slope = input$slope_sd, corr = input$corr)
     })
-
-
   
   # Model und Koeffizienten berechnen
-  ri_model <- eventReactive(c(input$method, input$gen_data), {
+  model <- eventReactive(c(input$method, input$gen_data), {
     switch(input$method,
            "lm" = lm(leistung ~ stunden, data = data_model()),
            "ri" = lmer(leistung ~ stunden + (1|klasse), data = data_model()),
@@ -117,22 +115,21 @@ server <- function(input, output) {
   
   intercept <- eventReactive(c(input$method, input$gen_data), {
     if (input$method == "lm"){
-      coef(ri_model())[1]
+      coef(model())[1]
     } else {
-      coef(ri_model())$klasse[,1]
+      coef(model())$klasse[,1]
     }
   })
   
   slope <- eventReactive(c(input$method, input$gen_data), {
   if (input$method == "lm"){
-    coef(ri_model())[2]
+    coef(model())[2]
   } else {
-    coef(ri_model())$klasse[,2]
+    coef(model())$klasse[,2]
   }
   })
   
-  
-  # Ploten der Regressions Geraden
+  # Plotten der Regressions Geraden
   output$multiplot <- renderPlot({
     if (input$method == "lm"){
       ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
@@ -155,16 +152,24 @@ server <- function(input, output) {
   
   # Plotten der Residuenplots
   output$residual <- renderPlot({
-    ggplot(ri_model(), aes(x = .fitted, y = .resid)) +
-      geom_point(shape = 1, size = 3) +
+    residual_df <- data.frame(residuals(model()), fitted.values(model()), data_model()$klasse)
+    colnames(residual_df) <- c("residuals", "fitted", "klasse")
+    
+    ggplot(residual_df, aes(x = fitted, y = residuals)) +
+      geom_point(shape = 16, size = 3) +
+      scale_color_viridis_d() +
       geom_hline(yintercept = 0, col = "black") + 
-      stat_smooth(method = "loess", se = FALSE, col = "red") +
+      geom_smooth(method = "loess", se = FALSE, col = "red") +
+      # geom_smooth(method = "lm", se = FALSE) +
       labs(x = "Fitted Values", y = "Residuals")
   })
   
   # Plot des QQ-Plots
   output$qq <- renderPlot({
-    ggplot(ri_model(), aes(sample = .resid)) +
+    residual_df <- data.frame(residuals(model()), fitted.values(model()), data_model()$klasse)
+    colnames(residual_df) <- c("residuals", "fitted", "klasse")
+    
+    ggplot(residual_df, aes(sample = residuals)) +
       geom_qq(shape = 1, size = 3) +
       geom_qq_line() + 
       labs(x = "Standardisierte Residuen", y = "Theoretische Quantile")
@@ -172,9 +177,7 @@ server <- function(input, output) {
   
   # PLot des Summarys
   output$summary <- renderPrint({
-    summary(ri_model())
-    # VarCorr(ri_model())
-    
+    summary(model())
   })
    
 }
