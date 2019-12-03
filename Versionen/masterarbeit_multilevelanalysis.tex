@@ -59,8 +59,8 @@
 \usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
 \renewcommand{\baselinestretch}{1.5}
 
-\title{Multilevel Analyse in R}
-\author{Masterarbeit von \\ Noah Bosshart \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
+\title{Multilevel Analyse in R \\ \large Eine Einführung in Theorie und Anwendung}
+\author{Masterarbeit von \\ Noah Bosshart \\ \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
@@ -91,10 +91,6 @@ Würden Daten mit diesen Strukturen mit einem linearen Regressionsmodell analysi
 
 Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befassen können, muss geklärt werden, wie genau solche genesteten Datenstrukturen aufgebaut sind. Dazu werden im folgenden Abschnitt genestete Datenstrukturen genauer beschrieben und es wird beschrieben, wie man Daten mit solchen Strukturen in der Statistiksoftware R simmulieren kann \cite{R}.
 
-
-
-
-
 \subsection{Genestete Datenstrukturen}
 \subsection{Problematik von linearen Modellen}
 Was passiert wenn genestete Strukturen ignoriert (aggregiert) werden \cite{SnijdersTomA.B2012Ma:a}.
@@ -111,7 +107,11 @@ Beschreibung von lme4 und grund warum in dieser Arbeit nur mit diesem Paket gear
 Besprechen von ICC und Design Effekt (Vlg. Dazu Guide ML Analysis von J. Peugh 2009)
 
 \subsection{Aufbau von Multilevel Modellen}
-Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. > Nullmodell bis hin zu Cross-Level Modellen etc. An Guides zu Multi Level Modellen Orienteieren! \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
+Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. Nullmodell bis hin zu Cross-Level Modellen etc. An Guides zu Multi Level Modellen Orienteieren! \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
+
+Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren nicht \cite{SnijdersTomA.B2012Ma:a}
+
+
 \subsubsection{Das Null Modell}
 \subsubsection{Das Level-1 Modell}
 \subsubsection{Das Level-2 Modell}
