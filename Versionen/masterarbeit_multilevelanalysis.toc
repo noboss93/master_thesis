@@ -1,16 +1,20 @@
 \babel@toc {german}{}
-\contentsline {section}{\numberline {1}Abstract}{3}%
-\contentsline {section}{\numberline {2}Einleitung}{4}%
-\contentsline {subsection}{\numberline {2.1}Genestete Datenstrukturen}{4}%
-\contentsline {subsection}{\numberline {2.2}Problematik von linearen Modellen}{4}%
-\contentsline {section}{\numberline {3}Multilevel Analyse von genesteten Daten in R}{5}%
-\contentsline {subsection}{\numberline {3.1}R Pakete für die Multilevel Analyse}{5}%
-\contentsline {subsection}{\numberline {3.2}Wann werden Multilevel Modelle eingesetzt?}{5}%
-\contentsline {subsection}{\numberline {3.3}Aufbau von Multilevel Modellen}{5}%
-\contentsline {subsection}{\numberline {3.4}Vergleich von Multilevel Modellen}{5}%
-\contentsline {subsection}{\numberline {3.5}Kennwerte von Multilevel Modellen}{5}%
-\contentsline {section}{\numberline {4}Multilevel Analyse mit Shiny}{5}%
-\contentsline {section}{\numberline {5}Diskussion}{5}%
-\contentsline {section}{\numberline {6}Literaturverzeichnis}{6}%
-\contentsline {section}{\numberline {7}Abbildungsverzeichnis}{6}%
-\contentsline {section}{\numberline {8}Anhang}{6}%
+\contentsline {section}{\numberline {1}Abstract}{3}% 
+\contentsline {section}{\numberline {2}Einleitung}{4}% 
+\contentsline {subsection}{\numberline {2.1}Genestete Datenstrukturen}{4}% 
+\contentsline {subsection}{\numberline {2.2}Problematik von linearen Modellen}{4}% 
+\contentsline {section}{\numberline {3}Multilevel Analyse von genesteten Daten in R}{5}% 
+\contentsline {subsection}{\numberline {3.1}R Pakete f\IeC {\"u}r die Multilevel Analyse}{5}% 
+\contentsline {subsection}{\numberline {3.2}Wann werden Multilevel Modelle eingesetzt?}{5}% 
+\contentsline {subsection}{\numberline {3.3}Aufbau von Multilevel Modellen}{5}% 
+\contentsline {subsubsection}{\numberline {3.3.1}Das Null Modell}{5}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Das Level-1 Modell}{5}% 
+\contentsline {subsubsection}{\numberline {3.3.3}Das Level-2 Modell}{5}% 
+\contentsline {subsubsection}{\numberline {3.3.4}Cross-Level Interaktion}{5}% 
+\contentsline {subsection}{\numberline {3.4}Vergleich von Multilevel Modellen}{5}% 
+\contentsline {subsection}{\numberline {3.5}Kennwerte von Multilevel Modellen}{6}% 
+\contentsline {section}{\numberline {4}Multilevel Analyse mit Shiny}{6}% 
+\contentsline {section}{\numberline {5}Diskussion}{6}% 
+\contentsline {section}{\numberline {6}Literaturverzeichnis}{7}% 
+\contentsline {section}{\numberline {7}Abbildungsverzeichnis}{7}% 
+\contentsline {section}{\numberline {8}Anhang}{7}% 
