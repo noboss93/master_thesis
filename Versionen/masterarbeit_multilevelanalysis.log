@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  3 DEC 2019 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  4 DEC 2019 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -65,30 +65,6 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2019/07/19 3.33 The Babel package
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2019/07/19 3.33 Babel switching mechanism
-)
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel-german/german.ldf
-Language: german 2018/12/08 v2.11 German support for babel (pre-1996 orthograph
-y)
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel-german/germanb.ldf
-Language: germanb 2018/12/08 v2.11 German support for babel (pre-1996 orthograp
-hy)
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2019/07/19 3.33 Babel common definitions
-\babel@savecnt=\count88
-\U@D=\dimen109
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count89
-)
-Package babel Info: Making " an active character on input line 135.
-)))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks15
@@ -96,7 +72,7 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/apacite/apacite.sty
 Package: apacite 2013/07/21 v6.03 APA citation
-\c@BibCnt=\count90
+\c@BibCnt=\count88
 \bibleftmargin=\skip44
 \bibindent=\skip45
 \bibparsep=\skip46
@@ -114,46 +90,46 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
-\ex@=\dimen110
+\ex@=\dimen109
 ))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen111
+\pmbraise@=\dimen110
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count91
+\inf@bad=\count89
 LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count92
-\leftroot@=\count93
+\uproot@=\count90
+\leftroot@=\count91
 LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count94
-\DOTSCASE@=\count95
+\classnum@=\count92
+\DOTSCASE@=\count93
 LaTeX Info: Redefining \ldots on input line 482.
 LaTeX Info: Redefining \dots on input line 485.
 LaTeX Info: Redefining \cdots on input line 606.
 \Mathstrutbox@=\box27
 \strutbox@=\box28
-\big@size=\dimen112
+\big@size=\dimen111
 LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
 \tag@help=\toks18
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
 \andhelp@=\toks19
-\eqnshift@=\dimen113
-\alignsep@=\dimen114
-\tagshift@=\dimen115
-\tagwidth@=\dimen116
-\totwidth@=\dimen117
-\lineht@=\dimen118
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
 \@envbody=\toks20
 \multlinegap=\skip50
 \multlinetaggap=\skip51
@@ -199,31 +175,31 @@ tim
 (./masterarbeit_multilevelanalysis.aux)
 \openout1 = `masterarbeit_multilevelanalysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen119
+\scratchcounter=\count101
+\scratchdimen=\dimen118
 \scratchbox=\box29
-\nofMPsegments=\count104
-\nofMParguments=\count105
+\nofMPsegments=\count102
+\nofMParguments=\count103
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen120
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen119
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
 \everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -276,12 +252,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@maskedRefs=\count109
+\c@maskedRefs=\count107
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/apacite/german.apc
-File: german.apc 2013/07/21 v6.03 apacite language file
-LaTeX Info: Redefining \BPBI on input line 142.
-LaTeX Info: Redefining \BHBI on input line 143.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/apacite/english.apc
+File: english.apc 2013/07/21 v6.03 apacite language file
+LaTeX Info: Redefining \BPBI on input line 129.
+LaTeX Info: Redefining \BHBI on input line 130.
 )
 Package epstopdf Info: Source file: <uzh_logo.eps>
 (epstopdf)                    date: 2019-07-24 14:32:54
@@ -291,12 +267,12 @@ Package epstopdf Info: Source file: <uzh_logo.eps>
 (epstopdf)                    size: 42683 bytes
 (epstopdf)             Command: <repstopdf --outfile=uzh_logo-eps-converted-to.
 pdf uzh_logo.eps>
-(epstopdf)             \includegraphics on input line 70.
+(epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
 <uzh_logo-eps-converted-to.pdf, id=1, 142.5325pt x 49.18375pt>
 File: uzh_logo-eps-converted-to.pdf Graphic file (type pdf)
 <use uzh_logo-eps-converted-to.pdf>
-Package pdftex.def Info: uzh_logo-eps-converted-to.pdf  used on input line 70.
+Package pdftex.def Info: uzh_logo-eps-converted-to.pdf  used on input line 69.
 (pdftex.def)             Requested size: 227.62204pt x 78.54547pt.
  [1
 
@@ -306,18 +282,18 @@ ogo-eps-converted-to.pdf>] (./masterarbeit_multilevelanalysis.toc)
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
  [2] [3]
-Overfull \hbox (23.22916pt too wide) in paragraph at lines 84--85
-\OT1/cmr/m/n/12 Klas-sen, Teams in Or-ga-ni-sa-tio-nen, Kin-der in Fa-mi-li-en 
-oder Mes-sun-gen von L[]angsschnittstudien.
+Overfull \hbox (23.74875pt too wide) in paragraph at lines 83--84
+\OT1/cmr/m/n/12 Klassen, Teams in Or-gan-i-sa-tio-nen, Kinder in Fam-i-lien ode
+r Mes-sun-gen von L^^?angsschnittstudien.
  []
 
-[4] [5] [6] (./masterarbeit_multilevelanalysis.bbl) [7]
+[4] [5] [6] [7] (./masterarbeit_multilevelanalysis.bbl) [8]
 (./masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 3853 strings out of 492609
- 52012 string characters out of 6129048
- 137756 words of memory out of 5000000
- 7681 multiletter control sequences out of 15000+600000
+ 3223 strings out of 492609
+ 43376 string characters out of 6129048
+ 118637 words of memory out of 5000000
+ 7070 multiletter control sequences out of 15000+600000
  10449 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,35p,764b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -328,10 +304,10 @@ s/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (7 pages, 118952 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (8 pages, 119738 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 63 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

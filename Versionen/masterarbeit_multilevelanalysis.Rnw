@@ -1,5 +1,4 @@
 \documentclass[12pt]{article}
-\usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{apacite}
 \usepackage{graphicx}
@@ -9,7 +8,7 @@
 \usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
 \renewcommand{\baselinestretch}{1.5}
 
-\title{Multilevel Analyse in R \\ \large Eine Einführung in Theorie und Anwendung}
+\title{Multilevel Analyse in R \\ \large Einführung in Theorie und Anwendung}
 \author{Masterarbeit von \\ Noah Bosshart \\ \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 
 \begin{document}
@@ -69,6 +68,19 @@ Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren n
 
 \subsection{Vergleich von Multilevel Modellen}
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
+
+Tests für feste Effekte Wald-Test \cite{SnijdersTomA.B2012Ma:a} Inkl. Dummy-Test
+
+Deviance Tests ebenfalls verwendbar für feste Effekte. Bei Random Intercept an chi-square verteilung mit df = anz. veränderte variable teile (wichtig fixed effect müssen gleich bleiben, wenn mit REML, sonst ML)
+
+Da Varianzen nicht negativ werden können, wird oft einseitig getestet. Konservativere Möglichkeit druch halbierung des testwertes ("Zweiseitiges Testen").
+
+
+Deviance Tests für Random Slope etwas aufwändiger, df = m1 - m0 = p + 1 (anz. covarianzen p, von denen sich das m0 zu m1 unterscheiden + 1 varianz) Prüfwert wird für df = p und für df = p+1 in einer chi-quadrat verteilung bestimmt. danach mittelwert davon ergibt den eigentlichen prüfwert. 
+
+Konfidenzintervall am besten durch profile likelihood (via lme4 Paket). Profile likelihood verhindert, dass Konfidenzintervalle den Wert 0 Unterschreiten, da Varianzen nicht negativ sein können. 
+
+Wenn diese Methode nicht vorhanden ist können andere Methoden gewählt werden, die allerdings nicht so genau/reliabel sind.
 
 \subsection{Kennwerte von Multilevel Modellen}
 \section{Multilevel Analyse mit Shiny}
