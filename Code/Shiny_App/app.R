@@ -1,5 +1,6 @@
 library(shiny)
 library(shinyjs) 
+library(shinydashboard)
 library(lme4)
 library(ggplot2)
 library(dplyr)
@@ -7,15 +8,15 @@ library(tidyr)
 library(viridis)
 library(MASS)
 
-ui <- navbarPage(title = "Multilevel Analyse von genesteten Daten", 
-# tabPanel(title = "Einführung",
-#          tags$head(
-#            tags$style(HTML("hr{border-top: 1px solid #95a5a6})")
-#                       )
-#            ),
-#          p("Kurze Einführung in die Thematik und vorstellen eines 
-#            Beispiels z.B. Schüler in Klassen, die eine Prüfung schreiben müssen..")
-#          ),
+ui <- navbarPage(title = "Multilevel Analyse", collapsible = TRUE,
+tabPanel(title = "Einführung",
+         tags$head(
+           tags$style(HTML("hr{border-top: 1px solid #95a5a6})")
+                      )
+           ),
+         p("Kurze Einführung in die Thematik und vorstellen eines 
+           Beispiels z.B. Schüler in Klassen, die eine Prüfung schreiben müssen..")
+         ),
 tabPanel(title = "Grafiken",
          sidebarLayout(
            sidebarPanel(
