@@ -49,7 +49,7 @@ ui <- dashboardPage(
                    tabsetPanel(type = "tabs",
                                tabPanel(
                                  "Übersicht der Daten",
-                                 tableOutput(outputId = "table")
+                                 dataTableOutput(outputId = "table")
                                  ),
                                tabPanel(
                                  "Struktur der Daten",
@@ -131,11 +131,9 @@ server <- function(input, output) {
   })
   
   # Ausgabe der Tabelle
-  output$table <- renderTable({
-    head(data_model(), n = 20)
-  }, 
-  striped = TRUE,
-  hover = TRUE
+  output$table <- renderDataTable({
+    data_model()
+  }
   )
   
   # Ausgabe der Struktur
