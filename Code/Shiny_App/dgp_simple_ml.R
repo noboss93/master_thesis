@@ -1,4 +1,4 @@
-ran_inter <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, corr = 0){
+gen_ml_data <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, corr = 0){
   stunden <- round(runif(n, 1, 30), digits = 0)
   klasse <- sample(1:nklassen, n, replace = TRUE)
   
@@ -23,12 +23,11 @@ ran_inter <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, co
   }
   
   error <- round(rnorm(n, 0, 5), digits = 1)
-  leistung <- round(20 + 2.5 * stunden + random_intercept + 
-                      random_slope * stunden + error, digits = 0)
+  leistung <- round(20 + 2.5 * stunden + random_intercept + random_slope * stunden + error, digits = 0)
   
   klasse <- as.factor(klasse)
   levels(klasse) <- paste(1:nklassen, "md", sep = "")
   
-  ranint_data <- data.frame(stunden, klasse, leistung)
+  ranint_data <- data.frame(klasse, stunden, leistung)
   return(ranint_data)
 }

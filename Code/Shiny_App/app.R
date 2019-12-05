@@ -97,11 +97,11 @@ tabPanel(title = "Grafiken",
 server <- function(input, output) {
   
   # Laden der richtigen Funktion
-  source("corr_ml.R")
+  source("dgp_simple_ml.R")
   
   # Generieren des Datensatzes
   data_model  <- eventReactive(input$gen_data, {
-    ran_inter(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
+    gen_ml_data(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
               sd_slope = input$slope_sd, corr = input$corr)
     })
   
@@ -162,7 +162,7 @@ server <- function(input, output) {
       geom_hline(yintercept = 0, col = "black") + 
       geom_smooth(method = "loess", se = FALSE, col = "red") +
       # geom_smooth(method = "lm", se = FALSE) +
-      labs(x = "Fitted Values", y = "Residuals")
+      labs(x = "Angepasster Wert", y = "Residuen")
   })
   
   # Plot des QQ-Plots
@@ -173,7 +173,7 @@ server <- function(input, output) {
     ggplot(residual_df, aes(sample = residuals)) +
       geom_qq(shape = 1, size = 3) +
       geom_qq_line() + 
-      labs(x = "Standardisierte Residuen", y = "Theoretische Quantile")
+      labs(x = "Erwartete Werte ", y = "Beobachtete Werte")
   })
   
   # PLot des Summarys

@@ -1,7 +1,6 @@
 library(shiny)
 library(shinyjs) 
 library(shinydashboard)
-
 library(lme4)
 library(ggplot2)
 library(dplyr)
@@ -46,16 +45,21 @@ ui <- dashboardPage(
             actionButton(inputId = "gen_data",
                          label = "Datensatz generieren")
             ),
-            column(width = 5,
-                   "Übersicht der Daten",
-                   tableOutput(outputId = "table")
-                   ),
-            column(width = 4,
-                   "Struktur der Daten",
-                   verbatimTextOutput(outputId = "str", 
-                                      placeholder = FALSE))
+            column(width = 9,
+                   tabsetPanel(type = "tabs",
+                               tabPanel(
+                                 "Übersicht der Daten",
+                                 tableOutput(outputId = "table")
+                                 ),
+                               tabPanel(
+                                 "Struktur der Daten",
+                                 verbatimTextOutput(outputId = "str", 
+                                                    placeholder = FALSE)
+                                 )
+                               )
+                   )
             )
-            ),
+    ),
     tabItem(tabName = "analysing",
             selectInput(inputId = "method",
                         label = "Wähle eine Methode aus:",
@@ -93,11 +97,11 @@ ui <- dashboardPage(
 server <- function(input, output) {
   
   # Laden der richtigen Funktion
-  source("corr_ml.R")
+  source("dgp_multi_ml.R")
   
   # Generieren des Datensatzes
   data_model  <- eventReactive(input$gen_data, {
-    ran_inter(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
+    gen_ml_data(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
               sd_slope = input$slope_sd, corr = input$corr)
     })
   
@@ -136,7 +140,8 @@ server <- function(input, output) {
   
   # Ausgabe der Struktur
   output$str <- renderPrint({
-   summary(data_model())
+    summary(data_model())
+    # str(data_model())
   })
   
   # Plotten der Regressions Geraden
@@ -171,7 +176,7 @@ server <- function(input, output) {
       geom_hline(yintercept = 0, col = "black") + 
       geom_smooth(method = "loess", se = FALSE, col = "red") +
       # geom_smooth(method = "lm", se = FALSE) +
-      labs(x = "Fitted Values", y = "Residuals")
+      labs(x = "Angepasster Wert", y = "Residuen")
   })
   
   # Plot des QQ-Plots
@@ -182,7 +187,7 @@ server <- function(input, output) {
     ggplot(residual_df, aes(sample = residuals)) +
       geom_qq(shape = 1, size = 3) +
       geom_qq_line() + 
-      labs(x = "Standardisierte Residuen", y = "Theoretische Quantile")
+      labs(x = "Erwartete Werte ", y = "Beobachtete Werte")
   })
   
   # PLot des Summarys
