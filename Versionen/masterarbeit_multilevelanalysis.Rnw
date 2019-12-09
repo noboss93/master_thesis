@@ -8,7 +8,7 @@
 \usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
 \renewcommand{\baselinestretch}{1.5}
 
-\title{Multilevel Analyse in R \\ \large Einführung in Theorie und Anwendung}
+\title{Multilevel Analyse in R \\ \large Interaktive Einführung in Theorie und Anwendung}
 \author{Masterarbeit von \\ Noah Bosshart \\ \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 
 \begin{document}

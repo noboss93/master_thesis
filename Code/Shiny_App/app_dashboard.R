@@ -10,11 +10,11 @@ library(viridis)
 library(MASS)
 
 ui <- dashboardPage(
-  dashboardHeader(title = "Multilevel Analyse", titleWidth = 300),
-  dashboardSidebar(width = 300,
+  dashboardHeader(title = "Multilevel Analyse", titleWidth = 350),
+  dashboardSidebar(width = 350,
     sidebarMenu(
       menuItem("Einführung", tabName = "einführung", startExpanded = TRUE,
-               menuSubItem("Was ist eine Multilevel Analyse", tabName = "intro"),
+               menuSubItem("Was ist eine Multilevel Analyse?", tabName = "intro"),
                menuSubItem("Genestete Daten generieren", tabName = "generating"),
                menuSubItem("Daten analysieren", tabName = "analysing")
                ),
@@ -32,83 +32,38 @@ ui <- dashboardPage(
   ),
   dashboardBody(
     tabItems(
-      tabItem(tabName = "intro",
-              "Hier kommt eine Einführung"
-              ),
-    tabItem(tabName = "generating",
-            fluidRow(
-              column(width = 3,
-            sliderInput(inputId = "int_sd",
-                        label = "Standardabweichung des Intercepts",
-                        min = 0,
-                        max = 30,
-                        value = 10),
-            sliderInput(inputId = "slope_sd",
-                        label = "Standardabweichung des Slopes",
-                        min = 0, 
-                        max = 5,
-                        value = 0,
-                        step = 0.1),
-            sliderInput(inputId = "corr",
-                        label = "Korrelation zwischen Slope und Intercept",
-                        min = -1,
-                        max = 1,
-                        value = 0,
-                        step = 0.1),
-            actionButton(inputId = "gen_data",
-                         label = "Datensatz generieren")
-            ),
-            column(width = 9,
-                   tabsetPanel(type = "tabs",
-                               tabPanel(
-                                 "Übersicht der Daten",
-                                 dataTableOutput(outputId = "table")
-                                 ),
-                               tabPanel(
-                                 "Struktur der Daten",
-                                 verbatimTextOutput(outputId = "str", 
-                                                    placeholder = FALSE)
-                                 ),
-                               tabPanel(
-                                 "Summary der Daten",
-                                 verbatimTextOutput(outputId = "data_summary", 
-                                                    placeholder = FALSE)
-                                 )
-                               )
-                   )
-            )
-    ),
-    tabItem(tabName = "analysing",
-            selectInput(inputId = "method",
-                        label = "Wähle eine Methode aus:",
-                        choices = c("Lineares Regressionsmodell" = "lm", 
-                                    "Random Intercept Modell" = "ri", 
-                                    "Random Intercept und Slope Modell" = "rs"),
-                        multiple = FALSE),
-            tabsetPanel(type = "tabs",
-                        tabPanel(
-                          "Regressions Geraden",
-                          plotOutput(outputId = "multiplot")
-                          ),
-                        tabPanel(
-                          "Residuen Plot",
-                          plotOutput(outputId = "residual")
-                          ),
-                        tabPanel(
-                          "Q-Q Plot",
-                          plotOutput(outputId = "qq")
-                          ),
-                        tabPanel(
-                          "Summary Output",
-                          verbatimTextOutput(outputId = "summary", 
-                                             placeholder = FALSE)
-                          )
-                        )
-              
-            
-            ),
-    tabItem(tabName = "own_mla",
-            "Hier Einführung zum Datensatz")
+    tabItem(tabName = "intro",
+            source("tab_intro.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "generating", 
+            source("tab_generating.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "analysing", 
+            source("tab_analysing_intro.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "infos", 
+            source("tab_info_mla.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "researchquestion", 
+            source("tab_researchquestion.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "estimator", 
+            source("tab_estimator.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "needformla", 
+            source("tab_needformla.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "lvl1", 
+            source("tab_lvl1.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "lvl2", 
+            source("tab_lvl2.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "effectsize", 
+            source("tab_effectsize.R", encoding = "utf8")[1]),
+    
+    tabItem(tabName = "modeltesting", 
+            source("tab_modeltesting.R", encoding = "utf8")[1])
     )
   )
 )
