@@ -105,6 +105,9 @@ server <- function(input, output) {
   }
   })
   
+
+# Intro Summary Data ------------------------------------------------------
+  
   # Ausgabe der Tabelle
   output$table <- renderDataTable({
     data_model()
@@ -119,6 +122,9 @@ server <- function(input, output) {
   output$data_summary <- renderPrint({
     summary(data_model())
   })
+  
+
+# Intro Plots -------------------------------------------------------------
   
   # Plotten der Regressions Geraden
   output$multiplot <- renderPlot({
@@ -171,6 +177,25 @@ server <- function(input, output) {
     summary(model())
   })
    
+
+# MLA Info ----------------------------------------------------------------
+
+  
+  # Ausgabe der Tabelle
+  output$table_full <- renderDataTable({
+    data_model()
+  })
+  
+  # Ausgabe der Struktur
+  output$str_full <- renderPrint({
+    str(data_model())
+  })
+  
+  # Ausgabe der Summary
+  output$data_summary_full <- renderPrint({
+    summary(data_model())
+  })  
+  
 }
 
 shinyApp(ui = ui, server = server)
