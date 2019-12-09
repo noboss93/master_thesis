@@ -13,16 +13,28 @@ ui <- dashboardPage(
   dashboardHeader(title = "Multilevel Analyse", titleWidth = 300),
   dashboardSidebar(width = 300,
     sidebarMenu(
-      menuItem("Daten generieren", tabName = "generating" 
-               
+      menuItem("Einführung", tabName = "einführung", startExpanded = TRUE,
+               menuSubItem("Was ist eine Multilevel Analyse", tabName = "intro"),
+               menuSubItem("Genestete Daten generieren", tabName = "generating"),
+               menuSubItem("Daten analysieren", tabName = "analysing")
                ),
-      menuItem("Daten analysieren", tabName = "analysing"
-                
-                )
+      menuItem("Eigene Multilevel Analyse", tabName = "own_mla", startExpanded = TRUE,
+               menuSubItem("Informationen zum Datensatz", tabName = "infos"),
+               menuSubItem("1. Schritt: Forschungsfrage", tabName = "researchquestion"),
+               menuSubItem("2. Schritt: Wahl des Schätzers", tabName = "estimator"),
+               menuSubItem("3. Schritt: Notwendigkeit von Multilevel Analyse", tabName = "needformla"),
+               menuSubItem("4. Schritt: Erstellen eines Level-1 Modells", tabName = "lvl1"),
+               menuSubItem("5. Schritt: Erstellen eines Level-2 Modells", tabName = "lvl2"),
+               menuSubItem("6. Schritt: Effektgrössen", tabName = "effectsize"),
+               menuSubItem("7. Schritt: Modelltestung", tabName = "modeltesting")
+              )
     )
   ),
   dashboardBody(
     tabItems(
+      tabItem(tabName = "intro",
+              "Hier kommt eine Einführung"
+              ),
     tabItem(tabName = "generating",
             fluidRow(
               column(width = 3,
@@ -55,6 +67,11 @@ ui <- dashboardPage(
                                tabPanel(
                                  "Struktur der Daten",
                                  verbatimTextOutput(outputId = "str", 
+                                                    placeholder = FALSE)
+                                 ),
+                               tabPanel(
+                                 "Summary der Daten",
+                                 verbatimTextOutput(outputId = "data_summary", 
                                                     placeholder = FALSE)
                                  )
                                )
@@ -89,7 +106,9 @@ ui <- dashboardPage(
                         )
               
             
-            )
+            ),
+    tabItem(tabName = "own_mla",
+            "Hier Einführung zum Datensatz")
     )
   )
 )
@@ -134,13 +153,16 @@ server <- function(input, output) {
   # Ausgabe der Tabelle
   output$table <- renderDataTable({
     data_model()
-  }
-  )
+  })
   
   # Ausgabe der Struktur
   output$str <- renderPrint({
+    str(data_model())
+  })
+  
+  # Ausgabe der Summary
+  output$data_summary <- renderPrint({
     summary(data_model())
-    # str(data_model())
   })
   
   # Plotten der Regressions Geraden
