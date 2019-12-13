@@ -31,6 +31,7 @@ ui <- dashboardPage(
     )
   ),
   dashboardBody(
+    useShinyjs(),
     tabItems(
     tabItem(tabName = "intro",
             source("tab_intro.R", encoding = "utf8")[1]),
@@ -69,7 +70,7 @@ ui <- dashboardPage(
 )
 
 
-server <- function(input, output) {
+server <- function(input, output, session) {
   
   # Laden der richtigen Funktion
   source("dgp_multi_ml.R")
@@ -126,15 +127,31 @@ server <- function(input, output) {
 
 # Intro Plots -------------------------------------------------------------
   
+  observeEvent(c(input$method, input$gen_data), {
+  if (input$method == "lm"){
+    toggle("groupcolor")
+  } else {
+    hide("groupcolor")
+  }
+  })
+  
   # Plotten der Regressions Geraden
   output$multiplot <- renderPlot({
     if (input$method == "lm"){
+      if (input$groupcolor == TRUE){
       ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
         geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
         labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
         ylim(0,NA)  
+      } else {
+        ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung)) + 
+          geom_point(size = 2) +
+          geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
+          labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
+          ylim(0,NA) 
+      }
     } else {
       ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
         geom_point(size = 2) +

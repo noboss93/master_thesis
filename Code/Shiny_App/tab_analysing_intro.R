@@ -5,9 +5,11 @@ fluidRow(
             choices = c("Lineares Regressionsmodell" = "lm", 
                         "Random Intercept Modell" = "ri", 
                         "Random Intercept und Slope Modell" = "rs"),
-            multiple = FALSE)
-),
-tabBox(width = 12,
+            multiple = FALSE),
+  checkboxInput(inputId = "groupcolor",
+                label = "Gruppenfarbe anzeigen")
+  ),
+  tabBox(width = 12,
             tabPanel(
               "Regressions Geraden",
               plotOutput(outputId = "multiplot")
