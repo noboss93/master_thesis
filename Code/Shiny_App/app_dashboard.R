@@ -129,7 +129,7 @@ server <- function(input, output, session) {
   
   observeEvent(c(input$method, input$gen_data), {
   if (input$method == "lm"){
-    toggle("groupcolor")
+    shinyjs::show("groupcolor")
   } else {
     hide("groupcolor")
   }
