@@ -40,31 +40,31 @@ ui <- dashboardPage(
             source("tab_generating.R", encoding = "utf8")[1]),
     
     tabItem(tabName = "analysing", 
-            source("tab_analysing_intro.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "infos", 
-            source("tab_info_mla.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "researchquestion", 
-            source("tab_researchquestion.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "estimator", 
-            source("tab_estimator.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "needformla", 
-            source("tab_needformla.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "lvl1", 
-            source("tab_lvl1.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "lvl2", 
-            source("tab_lvl2.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "effectsize", 
-            source("tab_effectsize.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "modeltesting", 
-            source("tab_modeltesting.R", encoding = "utf8")[1])
+            source("tab_analysing_intro.R", encoding = "utf8")[1])
+    #,
+    #tabItem(tabName = "infos", 
+    #        source("tab_info_mla.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "researchquestion", 
+    #        source("tab_researchquestion.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "estimator", 
+    #        source("tab_estimator.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "needformla", 
+    #        source("tab_needformla.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "lvl1", 
+    #        source("tab_lvl1.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "lvl2", 
+    #        source("tab_lvl2.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "effectsize", 
+    #        source("tab_effectsize.R", encoding = "utf8")[1]),
+    #
+    #tabItem(tabName = "modeltesting", 
+    #        source("tab_modeltesting.R", encoding = "utf8")[1])
     )
   )
 )

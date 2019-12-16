@@ -1,6 +1,6 @@
 gen_ml_data <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, corr = 0){
   
-  # Creating Level-1 Variables
+  # Creating Level-1 Variables with fixed effects
   stunden <- round(runif(n, 1, 30), digits = 0)
   iq <- round(rnorm(n, mean = 100, sd = 10))
  
