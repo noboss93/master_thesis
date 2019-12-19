@@ -1,7 +1,8 @@
-gen_ml_data <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, corr = 0){
+gen_ml_data <- function(n = 1000, nklassen = 50, sd_intercept = 10, sd_slope = 0, corr = 0){
   
   # Creating Level-1 Variables with fixed effects
   iq <- round(rnorm(n, mean = 100, sd = 10))
+  iq <- iq - 100 
  
   # Creating Level-2 Variables
   anz_math_lektionen <- sample(c(1:6), nklassen, replace = TRUE)
@@ -41,13 +42,20 @@ gen_ml_data <- function(n = 240, nklassen = 8, sd_intercept = 10, sd_slope = 0, 
   error <- round(rnorm(n, 0, 5), digits = 1)
   
   # Calculating individual leistung score
-  leistung <- round(20 + 10 * math_lektionen + 1.5 * iq + 
-                      random_intercept + random_slope * iq + error, digits = 0)
+  leistung <- round(50 + 
+                      1.5 * math_lektionen + 
+                      5 * iq + 
+                      random_intercept + 
+                      random_slope * iq + 
+                      error, digits = 0)
   
   # Creating dataframe
   klasse <- as.factor(klasse)
   levels(klasse) <- paste(1:nklassen, "md", sep = "")
   
   ml_data <- data.frame(klasse, iq, math_lektionen, leistung)
+  
   return(ml_data)
 }
+
+gen_ml_data()
