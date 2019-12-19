@@ -101,7 +101,7 @@ server <- function(input, output, session) {
   
   # Anzeige des ICCs
   output$icc <- renderText({
-    icc(data_model())
+    find_icc(data_model())
   })
   
   # Ausgabe der Tabelle
