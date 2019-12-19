@@ -1,7 +1,9 @@
 fluidRow(
   box(width = 12, title = "Info-Box", collapsible = TRUE,
       "Hier stehen Informationen für den User, was die einzelnen Einstellungen bedeuten und 
-      wie die gegebenen Outputs zu interpretieren sind."
+      wie die gegebenen Outputs zu interpretieren sind.",
+      
+      textOutput(outputId = "icc")
       ),
   box(width = 3,
       sliderInput(inputId = "int_sd",

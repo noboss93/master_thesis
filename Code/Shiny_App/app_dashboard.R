@@ -13,22 +13,11 @@ ui <- dashboardPage(
   dashboardHeader(title = "Multilevel Analyse", titleWidth = 350),
   dashboardSidebar(width = 350,
     sidebarMenu(
-      menuItem("Einführung", tabName = "einführung", startExpanded = TRUE,
-               menuSubItem("Was ist eine Multilevel Analyse?", tabName = "intro"),
-               menuSubItem("Genestete Daten generieren", tabName = "generating"),
-               menuSubItem("Daten analysieren", tabName = "analysing")
-               ),
-      menuItem("Eigene Multilevel Analyse", tabName = "own_mla", startExpanded = TRUE,
-               menuSubItem("Informationen zum Datensatz", tabName = "infos"),
-               menuSubItem("1. Schritt: Forschungsfrage", tabName = "researchquestion"),
-               menuSubItem("2. Schritt: Wahl des Schätzers", tabName = "estimator"),
-               menuSubItem("3. Schritt: Notwendigkeit von Multilevel Analyse", tabName = "needformla"),
-               menuSubItem("4. Schritt: Erstellen eines Level-1 Modells", tabName = "lvl1"),
-               menuSubItem("5. Schritt: Erstellen eines Level-2 Modells", tabName = "lvl2"),
-               menuSubItem("6. Schritt: Effektgrössen", tabName = "effectsize"),
-               menuSubItem("7. Schritt: Modelltestung", tabName = "modeltesting")
-              )
-    )
+      menuItem("Einführung", tabName = "einführung"),
+      menuItem("Was ist eine Multilevel Analyse?", tabName = "intro"),
+      menuItem("Genestete Daten generieren", tabName = "generating"),
+      menuItem("Daten analysieren", tabName = "analysing")
+      )
   ),
   dashboardBody(
     useShinyjs(),
@@ -74,6 +63,7 @@ server <- function(input, output, session) {
   
   # Laden der richtigen Funktion
   source("dgp_multi_ml.R")
+  source("ICC_finder.R")
   
   # Generieren des Datensatzes
   data_model  <- eventReactive(input$gen_data, {
@@ -84,9 +74,9 @@ server <- function(input, output, session) {
   # Model und Koeffizienten berechnen
   model <- eventReactive(c(input$method, input$gen_data), {
     switch(input$method,
-           "lm" = lm(leistung ~ stunden, data = data_model()),
-           "ri" = lmer(leistung ~ stunden + (1|klasse), data = data_model()),
-           "rs" = lmer(leistung ~ stunden + (stunden|klasse), data = data_model())
+           "lm" = lm(leistung ~ iq_centered, data = data_model()),
+           "ri" = lmer(leistung ~ iq_centered + (1|klasse), data = data_model()),
+           "rs" = lmer(leistung ~ iq_centered + (iq_centered|klasse), data = data_model())
     )
   })
   
@@ -108,6 +98,11 @@ server <- function(input, output, session) {
   
 
 # Intro Summary Data ------------------------------------------------------
+  
+  # Anzeige des ICCs
+  output$icc <- renderText({
+    icc(data_model())
+  })
   
   # Ausgabe der Tabelle
   output$table <- renderDataTable({
@@ -139,28 +134,31 @@ server <- function(input, output, session) {
   output$multiplot <- renderPlot({
     if (input$method == "lm"){
       if (input$groupcolor == TRUE){
-      ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
+      ggplot(data = data_model(), mapping = aes(x = iq_centered, y = leistung, color = klasse)) + 
         geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
-        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
-        ylim(0,NA)  
+        labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
+        xlim(-20, 20)
+          
       } else {
-        ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung)) + 
+        ggplot(data = data_model(), mapping = aes(x = iq_centered, y = leistung)) + 
           geom_point(size = 2) +
           geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
-          labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
-          ylim(0,NA) 
+          labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
+          xlim(-20, 20)
+          
       }
     } else {
-      ggplot(data = data_model(), mapping = aes(x = stunden, y = leistung, color = klasse)) + 
+      ggplot(data = data_model(), mapping = aes(x = iq_centered, y = leistung, color = klasse)) + 
         geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8), size = 1) +
         geom_abline(slope = mean(slope()), 
                     intercept = mean(intercept()), col = "red", size = 1) +
-        labs(x = "Anzahl Lernstunden", y = "Anzahl Punkte") +
-        ylim(0,NA)
+        labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
+        xlim(-20, 20)
+        
     }
   })
   
