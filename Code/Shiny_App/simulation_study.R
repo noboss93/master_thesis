@@ -1,4 +1,4 @@
-simulation_study <- function(niter = 100, sd_intercept = 10, sd_slope = 0, corr = 0){
+simulation_study <- function(niter = 1000, sd_intercept = 10, sd_slope = 0, corr = 0){
   
   # loading one simulation function
   source("one_simulation_ml.R")
