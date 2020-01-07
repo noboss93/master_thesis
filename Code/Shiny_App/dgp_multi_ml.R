@@ -44,7 +44,7 @@ gen_ml_data <- function(n = 2500, nklassen = 50, sd_intercept = 10, sd_slope = 0
   
   # Calculating individual leistung score
   leistung <- 15 +  
-    1.5 * math_lektionen + 
+    # 1.5 * math_lektionen + 
     0.8 * iq_centered + 
     random_intercept + 
     #random_slope * iq_centered + 
