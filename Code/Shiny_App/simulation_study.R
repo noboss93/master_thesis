@@ -54,7 +54,6 @@ analyse(study_sd_10)
 analyse(study_sd_20)
 
 # testing plots and comparing coefs
-
 analyse <- function(x){
 boxplot(beta_0 ~ method, data = x)
 boxplot(beta_iq ~ method, data = x)
