@@ -19,7 +19,7 @@ simulation_study <- function(niter = 100, sd_intercept = 10, sd_slope = 0,
                              "p_value_iq", "p_value_treatment","empirical_icc",
                              "theoretical_icc", "method")
   
-  coef_models[,1:9] <- apply(coef_models[,1:9], 2, as.numeric)
+  coef_models[,1:11] <- apply(coef_models[,1:11], 2, as.numeric)
   coef_models$sample_nr <- rep(1:niter, each = 3)
   
   return(coef_models)
@@ -30,27 +30,50 @@ simulation_study <- function(niter = 100, sd_intercept = 10, sd_slope = 0,
 library(MASS)
 library(lme4)
 library(lmerTest)
-test <- simulation_study(sd_intercept = 10, sd_slope = 0, corr = 0, sd_error = 10)
-summary(test)
+test <- simulation_study(sd_intercept = 1)
+
+saveRDS(simulation_study(sd_intercept = 0), file = "study_sd_0")
+saveRDS(simulation_study(sd_intercept = 1), file = "study_sd_1")
+saveRDS(simulation_study(sd_intercept = 2), file = "study_sd_2")
+saveRDS(simulation_study(sd_intercept = 5), file = "study_sd_5")
+saveRDS(simulation_study(sd_intercept = 10), file = "study_sd_10")
+saveRDS(simulation_study(sd_intercept = 20), file = "study_sd_20")
+
+study_sd_0 <- readRDS(file = "study_sd_0")
+study_sd_1 <- readRDS(file = "study_sd_1")
+study_sd_2 <- readRDS(file = "study_sd_2")
+study_sd_5 <- readRDS(file =  "study_sd_5")
+study_sd_10 <- readRDS(file = "study_sd_10")
+study_sd_20 <- readRDS(file = "study_sd_20")
+
+analyse(study_sd_0)
+analyse(study_sd_1)
+analyse(study_sd_2)
+analyse(study_sd_5)
+analyse(study_sd_10)
+analyse(study_sd_20)
 
 # testing plots and comparing coefs
-boxplot(beta_0 ~ method, data = test)
-boxplot(beta_iq ~ method, data = test)
-boxplot(beta_treatment ~ method, data = test)
-boxplot(SE_beta_0 ~ method, data = test)
-boxplot(SE_beta_iq ~ method, data = test)
-boxplot(SE_beta_treatment ~ method, data = test)
-boxplot(p_value_0 ~ method, data = test)
-boxplot(p_value_iq ~ method, data = test)
-boxplot(p_value_treatment ~ method, data = test)
 
-summary(aov(p_value_treatment ~ method, data = test))
-TukeyHSD(aov(p_value_treatment ~ method, data = test))
+analyse <- function(x){
+boxplot(beta_0 ~ method, data = x)
+boxplot(beta_iq ~ method, data = x)
+boxplot(beta_treatment ~ method, data = x)
+boxplot(SE_beta_0 ~ method, data = x)
+boxplot(SE_beta_iq ~ method, data = x)
+boxplot(SE_beta_treatment ~ method, data = x)
+boxplot(p_value_0 ~ method, data = x)
+boxplot(p_value_iq ~ method, data = x)
+boxplot(p_value_treatment ~ method, data = x)
 
-anova_se0 <- aov(SE_beta_0 ~ method, data = test)
-anova_se1 <- aov(SE_beta_1 ~ method, data = test)
-anova_se2 <- aov(SE_beta_2 ~ method, data = test)
+power_lm <- sum(ifelse(x$p_value_treatment[x$method == "lm"] < 0.05, 1, 0))/100
+power_rim <- sum(ifelse(x$p_value_treatment[x$method == "rim"] < 0.05, 1, 0))/100
+power_rism <- sum(ifelse(x$p_value_treatment[x$method == "rism"] < 0.05, 1, 0))/100
 
-TukeyHSD(anova_se0)
-TukeyHSD(anova_se1)
-TukeyHSD(anova_se2)
+eicc <- mean(x$empirical_icc)
+ticc <- mean(x$theoretical_icc)
+
+return(print(round(c(power_lm, power_rim, power_rism, eicc, ticc), digits = 3)))
+}
+
+

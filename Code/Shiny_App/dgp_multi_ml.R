@@ -43,9 +43,9 @@ gen_ml_data <- function(n = 2500, nklassen = 50, sd_intercept = 10, sd_slope = 0
   error <- rnorm(n, mean = 0, sd = sd_error)
   
   # Calculating individual leistung score
-  leistung <- 100 +  
+  leistung <- 15 +  
     1.5 * math_lektionen + 
-    5 * iq_centered + 
+    0.8 * iq_centered + 
     random_intercept + 
     #random_slope * iq_centered + 
     error

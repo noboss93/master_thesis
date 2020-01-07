@@ -28,8 +28,9 @@ one_simulation <- function(sd_intercept = 10, sd_slope = 0, corr = 0, sd_error =
   SE_IS_mlm <- summary(mlm_IS_model)$coefficient[,2]
   p_IS_mlm <- coef(summary(mlm_IS_model))[,5]
   
-  empirical_icc <- VarCorr(mlm_ICC_model)$klasse[1,1] / (VarCorr(mlm_ICC_model)$klasse[1,1] + sigma(mlm_ICC_model)^2)
-  theoretical_icc <- sd_intercept^2 / (sd_intercept^2 + var(ml_data$leistung))
+  empirical_icc <- VarCorr(mlm_ICC_model)$klasse[1,1] / (VarCorr(mlm_ICC_model)$klasse[1,1] 
+                                                         + sigma(mlm_ICC_model)^2)
+  theoretical_icc <- sd_intercept^2 / var(ml_data$leistung)
   
   coefs <- matrix(c(beta_lm, SE_lm, p_lm, empirical_icc, theoretical_icc, "lm", beta_I_mlm, 
                     SE_I_mlm, p_I_mlm, empirical_icc, theoretical_icc, "rim", beta_IS_mlm, 
