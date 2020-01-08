@@ -9,7 +9,7 @@
 \usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
 \renewcommand{\baselinestretch}{1.5}
 
-\title{Analyse von genesteten Daten in R}
+\title{Analyse von hierarchischen Daten in R \\ mittels Multilevel Analyse}
 \author{Masterarbeit von \\ Noah Bosshart \\ \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 
 \begin{document}
@@ -31,9 +31,11 @@
 \newpage
 
 \section{Einleitung}
-Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Schüler in Klassen, Teams in Organisationen, Kinder in Familien oder Messungen von Längsschnittstudien. Folglich sind solche Datenstrukturen auch in der Wissenschaft, vor allem in der psychologischen oder betriebswirtschaftlichen Forschung zu berücksichtigen. 
 
- In diesen Datenstrukturen bestehen gewissen Abhängigkeiten zwischen den einzelnen Messeinheiten. Das bedeutet, dass beispielsweise Messungen innerhalb einer Klasse höhere Korrelationen aufweisen als Messungen zwischen den Klassen. Etwas einfacher ausgedrückt, werden Schüler aus der selben Klasse zueinander ähnlicher sein als zu Schülern aus anderen Klassen. Diese Gegebenheit kann auf viele verschiedene Ursachen zurückzuführen sein, wie zum Beispiel die Fähigkeiten der Lehrperson oder die Qualität der Lehrmaterialien. 
+
+Genestete Datenstrukturen findet man in vielen Aspekten unseres Lebens, sei es Schüler in Klassen, Teams in Organisationen, Kinder in Familien oder Messungen von Längsschnitt-studien. Folglich sind solche Datenstrukturen auch in der Wissenschaft, vor allem in der psychologischen oder betriebswirtschaftlichen Forschung zu berücksichtigen.
+
+In diesen Datenstrukturen bestehen gewissen Abhängigkeiten zwischen den einzelnen Messeinheiten. Das bedeutet, dass beispielsweise Messungen innerhalb einer Klasse höhere Korrelationen aufweisen als Messungen zwischen den Klassen. Etwas einfacher ausgedrückt, werden Schüler aus der selben Klasse zueinander ähnlicher sein als zu Schülern aus anderen Klassen. Diese Gegebenheit kann auf viele verschiedene Ursachen zurückzuführen sein, wie zum Beispiel die Fähigkeiten der Lehrperson oder die Qualität der Lehrmaterialien. 
 
 % Lange wurden diese Datenstrukturen in den Analysen nicht berücksichtigt (Zitat aufkommen von multilevel analyse) und Aufkommen von Computergestützten Analyseverfahren. Ebenfalls noch Quellen suchen!
 
@@ -43,21 +45,30 @@ Würden Daten mit diesen Strukturen mit einem linearen Regressionsmodell analysi
 
 Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befassen können, muss geklärt werden, wie genau solche genesteten Datenstrukturen aufgebaut sind. Dazu werden im folgenden Abschnitt genestete Datenstrukturen genauer beschrieben und es wird beschrieben, wie man Daten mit solchen Strukturen in der Statistiksoftware R simmulieren kann \cite{R}.
 
+\subsection{Was ist eine Multilevel Analyse?}
+
+
+\subsection{Warum braucht es Multilevel Analyse?}
+Im folgenden Abschnitt wird die Frage geklärt, warum es in manchen Situationen notwendig ist eine Multilevel Analyse durchzuführen. Dazu werden als erstes hierarchische Datenstrukturen besprochen. Es wird darauf eingegangen, was für Eigenschaften diese hierarchischen Daten mit sich bringen und in welchen Situationen, diese Datenstrukturen vorkommen. Anschliessend werden Probleme besprochen, die man anhand der Theorie und der Annahmen erwarten würde, wenn man wie gewohnt eine multiple lineare Regression auf solche Datenstrukturen anwendet. 
+
+\subsubsection{Genestete Datenstrukturen}
+\subsubsection{Problematik von linearen Modellen}
+
 Was passiert wenn genestete Strukturen ignoriert (aggregiert) werden \cite{SnijdersTomA.B2012Ma:a}.
 
 Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.
 
 Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler zu \cite{dorman2008effect}.
 
-\section{Theorie zur Multilevel Analyse}
-\subsection{Warum Multilevel Analyse?}
-\subsubsection{Genestete Datenstrukturen}
-\subsubsection{Problematik von linearen Modellen}
-
 \subsection{Wann wird Multilevel Analyse eingesetzt?}
 Besprechen von ICC und Design Effekt (Vlg. Dazu Guide ML Analysis von J. Peugh 2009)
 
-\subsection{Aufbau von Multilevel Modellen}
+\section{Theorie zur Multilevel Analyse}
+
+
+\subsection{Aufbau von Hierarchischen Linearen Modellen}
+Das zugrundeliegende statistische Modell, das zur Multilevel Analyse verwendet wird ist das Hierarchische lineare Modell (auch HLM). Dieses Modell ist eine Erweiterung der multiplen linearen Regression, das zusätzlich genestete zufällige Koeffizienten beinhaltet \cite{SnijdersTomA.B2012Ma:a}.
+
 Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. Nullmodell bis hin zu Cross-Level Modellen etc. An Guides zu Multi Level Modellen Orienteieren! \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
 
 Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren nicht \cite{SnijdersTomA.B2012Ma:a}
@@ -68,7 +79,7 @@ Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren n
 \subsubsection{Das Level-2 Modell}
 \subsubsection{Cross-Level Interaktion}
 
-\subsection{Vergleich von Multilevel Modellen}
+\subsection{Vergleich von Hierarchischen Linearen Modellen}
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
 
 Tests für feste Effekte Wald-Test \cite{SnijdersTomA.B2012Ma:a} Inkl. Dummy-Test
@@ -84,7 +95,7 @@ Konfidenzintervall am besten durch profile likelihood (via lme4 Paket). Profile 
 
 Wenn diese Methode nicht vorhanden ist können andere Methoden gewählt werden, die allerdings nicht so genau/reliabel sind.
 
-\subsection{Kennwerte von Multilevel Modellen}
+\subsection{Kennwerte von Hierarchischen Linearen Modellen}
 
 \subsection{R Pakete für die Multilevel Analyse}
 Beschreibung von lme4 und grund warum in dieser Arbeit nur mit diesem Paket gearbeitet wird. (Buch und Studie von D. Bates)
