@@ -17,7 +17,7 @@ one_simulation <- function(n = 3000, nklassen = 100, sd_intercept = 10, sd_slope
   mlm_I_model <- lmer(leistung ~ math_lektionen + 
                         (1 | klasse), data = ml_data, REML = FALSE)
   # mlm_IS_model <- lmer(leistung ~ math_lektionen + 
-  #                       (math_lektionen | klasse), data = ml_data)
+  #                        (math_lektionen | klasse), data = ml_data)
   
   # saving coefficients
   empirical_icc <- VarCorr(mlm_model_0)$klasse[1,1] / (VarCorr(mlm_model_0)$klasse[1,1] 
@@ -45,8 +45,9 @@ one_simulation <- function(n = 3000, nklassen = 100, sd_intercept = 10, sd_slope
   # lq_IS_mlm <- anova(mlm_I_model, mlm_IS_model, test = "LRT")
   # p_lq_IS_mlm <- lq_IS_mlm$`Pr(>Chisq)`[2]
   
-  coefs <- matrix(c(beta_lm, SE_lm, p_lm, p_lq_lm, empirical_icc, theoretical_icc, n, y10, "lm", 
-                    beta_I_mlm, SE_I_mlm, p_I_mlm, p_lq_I_mlm, empirical_icc, theoretical_icc, n, y10, "rim" 
+  # saving all coefficients in a matrix
+  coefs <- matrix(c(beta_lm, SE_lm, p_lm, p_lq_lm, empirical_icc, theoretical_icc, sd_intercept, y10, "lm", 
+                    beta_I_mlm, SE_I_mlm, p_I_mlm, p_lq_I_mlm, empirical_icc, theoretical_icc, sd_intercept, y10, "rim"#, 
                     # beta_IS_mlm, SE_IS_mlm, p_IS_mlm, p_lq_IS_mlm, empirical_icc, theoretical_icc, "rism"
                     ), 
                 ncol = 12, byrow = TRUE)

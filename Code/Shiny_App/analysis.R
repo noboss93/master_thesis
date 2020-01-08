@@ -2,36 +2,34 @@ library(MASS)
 library(lme4)
 library(lmerTest)
 
-# function for analysis
-analyse <- function(x){
-  boxplot(beta_0 ~ method, data = x)
-  boxplot(beta_treatment ~ method, data = x)
-  boxplot(SE_beta_0 ~ method, data = x)
-  boxplot(SE_beta_treatment ~ method, data = x)
-  boxplot(p_value_0 ~ method, data = x)
-  boxplot(p_value_treatment ~ method, data = x)
-  boxplot(p_value_likelihood ~ method, data = x)
-  
-  power_lm <- sum(ifelse(x$p_value_likelihood[x$method == "lm"] < 0.05, 1, 0))/
-    length(x$p_value_likelihood[x$method == "lm"])
-  power_rim <- sum(ifelse(x$p_value_likelihood[x$method == "rim"] < 0.05, 1, 0))/
-    length(x$p_value_likelihood[x$method == "rim"])
-  # power_rism <- sum(ifelse(x$p_value_likelihood[x$method == "rism"] < 0.05, 1, 0))/
-  #   length(x$p_value_likelihood[x$method == "rism"])
-  
-  eicc <- mean(x$empirical_icc)
-  ticc <- mean(x$theoretical_icc)
-  
-  return(print(round(c(power_lm, 
-                       power_rim, 
-                       # power_rism, 
-                       eicc, ticc), digits = 3)))
-}
+asdf <- simulation_study(niter = 1)
 
 source("simulation_study.R")
-
 test <- simulation_study(sd_intercept = 10, y10 = c(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5))
+saveRDS(test, file = "test_sim_lvl1")
 
+
+test_lvl2 <- simulation_study(sd_intercept = c(0,1,2,3,4,5,10), y10 = c(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5))
+saveRDS(test_lvl2, file = "test_sim_lvl2")
+
+boxplot(SE_beta_0 ~ effect_treatment + method, data = test)
+boxplot(SE_beta_treatment ~ effect_treatment + method, data = test)
+boxplot(p_value_0 ~ effect_treatment + method, data = test)
+boxplot(p_value_treatment ~ effect_treatment + method, data = test)
+boxplot(p_value_likelihood ~ effect_treatment + method, data = test)
+
+boxplot(theoretical_icc ~ effect_treatment, data = test)
+boxplot(empirical_icc~ effect_treatment, data = test)
+
+y10 = c(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5)
+for (i in 1:7){
+power_lm <- sum(ifelse(test$p_value_likelihood[test$method == "rim" & test$effect_treatment == y10[i]] < 0.05, 1, 0))/
+  length(test$p_value_likelihood[test$method == "rim" & test$effect_treatment == y10[i]])
+print(power_lm)
+}
+
+power_rim <- sum(ifelse(test$p_value_likelihood[test$method == "rim"] < 0.05, 1, 0))/
+  length(test$p_value_likelihood[test$method == "rim"])
 
 # test simulations with / without effect
 saveRDS(simulation_study(sd_intercept = 0, y10 = c(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5)), file = "study_sd_0")
