@@ -53,6 +53,27 @@ analyse(study_sd_5)
 analyse(study_sd_10)
 analyse(study_sd_20)
 
+saveRDS(simulation_study(sd_intercept = 0), file = "study_sd_0_no_eff")
+saveRDS(simulation_study(sd_intercept = 1), file = "study_sd_1_no_eff")
+saveRDS(simulation_study(sd_intercept = 2), file = "study_sd_2_no_eff")
+saveRDS(simulation_study(sd_intercept = 5), file = "study_sd_5_no_eff")
+saveRDS(simulation_study(sd_intercept = 10), file = "study_sd_10_no_eff")
+saveRDS(simulation_study(sd_intercept = 20), file = "study_sd_20_no_eff")
+
+study_sd_0_no_eff <- readRDS(file = "study_sd_0_no_eff")
+study_sd_1_no_eff <- readRDS(file = "study_sd_1_no_eff")
+study_sd_2_no_eff <- readRDS(file = "study_sd_2_no_eff")
+study_sd_5_no_eff <- readRDS(file =  "study_sd_5_no_eff")
+study_sd_10_no_eff <- readRDS(file = "study_sd_10_no_eff")
+study_sd_20_no_eff <- readRDS(file = "study_sd_20_no_eff")
+
+analyse(study_sd_0_no_eff)
+analyse(study_sd_1_no_eff)
+analyse(study_sd_2_no_eff)
+analyse(study_sd_5_no_eff)
+analyse(study_sd_10_no_eff)
+analyse(study_sd_20_no_eff)
+
 # testing plots and comparing coefs
 analyse <- function(x){
 boxplot(beta_0 ~ method, data = x)

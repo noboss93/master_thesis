@@ -8,14 +8,18 @@ one_simulation <- function(sd_intercept = 10, sd_slope = 0, corr = 0, sd_error =
                          corr = corr, sd_error = sd_error)
   
   # calculating model
+  lm_model <- lm(leistung ~ iq_centered + math_lektionen, data = ml_data)
   mlm_ICC_model <- lmer(leistung ~ 1 + (1 | klasse), data = ml_data)
-  mlm_IS_model <- lmer(leistung ~ iq_centered + math_lektionen + 
-                         (iq_centered | klasse), data = ml_data)
   mlm_I_model <- lmer(leistung ~ iq_centered + math_lektionen + 
                         (1 | klasse), data = ml_data)
-  lm_model <- lm(leistung ~ iq_centered + math_lektionen, data = ml_data)
+  mlm_IS_model <- lmer(leistung ~ iq_centered + math_lektionen + 
+                         (iq_centered | klasse), data = ml_data)
   
   # saving coefficients
+  empirical_icc <- VarCorr(mlm_ICC_model)$klasse[1,1] / (VarCorr(mlm_ICC_model)$klasse[1,1] 
+                                                         + sigma(mlm_ICC_model)^2)
+  theoretical_icc <- sd_intercept^2 / var(ml_data$leistung)
+  
   beta_lm <- coef(lm_model)
   SE_lm <- coef(summary(lm_model))[,2]
   p_lm <- coef(summary(lm_model))[,4]
@@ -27,10 +31,6 @@ one_simulation <- function(sd_intercept = 10, sd_slope = 0, corr = 0, sd_error =
   beta_IS_mlm <- fixef(mlm_IS_model)
   SE_IS_mlm <- summary(mlm_IS_model)$coefficient[,2]
   p_IS_mlm <- coef(summary(mlm_IS_model))[,5]
-  
-  empirical_icc <- VarCorr(mlm_ICC_model)$klasse[1,1] / (VarCorr(mlm_ICC_model)$klasse[1,1] 
-                                                         + sigma(mlm_ICC_model)^2)
-  theoretical_icc <- sd_intercept^2 / var(ml_data$leistung)
   
   coefs <- matrix(c(beta_lm, SE_lm, p_lm, empirical_icc, theoretical_icc, "lm", beta_I_mlm, 
                     SE_I_mlm, p_I_mlm, empirical_icc, theoretical_icc, "rim", beta_IS_mlm, 
