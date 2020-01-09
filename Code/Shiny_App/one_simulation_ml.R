@@ -1,12 +1,12 @@
-one_simulation <- function(n = 3000, nklassen = 100, sd_intercept = 10, sd_slope = 0, corr = 0, 
-                           sd_error = 5, y00 = 15, y10 = 1.5){
+one_simulation <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 0, 
+                           corr = 0, sd_error = 5, y00 = 15, y10 = 0.35){
   
   # loading dgp function
   source("dgp_multi_ml.R")
 
   # generating one data set
   ml_data <- gen_ml_data(n = n, nklassen = nklassen, sd_intercept = sd_intercept, 
-                         sd_slope = sd_slope, 
+                         sd_slope = sd_slope,
                          corr = corr, sd_error = sd_error, y00 = y00, y10 = y10)
   
   # calculating model
@@ -22,7 +22,7 @@ one_simulation <- function(n = 3000, nklassen = 100, sd_intercept = 10, sd_slope
   # saving coefficients
   empirical_icc <- VarCorr(mlm_model_0)$klasse[1,1] / (VarCorr(mlm_model_0)$klasse[1,1] 
                                                          + sigma(mlm_model_0)^2)
-  theoretical_icc <- sd_intercept^2 / var(ml_data$leistung)
+  theoretical_icc <- var(ml_data$random_intercept) / var(ml_data$leistung)
   
   beta_lm <- coef(lm_model)
   SE_lm <- coef(summary(lm_model))[,2]
@@ -54,5 +54,4 @@ one_simulation <- function(n = 3000, nklassen = 100, sd_intercept = 10, sd_slope
   
   return(coefs)
 }
-
 

@@ -1,5 +1,5 @@
-simulation_study <- function(n = 15000, nklassen = 300, niter = 100, sd_intercept = 10, 
-                             sd_slope = 0, corr = 0, sd_error = 5, y00 = 15, y10 = 1.5){
+simulation_study <- function(n = 15000, nklassen = 300, niter = 100, sd_intercept = 2, 
+                             sd_slope = 0, corr = 0, sd_error = 5, y00 = 15, y10 = 0.35){
   
   # loading one simulation function
   source("one_simulation_ml.R")
