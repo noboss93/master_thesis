@@ -46,11 +46,11 @@ one_simulation <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope
   # p_lq_IS_mlm <- lq_IS_mlm$`Pr(>Chisq)`[2]
   
   # saving all coefficients in a matrix
-  coefs <- matrix(c(beta_lm, SE_lm, p_lm, p_lq_lm, empirical_icc, theoretical_icc, sd_intercept, y10, "lm", 
-                    beta_I_mlm, SE_I_mlm, p_I_mlm, p_lq_I_mlm, empirical_icc, theoretical_icc, sd_intercept, y10, "rim"#, 
+  coefs <- matrix(c(beta_lm, SE_lm, p_lm, p_lq_lm, empirical_icc, theoretical_icc, sd_intercept, sd_error, y10, "lm", 
+                    beta_I_mlm, SE_I_mlm, p_I_mlm, p_lq_I_mlm, empirical_icc, theoretical_icc, sd_intercept, sd_error, y10, "rim"#, 
                     # beta_IS_mlm, SE_IS_mlm, p_IS_mlm, p_lq_IS_mlm, empirical_icc, theoretical_icc, "rism"
                     ), 
-                ncol = 12, byrow = TRUE)
+                ncol = 13, byrow = TRUE)
   
   return(coefs)
 }

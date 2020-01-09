@@ -17,16 +17,17 @@ simulation_study <- function(n = 15000, nklassen = 300, niter = 100, sd_intercep
                                                      sd_error = sd_error, 
                                                      y00 = y00, y10 = y10[fix_eff]))
       }
-      print(fix_eff)
+      print(paste(fix_eff, "out of", length(y10), "fixed effects simulated"))
     }
-    print(num)
+    print(paste(num, "out of", length(sd_intercept), "SDs simulated"))
   }
+  print("*** Simulation Complete ***")
   
   # formatting data frame
   colnames(coef_models) <- c("beta_0", "beta_treatment", 
                              "SE_beta_0", "SE_beta_treatment", "p_value_0",
                              "p_value_treatment", "p_value_likelihood", "empirical_icc",
-                             "theoretical_icc", "sd_intercept", "effect_treatment", "method")
+                             "theoretical_icc", "sd_intercept", "sd_error", "effect_treatment", "method")
   
   coef_models[,1:9] <- apply(coef_models[,1:9], 2, as.numeric)
   return(coef_models)
