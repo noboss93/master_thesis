@@ -2,10 +2,8 @@ library(MASS)
 library(lme4)
 library(lmerTest)
 
-asdf <- simulation_study(niter = 1)
-
 source("simulation_study.R")
-test <- simulation_study(sd_intercept = 10, y10 = c(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5))
+test_lvl1 <- simulation_study(sd_intercept = c(0,1,2,3,4,5,10), y10 = c(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5))
 saveRDS(test, file = "test_sim_lvl1")
 
 

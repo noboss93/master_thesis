@@ -2,15 +2,15 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 10, sd_slope =
                         corr = 0, sd_error = 5, y00 = 15, y10 = 1.5){
   
   # Creating Treatment as Level-1 Variable
-  # math_lektionen <- sample(c(0:6), n, replace = TRUE)
+  math_lektionen <- sample(c(0:6), n, replace = TRUE)
   klasse <- sample(1:nklassen, n, replace = TRUE)
   
   # Creating Treatment as Level-2 Variable
-  anz_math_lektionen <- sample(c(0:6), n, replace = TRUE)
-  math_lektionen <- c()
-  for (i in 1:n){
-    math_lektionen[i] <- anz_math_lektionen[klasse[i]]
-  }
+  # anz_math_lektionen <- sample(c(0:6), n, replace = TRUE)
+  # math_lektionen <- c()
+  # for (i in 1:n){
+  #   math_lektionen[i] <- anz_math_lektionen[klasse[i]]
+  # }
   
   # Creating random effects of klassen
   covar01 <- corr * sqrt(sd_intercept^2 * sd_slope^2)
