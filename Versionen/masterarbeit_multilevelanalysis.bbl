@@ -25,6 +25,30 @@ Dorman, J\BPBI P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+McNeish%
+}{%
+McNeish%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+mcneish2014analyzing}
+\APACinsertmetastar {%
+mcneish2014analyzing}%
+\begin{APACrefauthors}%
+McNeish, D\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Analyzing clustered data with OLS regression: The effect
+  of a hierarchical data structure} {Analyzing clustered data with ols
+  regression: The effect of a hierarchical data structure}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Multiple Linear Regression Viewpoints}{40}{1}{11--16}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Snijders%
 \ \BBA {} Bosker%
 }{%
@@ -49,6 +73,36 @@ Snijders, T\BPBI A\BPBI B.%
   advanced multilevel modeling}\ (\PrintOrdinal{2.}\ \BEd).
 \newblock
 \APACaddressPublisher{Los Angeles}{SAGE}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Woltman%
+, Feldstain%
+, MacKay%
+\BCBL {}\ \BBA {} Rocchi%
+}{%
+Woltman%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+woltman2012introduction}
+\APACinsertmetastar {%
+woltman2012introduction}%
+\begin{APACrefauthors}%
+Woltman, H.%
+, Feldstain, A.%
+, MacKay, J\BPBI C.%
+\BCBL {}\ \BBA {} Rocchi, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An introduction to hierarchical linear modeling} {An
+  introduction to hierarchical linear modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Tutorials in quantitative methods for
+  psychology}{8}{1}{52--69}.
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}
