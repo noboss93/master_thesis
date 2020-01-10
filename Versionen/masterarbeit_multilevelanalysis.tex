@@ -83,53 +83,42 @@
 \section{Einleitung}
 Hierarchische oder gruppierte Daten treten häufig in den Sozialwissenschaften auf, unter anderem auch in der Psychologie \cite{SnijdersTomA.B2012Ma:a}. Von hierarchischen Daten wird gesprochen, wenn beispielsweise Daten von Schülern innerhalb verschiedener Klassen oder von Mitarbeitern aus mehreren Teams erhoben werden. Aber auch Daten aus Langzeitstudien werden als gruppiert bezeichnet, da mehrere Messzeitpunkte innerhalb einer Person genested sind. 
 
-In diesen Datenstrukturen bestehen gewissen Abhängigkeiten zwischen den einzelnen Messeinheiten. 
+Worum geht es?
 
- Das bedeutet beispielsweise, dass Schüler aus der selben Klasse zueinander ähnlicher sind als zu Schülern aus anderen Klassen. Diese Gegebenheit kann auf viele verschiedene Ursachen zurückzuführen sein, wie zum Beispiel die didaktischen Fähigkeiten der Lehrperson oder die Qualität der Lehrmaterialien. 
+Relevanz von hierarchischen Daten, kommen in vielen Formen vor in der Forschung, vor allem weil man in der Forschung oft gezwungen wird, Clustered Auswahlverfahren zu machen. (Tabelle Bringen mit beispielen)
 
-% Lange wurden diese Datenstrukturen in den Analysen nicht berücksichtigt (Zitat aufkommen von multilevel analyse) und Aufkommen von Computergestützten Analyseverfahren. Ebenfalls noch Quellen suchen!
+Was versteht man unter Levels (Stufen) und Einheiten. und wie können diese verschiedenen Levels sich gegenseitig beeinflussen. Beispiele Bringen. Wird diese Beeinflussung nicht berücksichtigt kann es zu Fehlschlüssen kommen.
 
-Würden Daten mit diesen Strukturen mit einem linearen Regressionsmodell analysiert werden, könnte das zu fehlerhaften Ergebnissen führen, da diese Form der Anal Diese Arbeit befasst sich nun damit, wie solche Datenstrukturen  mittels Multilevel Analyse berücksichtigt werden können, um Fehlschlüsse zu vermeiden.
 
-% mehr relevanz
+Wie in dieser Einleutung kurz erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. Im nächsten Abschnitt wird nun etwas genauer auf die Theorie zur Multilevel Analyse eingegangen. Dabei werden zuerst mögliche Methoden besprochen, wie man hierarchische Datenstrukturen in der Analyse berücksichtigen kann und warum auch diese Methoden nicht immer völlig unproblematisch sein können. 
 
-Bevor wir uns aber mit den theoretischen Grundlagen der Multilevel Analyse befassen können, muss geklärt werden, wie genau solche genesteten Datenstrukturen aufgebaut sind. Dazu werden im folgenden Abschnitt genestete Datenstrukturen genauer beschrieben und es wird beschrieben, wie man Daten mit solchen Strukturen in der Statistiksoftware R simmulieren kann \cite{R}.
+\section{Theorie zur Multilevel Analyse}
+Nach dieser kurzen Einleitung zum Thema wird in diesem Abschnitt nun etwas genauer auf die Theorie der Multilevel Analyse eingegangen. Als erstes werden 
 
-\subsection{Was ist eine Multilevel Analyse?}
-Multilevel Analyse ist eine Methode zur Analyse von Datenstrukturen
+Im folgenden Abschnitt wird nun die Theorie der Multilevel Analyse genau besprochen. Zuerst wird auf das zugrundeliegende statistische Modell der Multilevel Analyse eingegangen. Dabei wird auch die erste Notation eines hierarchischen linearen Modells vorgestellt. Zuerst werden wir uns auf das \textit{Random Intercept} Modell konzentrieren. Dazu werden auch noch weitere wichtige Kennwerte eingeführt, die bei einer Multilevel Analyse zu beachten sind. Am Ende dieses Kapitels werden die  \textit{Random Intercept and Slope} Modelle vorgestellt.
 
-\subsection{Warum braucht es Multilevel Analyse?}
-Im folgenden Abschnitt wird die Frage geklärt, warum es in manchen Situationen notwendig ist eine Multilevel Analyse durchzuführen. Dazu werden als erstes hierarchische Datenstrukturen besprochen. Es wird darauf eingegangen, was für Eigenschaften diese hierarchischen Daten mit sich bringen und in welchen Situationen, diese Datenstrukturen vorkommen. Anschliessend werden Probleme besprochen, die man anhand der Theorie und der Annahmen erwarten würde, wenn man wie gewohnt eine multiple lineare Regression auf solche Datenstrukturen anwendet. 
+\subsection{Methoden zum Umgang mit hierarchischen Daten}
 
-\subsubsection{Genestete Datenstrukturen}
-\subsubsection{Problematik von linearen Modellen}
-
+\subsubsection{Aggregation und Disaggregation}
 Was passiert wenn genestete Strukturen ignoriert (aggregiert) werden \cite{SnijdersTomA.B2012Ma:a}.
 
 Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.
 
-Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler zu \cite{dorman2008effect}.
+Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler (Fehler Typ-1) zu \cite{dorman2008effect}.
 
-\subsection{Wann wird Multilevel Analyse eingesetzt?}
-
-
-\section{Theorie zur Multilevel Analyse}
-Im folgenden Abschnitt wird nun die Theorie der Multilevel Analyse genau besprochen. Zuerst wird auf das zugrundeliegende statistische Modell der Multilevel Analyse eingegangen. Dabei wird auch die erste Notation eines hierarchischen linearen Modells vorgestellt. Zuerst werden wir uns auf das \textit{Random Intercept} Modell konzentrieren. Dazu werden auch noch weitere wichtige Kennwerte eingeführt, die bei einer Multilevel Analyse zu beachten sind. Am Ende dieses Kapitels werden die  \textit{Random Intercept and Slope} Modelle vorgestellt.
-
+\subsubsection{Intraklassen Korrelation und Design Effect}
 Besprechen von ICC und Design Effekt (Vlg. Dazu Guide ML Analysis von J. Peugh 2009)
 
-\subsection{Aufbau von Hierarchischen Linearen Modellen}
+
+\subsection{Hierarchische Linearen Modelle}
 Das zugrundeliegende statistische Modell, das zur Multilevel Analyse verwendet wird ist das Hierarchische lineare Modell (auch HLM). Dieses Modell ist eine Erweiterung der multiplen linearen Regression, das zusätzlich genestete zufällige Koeffizienten beinhaltet \cite{SnijdersTomA.B2012Ma:a}.
 
 Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. Nullmodell bis hin zu Cross-Level Modellen etc. An Guides zu Multi Level Modellen Orienteieren! \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
 
 Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren nicht \cite{SnijdersTomA.B2012Ma:a}
 
-
-\subsubsection{Das Null Modell}
-\subsubsection{Das Level-1 Modell}
-\subsubsection{Das Level-2 Modell}
-\subsubsection{Cross-Level Interaktion}
+\subsubsection{\textit{Random Intercept} Modell}
+\subsubsection{\textit{Random Intercept and Slope} Modell}
 
 \subsection{Vergleich von Hierarchischen Linearen Modellen}
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
@@ -149,14 +138,17 @@ Wenn diese Methode nicht vorhanden ist können andere Methoden gewählt werden, 
 
 Proportionale Reduktion der Varianz und Pseude R Squared (Zitation nötig!)
 
-\subsection{Kennwerte von Hierarchischen Linearen Modellen}
-
 \subsection{R Pakete für die Multilevel Analyse}
 Beschreibung von lme4 und grund warum in dieser Arbeit nur mit diesem Paket gearbeitet wird. (Buch und Studie von D. Bates)
 
 \section{Literatur und Forschungsfrage}
+\subsection{Stand der Literatur zur HLM}
+\subsection{Herleitung der Forschungsfrage}
 
 \section{Design der Simulationsstudie}
+\subsection{Manipulierte Faktoren}
+\subsection{Konstante Faktoren}
+\subsection{Untersuchte Faktoren}
 
 \section{Ergebnisse der Simulationsstudie}
 \section{Anwendung und Beschreibung der Shiny App}
