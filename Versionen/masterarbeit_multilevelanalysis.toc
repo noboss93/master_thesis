@@ -2,8 +2,8 @@
 \contentsline {section}{\numberline {1}Abstract}{4}% 
 \contentsline {section}{\numberline {2}Einleitung}{5}% 
 \contentsline {section}{\numberline {3}Theorie zur Multilevel Analyse}{6}% 
-\contentsline {subsection}{\numberline {3.1}Methoden zum Umgang mit hierarchischen Daten}{6}% 
-\contentsline {subsubsection}{\numberline {3.1.1}Aggregation und Disaggregation}{6}% 
+\contentsline {subsection}{\numberline {3.1}Methoden zum Umgang mit hierarchischen Daten}{7}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Aggregation und Disaggregation}{7}% 
 \contentsline {subsubsection}{\numberline {3.1.2}Intraklassen Korrelation und Design Effect}{7}% 
 \contentsline {subsection}{\numberline {3.2}Hierarchische Linearen Modelle}{7}% 
 \contentsline {subsubsection}{\numberline {3.2.1}\textit {Random Intercept} Modell}{8}% 
