@@ -27,8 +27,10 @@ simulation_study <- function(n = 15000, nklassen = 300, niter = 100, sd_intercep
   colnames(coef_models) <- c("beta_0", "beta_treatment", 
                              "SE_beta_0", "SE_beta_treatment", "p_value_0",
                              "p_value_treatment", "p_value_likelihood", "empirical_icc",
-                             "theoretical_icc", "sd_intercept", "sd_error", "effect_treatment", "method")
+                             "theoretical_icc", "sd_intercept", "sd_error", "effect_treatment", 
+                             "method")
   
+  coef_models[,1:9] <- apply(coef_models[,1:9], 2, as.character)
   coef_models[,1:9] <- apply(coef_models[,1:9], 2, as.numeric)
   return(coef_models)
 }

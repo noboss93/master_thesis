@@ -45,7 +45,7 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
   leistung <- y00 +  
     y10 * math_lektionen + 
     random_intercept + 
-    # random_slope * math_lektionen + 
+    random_slope * math_lektionen + 
     error
   
   # Creating dataframe
