@@ -68,9 +68,9 @@ Snijders, T\BPBI A\BPBI B.%
 \newblock
 \APACrefYear{2012}.
 \newblock
-\APACrefbtitle {Multilevel analysis : an introduction to basic and advanced
-  multilevel modeling} {Multilevel analysis : an introduction to basic and
-  advanced multilevel modeling}\ (\PrintOrdinal{2.}\ \BEd).
+\APACrefbtitle {{Multilevel Analysis: An Introduction to Basic and Advanced
+  Multilevel Modeling}} {{Multilevel Analysis: An Introduction to Basic and
+  Advanced Multilevel Modeling}}\ (\PrintOrdinal{2.}\ \BEd).
 \newblock
 \APACaddressPublisher{Los Angeles}{SAGE}.
 \PrintBackRefs{\CurrentBib}

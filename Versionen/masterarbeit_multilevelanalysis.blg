@@ -15,15 +15,15 @@ Database file #1: literatur_masterarbeit.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 You've used 4 entries,
             6951 wiz_defined-function locations,
-            1297 strings with 11458 characters,
-and the built_in function-call counts, 7919 in all, are:
-= -- 972
+            1297 strings with 11459 characters,
+and the built_in function-call counts, 7911 in all, are:
+= -- 971
 > -- 57
-< -- 406
-+ -- 432
+< -- 405
++ -- 431
 - -- 8
 * -- 529
-:= -- 1551
+:= -- 1549
 add.period$ -- 16
 call.type$ -- 4
 change.case$ -- 68
@@ -32,7 +32,7 @@ cite$ -- 8
 duplicate$ -- 191
 empty$ -- 295
 format.name$ -- 93
-if$ -- 1458
+if$ -- 1457
 int.to.chr$ -- 0
 int.to.str$ -- 12
 missing$ -- 0
@@ -42,9 +42,9 @@ pop$ -- 116
 preamble$ -- 1
 purify$ -- 16
 quote$ -- 0
-skip$ -- 485
+skip$ -- 484
 stack$ -- 0
-substring$ -- 466
+substring$ -- 465
 swap$ -- 123
 text.length$ -- 8
 text.prefix$ -- 0

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  14 JAN 2020 11:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  14 JAN 2020 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -315,21 +315,16 @@ ogo-eps-converted-to.pdf>] (./masterarbeit_multilevelanalysis.toc [2])
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
  [3] [4] [5]
-Overfull \hbox (1.7253pt too wide) in paragraph at lines 117--118
-\OT1/cmr/m/n/12 heisst, dass For-schen-de ver-mehrt zu Fehl-schl[]ussen bez[]ug
-lich des Ein-flus-ses ih-rer Abh[]angigen
- []
-
-[6] [7] [8] [9] [10] (./masterarbeit_multilevelanalysis.bbl) [11]
+[6] [7] [8] [9] [10] [11] (./masterarbeit_multilevelanalysis.bbl) [12]
 (./masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
  4170 strings out of 492609
  55945 string characters out of 6129048
- 144689 words of memory out of 5000000
+ 145711 words of memory out of 5000000
  7994 multiletter control sequences out of 15000+600000
  10639 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,35p,1132b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,35p,1442b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2019/texmf-dist/fo
@@ -337,11 +332,11 @@ nts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (11 pages, 136466 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (12 pages, 138485 bytes).
 
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
