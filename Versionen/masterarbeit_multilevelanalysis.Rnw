@@ -66,16 +66,7 @@ Dieses Auswahlverfahren führt dazu, dass die erhobenen Daten nicht mehr voneina
 
 Nach Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} gibt es unterschiedliche Formen, wie diese Einheiten zueinander in Beziehung stehen können. Ein Beispiel für einen Zusammenhang auf Level-1 wäre, dass die Lernmotivation eines Schulkindes sich auf seine Schulische Leistung auswirkt. Aber auch Level-2 Einheiten können sich gegenseitig beeinflussen. Das Klima der Schulklasse könnte sich beispielsweise auf das Stressempfinden der Lehrperson auswirken. Hier wird von einem Zusammenhang innerhalb des Levels gesprochen, weil die unabhängige Variable (z.B. Lernmotivation, Klima der Schulklasse) auf dem gleichen Level wie die abhängige Variable (z.B. schulische Leistung, Stressempfinden) ist. Häufig ist es allerdings der Fall, dass es levelübergreifende Zusammenhänge zwischen den Einheiten gibt. So können beispielsweise die didaktischen Fähigkeiten einer Lehrperson (Level-2) und die Lernmotivation der Schulkinder (Level-1) die individuelle Leistung (Level-1) beeinflussen. Dieser Zusammenhang muss nicht zwingend direkt sein. Es kann auch vorkommen, dass die didaktischen Fähigkeiten den Zusammenhang zwischen Lernmotivation und individueller Leistung moderiert. In diesem Fall wird gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} von einer \textit{cross-level interaction} gesprochen.
 
-Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies zu einer erhöhten Fehler Typ-1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Abhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt.
-
-
-
-Das Vorhandensein von hierarchischen Daten ist allerdings kein Problem, wenn die Struktur bei der Analyse dieser Daten korrekt berücksichtigt wird. 
-
-
-
-Was versteht man unter Levels und Einheiten. und wie können diese verschiedenen Levels sich gegenseitig beeinflussen. Beispiele Bringen. 
-Wird diese Beeinflussung nicht berücksichtigt kann es zu Fehlschlüssen kommen.
+Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies zu einer erhöhten Fehler Typ-1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Abhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt. Das Vorhandensein von hierarchischen Daten ist allerdings kein unlösbares Problem. Mit Analyseansätzen, die diese hierarchische Struktur der Daten berücksichtigen, lassen sich solche erhöhten Fehler Typ-1 Raten vermeiden. Einer dieser Ansätze ist die Multilevel Analyse, die im Fokus dieser Arbeit steht.
 
 Diese Arbeit kann in drei Teile unterteilt werden. Erster Teil ist Einführung und Theorie zur Multilevel Analyse, zweiter Teil ist das durchführen einer Simulationsstudie, um spezifisch aufzuzeigen, warum es ratsam ist bei hierarchischen datenstrukturen Mulitlevel Ansätze an stelle normaler lineare Regression zu verwenden. Im dritten und letzten teil wird eine in R Programmierte Web-App vorgestellt, in der die im zweiten Teil durchgeführte Simulationsstudie selbst durchgeführt werden kann und die Ergebnisse visualisiert dargestellt werden, um das Verständnis und den Nutzen von Multilevel Analyse dem Nutzer näher zu bringen. 
 
