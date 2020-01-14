@@ -103,15 +103,15 @@ Therapeuten 			& Kliniken \\
 Mehrere Messzeitpunkte 	& Person \\
 \hline
 \end{tabular}
-\caption{Beispiele für Level-1 und Level-2}
+\caption{Beispiele für Level-1 und Level-2 Variablen}
 \label{tab:beispiele_levels}
 \end{table}
 
-Dabei ist zu beachten, dass sich das Level der selben Variable je nach Untersuchungsgegenstand ändern kann. Wie man in der Tabelle \ref{tab:beispiele_levels} erkennen kann, sind Therapeuten einmal als Level-1 und einmal als Level-2 Variable aufgeführt. Daher ist es wichtig die Level Bezeichnung als starr betrachtet werden, vielmehr sollte man sich grundsätzlich an der niedrigsten Einheit orientieren. Dieser Einheit wird dann das Level-1 zugeschrieben.
+Dabei ist zu beachten, dass sich das Level der selben Variable je nach Untersuchungsgegenstand ändern kann. Wie man in der Tabelle \ref{tab:beispiele_levels} erkennen kann, sind Familien einmal als Level-1 und einmal als Level-2 Variable aufgeführt. Daher ist es wichtig die Level Bezeichnung nicht als starr zu betrachtet, vielmehr sollte man sich grundsätzlich an der niedrigsten Einheit im Datensatz orientieren. Dieser Einheit wird dann das Level-1 zugeschrieben.
 
-In der Forschung ist es aus Kostengründen oder aus Gründen des Studiendesigns oft nicht möglich, solche gruppierte Datenstrukturen zu vermeiden \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Als eine von vielen Ursachen, die zur Entstehung solcher Datenstrukturen führt, nennen \cite{SnijdersTomA.B2012Ma:a} \textit{multistage sampling}. Unter \textit{multistage sampling} wird verstanden, dass die Forschenden auf in der Population vorhandene Gruppen zugreifen in der Datenerhebung. Beispielsweise ist es Kostengünstiger zufällig 100 Schulkassen und von diesen Schulklassen wieder jeweils 10 Kinder auszuwählen als von 1000 Schulklassen jeweils nur einen Schulkind auszuwählen, da man sonst in 1000 verschiedenen Schulklassen eine Studie durchführen müsste, um die gleiche Stichprobengrösse zu erreichen. 
+In der Forschung ist es aus Kostengründen oder aus Gründen des Studiendesigns oft nicht möglich, solche gruppierte Datenstrukturen zu vermeiden \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Als eine von vielen Ursachen, die zur Entstehung solcher Datenstrukturen führt, nennen \cite{SnijdersTomA.B2012Ma:a} \textit{multistage sampling}. Unter \textit{multistage sampling} versteht man, dass die Forschenden in der Datenerhebung auf in der Population vorhandene Gruppen zugreifen. Beispielsweise ist es Kostengünstiger zufällig 100 Schulkassen und von diesen Schulklassen wieder jeweils 10 Kinder auszuwählen als von 1000 Schulklassen jeweils nur einen Schulkind auszuwählen. Da man sonst in 1000 verschiedenen Schulklassen eine Studie durchführen müsste, um die gleiche Stichprobengrösse zu erreichen. 
 
-Dieses Auswahlverfahren führt dazu, dass die erhobenen Daten nicht mehr unabhängig voneinander sind. Werden nun also aus jeder Schulklasse 10 Schulkinder für die Studie ausgewählt, ist es sehr wahrscheinlich, dass diese 10 Schulkinder bezüglich ihrer Daten zueinander ähnlicher sind als zu Schulkindern aus anderen Schulklassen. Dieser Zusammenhang kann alleine dadurch entstehen, weil die Schulkinder unterschiedliche Lehrpersonen haben oder in einem anderen Klassenzimmer unterrichtet werden. Das heisst, dass Einflussfaktoren aus unterschiedlichen Levels sich gegenseitig beeinflussen können. Bleiben wir beim Beispiel mit den Schulkindern aus Schulklassen
+Dieses Auswahlverfahren führt dazu, dass die erhobenen Daten nicht mehr voneinander unabhängig sind. Werden nun also aus jeder Schulklasse 10 Schulkinder für die Studie ausgewählt, ist es sehr wahrscheinlich, dass diese 10 Schulkinder zueinander ähnlicher Leistungen erzielen als zu Schulkindern aus anderen Schulklassen. Dieser Zusammenhang kann auf unterschiedliche Ursache zurückzuführen sein. Beispielsweise könnte die didaktischen Fähigkeiten der Lehrpersonen oder die Lichtverhältnisse im Klassenzimmer einen Einfluss auf die Leistungen der Kinder aus der selben Klasse haben. Das heisst, dass Einflussfaktoren aus unterschiedlichen Levels sich gegenseitig beeinflussen können. 
 
 
 Wird diese Abhängigkeit der Daten ignoriert und in der Analyse nicht berücksichtigt, kann dies zu einer erhöhten Fehler Typ-1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Abhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt.
@@ -122,12 +122,14 @@ Das Vorhandensein von hierarchischen Daten ist allerdings kein Problem, wenn die
 
 
 
-Was versteht man unter Levels (Stufen) und Einheiten. und wie können diese verschiedenen Levels sich gegenseitig beeinflussen. Beispiele Bringen. 
+Was versteht man unter Levels und Einheiten. und wie können diese verschiedenen Levels sich gegenseitig beeinflussen. Beispiele Bringen. 
 Wird diese Beeinflussung nicht berücksichtigt kann es zu Fehlschlüssen kommen.
+
+Diese Arbeit kann in drei Teile unterteilt werden. Erster Teil ist Einführung und Theorie zur Multilevel Analyse, zweiter Teil ist das durchführen einer Simulationsstudie, um spezifisch aufzuzeigen, warum es ratsam ist bei hierarchischen datenstrukturen Mulitlevel Ansätze an stelle normaler lineare Regression zu verwenden. Im dritten und letzten teil wird eine in R Programmierte Web-App vorgestellt, in der die im zweiten Teil durchgeführte Simulationsstudie selbst durchgeführt werden kann und die Ergebnisse visualisiert dargestellt werden, um das Verständnis und den Nutzen von Multilevel Analyse dem Nutzer näher zu bringen. 
 
 Wie in dieser Einleutung kurz erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. Im nächsten Abschnitt wird nun etwas genauer auf die Theorie zur Multilevel Analyse eingegangen. Dabei werden zuerst mögliche Methoden besprochen, wie man hierarchische Datenstrukturen in der Analyse berücksichtigen kann und warum auch diese Methoden nicht immer völlig unproblematisch sein können. 
 
-\section{Theorie zur Multilevel Analyse}
+\section{Hintergrund und Theorie der Multilevel Analyse}
 Nach dieser kurzen Einleitung zum Thema wird in diesem Abschnitt nun etwas genauer auf die Theorie der Multilevel Analyse eingegangen. Als erstes werden 
 
 Im folgenden Abschnitt wird nun die Theorie der Multilevel Analyse genau besprochen. Zuerst wird auf das zugrundeliegende statistische Modell der Multilevel Analyse eingegangen. Dabei wird auch die erste Notation eines hierarchischen linearen Modells vorgestellt. Zuerst werden wir uns auf das \textit{Random Intercept} Modell konzentrieren. Dazu werden auch noch weitere wichtige Kennwerte eingeführt, die bei einer Multilevel Analyse zu beachten sind. Am Ende dieses Kapitels werden die  \textit{Random Intercept and Slope} Modelle vorgestellt.

@@ -1,14 +1,14 @@
 \babel@toc {german}{}
 \contentsline {section}{\numberline {1}Abstract}{4}% 
 \contentsline {section}{\numberline {2}Einleitung}{5}% 
-\contentsline {section}{\numberline {3}Theorie zur Multilevel Analyse}{7}% 
-\contentsline {subsection}{\numberline {3.1}Methoden zum Umgang mit hierarchischen Daten}{7}% 
-\contentsline {subsubsection}{\numberline {3.1.1}Aggregation und Disaggregation}{7}% 
+\contentsline {section}{\numberline {3}Hintergrund und Theorie der Multilevel Analyse}{7}% 
+\contentsline {subsection}{\numberline {3.1}Methoden zum Umgang mit hierarchischen Daten}{8}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Aggregation und Disaggregation}{8}% 
 \contentsline {subsubsection}{\numberline {3.1.2}Intraklassen Korrelation und Design Effect}{8}% 
 \contentsline {subsection}{\numberline {3.2}Hierarchische Linearen Modelle}{8}% 
-\contentsline {subsubsection}{\numberline {3.2.1}\textit {Random Intercept} Modell}{8}% 
-\contentsline {subsubsection}{\numberline {3.2.2}\textit {Random Intercept and Slope} Modell}{8}% 
-\contentsline {subsection}{\numberline {3.3}Vergleich von Hierarchischen Linearen Modellen}{8}% 
+\contentsline {subsubsection}{\numberline {3.2.1}\textit {Random Intercept} Modell}{9}% 
+\contentsline {subsubsection}{\numberline {3.2.2}\textit {Random Intercept and Slope} Modell}{9}% 
+\contentsline {subsection}{\numberline {3.3}Vergleich von Hierarchischen Linearen Modellen}{9}% 
 \contentsline {subsection}{\numberline {3.4}R Pakete f\IeC {\"u}r die Multilevel Analyse}{9}% 
 \contentsline {section}{\numberline {4}Literatur und Forschungsfrage}{10}% 
 \contentsline {subsection}{\numberline {4.1}Stand der Literatur zur HLM}{10}% 
