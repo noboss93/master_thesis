@@ -5,15 +5,18 @@
 \contentsline {section}{\numberline {2}Einleitung}{7}% 
 \contentsline {section}{\numberline {3}Konzept und Theorie der Multilevel Analyse}{10}% 
 \contentsline {subsection}{\numberline {3.1}Methoden zum Umgang mit hierarchischen Daten}{10}% 
-\contentsline {subsubsection}{\numberline {3.1.1}Aggregation und Disaggregation}{10}% 
-\contentsline {subsubsection}{\numberline {3.1.2}Intraklassen Korrelation und Design Effect}{11}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Intraklassen Korrelation und Design Effect}{10}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Aggregation und Disaggregation}{10}% 
 \contentsline {subsection}{\numberline {3.2}Hierarchische Linearen Modelle}{11}% 
 \contentsline {subsubsection}{\numberline {3.2.1}\textit {Random Intercept} Modell}{11}% 
 \contentsline {subsubsection}{\numberline {3.2.2}\textit {Random Intercept and Slope} Modell}{11}% 
-\contentsline {subsection}{\numberline {3.3}Vergleich von Hierarchischen Linearen Modellen}{11}% 
-\contentsline {subsection}{\numberline {3.4}R Pakete f\IeC {\"u}r die Multilevel Analyse}{12}% 
-\contentsline {section}{\numberline {4}Simulationsstudie zur Multilevel Analyse}{13}% 
-\contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{13}% 
+\contentsline {subsection}{\numberline {3.3}Einsatz von Multilevel Analyse in R}{11}% 
+\contentsline {subsubsection}{\numberline {3.3.1}R Pakete f\IeC {\"u}r die Multilevel Analyse}{11}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Aufbau eines Modells}{11}% 
+\contentsline {subsubsection}{\numberline {3.3.3}Interpretation des Outputs}{11}% 
+\contentsline {subsubsection}{\numberline {3.3.4}Vergleich von Hierarchischen Linearen Modellen}{11}% 
+\contentsline {section}{\numberline {4}Simulationsstudie zur Multilevel Analyse}{12}% 
+\contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{12}% 
 \contentsline {subsection}{\numberline {4.2}Design der Simulationsstudie}{13}% 
 \contentsline {subsubsection}{\numberline {4.2.1}Generierung von hierarchischen Daten}{13}% 
 \contentsline {subsubsection}{\numberline {4.2.2}Manipulierte Faktoren}{13}% 
