@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{a4wide}
-\usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
+\usepackage[nottoc, numbib]{tocbibind}
 \usepackage{natbib} 
 \renewcommand{\baselinestretch}{1.5}
 
@@ -28,6 +28,12 @@
 
 \newpage
 \tableofcontents
+
+\newpage
+\listoffigures
+
+\newpage
+\listoftables
 
 \newpage
 \section{Abstract}
@@ -60,20 +66,17 @@ Mehrere Messzeitpunkte 	& Person \\
 
 Dabei ist zu beachten, dass sich das Level der selben Einheit je nach Untersuchungsgegenstand ändern kann. Wie man in der Tabelle \ref{tab:beispiele_levels} erkennen kann, sind Familien einmal als Level-1 und einmal als Level-2 Einheit aufgeführt. Daher ist es wichtig die Level Bezeichnung nicht als starr zu betrachtet. Vielmehr sollte man sich grundsätzlich an den niedrigsten Einheiten im Datensatz orientieren. Diesen Einheiten wird dann das Level-1 zugeschrieben.
 
-In der Forschung ist es aus Kostengründen oder aus Gründen des Studiendesigns oft nicht möglich, solche gruppierte Datenstrukturen zu vermeiden \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Als eine von vielen Ursachen, die zur Entstehung solcher Datenstrukturen führt, nennen Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} \textit{multistage sampling}. Unter \textit{multistage sampling} versteht man, dass die Forschenden in der Datenerhebung auf in der Population vorhandene Gruppen zugreifen. Beispielsweise ist es Kostengünstiger zufällig 100 Schulkassen und von diesen Schulklassen wieder jeweils 10 Kinder auszuwählen als von 1000 Schulklassen jeweils nur einen Schulkind auszuwählen. Da man sonst in 1000 verschiedenen Schulklassen eine Studie durchführen müsste, um die gleiche Stichprobengrösse zu erreichen. 
-
-Dieses Auswahlverfahren führt dazu, dass die erhobenen Daten nicht mehr voneinander unabhängig sind. Werden nun aus jeder Schulklasse 10 Schulkinder für eine Studie ausgewählt, ist es sehr wahrscheinlich, dass Schulkinder aus der selben Klasse zueinander ähnlichere Leistungen erzielen werden. Dieser Zusammenhang kann auf unterschiedliche Ursache zurückzuführen sein. Beispielsweise könnte die didaktischen Fähigkeiten der Lehrpersonen oder die Lichtverhältnisse im Klassenzimmer einen Einfluss auf die Leistungen der Kinder aus der selben Klasse haben. Das heisst, dass Einflussfaktoren aus unterschiedlichen Levels sich gegenseitig beeinflussen können. 
+In der Forschung ist es aus Kostengründen oder aus Gründen des Studiendesigns oft nicht möglich, solche gruppierte Datenstrukturen zu vermeiden \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Als eine von vielen Ursachen, die zur Entstehung solcher Datenstrukturen führt, nennen Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} \textit{multistage sampling}. Unter \textit{multistage sampling} versteht man, dass die Forschenden in der Datenerhebung auf in der Population vorhandene Gruppen zugreifen. Beispielsweise ist es Kostengünstiger zufällig 100 Schulkassen und von diesen Schulklassen wieder jeweils 10 Kinder auszuwählen als von 1000 Schulklassen jeweils nur einen Schulkind auszuwählen. Da man sonst in 1000 verschiedenen Schulklassen eine Studie durchführen müsste, um die gleiche Stichprobengrösse zu erreichen. Dieses Auswahlverfahren führt dazu, dass die erhobenen Daten nicht mehr voneinander unabhängig sind. Werden nun aus jeder Schulklasse 10 Schulkinder für eine Studie ausgewählt, ist es sehr wahrscheinlich, dass Schulkinder aus der selben Klasse zueinander ähnlichere Leistungen erzielen werden. Dieser Zusammenhang kann auf unterschiedliche Ursache zurückzuführen sein. Beispielsweise könnte die didaktischen Fähigkeiten der Lehrpersonen oder die Lichtverhältnisse im Klassenzimmer einen Einfluss auf die Leistungen der Kinder aus der selben Klasse haben. Das heisst, dass Einflussfaktoren aus unterschiedlichen Levels sich gegenseitig beeinflussen können. 
 
 Nach Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} gibt es unterschiedliche Formen, wie diese Einheiten zueinander in Beziehung stehen können. Ein Beispiel für einen Zusammenhang auf Level-1 wäre, dass die Lernmotivation eines Schulkindes sich auf seine Schulische Leistung auswirkt. Aber auch Level-2 Einheiten können sich gegenseitig beeinflussen. Das Klima der Schulklasse könnte sich beispielsweise auf das Stressempfinden der Lehrperson auswirken. Hier wird von einem Zusammenhang innerhalb des Levels gesprochen, weil die unabhängige Variable (z.B. Lernmotivation, Klima der Schulklasse) auf dem gleichen Level wie die abhängige Variable (z.B. schulische Leistung, Stressempfinden) ist. Häufig ist es allerdings der Fall, dass es levelübergreifende Zusammenhänge zwischen den Einheiten gibt. So können beispielsweise die didaktischen Fähigkeiten einer Lehrperson (Level-2) und die Lernmotivation der Schulkinder (Level-1) die individuelle Leistung (Level-1) beeinflussen. Dieser Zusammenhang muss nicht zwingend direkt sein. Es kann auch vorkommen, dass die didaktischen Fähigkeiten den Zusammenhang zwischen Lernmotivation und individueller Leistung moderiert. In diesem Fall wird gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} von einer \textit{cross-level interaction} gesprochen.
 
 Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies zu einer erhöhten Fehler Typ-1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Abhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt. Das Vorhandensein von hierarchischen Daten ist allerdings kein unlösbares Problem. Mit Analyseansätzen, die diese hierarchische Struktur der Daten berücksichtigen, lassen sich solche erhöhten Fehler Typ-1 Raten vermeiden. Einer dieser Ansätze ist die Multilevel Analyse, die im Fokus dieser Arbeit steht.
 
-Diese Arbeit kann in drei Teile unterteilt werden. Erster Teil ist Einführung und Theorie zur Multilevel Analyse, zweiter Teil ist das durchführen einer Simulationsstudie, um spezifisch aufzuzeigen, warum es ratsam ist bei hierarchischen datenstrukturen Mulitlevel Ansätze an stelle normaler lineare Regression zu verwenden. Im dritten und letzten teil wird eine in R Programmierte Web-App vorgestellt, in der die im zweiten Teil durchgeführte Simulationsstudie selbst durchgeführt werden kann und die Ergebnisse visualisiert dargestellt werden, um das Verständnis und den Nutzen von Multilevel Analyse dem Nutzer näher zu bringen. 
+Diese Arbeit ist in drei Teile unterteilt. Im ersten Teil wird das Konzept und die Theorie der Multilevel Analyse behandelt. Dabei wird kurz auf die verschiedenen Methoden eingegangen, wie man Daten auf ihre hierarchische Struktur überprüfen und analysieren kann. Anschliessend wird das zugrundeliegende statistische Modell der Multlilevel Analyse vorgestellt und wie genau solche Modelle aufgebaut sind. Dabei wird fortlaufend die Anwendung dieser Methode in der Statistikumgebung R besprochen \citep{R}. Im zweiten Abschnitt dieser Arbeit wird eine Simulationsstudie durchgeführt, deren Ziel es ist, bereits vorhandene Ergebnisse in der Literatur zu replizieren und da Daseinsberechtigung von Mulitlevel Analyse von hierarchischen Daten zu festigen. Im dritten und letzten Abschnitt wird eine eigens programmierte Shiny Web-App vorgestellt \citep{shiny}, die zum einen das Konzept der Multilevel Analyse visualisiert und dem Nutzer die Möglichkeit gibt, selbst die Simulationsstudie aus dem zweiten Abschnitt durchzuführen. 
 
-Wie in dieser Einleutung kurz erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. Im nächsten Abschnitt wird nun etwas genauer auf die Theorie zur Multilevel Analyse eingegangen. Dabei werden zuerst mögliche Methoden besprochen, wie man hierarchische Datenstrukturen in der Analyse berücksichtigen kann und warum auch diese Methoden nicht immer völlig unproblematisch sein können. 
+\section{Konzept und Theorie der Multilevel Analyse}
+Wie in dieser kurzen Einleitung erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. Im nächsten Abschnitt wird nun etwas genauer auf das Konzept und die dahintersteckende Theorie der Multilevel Analyse eingegangen. Dabei werden zuerst mögliche Methoden besprochen, wie man hierarchische Datenstrukturen in der Analyse berücksichtigen kann und warum auch diese Methoden nicht immer völlig unproblematisch sein können. 
 
-\section{Hintergrund und Theorie der Multilevel Analyse}
-Nach dieser kurzen Einleitung zum Thema wird in diesem Abschnitt nun etwas genauer auf die Theorie der Multilevel Analyse eingegangen. Als erstes werden 
 
 Im folgenden Abschnitt wird nun die Theorie der Multilevel Analyse genau besprochen. Zuerst wird auf das zugrundeliegende statistische Modell der Multilevel Analyse eingegangen. Dabei wird auch die erste Notation eines hierarchischen linearen Modells vorgestellt. Zuerst werden wir uns auf das \textit{Random Intercept} Modell konzentrieren. Dazu werden auch noch weitere wichtige Kennwerte eingeführt, die bei einer Multilevel Analyse zu beachten sind. Am Ende dieses Kapitels werden die  \textit{Random Intercept and Slope} Modelle vorgestellt.
 
@@ -121,24 +124,29 @@ Proportionale Reduktion der Varianz und Pseude R Squared (Zitation nötig!)
 \subsection{R Pakete für die Multilevel Analyse}
 Beschreibung von lme4 und grund warum in dieser Arbeit nur mit diesem Paket gearbeitet wird. (Buch und Studie von D. Bates)
 
-\section{Literatur und Forschungsfrage}
-\subsection{Stand der Literatur zur HLM}
+\section{Simulationsstudie zur Multilevel Analyse}
 \subsection{Herleitung der Forschungsfrage}
+\subsection{Design der Simulationsstudie}
+\subsubsection{Generierung von hierarchischen Daten}
+\subsubsection{Manipulierte Faktoren}
+\subsubsection{Konstante Faktoren}
+\subsubsection{Untersuchte Faktoren}
+\subsection{Ergebnisse der Simulationsstudie}
 
-\section{Design der Simulationsstudie}
-\subsection{Manipulierte Faktoren}
-\subsection{Konstante Faktoren}
-\subsection{Untersuchte Faktoren}
+\section{Beschreibung und Anwendung der Shiny App}
+\subsection{Was ist Shiny?}
+\subsection{Ziel der Shiny App}
+\subsection{Anwendung der Shiny App}
 
-\section{Ergebnisse der Simulationsstudie}
-\section{Anwendung und Beschreibung der Shiny App}
 \section{Diskussion}
 \newpage
 \bibliography{literatur_masterarbeit}
 \bibliographystyle{apacite}
 
-\section{Abbildungsverzeichnis}
 \section{Anhang}
+\appendix
+\section{R Code}
+
 
 
 
