@@ -59,6 +59,8 @@
 \usepackage[nottoc, numbib]{tocbibind}
 \usepackage{natbib} 
 \renewcommand{\baselinestretch}{1.5}
+\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
 
 
 
@@ -122,38 +124,31 @@ Nach Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} gibt es unterschie
 
 Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies zu einer erhöhten Fehler Typ-1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Abhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt. Das Vorhandensein von hierarchischen Daten ist allerdings kein unlösbares Problem. Mit Analyseansätzen, die diese hierarchische Struktur der Daten berücksichtigen, lassen sich solche erhöhten Fehler Typ-1 Raten vermeiden. Einer dieser Ansätze ist die Multilevel Analyse, die im Fokus dieser Arbeit steht.
 
-Diese Arbeit ist in drei Teile unterteilt. Im ersten Teil wird das Konzept und die Theorie der Multilevel Analyse behandelt. Dabei wird kurz auf die verschiedenen Methoden eingegangen, wie man Daten auf ihre hierarchische Struktur überprüfen und analysieren kann. Anschliessend wird das zugrundeliegende statistische Modell der Multlilevel Analyse vorgestellt und wie genau solche Modelle aufgebaut sind. Dabei wird fortlaufend die Anwendung dieser Methode in der Statistikumgebung R besprochen \citep{R}. Im zweiten Abschnitt dieser Arbeit wird eine Simulationsstudie durchgeführt, deren Ziel es ist, bereits vorhandene Ergebnisse in der Literatur zu replizieren und da Daseinsberechtigung von Mulitlevel Analyse von hierarchischen Daten zu festigen. Im dritten und letzten Abschnitt wird eine eigens programmierte Shiny Web-App vorgestellt \citep{shiny}, die zum einen das Konzept der Multilevel Analyse visualisiert und dem Nutzer die Möglichkeit gibt, selbst die Simulationsstudie aus dem zweiten Abschnitt durchzuführen. 
+Diese Arbeit ist in drei Teile unterteilt. Im ersten Teil wird das Konzept und die Theorie der Multilevel Analyse behandelt. Dabei wird kurz auf die verschiedenen Methoden eingegangen, wie man Daten auf ihre hierarchische Struktur überprüfen kann. Anschliessend wird das zugrundeliegende statistische Modell der Multlilevel Analyse vorgestellt und wie genau solche Modelle aufgebaut sind. Darauf folgend wird die Anwendung dieser Methoden in der Statistikumgebung R besprochen \citep{R}. Im zweiten Abschnitt dieser Arbeit wird eine Simulationsstudie durchgeführt, deren Ziel es ist, bereits vorhandene Ergebnisse in der Literatur zu replizieren und da Daseinsberechtigung von Mulitlevel Analyse von hierarchischen Daten zu festigen. Im dritten und letzten Abschnitt wird eine eigens programmierte Shiny Web-App vorgestellt \citep{shiny}, die zum einen das Konzept der Multilevel Analyse visualisiert und dem Nutzer die Möglichkeit gibt, selbst die Simulationsstudie aus dem zweiten Abschnitt durchzuführen. 
 
-\section{Konzept und Theorie der Multilevel Analyse}
-Wie in der Einleitung erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. In diesem Abschnitt wird nun etwas genauer auf das Konzept und die dahintersteckende Theorie der Multilevel Analyse eingegangen. Dabei werden zuerst zwei Möglichkeiten vorgestellt, mit denen man Daten auf ihre hierarchische Struktur überprüfen kann. Anschliessend werden Methoden vorgestellt, mit denen häufig hierarchischen Daten in der Analyse berücksichtigt werden und warum diese Methoden nicht immer völlig unproblematisch sind. Als Antwort auf dieses Problem wird das hierarchische lineare Modell (HLM) als zugrundeliegendes statistisches Modell der Multilevel Analyse vorgestellt. Nachdem die verschiedenen Formen von HLMs besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse anhand von Beispielen in R zu besprochen.
+\section{Konzept und Anwendung von Multilevel Analyse}
+Wie in der Einleitung erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. In diesem Abschnitt wird nun etwas genauer auf das Konzept und die dahintersteckende Theorie der Multilevel Analyse eingegangen. 
+Dazu wird zuerst ein simulierter Beispieldatensatz vorgestellt. Anhand dieses Beispiels werden zuerst Probleme aufgezeigt, die entstehen, wenn man einfache lineare Modelle verwendet und anschliessend wird das hierarchische lineare Modell (HLM) eingeführt. Das HLM ist das zugrundeliegendes statistisches Modell der Multilevel Analyse und gilt als eine Erweiterung des einfachen linearen Modells \cite{SnijdersTomA.B2012Ma:a}. Dabei werden bei HLMs in \textit{random intercept} und \textit{random intercept and slope} Modelle unterschieden. und erläutert wie die beiden Faktoren \textit{intercept} und \textit{slope} zusammenhängen. Nachdem die verschiedenen Formen von HLMs besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse in R anhand von Beispielen etwas näher gebracht.
 
-\subsection{Methoden zum Umgang mit hierarchischen Daten}
+\subsection{Simuliertes Beispiel}
+In unserem Beispiel handelt es sich um eine Forschungsgruppe, die untersuchen möchte wie stark der Einfluss der Anzahl Mathematiklektionen in einer Woche auf die Leistungen in einer Mathematikprüfung ist. Dafür wurden aus 10 Schulklassen jeweils 10 Schüler ausgewählt 
 
-\subsubsection{Intraklassen Korrelation und Design Effect}
-Besprechen von ICC und Design Effekt (Vlg. Dazu Guide ML Analysis von J. Peugh 2009)
-
-\subsubsection{Aggregation und Disaggregation}
-Was passiert wenn genestete Strukturen ignoriert (aggregiert) werden \cite{SnijdersTomA.B2012Ma:a}.
-
-Stichproben sollten immer zufällig gezogen werden, dies ist häufig aber nicht der Fall, da es aus Kostengründen einfacher ist bereits vorhandene Gruppen (Cluster) zu ziehen. Beispielsweise sind das Klassen, Teams, Nachbarschaften, etc. Sobald aber solche Cluster gezogen werden, bestehen Abhängigkeiten zwischen den einzelnen Datenpunkte innerhalb der Cluster. Folglich ist die Annahme der Unabhängigkeit der Varianzen von linearen Modellen verletzt.
-
-Bei steigender Intraklassenkorrelation nimmt ebenfalls der $\alpha$-Fehler (Fehler Typ-1) zu \cite{dorman2008effect}.
-
+\subsection{Einfache Lineare Modelle}
 
 \subsection{Hierarchische Linearen Modelle}
-Das zugrundeliegende statistische Modell, das zur Multilevel Analyse verwendet wird ist das Hierarchische lineare Modell (auch HLM). Dieses Modell ist eine Erweiterung der multiplen linearen Regression, das zusätzlich genestete zufällige Koeffizienten beinhaltet \cite{SnijdersTomA.B2012Ma:a}.
+Hierarchische Lineare Modelle sind, wie bereits angedeutet eine Erweiterung von einfachen linearen Regressionsmodellen. 
 
-Aufbau erklären. Was ist das richtige Vorgehen um ein Multilevel Modell zu erstellen. Nullmodell bis hin zu Cross-Level Modellen etc. An Guides zu Multi Level Modellen Orienteieren! \cite{SnijdersTomA.B2012Ma:a} (Weitere Guides / Tutorials zu MLM finden)
 
-Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren nicht \cite{SnijdersTomA.B2012Ma:a}
-
+\subsubsection{Intraklassen Korrelation}
+Besprechen von ICC und Design Effekt (Vlg. Dazu Guide ML Analysis von J. Peugh 2009)
 \subsubsection{\textit{Random Intercept} Modell}
 \subsubsection{\textit{Random Intercept and Slope} Modell}
 
-\subsection{Einsatz von Multilevel Analyse in R}
+\subsection{Anwendung von Multilevel Analyse in R}
 \subsubsection{R Pakete für die Multilevel Analyse}
 Beschreibung von lme4 und grund warum in dieser Arbeit nur mit diesem Paket gearbeitet wird. (Buch und Studie von D. Bates)
 \subsubsection{Aufbau eines Modells}
+Die meisten Modelle erlauben nicht mehr als 2-3 Random Slopes und konvergieren nicht \citep{SnijdersTomA.B2012Ma:a}
 \subsubsection{Interpretation des Outputs}
 
 \subsubsection{Vergleich von Hierarchischen Linearen Modellen}
@@ -179,7 +174,6 @@ Proportionale Reduktion der Varianz und Pseude R Squared (Zitation nötig!)
 Es gibt schon Tutorials etc. wie man HLM in der Forschung einsetzt. Dabei achten auf Kennwerte (ICC und DEFF). Studien haben gezeigt, dass Fehler Typ-1 Rate steigt wenn MLM anstatt HLM) Studien zitieren, Dorman, Neith, Etc. Es stellt sich aber auch die Frage, wie es genau mit Treatments aussieht (studie treatment zitieren) auch diese haben einen erhöhte Typ-1 Rate gefunden. Ziel: replikation der ergebnisse, dass Fehler typ-1 rate erhöht ist und in einen für psychologiestudenten relevanten kontext bringen um das Konzept der HLM den studierenden zu verkaufen. 
 H1: betas werden genau geschätzt
 H2: SE bei Effekt von 0 zu klein bei MLM -> folglich zu viele p-werte < 0.05
-
 \subsection{Design der Simulationsstudie}
 \subsubsection{Generierung von hierarchischen Daten}
 \subsubsection{Manipulierte Faktoren}
