@@ -71,6 +71,8 @@
 \usepackage{threeparttablex}
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
+\usepackage{siunitx}
+
 \renewcommand{\baselinestretch}{1.5}
 \numberwithin{equation}{section}
 \numberwithin{equation}{subsection}
@@ -111,9 +113,9 @@ Hierarchische Daten treten häufig in den Sozialwissenschaften auf, unter andere
 \begin{table}[h!]
 \centering
 \begin{tabular}{ll}
-\hline
+\toprule
 Level-1 				& Level-2 	\\
-\hline	
+\midrule
 Schulkinder 			& Klasse 	\\
 Studierende 			& Studienrichtungen \\
 Kinder 					& Familien 	\\
@@ -123,7 +125,7 @@ Teams					& Unternehmen \\
 Patienten 				& Therapeuten \\
 Therapeuten 			& Kliniken \\
 Mehrere Messzeitpunkte 	& Person \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Beispiele für Level-1 und Level-2 Einheiten}
 \label{tab:beispiele_levels}
@@ -141,30 +143,30 @@ Diese Arbeit ist in drei Teile unterteilt. Im ersten Teil wird das Konzept und d
 
 \section{Konzept und Anwendung von Multilevel Analyse}
 Wie in der Einleitung erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. In diesem Abschnitt wird nun etwas genauer auf das Konzept und die dahintersteckende Theorie der Multilevel Analyse eingegangen. 
-Dazu wird zuerst ein simulierter Beispieldatensatz vorgestellt. Anhand dieses Beispiels werden zuerst Probleme aufgezeigt, die entstehen, wenn man einfache lineare Modelle verwendet und anschliessend wird das hierarchische lineare Modell (HLM) eingeführt. Das HLM ist das zugrundeliegendes statistisches Modell der Multilevel Analyse und gilt als eine Erweiterung des einfachen linearen Modells \cite{SnijdersTomA.B2012Ma:a}. Dabei werden bei HLMs in \textit{random intercept} und \textit{random intercept and slope} Modelle unterschieden. und erläutert wie die beiden Faktoren \textit{intercept} und \textit{slope} zusammenhängen. Nachdem die verschiedenen Formen von HLMs besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse in R anhand von Beispielen etwas näher gebracht.
+Dazu wird zuerst ein simulierter Beispieldatensatz vorgestellt. Anhand dieses Beispiels werden Probleme aufgezeigt, die entstehen, wenn man einfache lineare Modelle verwendet und anschliessend wird das hierarchische lineare Modell (HLM) eingeführt. Das HLM ist das zugrundeliegendes statistisches Modell der Multilevel Analyse und gilt als eine Erweiterung des einfachen linearen Modells \cite{SnijdersTomA.B2012Ma:a}. Dabei werden bei HLMs in \textit{random intercept} und \textit{random intercept and slope} Modelle unterschieden. und erläutert wie die beiden Faktoren \textit{intercept} und \textit{slope} zusammenhängen. Nachdem die verschiedenen Formen von HLMs besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse in R anhand von Beispielen etwas näher gebracht.
 
 \subsection{Beispiel zur Theorie}
-Im folgenden Abschnitt wird ein kurzes Beispiel vorgestellt, an jenem dann fortlaufend die vorgestellten Methoden illustriert werden. Bei dem Beispiel handelt es sich um insgesamt 50 Schulkindern aus 5 Schulklassen, die eine Mathematikprüfung geschrieben haben. Neben der erreichten Punktzahl jedes Kindes wurden für jedes Kind eine Anzahl an gelösten Übungsaufgaben simuliert. Da dieser Datensatz selbst generiert wurde und aus keiner Studie entstammt, sollten Ergebnisse, die aus diesen Berechnungen entstehen nicht weiter interpretiert werden. Eine genaue Erläuterung wie dieser Datensatz generiert wurde, ist im Abschnitt über die Generierung von hierarchischen Daten zu finden. In Tabelle \ref{tab:beispiel_theorie} befindet sich eine Übersicht über die erreichte Punktzahl jedes Kindes aus allen fünf Klassen.
+In den folgenden Abschnitten wird die Theorie anhand eines Beispieldatensatzes erläutert. Bei dem Beispiel handelt es sich um insgesamt 150 Schulkindern aus 5 Schulklassen, die eine Mathematikprüfung geschrieben haben. Neben der erreichten Punktzahl wurde für jedes Kind zufällig ein Geschlecht, einen Wert für sozioökonimischer Status und einen Intelligenzquotienten  simuliert. Auf Stufe der Klasse wurden ausserdem noch die Anzahl Fenster im Klassenzimmer simuliert. Da dieser Datensatz selbst generiert wurde und aus keiner Studie entstammt, sollten Ergebnisse, die aus diesen Berechnungen entstehen nicht weiter interpretiert werden. Eine genaue Erläuterung wie dieser Datensatz generiert wurde, ist im Abschnitt über die Generierung von hierarchischen Daten zu finden. In Tabelle \ref{tab:beispiel_theorie} befindet sich eine Übersicht über die erreichte Punktzahl jedes Kindes aus allen fünf Klassen.
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{crrrrrrrrrr}
-  \hline
-Schüler & Klasse 1 & Klasse 2 & Klasse 3 & Klasse 4 & Klasse 5\\ 
-  \hline
-  1 & 25 & 1 & 17 & 11 & 14 \\ 
-  2 & 17 & 16 & 31 & 16 & 25 \\ 
-  3 & 23 & 14 & 17 & 17 & 22 \\ 
-  4 & 17 & 14 & 28 & 25 & 18 \\ 
-  5 & 19 & 6 & 24 & 17 & 20 \\ 
-  6 & 13 & 10 & 21 & 10 & 22 \\ 
-  7 & 12 & 10 & 16 & 26 & 17 \\ 
-  8 & 20 & 13 & 22 & 24 & 14 \\ 
-  9 & 15 & 7 & 23 & 24 & 25 \\ 
-  10 & 15 & 7 & 11 & 21 & 17 \\ 
-   \hline
+  \toprule
+ Schulkind Nr. & Klasse & Übungen & Punktzahl & Geschlecht & Anz. Fenster & SES & IQ \\ 
+  \midrule
+101 & 4 & 17 & 21 & m & 3 & 16 & 104 \\ 
+  75 & 3 & 7 & 29 & m & 8 & 27 & 112 \\ 
+  126 & 5 & 23 & 26 & w & 4 & 14 & 110 \\ 
+  14 & 1 & 10 & 29 & m & 4 & 21 & 84 \\ 
+  137 & 5 & 16 & 18 & w & 4 & 17 & 109 \\ 
+  100 & 4 & 7 & 16 & w & 3 & 20 & 98 \\ 
+  78 & 3 & 28 & 44 & w & 8 & 23 & 105 \\ 
+  121 & 5 & 25 & 33 & w & 4 & 21 & 99 \\ 
+  16 & 1 & 7 & 24 & w & 4 & 30 & 77 \\ 
+  116 & 4 & 14 & 29 & m & 3 & 19 & 90 \\ 
+   \bottomrule
 \end{tabular}
-\caption{Erzielte Leistung in Mathematikprüfung} 
+\caption{Ausschnitt des simulierten Datensatzes} 
 \label{tab:beispiel_theorie}
 \end{table}
 
