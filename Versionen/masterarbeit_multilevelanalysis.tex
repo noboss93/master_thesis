@@ -75,7 +75,6 @@
 
 \renewcommand{\baselinestretch}{1.5}
 \numberwithin{equation}{section}
-\numberwithin{equation}{subsection}
 
 
 
@@ -146,7 +145,7 @@ Wie in der Einleitung erläutert wurde, gibt es viele Situationen in denen hiera
 Dazu wird zuerst ein simulierter Beispieldatensatz vorgestellt. Anhand dieses Beispiels werden Probleme aufgezeigt, die entstehen, wenn man einfache lineare Modelle verwendet und anschliessend wird das hierarchische lineare Modell (HLM) eingeführt. Das HLM ist das zugrundeliegendes statistisches Modell der Multilevel Analyse und gilt als eine Erweiterung des einfachen linearen Modells \cite{SnijdersTomA.B2012Ma:a}. Dabei werden bei HLMs in \textit{random intercept} und \textit{random intercept and slope} Modelle unterschieden. und erläutert wie die beiden Faktoren \textit{intercept} und \textit{slope} zusammenhängen. Nachdem die verschiedenen Formen von HLMs besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse in R anhand von Beispielen etwas näher gebracht.
 
 \subsection{Beispiel zur Theorie}
-In den folgenden Abschnitten wird die Theorie anhand eines Beispieldatensatzes erläutert. Bei dem Beispiel handelt es sich um insgesamt 150 Schulkindern aus 5 Schulklassen, die eine Mathematikprüfung geschrieben haben. Neben der erreichten Punktzahl wurde für jedes Kind zufällig ein Geschlecht, einen Wert für sozioökonimischer Status und einen Intelligenzquotienten  simuliert. Auf Stufe der Klasse wurden ausserdem noch die Anzahl Fenster im Klassenzimmer simuliert. Da dieser Datensatz selbst generiert wurde und aus keiner Studie entstammt, sollten Ergebnisse, die aus diesen Berechnungen entstehen nicht weiter interpretiert werden. Eine genaue Erläuterung wie dieser Datensatz generiert wurde, ist im Abschnitt über die Generierung von hierarchischen Daten zu finden. In Tabelle \ref{tab:beispiel_theorie} befindet sich eine Übersicht über die erreichte Punktzahl jedes Kindes aus allen fünf Klassen.
+In den folgenden Abschnitten wird die Theorie zur Analyse von hierarchischen Daten anhand eines Beispieldatensatzes erläutert. Bei dem Beispiel handelt es sich um insgesamt 150 Schulkindern aus 5 Schulklassen, die eine Mathematikprüfung geschrieben haben. Neben der erreichten Punktzahl wurde für jedes Kind zufällig ein Geschlecht, die Anzahl an gelösten Übungen, einen Wert für sozioökonomische Status und einen Intelligenzquotienten simuliert. Auf Stufe der Klasse wurden ausserdem noch die Anzahl Fenster im Klassenzimmer simuliert. Da dieser Datensatz selbst generiert wurde und aus keiner Studie entstammt, sollten Ergebnisse, die aus diesen Berechnungen entstehen nicht weiter interpretiert werden. Eine genaue Erläuterung wie dieser Datensatz generiert wurde, ist im Abschnitt über die Generierung von hierarchischen Daten zu finden. In Tabelle \ref{tab:beispiel_theorie} sind zur Veranschaulichung die Daten von 10 Schulkindern aufgeführt.
 
 \begin{table}[ht]
 \centering
@@ -170,7 +169,20 @@ In den folgenden Abschnitten wird die Theorie anhand eines Beispieldatensatzes e
 \label{tab:beispiel_theorie}
 \end{table}
 
-\subsection{Einfache Lineare Modelle}
+Betrachtet man die Ausprägung einzelner Variablen des Datensatzes, kann man erkennen, dass gewisse Variablen sich nicht zwischen den Schulkindern verändern. Wenn sich Variablen über einzelne Beobachtungen hinweg nicht verändern, kann das ein Hinweis dafür sein, dass es sich um hierarchische Daten handelt. Unser Datensatz hat in der Tat ein hierarchische Struktur mit zwei Levels. Zu den Level-1 Variablen gehören alle Variablen die sich auf der Stufe der tiefsten Einheit (Schulkinder) befinden. Dazu zählen die Anzahl gelösten Übungen, die erreichte Punktzahl, das Geschlecht, der sozioökonomische Status und der IQ. Die beiden anderen Variablen Klasse und die Anzahl Fenster im Klassenzimmer gehören zu Level-2.
+
+\subsection{Lineare Modelle}
+Bevor wir uns mit den hierarchischen linearen Modellen beschäftigen, werden hier noch einmal kurz die Grundlagen der linearen Regression erläutert. Gemäss Gelman und Hill \citeyearpar{andrew_data} ist die lineare Regression eine Methode, die Veränderungen von Durchschnittswerten einer abhängigen Variablen durch eine lineare Funktion von Prädiktoren beschreibt. In etwas einfacheren Worten ausgedrückt, versucht die lineare Regression durch die Kombination von unabhängigen Variablen die mittlere Ausprägung einer abhängigen Variable zu beschreiben.
+
+Ein lineares Regressionsmodell kann wie folgt beschrieben werden:
+
+\begin{equation}
+y_{i} = \beta_{0} + \beta_{1}X_{i1} + \dots + \beta_{ik}X_{ik} + \epsilon_{i}, \text{ für } i = 1, \dots, n \text{ und } \epsilon_{i} \sim \mathcal{N}(\mu,\sigma^{2})
+\end{equation}
+
+Dabei ist $y_{i}$ die abhängige Variable von der Person $i$. In unserem Beispiel wäre das die erreichte Punktzahl des Schulkindes $i$. $\beta_0$ beschreibt den Achsenabschnittes und ist die durchschnittlich erreichte Punktzahl in der Mathematikprüfung, wenn keine weitere Prädiktoren berücksichtigt werden. 
+
+
 
 \subsection{Hierarchische Linearen Modelle}
 Hierarchische Lineare Modelle sind, wie bereits angedeutet eine Erweiterung von einfachen linearen Regressionsmodellen. 

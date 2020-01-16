@@ -6,8 +6,6 @@ library(lme4)
 library(ggplot2)
 saveRDS(beispiel, file = "beispiel_theorie")
 
-
-
 # Funktion ----------------------------------------------------------------
 
 gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 0, 
@@ -66,7 +64,7 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
   
   # Creating dataframe
   klasse <- as.factor(klasse)
-  levels(klasse) <- paste("Kl", 1:nklassen, sep = ".")
+  levels(klasse) <- c(1:nklassen)
   
   ml_data <- data.frame(klasse, uebung, leistung, geschl, fenster, ses, iq)
   
@@ -80,8 +78,10 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
 test <- gen_ml_data(n = 150, nklassen = 5, sd_intercept = 2, 
                     b10 = 0.5, b00 = 20,
                     sd_slope = 0.2, corr = 0.5, sd_error = 5)
+test[,3] <- round(test[,3])
 
 # saveRDS(test, file = "dataset_theory")
+test <- readRDS("dataset_theory")
 
 as4 <- lm(data = test, leistung ~ uebung)
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
@@ -98,22 +98,9 @@ ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
 
-test_ohne_math <- select(.data = test, "klasse", "leistung", "uebung")
-# test_ohne_math[,1] <- sort(test_ohne_math[,1])
-test_ohne_math[,2] <- round(test_ohne_math[,2], digits = 0)
-test_ohne_math[,2] <- ifelse(test_ohne_math[,2] < 0, 0,test_ohne_math[,2])
+test <- test[sample(1:length(test[,1])),]
 
-m <- matrix(test_ohne_math[,2],ncol = 5, nrow = 30)
-beispiel <- data.frame(m)
-colnames(beispiel) <- c(paste("Klasse", sep = " ", 1:5))
-beispiel <- round(beispiel)
-
-
-xtable(head(test[,c(1:3)], n = 10))
-
-
-xtable(beispiel[,], caption = "Erzielte Leistung in Mathematikprüfung", 
-       label = "tab:beispiel_theorie", digits = 0)
+xtable(head(test, n = 10), digits = 0)
 
 lm <- lmer(data = test, leistung ~ (1|klasse))
 lm2 <- lmer(data = test, leistung ~ math_lektionen + (1|klasse))

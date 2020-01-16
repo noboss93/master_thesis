@@ -59,6 +59,34 @@ Dorman, J\BPBI P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Gelman%
+\ \BBA {} Hill%
+}{%
+Gelman%
+\ \BBA {} Hill%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+andrew_data}
+\APACinsertmetastar {%
+andrew_data}%
+\begin{APACrefauthors}%
+Gelman, A.%
+\BCBT {}\ \BBA {} Hill, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2007}.
+\newblock
+\APACrefbtitle {Data Analysis using Regression and Multilevel/Hierarchical
+  Models} {Data analysis using regression and multilevel/hierarchical models}.
+\newblock
+\APACaddressPublisher{United Kingdom}{Cambridge University Press}.
+\newblock
+\APACrefnote{Includes bibliographical references (pages 575-600) and indexes}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 McNeish%
 }{%
 McNeish%
