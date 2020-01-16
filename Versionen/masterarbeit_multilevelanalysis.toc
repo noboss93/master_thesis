@@ -4,30 +4,30 @@
 \contentsline {section}{\numberline {1}Abstract}{6}% 
 \contentsline {section}{\numberline {2}Einleitung}{7}% 
 \contentsline {section}{\numberline {3}Konzept und Anwendung von Multilevel Analyse}{10}% 
-\contentsline {subsection}{\numberline {3.1}Simuliertes Beispiel}{10}% 
-\contentsline {subsection}{\numberline {3.2}Einfache Lineare Modelle}{10}% 
-\contentsline {subsection}{\numberline {3.3}Hierarchische Linearen Modelle}{10}% 
+\contentsline {subsection}{\numberline {3.1}Beispiel zur Theorie}{10}% 
+\contentsline {subsection}{\numberline {3.2}Einfache Lineare Modelle}{11}% 
+\contentsline {subsection}{\numberline {3.3}Hierarchische Linearen Modelle}{11}% 
 \contentsline {subsubsection}{\numberline {3.3.1}Intraklassen Korrelation}{11}% 
-\contentsline {subsubsection}{\numberline {3.3.2}\textit {Random Intercept} Modell}{11}% 
-\contentsline {subsubsection}{\numberline {3.3.3}\textit {Random Intercept and Slope} Modell}{11}% 
-\contentsline {subsection}{\numberline {3.4}Anwendung von Multilevel Analyse in R}{11}% 
-\contentsline {subsubsection}{\numberline {3.4.1}R Pakete f\IeC {\"u}r die Multilevel Analyse}{11}% 
-\contentsline {subsubsection}{\numberline {3.4.2}Aufbau eines Modells}{11}% 
-\contentsline {subsubsection}{\numberline {3.4.3}Interpretation des Outputs}{11}% 
-\contentsline {subsubsection}{\numberline {3.4.4}Vergleich von Hierarchischen Linearen Modellen}{11}% 
-\contentsline {section}{\numberline {4}Simulationsstudie zur Multilevel Analyse}{12}% 
-\contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{12}% 
-\contentsline {subsection}{\numberline {4.2}Design der Simulationsstudie}{13}% 
-\contentsline {subsubsection}{\numberline {4.2.1}Generierung von hierarchischen Daten}{13}% 
-\contentsline {subsubsection}{\numberline {4.2.2}Manipulierte Faktoren}{13}% 
-\contentsline {subsubsection}{\numberline {4.2.3}Konstante Faktoren}{13}% 
-\contentsline {subsubsection}{\numberline {4.2.4}Untersuchte Faktoren}{13}% 
-\contentsline {subsection}{\numberline {4.3}Ergebnisse der Simulationsstudie}{13}% 
-\contentsline {section}{\numberline {5}Beschreibung und Anwendung der Shiny App}{13}% 
-\contentsline {subsection}{\numberline {5.1}Was ist Shiny?}{13}% 
-\contentsline {subsection}{\numberline {5.2}Ziel der Shiny App}{13}% 
-\contentsline {subsection}{\numberline {5.3}Anwendung der Shiny App}{13}% 
-\contentsline {section}{\numberline {6}Diskussion}{13}% 
-\contentsline {section}{\numberline {7}Literaturverzeichnis}{14}% 
-\contentsline {section}{\numberline {8}Anhang}{14}% 
-\contentsline {section}{\numberline {A}R Code}{14}% 
+\contentsline {subsubsection}{\numberline {3.3.2}\textit {Random Intercept} Modell}{12}% 
+\contentsline {subsubsection}{\numberline {3.3.3}\textit {Random Intercept and Slope} Modell}{12}% 
+\contentsline {subsection}{\numberline {3.4}Anwendung von Multilevel Analyse in R}{12}% 
+\contentsline {subsubsection}{\numberline {3.4.1}R Pakete f\IeC {\"u}r die Multilevel Analyse}{12}% 
+\contentsline {subsubsection}{\numberline {3.4.2}Aufbau eines Modells}{12}% 
+\contentsline {subsubsection}{\numberline {3.4.3}Interpretation des Outputs}{12}% 
+\contentsline {subsubsection}{\numberline {3.4.4}Vergleich von Hierarchischen Linearen Modellen}{12}% 
+\contentsline {section}{\numberline {4}Simulationsstudie zur Multilevel Analyse}{13}% 
+\contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{13}% 
+\contentsline {subsection}{\numberline {4.2}Design der Simulationsstudie}{14}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Generierung von hierarchischen Daten}{14}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Manipulierte Faktoren}{14}% 
+\contentsline {subsubsection}{\numberline {4.2.3}Konstante Faktoren}{14}% 
+\contentsline {subsubsection}{\numberline {4.2.4}Untersuchte Faktoren}{14}% 
+\contentsline {subsection}{\numberline {4.3}Ergebnisse der Simulationsstudie}{14}% 
+\contentsline {section}{\numberline {5}Beschreibung und Anwendung der Shiny App}{14}% 
+\contentsline {subsection}{\numberline {5.1}Was ist Shiny?}{14}% 
+\contentsline {subsection}{\numberline {5.2}Ziel der Shiny App}{14}% 
+\contentsline {subsection}{\numberline {5.3}Anwendung der Shiny App}{14}% 
+\contentsline {section}{\numberline {6}Diskussion}{14}% 
+\contentsline {section}{\numberline {7}Literaturverzeichnis}{15}% 
+\contentsline {section}{\numberline {8}Anhang}{15}% 
+\contentsline {section}{\numberline {A}R Code}{15}% 

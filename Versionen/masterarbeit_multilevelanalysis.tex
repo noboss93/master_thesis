@@ -58,6 +58,19 @@
 \usepackage{a4wide}
 \usepackage[nottoc, numbib]{tocbibind}
 \usepackage{natbib} 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
 \renewcommand{\baselinestretch}{1.5}
 \numberwithin{equation}{section}
 \numberwithin{equation}{subsection}
@@ -130,8 +143,30 @@ Diese Arbeit ist in drei Teile unterteilt. Im ersten Teil wird das Konzept und d
 Wie in der Einleitung erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und wenn diese Strukturen nicht berücksichtigt werden, kann man zu Fehlschlüssen gelangen. In diesem Abschnitt wird nun etwas genauer auf das Konzept und die dahintersteckende Theorie der Multilevel Analyse eingegangen. 
 Dazu wird zuerst ein simulierter Beispieldatensatz vorgestellt. Anhand dieses Beispiels werden zuerst Probleme aufgezeigt, die entstehen, wenn man einfache lineare Modelle verwendet und anschliessend wird das hierarchische lineare Modell (HLM) eingeführt. Das HLM ist das zugrundeliegendes statistisches Modell der Multilevel Analyse und gilt als eine Erweiterung des einfachen linearen Modells \cite{SnijdersTomA.B2012Ma:a}. Dabei werden bei HLMs in \textit{random intercept} und \textit{random intercept and slope} Modelle unterschieden. und erläutert wie die beiden Faktoren \textit{intercept} und \textit{slope} zusammenhängen. Nachdem die verschiedenen Formen von HLMs besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse in R anhand von Beispielen etwas näher gebracht.
 
-\subsection{Simuliertes Beispiel}
-In unserem Beispiel handelt es sich um eine Forschungsgruppe, die untersuchen möchte wie stark der Einfluss der Anzahl Mathematiklektionen in einer Woche auf die Leistungen in einer Mathematikprüfung ist. Dafür wurden aus 10 Schulklassen jeweils 10 Schüler ausgewählt 
+\subsection{Beispiel zur Theorie}
+Im folgenden Abschnitt wird ein kurzes Beispiel vorgestellt, an jenem dann fortlaufend die vorgestellten Methoden illustriert werden. Bei dem Beispiel handelt es sich um insgesamt 50 Schulkindern aus 5 Schulklassen, die eine Mathematikprüfung geschrieben haben. Neben der erreichten Punktzahl jedes Kindes wurden für jedes Kind eine Anzahl an gelösten Übungsaufgaben simuliert. Da dieser Datensatz selbst generiert wurde und aus keiner Studie entstammt, sollten Ergebnisse, die aus diesen Berechnungen entstehen nicht weiter interpretiert werden. Eine genaue Erläuterung wie dieser Datensatz generiert wurde, ist im Abschnitt über die Generierung von hierarchischen Daten zu finden. In Tabelle \ref{tab:beispiel_theorie} befindet sich eine Übersicht über die erreichte Punktzahl jedes Kindes aus allen fünf Klassen.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{crrrrrrrrrr}
+  \hline
+Schüler & Klasse 1 & Klasse 2 & Klasse 3 & Klasse 4 & Klasse 5\\ 
+  \hline
+  1 & 25 & 1 & 17 & 11 & 14 \\ 
+  2 & 17 & 16 & 31 & 16 & 25 \\ 
+  3 & 23 & 14 & 17 & 17 & 22 \\ 
+  4 & 17 & 14 & 28 & 25 & 18 \\ 
+  5 & 19 & 6 & 24 & 17 & 20 \\ 
+  6 & 13 & 10 & 21 & 10 & 22 \\ 
+  7 & 12 & 10 & 16 & 26 & 17 \\ 
+  8 & 20 & 13 & 22 & 24 & 14 \\ 
+  9 & 15 & 7 & 23 & 24 & 25 \\ 
+  10 & 15 & 7 & 11 & 21 & 17 \\ 
+   \hline
+\end{tabular}
+\caption{Erzielte Leistung in Mathematikprüfung} 
+\label{tab:beispiel_theorie}
+\end{table}
 
 \subsection{Einfache Lineare Modelle}
 
