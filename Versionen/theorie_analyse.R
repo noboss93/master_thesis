@@ -83,6 +83,15 @@ test[,3] <- round(test[,3])
 # saveRDS(test, file = "dataset_theory")
 test <- readRDS("dataset_theory")
 
+# Latex Tabelle -----------------------------------------------------------
+
+test <- test[sample(1:length(test[,1])),]
+
+xtable(head(test, n = 10), digits = 0)
+
+
+# Theory Plots LM ---------------------------------------------------------
+
 as4 <- lm(data = test, leistung ~ uebung)
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
@@ -98,32 +107,29 @@ ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
 
-test <- test[sample(1:length(test[,1])),]
+ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
+  geom_point(aes(shape = klasse)) +
+  geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
 
-xtable(head(test, n = 10), digits = 0)
+ggplot(data = test, mapping = aes(sample = leistung, shape = klasse))+
+  geom_qq() + 
+  geom_qq_line()
 
-lm <- lmer(data = test, leistung ~ (1|klasse))
-lm2 <- lmer(data = test, leistung ~ math_lektionen + (1|klasse))
-lm3 <- lmer(data = test, leistung ~ math_lektionen + (math_lektionen | klasse))
-as <- lm(data = test, leistung ~ klasse)
+ggplot(data = test, mapping = aes(sample = leistung))+
+  geom_qq() +
+  geom_qq_line()
+
+
+# Regressionsmodelle ------------------------------------------------------
+
+lm0 <- lmer(leistung ~ (1|klasse), data = test)
+lm2 <- lmer(leistung ~ math_lektionen + (1|klasse), data = test)
+lm3 <- lmer(leistung ~ math_lektionen + (math_lektionen | klasse), data = test)
+
+as0 <- lm(data = test, leistung ~ klasse)
+as1 <- lm(data = test, leistung ~ math_lektionen)
 as2 <- lm(data = test, leistung ~ math_lektionen + klasse)
 as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
-as4 <- lm(data = test, leistung ~ math_lektionen)
-summary(lm)
-summary(lm2)
-
-summary(as)
-summary(as2)
-summary(as3)
-summary(as4)
-
-
-anova(lm, lm2, lm3, test = "LRT")
-anova(as, as2, as3, test = "LRT")
-
-anova(lm3, as4, test = "LRT")
-
-anova(as)
 
 
 
