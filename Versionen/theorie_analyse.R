@@ -7,23 +7,22 @@ library(ggplot2)
 saveRDS(beispiel, file = "beispiel_theorie")
 
 # Funktion ----------------------------------------------------------------
+rtnorm <- function(n, mean, sd, a = -Inf, b = Inf){
+  qnorm(runif(n, pnorm(a, mean, sd), pnorm(b, mean, sd)), mean, sd)
+}
 
 gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 0, 
                         corr = 0, sd_error = 5, b00 = 15, b10 = 0.35){
   
-  # Creating Treatment as Level-1 Variable
+  # Creating Level-1 Variable
   uebung <- sample(rep(c(0:29), each = n/length(c(0:29))), n)
   geschl <- sample(rep(c("m", "w"), each = n/2), n)
   iq <- round(rnorm(n, mean = 100, sd = 10))
   ses <- round(rnorm(n, mean = 20, sd = 4))
   klasse <- rep(1:nklassen, each = n/nklassen)
   
-  # Creating Treatment as Level-2 Variable
-  anz_fenster <- sample(c(3:10), n, replace = TRUE)
-  fenster <- c()
-  for (i in 1:n){
-    fenster[i] <- anz_fenster[klasse[i]]
-  }
+  # Creating Level-2 Variable
+  didaktik <- round(rtnorm(n, mean = 5, sd = 2, a = 0, b = 10))
   
   
   # Creating random effects of klassen
@@ -66,7 +65,7 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
   klasse <- as.factor(klasse)
   levels(klasse) <- c(1:nklassen)
   
-  ml_data <- data.frame(klasse, uebung, leistung, geschl, fenster, ses, iq)
+  ml_data <- data.frame(klasse, uebung, leistung, geschl, didaktik, ses, iq)
   
   return(ml_data)
 }
