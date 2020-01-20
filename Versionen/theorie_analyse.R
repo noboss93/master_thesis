@@ -82,6 +82,18 @@ test[,3] <- round(test[,3])
 # saveRDS(test, file = "dataset_theory")
 test <- readRDS("dataset_theory")
 
+
+leistung_aggr <- c()
+uebung_aggr <- c()
+klasse <- c(1:5)
+for (i in 1:5){
+leistung_aggr[i] <- mean(test[test[,1]==i,3])
+uebung_aggr[i] <- mean(test[test[,1]==i,2])
+}
+
+data_aggr <- data.frame(matrix(c(klasse, uebung_aggr, leistung_aggr), ncol = 3, nrow = 5))
+colnames(data_aggr) <- c("klasse", "uebung", "leistung")
+data_aggr[,1] <- as.factor(data_aggr[,1])
 # Latex Tabelle -----------------------------------------------------------
 
 test <- test[sample(1:length(test[,1])),]
@@ -118,6 +130,10 @@ ggplot(data = test, mapping = aes(sample = leistung))+
   geom_qq() +
   geom_qq_line()
 
+ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
+  geom_point(aes(shape = klasse))+
+  geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
+
 
 # Regressionsmodelle ------------------------------------------------------
 
@@ -130,7 +146,7 @@ as1 <- lm(data = test, leistung ~ math_lektionen)
 as2 <- lm(data = test, leistung ~ math_lektionen + klasse)
 as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
 
-
+lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
 
 
 
