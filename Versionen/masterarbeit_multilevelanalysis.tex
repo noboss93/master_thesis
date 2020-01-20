@@ -111,6 +111,8 @@ Hierarchische Daten treten häufig in den Sozialwissenschaften auf, unter andere
 
 \begin{table}[h!]
 \centering
+\caption{Beispiele für Level-1 und Level-2 Einheiten}
+\vspace{5mm}
 \begin{tabular}{ll}
 \toprule
 Level-1 				& Level-2 	\\
@@ -126,7 +128,7 @@ Therapeuten 			& Kliniken \\
 Mehrere Messzeitpunkte 	& Person \\
 \bottomrule
 \end{tabular}
-\caption{Beispiele für Level-1 und Level-2 Einheiten}
+
 \label{tab:beispiele_levels}
 \end{table}
 
@@ -149,7 +151,9 @@ In den folgenden Abschnitten wird die Theorie zur Analyse von hierarchischen Dat
 
 \begin{table}[ht]
 \centering
-\begin{tabular}{crrrrrrrrrr}
+\caption{Ausschnitt des simulierten Datensatzes} 
+\vspace{5mm}
+\begin{tabular}{cccccccc}
   \toprule
  Schulkind Nr. & Klasse & Übungen & Punktzahl & Geschlecht & Anz. Fenster & SES & IQ \\ 
   \midrule
@@ -165,7 +169,6 @@ In den folgenden Abschnitten wird die Theorie zur Analyse von hierarchischen Dat
   116 & 4 & 14 & 29 & m & 3 & 19 & 90 \\ 
    \bottomrule
 \end{tabular}
-\caption{Ausschnitt des simulierten Datensatzes} 
 \label{tab:beispiel_theorie}
 \end{table}
 
@@ -179,7 +182,27 @@ y_{i} = \beta_{0} + \beta_{1}X_{i1} + \dots + \beta_{ik}X_{ik} + \epsilon_{i}, \
 
 Dabei ist $y_{i}$ die abhängige Variable von der Person $i$. In unserem Beispiel wäre das die erreichte Punktzahl des Schulkindes $i$. $\beta_0$ beschreibt den Achsenabschnittes (\textit{intercept}) und ist die durchschnittlich erreichte Punktzahl in der Mathematikprüfung, wenn keine weitere Prädiktoren berücksichtigt werden. Die weiteren Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben für jede unabhängige Variable $X_{i1}$ bis $X_{ik}$ wie stark $y_{i}$ des $i$-ten Schulkindes bei einer Zunahme um eine Einheit ansteigt. Die Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben also die Steigung (\textit{slope}). Möchten wir in unserem Beispiel die erreichte Punktzahl durch die Anzahl gelöster Übungsaufgaben beschreiben, wäre $X_{i1}$ die Anzahl gelöster Übungsaufgaben des $i$-ten Schulkindes und der dazugehörige Regressionskoeffizient $\beta_{1}$ gibt die Zunahme der Punktzahl in der Mathematikprüfung an. Der letzte Koeffizient des Regressionsmodells ist $\epsilon_{i}$ und wird als zufälliger Fehler oder Residuum bezeichnet. Das Residuum ist die normal verteilte zufällige Abweichung jedes $i$-ten Schulkindes, mit einem Erwartungswert von 0 und Varianz von $\sigma^{2}$. Das bedeutet, dass es zwischen den Kindern zufällige Unterschiede in ihrer Prüfungsleistung gibt, die nicht durch das Regressionsmodell erfasst werden. Diese Unterschiede sind im Mittel aber 0. 
 
-Möchten wir nun dein Einfluss von Übungsaufgaben auf die erreichte Punktzahl in der Mathematikprüfung untersuchen 
+Möchten wir nun dein Einfluss von Übungsaufgaben auf die erreichte Punktzahl in der Mathematikprüfung untersuchen gibt es zwei Möglichkeiten, wie man mit dem linearen Regressionsmodell diese Frage untersuchen kann. Bei der ersten Möglichkeit würde man für jede Klasse die Mittelwerte für die Prüfungsleistung und die Anzahl gelöster Übungsaufgaben berechnen und anhand dieser Mittelwerte die Forschungsfrage untersuchen. Diese Methode wird in der Literatur als Aggregation bezeichnet \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. In Tabelle \ref{tab:aggregation} wurde für jede der fünf Schulklassen die Durchschnittswerte berechnet.
+
+\begin{table}[ht]
+\centering
+\caption{Durchschnittliche Anzahl gelöster Übungsaufgaben und erreichte Punktzahl}
+\vspace{5mm}
+\begin{tabular}{ccc}
+  \hline
+Klasse & Übungen & Punktzahl \\ 
+  \hline
+1 & 13.1 & 21.5 \\ 
+2 & 12.8 & 29.3 \\ 
+3 & 13.5 & 30.7 \\ 
+4 & 15.7 & 25.6 \\ 
+5 & 17.5 & 24.7 \\ 
+   \hline
+\end{tabular}
+\label{tab:aggregation}
+\end{table}
+
+Wird nun anhand dieser aggregierter Werte untersucht, wie genau die erreichte Punktzahl eines Schulkindes mit der Anzahl an gelösten Übungsaufgaben zusammenhängt, entstehen mehrere Probleme, die zu Verzerrungen und Fehlschlüssen führen können. Zum einen verändert sich die Forschungsfrage, da durch die Aggregation der Fokus von Level-1 auf Level-2 gelegt wird \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Mit diesen Werte untersucht man nicht mehr die erreichte Punktzahl jedes einzelnen Schülers, sondern nur noch die durchschnittlich erreichte Punktzahl pro Klasse. Das bedeutet, dass man bei den Ergebnissen nicht mehr zwischen Level-1 und Level-2 
 
 \subsection{Hierarchische Linearen Modelle}
 Hierarchische Lineare Modelle sind, wie bereits angedeutet eine Erweiterung von einfachen linearen Regressionsmodellen. 
