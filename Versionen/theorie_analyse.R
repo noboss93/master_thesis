@@ -110,32 +110,35 @@ ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
   geom_point(size = 2)+
   geom_smooth(method = "lm", se = FALSE, col = "red", size = 1) +
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
-  theme_gray(base_size = 20)
+  theme_gray(base_size = 15)
 
-
-
-
-
-
-
+# Regression Disagregation
 as4 <- lm(data = test, leistung ~ uebung)
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
   geom_abline(intercept = coef(as4)[1], slope = coef(as4)[2], size = 1)+
-  facet_wrap(~klasse)
+  facet_wrap(~klasse)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  theme_gray(base_size = 15)
 
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
-  geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)+
-  facet_wrap(~klasse)
+  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
+  facet_wrap(~klasse)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  theme_gray(base_size = 15)
 
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point() +
-  geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
+  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  theme_gray(base_size = 15)
 
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point(aes(shape = klasse)) +
-  geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
+  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  theme_gray(base_size = 15)
 
 ggplot(data = test, mapping = aes(sample = leistung, shape = klasse))+
   geom_qq() + 
@@ -159,7 +162,6 @@ as2 <- lm(data = test, leistung ~ math_lektionen + klasse)
 as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
 
 lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
-
 
 
 

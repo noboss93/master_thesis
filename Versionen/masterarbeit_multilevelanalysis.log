@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  21 JAN 2020 16:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.25)  21 JAN 2020 16:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,7 +798,8 @@ Underfull \hbox (badness 3895) in paragraph at lines 215--215
  gel[]osten An-zahl an
  []
 
-[14 <./aggregation.png>] [15] [16] [17] (./masterarbeit_multilevelanalysis.bbl
+[14 <./aggregation.png>] [15] [16] [17] [18]
+(./masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 18--36
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -810,7 +811,7 @@ Underfull \hbox (badness 6396) in paragraph at lines 18--36
   Zu-griff auf
  []
 
-) [18] [19] (./masterarbeit_multilevelanalysis.aux) ) 
+) [19] [20] (./masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
  18092 strings out of 492609
  343084 string characters out of 6129048
@@ -830,11 +831,11 @@ st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (19 pages, 210296 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (20 pages, 211684 bytes).
 
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 120 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
