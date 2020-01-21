@@ -4,7 +4,6 @@ library(dplyr)
 library(tidyr)
 library(lme4)
 library(ggplot2)
-saveRDS(beispiel, file = "beispiel_theorie")
 
 # Funktion ----------------------------------------------------------------
 rtnorm <- function(n, mean, sd, a = -Inf, b = Inf){
@@ -77,18 +76,18 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
 test <- gen_ml_data(n = 150, nklassen = 5, sd_intercept = 2, 
                     b10 = 0.5, b00 = 20,
                     sd_slope = 0.2, corr = 0.5, sd_error = 5)
-test[,3] <- round(test[,3])
 
 # saveRDS(test, file = "dataset_theory")
 test <- readRDS("dataset_theory")
 
-
+# Aggregated Dataframe
 leistung_aggr <- c()
 uebung_aggr <- c()
 klasse <- c(1:5)
+
 for (i in 1:5){
-leistung_aggr[i] <- mean(test[test[,1]==i,3])
-uebung_aggr[i] <- mean(test[test[,1]==i,2])
+  leistung_aggr[i] <- mean(test[test[,1]==i,3])
+  uebung_aggr[i] <- mean(test[test[,1]==i,2])
 }
 
 data_aggr <- data.frame(matrix(c(klasse, uebung_aggr, leistung_aggr), ncol = 3, nrow = 5))
@@ -96,10 +95,11 @@ colnames(data_aggr) <- c("klasse", "uebung", "leistung")
 data_aggr[,1] <- as.factor(data_aggr[,1])
 # Latex Tabelle -----------------------------------------------------------
 
+# Intro Beispiel
 test <- test[sample(1:length(test[,1])),]
-
 xtable(head(test, n = 10), digits = 0)
 
+# Aggregated Table
 xtable(data_aggr, digits = 1)
 
 
@@ -108,9 +108,15 @@ xtable(data_aggr, digits = 1)
 # Regression Aggregation
 ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
   geom_point(size = 2)+
-  geom_smooth(method = "lm", se = FALSE, col = "black", size = 2) +
+  geom_smooth(method = "lm", se = FALSE, col = "red", size = 1) +
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
-  theme_gray(base_size = 15)
+  theme_gray(base_size = 20)
+
+
+
+
+
+
 
 as4 <- lm(data = test, leistung ~ uebung)
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+

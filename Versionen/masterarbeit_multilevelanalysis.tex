@@ -182,13 +182,14 @@ y_{i} = \beta_{0} + \beta_{1}X_{i1} + \dots + \beta_{ik}X_{ik} + \epsilon_{i}, \
 
 Dabei ist $y_{i}$ die abhängige Variable von der Person $i$. In unserem Beispiel wäre das die erreichte Punktzahl des Schulkindes $i$. $\beta_0$ beschreibt den Achsenabschnittes (\textit{intercept}) und ist die durchschnittlich erreichte Punktzahl in der Mathematikprüfung, wenn keine weitere Prädiktoren berücksichtigt werden. Die weiteren Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben für jede unabhängige Variable $X_{i1}$ bis $X_{ik}$ wie stark $y_{i}$ des $i$-ten Schulkindes bei einer Zunahme um eine Einheit ansteigt. Die Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben also die Steigung (\textit{slope}). Möchten wir in unserem Beispiel die erreichte Punktzahl durch die Anzahl gelöster Übungsaufgaben beschreiben, wäre $X_{i1}$ die Anzahl gelöster Übungsaufgaben des $i$-ten Schulkindes und der dazugehörige Regressionskoeffizient $\beta_{1}$ gibt die Zunahme der Punktzahl in der Mathematikprüfung an. Der letzte Koeffizient des Regressionsmodells ist $\epsilon_{i}$ und wird als zufälliger Fehler oder Residuum bezeichnet. Das Residuum ist die normal verteilte zufällige Abweichung jedes $i$-ten Schulkindes, mit einem Erwartungswert von 0 und Varianz von $\sigma^{2}$. Das bedeutet, dass es zwischen den Kindern zufällige Unterschiede in ihrer Prüfungsleistung gibt, die nicht durch das Regressionsmodell erfasst werden. Diese Unterschiede sind im Mittel aber 0. 
 
+Möchte man mit einem linearen Regressionsmodell die Daten unseres Beispiels untersuchen gibt es zwei Möglichkeiten. Die erste Möglichkeit ist die Aggregation, bei der Mittelwerte für jede Klasse berechnet werden und die häufig in den Sozialwissenschaften angewandt wird \citep{SnijdersTomA.B2012Ma:a}. Die zweite Möglichkeit ist die Disaggregation, bei der die Klassenstruktur aufgelöst wird und alle 150 Schulkinder als unabhängige Werte in die Analyse einfliessen.
+
 \subsubsection{Aggregation}
+Wie bereits erwähnt, werden bei der Aggregation für jede Level-2 Einheit Mittelwerte berechnet, die später in das Regressionsmodell einfliessen. Ausgehend von unserem Beispiel könnte man sich nun für den Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl in der Mathematikprüfung interessieren. In Tabelle \ref{tab:aggregation} sind die relevanten Mittelwerte für jede der fünf Schulklassen aufgelistet.
 
-Möchten man nun den Einfluss von Übungsaufgaben auf die erreichte Punktzahl in der Mathematikprüfung untersuchen, gibt es zwei Möglichkeiten, wie man mit dem linearen Regressionsmodell diese Frage überprüfen kann. Bei der ersten Möglichkeit würde man für jede Klasse die Mittelwerte für die Prüfungsleistung und die Anzahl gelöster Übungsaufgaben berechnen und anhand dieser Mittelwerte die Forschungsfrage untersuchen. Diese Methode wird in der Literatur als Aggregation bezeichnet \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. In Tabelle \ref{tab:aggregation} wurde für jede der fünf Schulklassen die Durchschnittswerte berechnet.
-
-\begin{table}[ht]
+\begin{table}[b]
 \centering
-\caption{Durchschnittliche Anzahl gelöster Übungsaufgaben und erreichte Punktzahl}
+\caption{Mittlere Anzahl gelöster Übungsaufgaben und erreichte Punktzahl}
 \vspace{5mm}
 \begin{tabular}{ccc}
   \hline
@@ -204,18 +205,35 @@ Klasse & Übungen & Punktzahl \\
 \label{tab:aggregation}
 \end{table}
 
-Wird nun anhand dieser aggregierter Werte überprüft, wie genau die erreichte Punktzahl eines Schulkindes mit der Anzahl an gelösten Übungsaufgaben zusammenhängt, entstehen mehrere Probleme, die zu Verzerrungen und Fehlschlüssen führen können. Zum einen verändert sich die Forschungsfrage, da sich durch die Aggregation der Daten der Fokus von der Level-1 Ebene auf die Level-2 Ebene verschiebt \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Die abhängige Variable ist nun nicht mehr die erreichte Punktzahl jedes einzelnen Schulkindes, sondern die durchschnittlich erreichte Punktzahl einer Schulklasse. Ein weiteres Problem ist der Verlust von Variabilität, die durch individuelle Unterschiede zwischen den Schulkindern entsteht \citep{raudenbush2002hierarchical}. Dieser Verlust an Variabilität beträgt nach Raudenbush und Bryk \citeyearpar{raudenbush2002hierarchical} 80-90\% und kann zu massiven Fehlschlüssen über den Zusammenhang der Variablen führen. Einer dieser Fehlschlüsse wird als ökologischer Fehlschluss bezeichnet \citep{SnijdersTomA.B2012Ma:a}. Ein ökologischer Fehlschluss entsteht, wenn man unzulässigerweise aufgrund von aggregierten Ausprägungen eines Merkmals auf die Ausprägung dieses Merkmals in Individuen schliesst \citep{robinson2009ecological}. 
+Wird nun anhand dieser aggregierter Werte überprüft, wie genau die erreichte Punktzahl eines Schulkindes mit der Anzahl an gelösten Übungsaufgaben zusammenhängt, entstehen mehrere Probleme, die zu Verzerrungen und Fehlschlüssen führen können. Zum einen verändert sich die Forschungsfrage, da sich durch die Aggregation der Daten der Fokus von der Level-1 Ebene auf die Level-2 Ebene verschiebt \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Die abhängige Variable ist nun nicht mehr die erreichte Punktzahl jedes einzelnen Schulkindes, sondern die durchschnittlich erreichte Punktzahl einer Schulklasse. Ein weiteres Problem ist der Verlust von Variabilität, die durch individuelle Unterschiede zwischen den Schulkindern entsteht. Dieser Verlust an Variabilität beträgt nach Raudenbush und Bryk 80-90\% und kann zu massiven Fehlschlüssen über den Zusammenhang der Variablen führen \citeyearpar{raudenbush2002hierarchical}. 
 
-Dieser ökologische Fehlschluss lässt sich relativ einfach an unserem Beispiel erklären. Betrachtet man die Regressionsgerade in Abbildung \ref{fig:aggregiert}, könnte man daraus schliessen, dass die Anzahl gelöster Übungsaufgaben in einem negativen Zusammenhang mit der erreichten Punktzahl in der Mathematikprüfung stehen. 
+Betrachtet man die Regressionsgerade in Abbildung \ref{fig:aggregiert}, sieht man, dass ein höhere Anzahl an gelöster Übungsaufgaben mit einer tieferen durchschnittlich erreichten Punktzahl zusammenhängt. Folglich könnte man daraus schliessen, dass dies auch auf Ebene der Schüler zutrifft und eine Erhöhte Anzahl an gelösten Übungsaufgaben mit einer tieferen Punktzahl in der Prüfung einhergeht. Diese Schlussfolgerung ist allerdings unzulässig, da man nicht von einer Korrelation zweier Level-2 Variablen auf den Zusammenhang von Level-1 Variablen schliessen darf \citep{SnijdersTomA.B2012Ma:a}.  Diese fehlerhafte Schlussfolgerung wird als ökologischer Fehlschluss bezeichnet \citep{robinson2009ecological}.
 
-\begin{figure}[hb!]
+\begin{figure}[b!]
 \centering
 \includegraphics[width = 10cm, height = 10cm]{aggregation}
 \caption{Zusammenhang zwischen der durchschnittlich gelösten Anzahl an Übungsaufgaben und der durschnittlich erreichten Punktzahl pro Klasse}
 \label{fig:aggregiert}
 \end{figure}
 
+Die Analyse mittels Aggregation führt folglich nicht zu einem zufriedenstellenden Ergebnis und ist aufgrund der besprochenen Einschränkungen nicht geeignet, um Zusammenhänge auf Level-1 Ebene zu untersuchen.
+
 \subsubsection{Disaggregation}
+Die zweite Möglichkeit wie man hierarchsiche Daten mit einem linearen Regressionsmodell untersuchen kann ist die Disaggregation. Wie bereits angedeutet werden bei der Disaggregation alle Schulkinder als von einander unabhängige Datenpunkten 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Hierarchische Linearen Modelle}
 Hierarchische Lineare Modelle sind, wie bereits angedeutet eine Erweiterung von einfachen linearen Regressionsmodellen. 
