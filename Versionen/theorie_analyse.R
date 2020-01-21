@@ -100,8 +100,17 @@ test <- test[sample(1:length(test[,1])),]
 
 xtable(head(test, n = 10), digits = 0)
 
+xtable(data_aggr, digits = 1)
+
 
 # Theory Plots LM ---------------------------------------------------------
+
+# Regression Aggregation
+ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
+  geom_point(size = 2)+
+  geom_smooth(method = "lm", se = FALSE, col = "black", size = 2) +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  theme_gray(base_size = 15)
 
 as4 <- lm(data = test, leistung ~ uebung)
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
@@ -130,9 +139,6 @@ ggplot(data = test, mapping = aes(sample = leistung))+
   geom_qq() +
   geom_qq_line()
 
-ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
-  geom_point(aes(shape = klasse))+
-  geom_smooth(method = "lm", se = FALSE, col = "black", fullrange = TRUE)
 
 
 # Regressionsmodelle ------------------------------------------------------

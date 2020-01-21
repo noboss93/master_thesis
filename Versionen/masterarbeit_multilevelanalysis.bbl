@@ -137,6 +137,57 @@ R}%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Raudenbush%
+\ \BBA {} Bryk%
+}{%
+Raudenbush%
+\ \BBA {} Bryk%
+}{%
+{\protect \APACyear {2002}}%
+}]{%
+raudenbush2002hierarchical}
+\APACinsertmetastar {%
+raudenbush2002hierarchical}%
+\begin{APACrefauthors}%
+Raudenbush, S\BPBI W.%
+\BCBT {}\ \BBA {} Bryk, A\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2002}.
+\newblock
+\APACrefbtitle {Hierarchical linear models: Applications and data analysis
+  methods} {Hierarchical linear models: Applications and data analysis
+  methods}\ (\BVOL~1).
+\newblock
+\APACaddressPublisher{}{Sage}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Robinson%
+}{%
+Robinson%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+robinson2009ecological}
+\APACinsertmetastar {%
+robinson2009ecological}%
+\begin{APACrefauthors}%
+Robinson, W\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Ecological correlations and the behavior of individuals}
+  {Ecological correlations and the behavior of individuals}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International journal of
+  epidemiology}{38}{2}{337--341}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Snijders%
 \ \BBA {} Bosker%
 }{%
