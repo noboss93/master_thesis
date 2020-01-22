@@ -4,6 +4,8 @@ library(dplyr)
 library(tidyr)
 library(lme4)
 library(ggplot2)
+library(gridExtra)
+library(gridBase)
 
 # Funktion ----------------------------------------------------------------
 rtnorm <- function(n, mean, sd, a = -Inf, b = Inf){
@@ -113,32 +115,40 @@ ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
   theme_gray(base_size = 15)
 
 # Regression Disagregation
-as4 <- lm(data = test, leistung ~ uebung)
-ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
-  geom_point()+
-  geom_abline(intercept = coef(as4)[1], slope = coef(as4)[2], size = 1)+
-  facet_wrap(~klasse)+
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
-  theme_gray(base_size = 15)
-
-ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
-  geom_point()+
-  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
-  facet_wrap(~klasse)+
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
-  theme_gray(base_size = 15)
-
-ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
+a <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
   theme_gray(base_size = 15)
 
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
-  geom_point(aes(shape = klasse)) +
+  geom_point(aes(shape = klasse),  size = 3) +
   geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "", shape = "Klasse") +
+  theme_gray(base_size = 15) +
+  theme(legend.position = c(0.3, 0.9), legend.direction = "horizontal")
+
+as4 <- lm(data = test, leistung ~ uebung)
+b <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
+  geom_point()+
+  geom_abline(intercept = coef(as4)[1], slope = coef(as4)[2], size = 1, col = "red")+
+  facet_wrap(~klasse)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  theme_gray(base_size = 15) +
+  theme(axis.title.y = element_blank())
+
+grid.arrange(a,b, nrow = 1)
+
+
+
+ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
+  facet_wrap(~klasse)+
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
   theme_gray(base_size = 15)
+
+
 
 ggplot(data = test, mapping = aes(sample = leistung, shape = klasse))+
   geom_qq() + 
