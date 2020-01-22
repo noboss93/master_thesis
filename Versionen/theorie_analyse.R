@@ -163,5 +163,5 @@ as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
 
 lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
 
-
+summary(lm0)
 
