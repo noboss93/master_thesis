@@ -80,6 +80,21 @@ power_analyze <- function(x){
     labs(title = "Veränderung von Power / Typ-1 Fehler in versch. Einflussstärken eines Treatments") +
     facet_wrap(~ effectsize_treatment)
 }
+ok <- simulation_study(niter = 100, sd_slope = 2, y10 = 0)
+nok <- simulation_study(niter = 100, sd_slope = 0, y10 = 0)
+
+ggplot(data = ok, mapping = aes(y = SE_beta_treatment, x = method)) +
+  geom_boxplot()
+
+ggplot(data = nok, mapping = aes(y = SE_beta_treatment, x = method)) +
+  geom_boxplot()
+
+ggplot(data = ok, mapping = aes(y = p_value_likelihood, x = method)) +
+  geom_boxplot()
+
+ggplot(data = nok, mapping = aes(y = p_value_likelihood, x = method)) +
+  geom_boxplot()
+
 
 power_lvl1 <- power_analyze(test_sim_lvl1)
 power_lvl2 <- power_analyze(test_sim_lvl2)

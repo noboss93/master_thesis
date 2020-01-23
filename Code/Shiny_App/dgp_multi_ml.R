@@ -1,5 +1,5 @@
-gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 0, 
-                        corr = 0, sd_error = 5, b00 = 15, b10 = 0.35){
+gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 2, 
+                        corr = 0, sd_error = 5, y00 = 15, y10 = 0.35){
   
   # Creating Treatment as Level-1 Variable
   uebung <- sample(rep(c(0:29), each = n/length(c(0:29))), n)
@@ -42,8 +42,8 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
   error <- rnorm(n, mean = 0, sd = sd_error)
   
   # Calculating individual leistung score
-  leistung <- b00 +  
-    b10 * uebung + 
+  leistung <- y00 +  
+    y10 * uebung + 
     random_intercept + 
     random_slope * uebung + 
     error
@@ -56,3 +56,4 @@ gen_ml_data <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 
   
   return(ml_data)
 }
+

@@ -1,4 +1,4 @@
-one_simulation <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 0, 
+one_simulation <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope = 2, 
                            corr = 0, sd_error = 5, y00 = 15, y10 = 0.35){
   
   # loading dgp function
@@ -11,13 +11,13 @@ one_simulation <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope
   
   # calculating model
   lm_model_0 <- lm(leistung ~ 1, data = ml_data)
-  lm_model <- lm(leistung ~  math_lektionen, data = ml_data)
+  lm_model <- lm(leistung ~  uebung, data = ml_data)
   
   mlm_model_0 <- lmer(leistung ~ 1 + (1 | klasse), data = ml_data, REML = FALSE)
-  mlm_I_model <- lmer(leistung ~ math_lektionen + 
+  mlm_I_model <- lmer(leistung ~ uebung + 
                         (1 | klasse), data = ml_data, REML = FALSE)
-  # mlm_IS_model <- lmer(leistung ~ math_lektionen + 
-  #                        (math_lektionen | klasse), data = ml_data)
+  mlm_IS_model <- lmer(leistung ~ uebung + 
+                          (uebung || klasse), data = ml_data, REML = FALSE)
   
   # saving coefficients
   empirical_icc <- VarCorr(mlm_model_0)$klasse[1,1] / (VarCorr(mlm_model_0)$klasse[1,1] 
@@ -38,20 +38,22 @@ one_simulation <- function(n = 15000, nklassen = 300, sd_intercept = 2, sd_slope
   lq_I_mlm <- anova(mlm_model_0, mlm_I_model, test = "LRT")
   p_lq_I_mlm <- lq_I_mlm$`Pr(>Chisq)`[2]
   
-  # beta_IS_mlm <- fixef(mlm_IS_model)
-  # SE_IS_mlm <- summary(mlm_IS_model)$coefficient[,2]
-  # p_IS_mlm <- coef(summary(mlm_IS_model))[,5]
-  # 
-  # lq_IS_mlm <- anova(mlm_I_model, mlm_IS_model, test = "LRT")
-  # p_lq_IS_mlm <- lq_IS_mlm$`Pr(>Chisq)`[2]
+  beta_IS_mlm <- fixef(mlm_IS_model)
+  SE_IS_mlm <- summary(mlm_IS_model)$coefficient[,2]
+  p_IS_mlm <- coef(summary(mlm_IS_model))[,5]
+  
+  lq_IS_mlm <- anova(mlm_model_0, mlm_IS_model, test = "LRT")
+  p_lq_IS_mlm <- lq_IS_mlm$`Pr(>Chisq)`[2]
   
   # saving all coefficients in a matrix
   coefs <- matrix(c(beta_lm, SE_lm, p_lm, p_lq_lm, empirical_icc, theoretical_icc, sd_intercept, sd_error, y10, "lm", 
-                    beta_I_mlm, SE_I_mlm, p_I_mlm, p_lq_I_mlm, empirical_icc, theoretical_icc, sd_intercept, sd_error, y10, "rim"#, 
-                    # beta_IS_mlm, SE_IS_mlm, p_IS_mlm, p_lq_IS_mlm, empirical_icc, theoretical_icc, "rism"
+                    beta_I_mlm, SE_I_mlm, p_I_mlm, p_lq_I_mlm, empirical_icc, theoretical_icc, sd_intercept, sd_error, y10, "rim", 
+                    beta_IS_mlm, SE_IS_mlm, p_IS_mlm, p_lq_IS_mlm, empirical_icc, theoretical_icc, sd_intercept, sd_error, y10,"rism"
                     ), 
                 ncol = 13, byrow = TRUE)
   
   return(coefs)
 }
 
+a <- one_simulation()
+a
