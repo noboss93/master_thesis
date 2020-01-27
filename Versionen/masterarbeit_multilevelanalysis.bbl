@@ -215,6 +215,32 @@ Snijders, T\BPBI A\BPBI B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Twisk%
+}{%
+Twisk%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+twisk_2006}
+\APACinsertmetastar {%
+twisk_2006}%
+\begin{APACrefauthors}%
+Twisk, J\BPBI W\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2006}.
+\newblock
+\APACrefbtitle {Applied Multilevel Analysis: A Practical Guide for Medical
+  Researchers} {Applied multilevel analysis: A practical guide for medical
+  researchers}.
+\newblock
+\APACaddressPublisher{}{Cambridge University Press}.
+\newblock
+\begin{APACrefDOI} \doi{10.1017/CBO9780511610806} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Woltman%
 , Feldstain%
 , MacKay%

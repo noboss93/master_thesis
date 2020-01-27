@@ -115,20 +115,13 @@ ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
   theme_gray(base_size = 15)
 
 # Regression Disagregation
+as4 <- lm(data = test, leistung ~ uebung)
 a <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
   theme_gray(base_size = 15)
 
-ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
-  geom_point(aes(shape = klasse),  size = 3) +
-  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "", shape = "Klasse") +
-  theme_gray(base_size = 15) +
-  theme(legend.position = c(0.3, 0.9), legend.direction = "horizontal")
-
-as4 <- lm(data = test, leistung ~ uebung)
 b <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
   geom_abline(intercept = coef(as4)[1], slope = coef(as4)[2], size = 1, col = "red")+
@@ -138,6 +131,9 @@ b <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   theme(axis.title.y = element_blank())
 
 grid.arrange(a,b, nrow = 1)
+
+
+# Theory Plots HLM --------------------------------------------------------
 
 
 
