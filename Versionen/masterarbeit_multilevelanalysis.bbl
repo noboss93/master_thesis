@@ -114,6 +114,39 @@ Gelman, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Hedges%
+\ \BBA {} Hedberg%
+}{%
+Hedges%
+\ \BBA {} Hedberg%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+hedges&hedberg:2007}
+\APACinsertmetastar {%
+hedges&hedberg:2007}%
+\begin{APACrefauthors}%
+Hedges, L\BPBI V.%
+\BCBT {}\ \BBA {} Hedberg, E\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Intraclass Correlation Values for Planning
+  Group-Randomized Trials in Education} {Intraclass correlation values for
+  planning group-randomized trials in education}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Educational Evaluation and Policy
+  Analysis}{29}{1}{60-87}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.3102/0162373707299706}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.3102/0162373707299706} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 McNeish%
 }{%
 McNeish%
