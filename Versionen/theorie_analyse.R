@@ -159,6 +159,7 @@ ggplot(data = test, mapping = aes(sample = leistung))+
 # Regressionsmodelle ------------------------------------------------------
 
 lm0 <- lmer(leistung ~ (1|klasse), data = test)
+lm01 <- lmer(leistung ~ (uebung|klasse), data = test)
 lm2 <- lmer(leistung ~ math_lektionen + (1|klasse), data = test)
 lm3 <- lmer(leistung ~ math_lektionen + (math_lektionen | klasse), data = test)
 
@@ -170,6 +171,7 @@ as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
 lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
 
 summary(lm0)
+summary(lm01)
 anova(as0)
 summary(as0)
 

@@ -6,8 +6,8 @@
 \contentsline {section}{\numberline {3}Konzept und Anwendung von Multilevel Analyse}{10}%
 \contentsline {subsection}{\numberline {3.1}Beispiel zur Theorie}{10}%
 \contentsline {subsection}{\numberline {3.2}Intraklassen Korrelation}{12}%
-\contentsline {subsection}{\numberline {3.3}Lineare Modelle}{12}%
-\contentsline {subsubsection}{\numberline {3.3.1}Aggregation}{13}%
+\contentsline {subsection}{\numberline {3.3}Lineare Modelle}{13}%
+\contentsline {subsubsection}{\numberline {3.3.1}Aggregation}{14}%
 \contentsline {subsubsection}{\numberline {3.3.2}Disaggregation}{15}%
 \contentsline {subsection}{\numberline {3.4}Hierarchische Linearen Modelle}{17}%
 \contentsline {subsubsection}{\numberline {3.4.1}\textit {Random Intercept} Modell}{18}%
@@ -15,8 +15,8 @@
 \contentsline {subsection}{\numberline {3.5}Anwendung von Multilevel Analyse in R}{18}%
 \contentsline {subsubsection}{\numberline {3.5.1}R Pakete für die Multilevel Analyse}{18}%
 \contentsline {subsubsection}{\numberline {3.5.2}Aufbau eines Modells}{18}%
-\contentsline {subsubsection}{\numberline {3.5.3}Interpretation des Outputs}{18}%
-\contentsline {subsubsection}{\numberline {3.5.4}Vergleich von Hierarchischen Linearen Modellen}{18}%
+\contentsline {subsubsection}{\numberline {3.5.3}Interpretation des Outputs}{19}%
+\contentsline {subsubsection}{\numberline {3.5.4}Vergleich von Hierarchischen Linearen Modellen}{19}%
 \contentsline {section}{\numberline {4}Simulationsstudie zur Multilevel Analyse}{19}%
 \contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{19}%
 \contentsline {subsection}{\numberline {4.2}Design der Simulationsstudie}{20}%
