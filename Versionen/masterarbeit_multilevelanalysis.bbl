@@ -59,6 +59,33 @@ Dorman, J\BPBI P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Field%
+, Miles%
+\BCBL {}\ \BBA {} Field%
+}{%
+Field%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+FieldAndy2013DsuR}
+\APACinsertmetastar {%
+FieldAndy2013DsuR}%
+\begin{APACrefauthors}%
+Field, A.%
+, Miles, J.%
+\BCBL {}\ \BBA {} Field, Z.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2013}.
+\newblock
+\APACrefbtitle {Discovering statistics using R} {Discovering statistics using
+  r}\ (\PrintOrdinal{Reprinted}\ \BEd).
+\newblock
+\APACaddressPublisher{Los Angeles}{Sage}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Gelman%
 \ \BBA {} Hill%
 }{%

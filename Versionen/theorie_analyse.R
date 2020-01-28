@@ -162,7 +162,7 @@ lm0 <- lmer(leistung ~ (1|klasse), data = test)
 lm2 <- lmer(leistung ~ math_lektionen + (1|klasse), data = test)
 lm3 <- lmer(leistung ~ math_lektionen + (math_lektionen | klasse), data = test)
 
-as0 <- lm(data = test, leistung ~ klasse)
+as0 <- lm(data = test, leistung ~ uebung * klasse)
 as1 <- lm(data = test, leistung ~ math_lektionen)
 as2 <- lm(data = test, leistung ~ math_lektionen + klasse)
 as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
@@ -170,4 +170,6 @@ as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
 lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
 
 summary(lm0)
+anova(as0)
+summary(as0)
 
