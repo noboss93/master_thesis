@@ -3,18 +3,23 @@ library(lme4)
 library(lmerTest)
 library(ggplot2)
 
+saveRDS(test_lvl2, file = "test_sim_lvl2")
+saveRDS(test_lvl1, file = "test_sim_lvl1")
+
 # Simulating test study
 source("simulation_study.R")
 test_lvl1 <- simulation_study(niter = 10, sd_intercept = c(0,1,2,3,4,5), 
-                              y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5))
+                              y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5), treatment_level1 = TRUE)
 
 power_analyze(test_lvl1)
-saveRDS(test_lvl1, file = "test_sim_lvl1")
 
+test_lvl2 <- simulation_study(niter = 10, sd_intercept = c(0,1,2,3,4,5), 
+                              y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5), treatment_level1 = FALSE)
+power_analyze(test_lvl2)
 
-test_lvl2 <- simulation_study(niter = 1000, sd_intercept = c(0,1,2,3,4,5), 
-                              y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5))
-saveRDS(test_lvl2, file = "test_sim_lvl2")
+ggplot(data = test_lvl1, mapping = aes(x = p_value_treatment, group = method))+
+  geom_histogram() +
+  facet_wrap(~ method + effect_treatment)
 
 # loading files
 test_sim_lvl1 <- readRDS("test_sim_lvl1")
@@ -33,7 +38,7 @@ ggplot(data = test_sim_lvl2, mapping = aes(y = p_value_likelihood, x = method, f
 power_analyze <- function(x){
   y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5)
   sd_i = c(0,1,2,3,4,5)
-  meth = c("lm", "rim")
+  meth = c("lm", "mlm")
   
   a <- matrix(ncol = 6, nrow = 6)
   b <- matrix(ncol = 6, nrow = 6)
@@ -75,8 +80,8 @@ power_analyze <- function(x){
   power_dataframe[,1] <- as.numeric(as.character(power_dataframe[,1]))
   colnames(power_dataframe) <- c("power", "effectsize_treatment", "theoretical_icc", "method")
   
-  ggplot(data = power_dataframe, mapping = aes(x = theoretical_icc , y = power, group = method)) +
-    geom_line(aes(color = method)) +
+  ggplot(data = power_dataframe, mapping = aes(x = p_value_treatment , group = method)) +
+    geom_histogram(aes(color = method)) +
     labs(title = "Veränderung von Power / Typ-1 Fehler in versch. Einflussstärken eines Treatments") +
     facet_wrap(~ effectsize_treatment)
 }
