@@ -222,19 +222,10 @@ Die Aggregation als auch die Disaggregation der Daten unterliegen massiven Einsc
 \subsection{Hierarchische Linearen Modelle}
 In den letzten Abschnitten wurde aufgezeigt, dass mit Hilfe von linearen Modellen keine zufriedenstellende Analysen durchgeführt werden können. In den folgenden Abschnitten werden nun hierarchische lineare Modelle vorgestellt, mit denen es möglich ist solche Datenstrukturen zu analysieren. Als erstes wird das \textit{Random Intercept} Modell vorgestellt. Dieses Modell geht davon aus, dass die Höhe des Achsenabschnittes (\textit{intercept}) von der Gruppenzugehörigkeit abhängt. Das zweite besprochenen Modell ist das \textit{Random Intercept and Slope} Modell, bei dem sich nicht nur der Achsenabschnitt, sondern auch die Steigung (\textit{slope}) in Abhängigkeit der Gruppe unterscheidet.
 
-
-
-
-
-
-
-
-
-
-
-
-
 \subsubsection{\textit{Random Intercept} Modell}
+Wie bereits erwähnt sind hierarchische lineare Modelle eine Erweiterung von einfachen linearen Modellen \citep{SnijdersTomA.B2012Ma:a, twisk_2006}. Ausgehend von dem linearen Regressionsmodell aus Formel \ref{eq:ols_model}
+
+
 \subsubsection{\textit{Random Intercept and Slope} Modell}
 
 \subsection{Anwendung von Multilevel Analyse in R} \label{section:ml_in_R}

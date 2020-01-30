@@ -6,6 +6,10 @@ library(lme4)
 library(ggplot2)
 library(gridExtra)
 library(gridBase)
+library(extrafont)
+
+font_import()
+loadfonts(device="win") 
 
 # Funktion ----------------------------------------------------------------
 rtnorm <- function(n, mean, sd, a = -Inf, b = Inf){
