@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  28 JAN 2020 18:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 JAN 2020 11:25
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -772,11 +772,11 @@ Package pdftex.def Info: uzh_logo-eps-converted-to.pdf  used on input line 90.
 [1
 
 {C:/Users/nboss/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./uzh_logo-
-eps-converted-to.pdf>] (masterarbeit_multilevelanalysis.toc [2])
+eps-converted-to.pdf>] (masterarbeit_multilevelanalysis.toc [1])
 \tf@toc=\write3
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
- [3]
+ [2]
 (masterarbeit_multilevelanalysis.lof
 Overfull \hbox (30.6765pt too wide) in paragraph at lines 2--2
  [][] []\OT1/cmr/m/n/12 Zusammenhang zwi-schen der durch-schnitt-lich gel[]oste
@@ -787,34 +787,34 @@ n An-zahl an []Ubungsaufgaben
 \tf@lof=\write4
 \openout4 = `masterarbeit_multilevelanalysis.lof'.
 
- [4] (masterarbeit_multilevelanalysis.lot)
+ [3] (masterarbeit_multilevelanalysis.lot)
 \tf@lot=\write5
 \openout5 = `masterarbeit_multilevelanalysis.lot'.
 
- [5] [6]
+ [4] [5]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7] [8] [9] [10] [11] [12] [13] [14] [15]
-<aggregation.png, id=67, 702.625pt x 702.625pt>
+[1] [2] [3] [4] [5] [6] [7] [8] [9]
+<aggregation.png, id=67, 526.96875pt x 526.96875pt>
 File: aggregation.png Graphic file (type png)
 <use aggregation.png>
-Package pdftex.def Info: aggregation.png  used on input line 231.
-(pdftex.def)             Requested size: 284.5294pt x 284.5294pt.
+Package pdftex.def Info: aggregation.png  used on input line 234.
+(pdftex.def)             Requested size: 284.5428pt x 284.5428pt.
 
-Underfull \hbox (badness 3895) in paragraph at lines 232--232
+Underfull \hbox (badness 3895) in paragraph at lines 235--235
 []\OT1/cmr/m/n/12 Abbildung 1: Zu-sam-men-hang zwi-schen der durch-schnitt-lich
  gel[]osten An-zahl an
  []
 
-[16 <./aggregation.png>] [17]
-<disaggregation_combined.png, id=76, 1304.875pt x 702.625pt>
+[10 <./aggregation.png>]
+<disaggregation_combined.png, id=72, 978.65625pt x 526.96875pt>
 File: disaggregation_combined.png Graphic file (type png)
 <use disaggregation_combined.png>
-Package pdftex.def Info: disaggregation_combined.png  used on input line 247.
-(pdftex.def)             Requested size: 460.72124pt x 248.07738pt.
- [18] [19 <./disaggregation_combined.png>]
-[20] [21] (masterarbeit_multilevelanalysis.bbl
+Package pdftex.def Info: disaggregation_combined.png  used on input line 248.
+(pdftex.def)             Requested size: 460.72124pt x 248.08542pt.
+ [11] [12 <./disaggregation_combined.png>] [13]
+[14] [15] [16] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 18--36
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -826,11 +826,11 @@ Underfull \hbox (badness 6396) in paragraph at lines 18--36
   Zu-griff auf
  []
 
-[22]) [23] (masterarbeit_multilevelanalysis.aux) ) 
+[17]) [18] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
  18552 strings out of 492450
  352189 string characters out of 3129748
- 410048 words of memory out of 3000000
+ 410041 words of memory out of 3000000
  22693 multiletter control sequences out of 15000+200000
  542967 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -847,10 +847,10 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (23 pages, 339964 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (24 pages, 258728 bytes).
 
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
+ 139 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

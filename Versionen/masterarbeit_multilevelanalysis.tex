@@ -91,8 +91,10 @@
 \end{figure}
 
 \maketitle
+\thispagestyle{empty}
 
 \newpage
+\pagenumbering{Roman}
 \tableofcontents
 
 \newpage
@@ -100,12 +102,13 @@
 
 \newpage
 \listoftables
-
 \newpage
+
+
 \section{Abstract}
-
 \newpage
 
+\pagenumbering{arabic}
 \section{Einleitung}
 Hierarchische Daten treten häufig in den Sozialwissenschaften auf, unter anderem auch in der Psychologie \citep{SnijdersTomA.B2012Ma:a}. Von hierarchischen Daten wird gesprochen, wenn beispielsweise Daten von Schulkindern innerhalb verschiedener Schulklassen oder von Mitarbeitern aus mehreren Teams erhoben werden. Aber auch Daten aus Langzeitstudien werden als gruppiert bezeichnet, da mehrere Messzeitpunkte innerhalb einer Person gruppiert sind. Hierarchische Daten werden in Levels unterteilt, wobei Daten aus der niedrigsten Stufe als Level-1 Einheiten bezeichnet werden \citep{SnijdersTomA.B2012Ma:a}. Ein Beispiel für Level-1 Einheiten sind Schulkinder. Diese Schulkinder befinden sich wiederum in Klassen, die in der Hierarchiestufe höher sind und folglich als Level-2 Einheiten bezeichnet werden. Würde man nun in einer Studie nicht nur Schulkinder in Schulklassen, sondern auch  die Schulen selbst berücksichtigen, würden die Schulen als Level-3 Einheit bezeichnet werden. Die Anzahl der Levels könnte man theoretisch beliebig hoch wählen, solange es das Studiendesign erlaubt und es aus der Perspektive der Forschungsfrage sinnvoll ist. Der Einfachheit halber beschränken wir uns im Laufe dieser Arbeit aber auf hierarchische Daten mit zwei Levels. In Tabelle \ref{tab:beispiele_levels} werden einige Beispiele für Level-1 und Level-2 Einheiten aufgeführt. 
 
@@ -190,7 +193,7 @@ Um nun zu überprüfen, ob in unserem Datensatz überhaupt abhängige hierarchis
 \begin{equation} \label{eq:icc_calc}
 \rho_{I} = \dfrac{12.33}{12.33 + 44} = 0.22
 \end{equation}
-Die daraus resultierende Intraklassen Korrelation von $\rho_{I} = 0.22$ weist darauf hin, dass 22\% der Varianz in der erreichten Punktzahl in der Mathematikprüfung durch die Klassenzugehörigkeit erklärt wird. Gemäss Hedges und Hedberg \citeyearpar{hedges&hedberg:2007} werden in den Erziehungswissenschaften oft Intraklassen Korrelationen von 0.10 und 0.25 gefundenn. Folglich liegt unsere IKK von $\rho_{I} = 0.22$ in einem realistischen Bereich. Eine Intraklassen Korrelation von $\rho_{I} > 0$ bedeutet aber noch nicht, dass eine Multilevel Analyse notwendig ist. Unter der Annahme, dass die zufällige Abweichungen der Schulkinder $R_{ij}$ normalverteilt sind, kann gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} eine Varianzanalyse durchgeführt werden, um zu untersuchen ob Gruppenunterschiede vorhanden sind. In unserem Fall führte die Varianzanalyse zu einem hoch signifikantem Ergebnis ($p<.001$) und es bestehen folglich signifikante Unterschiede zwischen den Klassen. Wir wissen nun nicht nur, wie viel Varianz durch die Klasse erklärt wird sondern auch, dass diese sich signifikant Unterscheiden. Folglich sollten diese Daten mit einem Multilevel Ansatz analysiert werden.
+Die daraus resultierende Intraklassen Korrelation von $\rho_{I} = 0.22$ weist darauf hin, dass 22\% der Varianz in der erreichten Punktzahl in der Mathematikprüfung durch die Klassenzugehörigkeit erklärt wird. Gemäss Hedges und Hedberg \citeyearpar{hedges&hedberg:2007} werden in den Erziehungswissenschaften oft Intraklassen Korrelationen von 0.10 und 0.25 gefundenn. Folglich liegt unsere IKK von $\rho_{I} = 0.22$ in einem realistischen Bereich. Eine Intraklassen Korrelation von $\rho_{I} > 0$ bedeutet aber noch nicht, dass eine Multilevel Analyse notwendig ist. Unter der Annahme, dass die zufällige Abweichungen der Schulkinder $R_{ij}$ normalverteilt sind, kann gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} eine Varianzanalyse durchgeführt werden, um zu untersuchen, ob Gruppenunterschiede vorhanden sind. In unserem Fall führte die Varianzanalyse zu einem hoch signifikantem Ergebnis ($p<.001$) und es bestehen folglich signifikante Unterschiede zwischen den Klassen. Wir wissen nun nicht nur, wie viel Varianz durch die Klasse erklärt wird sondern auch, dass diese sich signifikant Unterscheiden. Folglich sollten diese Daten mit einem Multilevel Ansatz analysiert werden.
 
 \subsection{Lineare Modelle}
 Bevor wir uns mit den hierarchischen linearen Modellen beschäftigen, werden die Grundlagen der linearen Regression kurz erläutert und aufgezeigt zu welchen Problemen es führen kann, wenn die hierarchische Datenstruktur ignoriert wird. Gemäss Gelman und Hill \citeyearpar{andrew_data} ist die lineare Regression eine Methode, die Veränderungen von Durchschnittswerten einer abhängigen Variablen durch eine lineare Funktion von Prädiktoren beschreibt. In etwas einfacheren Worten ausgedrückt, versucht die lineare Regression durch die Kombination von unabhängigen Variablen die mittlere Ausprägung einer abhängigen Variable zu beschreiben. Ein lineares Regressionsmodell kann wie folgt formuliert werden:
@@ -240,8 +243,6 @@ Die zweite Möglichkeit um hierarchsiche Daten mit einem linearen Regressionsmod
 
 In unserem Beispiel werden also alle Schulkinder als von einander unabhängige Datenpunkte in die Analyse mit einbezogen. Dazu werden jedem Schulkind aus der selben Klasse die gleichen Werte der Level-2 Variablen zugeschrieben. In Tabelle \ref{tab:beispiel_theorie} aus Abschnitt \ref{section:bsp_theorie} kann man dieses Vorgehen bei den beiden Level-2 Variablen \textit{Klasse} und \textit{Fenster} beobachten. Durch diese Disaggregation von Level-2 Variablen auf Level-1 Einheiten werden Datensätze künstlich vergrössert und mögliche Variabilität, die zwischen den Level-2 Variablen besteht, wird ignoriert \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Folglich wird die geteilt Varianz zwischen Level-1 Einheiten nicht berücksichtigt und die Annahme, dass Fehler voneinander unabhängig sind, ist verletzt. Das führt dazu, dass die Effekte von Level-1 und Level-2 Variablen auf die abhängige Variable nicht voneinander getrennt werden können \citep{woltman2012introduction}. In unserem Beispiel würde das bedeuten, dass man den Einfluss der Anzahl an gelösten Übungsaufgaben nicht vom Einfluss der Klasse trennen kann. Ein weiteres Problem das durch Disaggregation entsteht, ist dass Abhängigkeiten innerhalb des Datensatzes unberücksichtigt bleiben \citep{woltman2012introduction}. Dies führt zu einer weiteren verletzten Annahme über die Unabhängigkeit von Beobachtungen. Die Verletzung dieser Annahme führt dazu, dass statistische Schätzer ungenau werden \citep{andrew_data, SnijdersTomA.B2012Ma:a, woltman2012introduction}.
 
-Auf der linken Seite der Abbildung \ref{fig:disaggregation} befindet sich die Regressionsgerade, die durch ein lineares Regressionsmodell entsteht, wenn man mit einem disaggregierten Datensatz arbeitet. Anhand dieser Regressionsgerade besteht ein positiver Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl in der Mathematikprüfung, so dass die erreichte Punktzahl mit steigender Anzahl an gelöster Übungsaufgaben zunimmt. Wie vorhin bereits erwähnt, wird in dieser Analyse aber nicht berücksichtigt, dass die Schulklasse selbst einen Effekt auf die erreicht Punktzahl haben kann. Dieser Effekt wird klar, wenn man die rechte Seite der Abbildung \ref{fig:disaggregation} betrachtet. Für jede der fünf Klassen wurde die selbe Regressionsgerade, die aus dem disaggregierten Datensatz entsteht, über die Daten gelegt. Man kann relativ einfach erkennen, dass es gewisse Klassen gibt, bei  denen mehr Schulkinder über oder unter der Regressionsgerade liegen. Des weiteren kann man erkennen, dass es nicht optimal ist, wenn für alle Klassen die selbe Steigung der Regressionsgerade verwendet wird. Betrachten wir beispielsweise die zweite Klasse, kann man erkennen, dass diese Schulkinder einen viel stärkeren Zusammenhang zwischen gelösten Übungsaufgaben und erreichter Punktzahl verzeichnen als die erste Klasse. Man könnte nun mit Hilfe einer Dummy-Kodierung den Einfluss von Klassen berücksichtigen, dazu müsste aber für jede Klasse einen zusätzlichen Parameter in das Modell aufgenommen werden. Da es grundsätzlich erstrebenswert ist, möglichst sparsame Modelle zu bilden ist auch dies keine optimale Lösung.
-
 \begin{figure}[t!]
 \centering
 \includegraphics[width = \textwidth]{disaggregation_combined}
@@ -249,11 +250,14 @@ Auf der linken Seite der Abbildung \ref{fig:disaggregation} befindet sich die Re
 \label{fig:disaggregation}
 \end{figure}
 
+Auf der linken Seite der Abbildung \ref{fig:disaggregation} befindet sich die Regressionsgerade, die durch ein lineares Regressionsmodell entsteht, wenn man mit einem disaggregierten Datensatz arbeitet. Anhand dieser Regressionsgerade besteht ein positiver Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl in der Mathematikprüfung, so dass die erreichte Punktzahl mit steigender Anzahl an gelöster Übungsaufgaben zunimmt. Wie vorhin bereits erwähnt, wird in dieser Analyse aber nicht berücksichtigt, dass die Schulklasse selbst einen Effekt auf die erreicht Punktzahl haben kann. Dieser Effekt wird klar, wenn man die rechte Seite der Abbildung \ref{fig:disaggregation} betrachtet. Für jede der fünf Klassen wurde die selbe Regressionsgerade, die aus dem disaggregierten Datensatz entsteht, über die Daten gelegt. Man kann relativ einfach erkennen, dass es gewisse Klassen gibt, bei  denen mehr Schulkinder über oder unter der Regressionsgerade liegen. Des weiteren kann man erkennen, dass es nicht optimal ist, wenn für alle Klassen die selbe Steigung der Regressionsgerade verwendet wird. Betrachten wir beispielsweise die zweite Klasse, kann man erkennen, dass diese Schulkinder einen viel stärkeren Zusammenhang zwischen gelösten Übungsaufgaben und erreichter Punktzahl verzeichnen als die erste Klasse. Man könnte nun mit Hilfe einer Dummy-Kodierung den Einfluss von Klassen berücksichtigen, dazu müsste aber für jede Klasse einen zusätzlichen Parameter in das Modell aufgenommen werden. Da es grundsätzlich erstrebenswert ist, möglichst sparsame Modelle zu bilden ist auch dies keine optimale Lösung.
+
 Die Aggregation als auch die Disaggregation der Daten unterliegen massiven Einschränkungen und führen zu keinem zufriedenstellenden Ergebnis. Es erfordert folglich ein weiteres Modell, das Zusammenhänge innerhalb und zwischen Level-2 Einheiten abbilden kann ohne sich dabei auf eine Analyseinheit festzulegen.
 
 
 \subsection{Hierarchische Linearen Modelle}
-Wie bereits angedeutet sind hierarchische lineare Modelle eine Erweiterung von einfachen linearen Regressionsmodellen \citep{SnijdersTomA.B2012Ma:a, twisk_2006}. 
+In den letzten Abschnitten wurde aufgezeigt, dass mit Hilfe von linearen Modellen keine zufriedenstellende Analysen durchgeführt werden können. In den folgenden Abschnitten werden nun hierarchische lineare Modelle vorgestellt, mit denen es möglich ist solche Datenstrukturen zu analysieren. Als erstes wird das \textit{Random Intercept} Modell vorgestellt. Dieses Modell geht davon aus, dass die Höhe des Achsenabschnittes (\textit{intercept}) von der Gruppenzugehörigkeit abhängt. Das zweite besprochenen Modell ist das \textit{Random Intercept and Slope} Modell, bei dem sich nicht nur der Achsenabschnitt, sondern auch die Steigung (\textit{slope}) in Abhängigkeit der Gruppe unterscheidet.
+
 
 
 
