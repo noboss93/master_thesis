@@ -264,11 +264,23 @@ In den folgenden Abschnitten werden nun hierarchische lineare Modelle besprochen
 Das \textit{Random Intercept} Modell ermöglicht es für jede Gruppe unterschiedliche Achsenabschnitte zu schätzen. Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
 \begin{equation}
 \begin{split}	
-& \text{Level 1:} \qquad y_{ji} = \beta_{0j} + \epsilon_{i}\\
-& \text{Level 2:} \qquad \beta_{0j} = \gamma_{00} + U_{0j}
+\text{Level 1:} & \qquad y_{ji} = \beta_{0j} + \epsilon_{i}\\
+\text{Level 2:} & \qquad \beta_{0j} = \gamma_{00} + U_{0j}
 \end{split}	
 \end{equation} 
-Bei dieser Darstellung handelt es sich um die hierarchische Schreibweise der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. 
+Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1 gelangt man zur flachen Notation dieses \textit{Random Interceot} Modells:
+\begin{equation}
+y_{ji} = \gamma_{00} + U_{0j} + \epsilon_{i}
+\end{equation}
+Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die Intraklassen Korrelation berechnet. Zu diesem leeren Modell können nun Variablen hinzugefügt werden, um die Varianz in der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. Wir fügen nun dem Modell die Anzahl der gelösten Übungsaufgabe als Level-1 Variable hinzu:  
+\begin{equation}
+\begin{split}	
+ \text{Level 1:}  \qquad \text{Punktzahl}_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{Übungen}_{ij} + \epsilon_{i}\\
+ \text{Level 2:} \qquad \qquad \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
+ \beta_{1} & = \gamma_{10}
+\end{split}	
+\end{equation} 
+Der Koeffizient $\beta_{1}$ ist nicht von der Klasse $j$ abhängig und bleibt über alle Klassen konstant, da es sich hier nur um ein \textit{Random Interceot} Modell handelt. 
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
 
