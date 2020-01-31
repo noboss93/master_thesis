@@ -7,6 +7,7 @@ library(ggplot2)
 library(gridExtra)
 library(gridBase)
 library(extrafont)
+library(viridis)
 
 font_import()
 loadfonts(device="win") 
@@ -139,6 +140,14 @@ grid.arrange(a,b, nrow = 1)
 
 # Theory Plots HLM --------------------------------------------------------
 
+ggplot(data = test, mapping = aes(x = iq_centered, y = leistung, color = klasse)) + 
+  geom_point(size = 2) +
+  scale_color_viridis_d() +
+  geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8), size = 1) +
+  geom_abline(slope = mean(slope()), 
+              intercept = mean(intercept()), col = "red", size = 1) +
+  labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
+  xlim(-20, 20)
 
 
 ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
