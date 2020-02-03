@@ -110,6 +110,27 @@ xtable(head(test, n = 10), digits = 0)
 xtable(data_aggr, digits = 1)
 
 
+
+# Regressionsmodelle ------------------------------------------------------
+
+lm0 <- lmer(leistung ~ (1|klasse), data = test)
+lm01 <- lmer(leistung ~ (uebung|klasse), data = test)
+lm2<- lmer(leistung ~ uebung + (1|klasse), data = test)
+lm3 <- lmer(leistung ~ uebung + (uebung | klasse), data = test)
+
+as0 <- lm(data = test, leistung ~ 1)
+as1 <- lm(data = test, leistung ~ math_lektionen)
+as2 <- lm(data = test, leistung ~ math_lektionen + klasse)
+as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
+
+lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
+
+summary(lm0)
+summary(lm2)
+anova(lm2, dis_lm)
+summary(as0)
+
+
 # Theory Plots LM ---------------------------------------------------------
 
 # Regression Aggregation
@@ -120,18 +141,18 @@ ggplot(data = data_aggr, mapping = aes(x = uebung, y = leistung))+
   theme_gray(base_size = 15)
 
 # Regression Disagregation
-as4 <- lm(data = test, leistung ~ uebung)
+dis_lm <- lm(data = test, leistung ~ uebung)
 a <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für gesamten Datensatz") +
   theme_gray(base_size = 15)
 
 b <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
-  geom_abline(intercept = coef(as4)[1], slope = coef(as4)[2], size = 1, col = "red")+
+  geom_abline(intercept = coef(dis_lm)[1], slope = coef(dis_lm)[2], size = 1, col = "red")+
   facet_wrap(~klasse)+
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für jede Klasse") +
   theme_gray(base_size = 15) +
   theme(axis.title.y = element_blank())
 
@@ -140,6 +161,7 @@ grid.arrange(a,b, nrow = 1)
 
 # Theory Plots HLM --------------------------------------------------------
 
+lm2<- lmer(leistung ~ uebung + (1|klasse), data = test)
 intercept <- as.numeric(ranef(lm2)$klasse[,1]) + as.numeric(fixef(lm2)[1])
 fix_slope <- rep(as.numeric(fixef(lm2)[2]), times = 5)
 klasse <- c(1:5)
@@ -152,49 +174,45 @@ a <- ggplot(data = test, mapping = aes(x = uebung, y = leistung)) +
   geom_abline(slope = fix_slope, 
               intercept = mean(intercept), col = "red", size = 1) +
   theme_gray(base_size = 15) +
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl")
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für gesamten Datensatz")
 
 b <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
-  geom_abline(data = coef_data, aes(intercept = intercept, slope = fix_slope, group = klasse, color = "Klassenspezifisch"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = intercept, slope = fix_slope, group = klasse, color = "Klassengerade"), size = 1)+
   geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(fix_slope), color = "Gesamtgerade"), size = 1)+
   facet_wrap(~klasse)+
-  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für jede Klasse") +
   theme_gray(base_size = 15) +
   scale_color_manual(values = colors, name = "Legende")+
   theme(axis.title.y = element_blank(), legend.position = c(0.85,0.25))
 
 grid.arrange(a,b, nrow = 1)
 
+c <- ggplot(dis_lm, aes(.fitted, .resid))+
+  geom_point()+
+  geom_smooth(method = "loess", se = FALSE, color = "red", size = 1)+
+  geom_hline(yintercept = 0, color = "black", size = 1) +
+  labs(y = "Residuen", x = "Erwartete Werte", title = "Lineares Modell") + 
+  theme_gray(base_size = 15) +
+  ylim(-25,25)
 
+d <- ggplot(lm2, aes(.fitted, .resid))+
+  geom_point()+
+  geom_smooth(method = "loess", se = FALSE, color = "red", size = 1)+
+  geom_hline(yintercept = 0, color = "black", size = 1) +
+  labs(y = "Residuen", x = "Erwartete Werte", title = "Random Intercept Modell") + 
+  theme_gray(base_size = 15)+
+  ylim(-25,25)+
+  theme(axis.title.y = element_blank())
 
+grid.arrange(c,d, nrow = 1)
 
-ggplot(data = test, mapping = aes(sample = leistung, shape = klasse))+
-  geom_qq() + 
-  geom_qq_line()
+ggplot(lm3, aes(.fitted, .resid))+
+  geom_point()+
+  geom_smooth(method = "loess", se = FALSE, color = "red", size = 1)+
+  geom_hline(yintercept = 0, color = "black", size = 1) +
+  labs(y = "Residuen", x = "Erwartete Werte") +
+  ylim(-25,25)+
+  theme_gray(base_size = 15)
 
-ggplot(data = test, mapping = aes(sample = leistung))+
-  geom_qq() +
-  geom_qq_line()
-
-
-
-# Regressionsmodelle ------------------------------------------------------
-
-lm0 <- lmer(leistung ~ (1|klasse), data = test)
-lm01 <- lmer(leistung ~ (uebung|klasse), data = test)
-lm2<- lmer(leistung ~ uebung + (1|klasse), data = test)
-lm3 <- lmer(leistung ~ math_lektionen + (math_lektionen | klasse), data = test)
-
-as0 <- lm(data = test, leistung ~ 1)
-as1 <- lm(data = test, leistung ~ math_lektionen)
-as2 <- lm(data = test, leistung ~ math_lektionen + klasse)
-as3 <- lm(data = test, leistung ~ math_lektionen * klasse)
-
-lm_aggr <- lm(data = data_aggr, leistung ~ uebung)
-
-summary(lm0)
-summary(lm01)
-anova(lm0)
-summary(as0)
 

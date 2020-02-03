@@ -264,25 +264,32 @@ In den folgenden Abschnitten werden nun hierarchische lineare Modelle besprochen
 Das \textit{Random Intercept} Modell ermöglicht es für jede Gruppe unterschiedliche Achsenabschnitte zu schätzen. Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
 \begin{equation}
 \begin{split}	
-\text{Level 1:} & \qquad y_{ji} = \beta_{0j} + \epsilon_{i}\\
+\text{Level 1:} & \qquad y_{ji} 	= \beta_{0j} + \epsilon_{i}\\
 \text{Level 2:} & \qquad \beta_{0j} = \gamma_{00} + U_{0j}
 \end{split}	
 \end{equation} 
 Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt und folglich für jede Klasse einen anderen Wert einnimmt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1 gelangt man zur flachen Notation dieses \textit{Random Interceot} Modells:
 \begin{equation}
-y_{ji} = \gamma_{00} + U_{0j} + \epsilon_{i}
+\begin{split}
+y_{ji} 	& = \beta_{0j} + \epsilon_{i}\\
+		& = \gamma_{00} + U_{0j} + \epsilon_{i}
+\end{split}
 \end{equation}
 Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die Intraklassen Korrelation berechnet. Ähnlich wie bei der normalen linearen Regression können diesem Modell nun weitere Variablen hinzugefügt werden, um die Varianz in der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. In unserem Beispiel ergänzen wir das Modell mit nur einer weiteren Varialbe $x_{ij}$, die der Anzahl gelöster Übungsaufgaben entspricht:
-\begin{equation}
+\begin{equation} \label{eq:random_intercept_model}
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
- \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
- \beta_{1} & = \gamma_{10}
+ \text{Level 1:}  	\qquad 	y_{ji} 		& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
+ \text{Level 2:} 	\qquad 	\beta_{0j} 	& = \gamma_{00} + U_{0j}\\
+ 							\beta_{1} 	& = \gamma_{10}
 \end{split}	
 \end{equation} 
-Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, gelangen wir wieder zur flachen Notation des \textit{Random Intercept} Modells:
+Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun aus \eqref{eq:random_intercept_model} die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, gelangen wir wieder zur flachen Notation des \textit{Random Intercept} Modells:
 \begin{equation}
-y_{ji} = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{i}
+\begin{split}
+y_{ji} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i} \\
+		& = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{i} \\
+		& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + \epsilon_{i}
+\end{split}
 \end{equation}
 
 \begin{figure}[t!]
@@ -299,14 +306,23 @@ In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzel
 \caption{Residuenplot des linearen Modells und des \textit{Random Intercept} Modells}
 \label{fig:resid_lm_rim}
 \end{figure}
-Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Modells besser zu den Daten passen. Dies wird etwas klarer, wenn man die Residuenplots des \textit{Random Intercept} Modells und des normalen linearen Modells vergleicht. In Abbildung \ref{fig:resid_lm_rim} sind die beiden Residuenplots abgebildet. Auch wenn die Unterschiede nicht all zu gross sind, kann man erkennen, dass es beim \textit{Random Intercept} Modell weniger grosse Abweichungen gibt zwischen den tatsächlich beobachteten Werten und den vom Regressionsmodell erwarteten Werten. Allerdings fällt beim Residuenplot des \textit{Random Intercept} Modells auf, dass an den Endpunkten die Residuen nicht mehr um den Nullpunkt verteilt sind, beim linearen Modell allerdings schon. Die Ursache dafür besteht darin, dass die Residuen nun für jede einzelne Regressionsgerade der Klassen berechnet werden. Da bei dem normalen linearen Modell die Residuen alle nur an einer Geraden berechnet werden, gleichen sich die Residuen der Schulkinder aus leistungsstärkeren Klassen mit den Kindern aus leistungsschwächeren Klassen aus. Betrachtet man in Abbildung \ref{fig:random_intercept} die rechte Seite, passen die Regressionsgeraden des \textit{Random Intercept} Modells besser zu den Daten als das lineare Modell. Allerdings gibt es immer noch Schulkinder, die noch nicht optimal durch die Gerade beschrieben werden. Bei der zweiten und dritten Klasse erreichten beispielsweise Schulkinder, die viele Übungen gelöst haben eine noch viel höhere Punktzahl als vom Modell angenommen wird. Diese Ungenauigkeit führt folglich zu einem Anstieg der Residuen an den Endpunkten. Diese Ungenauigkeit an den Endpunkten kann aber auch als Information genutzt werden. Anscheinend gibt es in unserem Datensatz Klassen, bei denen die Schulkinder einen stärkeren oder schwächeren Anstieg der erreichten Punktzahl bei steigender Anzahl gelöster Übungsaufgaben verzeichnen. Daraus könnte man nun folgern, dass sich nicht nur der Achsenabschnitt zwischen den Klassen unterscheidet, sondern auch die Steigung.
-
-
-
-
-
+Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Modells besser zu den Daten passen. Dies wird etwas klarer, wenn man die Residuenplots des \textit{Random Intercept} Modells und des normalen linearen Modells vergleicht. In Abbildung \ref{fig:resid_lm_rim} sind die beiden Residuenplots abgebildet. Auch wenn die Unterschiede nicht all zu gross sind, kann man erkennen, dass es beim \textit{Random Intercept} Modell weniger grosse Abweichungen gibt zwischen den tatsächlich beobachteten Werten und den vom Regressionsmodell erwarteten Werten. Allerdings fällt beim Residuenplot des \textit{Random Intercept} Modells auf, dass an den Endpunkten die Residuen nicht mehr um den Nullpunkt verteilt sind, beim linearen Modell allerdings schon. Die Ursache dafür besteht darin, dass die Residuen nun für jede einzelne Regressionsgerade der Klassen berechnet werden. Da bei dem normalen linearen Modell die Residuen alle nur an einer Geraden berechnet werden, gleichen sich die Residuen der Schulkinder aus leistungsstärkeren Klassen mit den Kindern aus leistungsschwächeren Klassen aus. Betrachtet man in Abbildung \ref{fig:random_intercept} die rechte Seite, passen die Regressionsgeraden des \textit{Random Intercept} Modells besser zu den Daten als das lineare Modell. Allerdings gibt es immer noch Schulkinder, die noch nicht optimal durch die Gerade beschrieben werden. Bei der zweiten und dritten Klasse erreichten beispielsweise Schulkinder, die viele Übungen gelöst haben eine noch viel höhere Punktzahl als vom Modell angenommen wird. Diese Ungenauigkeit führt folglich zu einem Anstieg der Residuen an den Endpunkten. Anscheinend gibt es in unserem Datensatz Klassen, bei denen die Schulkinder einen stärkeren oder schwächeren Anstieg der erreichten Punktzahl bei steigender Anzahl gelöster Übungsaufgaben verzeichnen. Daraus könnte man nun folgern, dass sich nicht nur der Achsenabschnitt zwischen den Klassen unterscheidet, sondern auch die Steigung.
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
+Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und aufgezeigt, dass man durch die Hinzunahme von variierenden Achsenabschnitten eine bessere Passung zwischen dem Modell und den Daten erreicht. Um eine noch bessere Passung zu erreichen kann man nun nicht nur den Achsenabschnitt, sondern auch die Steigung variieren lassen. Dies führt zum \textit{Random Intercept and Slope} Modell, das die Interaktion zwischen Klassenzugehörigkeit und der Anzahl gelöster Übungsaufgabe berücksichtigt. Der Regressionskoeffizient $\beta_{1}$ aus dem \textit{Random Intercept} Modell \eqref{eq:random_intercept_model} ist nun von der Klasse $j$ abhängig und wird durch die zufällige Abweichung $U_{1j}$ erweitert. Dies führt zum folgenden Modell in der hierarchischen Notation:
+\begin{equation} \label{eq:random_intercept_slope_model}
+\begin{split}	
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
+ \beta_{1j} & = \gamma_{10} + U_{1j}
+\end{split}	
+\end{equation} 
+
+
+
+
+
+
 
 \subsection{Anwendung von Multilevel Analyse in R} \label{section:ml_in_R}
 Da nun das Konzept der hierarchischen linearen Modellen erläutert wurde, gelangen wir hier in diesem abschnitt zu einer etwas mehr anwendungsbezogenene dingen. Dabe möchte ich hier besprechen, wie nun solche HLMs in er erstellt und analysiert werden. Dazu erkläre ich zuerst welche Pakete es gibt um HLMS zu erstellen und welches hier gentutz wird. Ausserdem wird gezeigt, wie modelle miteinander verglichen werden können und welche Varianzen genau durch welche Variablen erklärt werden. 
