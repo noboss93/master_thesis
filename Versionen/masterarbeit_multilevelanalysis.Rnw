@@ -248,7 +248,7 @@ Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Stei
 \begin{equation}
 y_{ji} = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{i}
 \end{equation}
-In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und kann hier als Vergleichswert zu den anderen Geraden verwendet werden. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. 
+In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und wird hier als Vergleichswert zu den anderen Geraden verwendet. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. Werden die Geraden für jede einzelne Klasse betrachtet, erhält man schnell einen Überblick über das Leistungslevel der verschiedenen Klassen.
 
 \begin{figure}[b!]
 \centering
@@ -257,6 +257,8 @@ In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzel
 \label{fig:random_intercept}
 \end{figure}
 
+Beispielsweise kann man erkennen, dass die Klassen eins und fünf eher tiefere und die Klassen zwei und drei eher höhere Punktzahlen erreichen.
+Ebenfalls kann man beobachten, dass die Geraden besser zu den Daten passen. Dies wird um einiges klarer, wenn man die Residuenplots des hierarchischen linearen und des nomralen linearen Modells vergleicht.
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
 
