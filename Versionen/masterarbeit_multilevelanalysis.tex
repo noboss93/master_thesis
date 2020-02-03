@@ -284,17 +284,27 @@ Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Stei
 \begin{equation}
 y_{ji} = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{i}
 \end{equation}
-In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und wird hier als Vergleichswert zu den anderen Geraden verwendet. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. Werden die Geraden für jede einzelne Klasse betrachtet, erhält man schnell einen Überblick über das Leistungslevel der verschiedenen Klassen.
 
-\begin{figure}[b!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width = \textwidth]{random_intercept}
 \caption{Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl unter Berücksichtigung der Klassenzugehörigkeit}
 \label{fig:random_intercept}
 \end{figure}
 
-Beispielsweise kann man erkennen, dass die Klassen eins und fünf eher tiefere und die Klassen zwei und drei eher höhere Punktzahlen erreichen.
-Ebenfalls kann man beobachten, dass die Geraden besser zu den Daten passen. Dies wird um einiges klarer, wenn man die Residuenplots des hierarchischen linearen und des nomralen linearen Modells vergleicht.
+In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und wird hier als Vergleichswert zu den anderen Geraden verwendet. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. Werden die Geraden für jede einzelne Klasse betrachtet, erhält man einen Überblick über das Leistungslevel der verschiedenen Klassen. Beispielsweise kann man erkennen, dass die Klassen eins und fünf eher tiefere und die Klassen zwei und drei eher höhere Punktzahlen erreichen. 
+\begin{figure}[b!]
+\centering
+\includegraphics[width = \textwidth]{residuen_lm_rim}
+\caption{Residuenplot des linearen Modells und des \textit{Random Intercept} Modells}
+\label{fig:resid_lm_rim}
+\end{figure}
+Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Modells besser zu den Daten passen. Dies wird etwas klarer, wenn man die Residuenplots des \textit{Random Intercept} Modells und des normalen linearen Modells vergleicht. In Abbildung \ref{fig:resid_lm_rim} sind die beiden Residuenplots abgebildet. Auch wenn die Unterschiede nicht all zu gross sind, kann man erkennen, dass es beim \textit{Random Intercept} Modell weniger grosse Abweichungen gibt zwischen den tatsächlich beobachteten Werten und den vom Regressionsmodell erwarteten Werten. Allerdings fällt beim Residuenplot des \textit{Random Intercept} Modells auf, dass an den Endpunkten die Residuen nicht mehr um den Nullpunkt verteilt sind, beim linearen Modell allerdings schon. Die Ursache dafür besteht darin, dass die Residuen nun für jede einzelne Regressionsgerade der Klassen berechnet werden. Da bei dem normalen linearen Modell die Residuen alle nur an einer Geraden berechnet werden, gleichen sich die Residuen der Schulkinder aus leistungsstärkeren Klassen mit den Kindern aus leistungsschwächeren Klassen aus. Betrachtet man in Abbildung \ref{fig:random_intercept} die rechte Seite, passen die Regressionsgeraden des \textit{Random Intercept} Modells besser zu den Daten als das lineare Modell. Allerdings gibt es immer noch Schulkinder, die noch nicht optimal durch die Gerade beschrieben werden. Bei der zweiten und dritten Klasse erreichten beispielsweise Schulkinder, die viele Übungen gelöst haben eine noch viel höhere Punktzahl als vom Modell angenommen wird. Diese Ungenauigkeit führt folglich zu einem Anstieg der Residuen an den Endpunkten. Diese Ungenauigkeit an den Endpunkten kann aber auch als Information genutzt werden. Anscheinend gibt es in unserem Datensatz Klassen, bei denen die Schulkinder einen stärkeren oder schwächeren Anstieg der erreichten Punktzahl bei steigender Anzahl gelöster Übungsaufgaben verzeichnen. Daraus könnte man nun folgern, dass sich nicht nur der Achsenabschnitt zwischen den Klassen unterscheidet, sondern auch die Steigung.
+
+
+
+
+
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  3 FEB 2020 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  3 FEB 2020 15:08
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -808,20 +808,25 @@ Underfull \hbox (badness 3895) in paragraph at lines 235--235
  []
 
 [10 <./aggregation.png>]
-<disaggregation_combined.png, id=72, 978.65625pt x 526.96875pt>
+<disaggregation_combined.png, id=72, 1053.9375pt x 526.96875pt>
 File: disaggregation_combined.png Graphic file (type png)
 <use disaggregation_combined.png>
 Package pdftex.def Info: disaggregation_combined.png  used on input line 248.
-(pdftex.def)             Requested size: 460.72124pt x 248.08542pt.
+(pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [11] [12 <./disaggregation_combined.png>] [13]
 [14]
-<random_intercept.png, id=88, 978.65625pt x 526.96875pt>
+<random_intercept.png, id=88, 1053.9375pt x 526.96875pt>
 File: random_intercept.png Graphic file (type png)
 <use random_intercept.png>
-Package pdftex.def Info: random_intercept.png  used on input line 291.
-(pdftex.def)             Requested size: 460.72124pt x 248.08542pt.
- [15 <./random_intercept.png>] [16] [17] [18]
-(masterarbeit_multilevelanalysis.bbl
+Package pdftex.def Info: random_intercept.png  used on input line 290.
+(pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
+<residuen_lm_rim.png, id=89, 1053.9375pt x 526.96875pt>
+File: residuen_lm_rim.png Graphic file (type png)
+<use residuen_lm_rim.png>
+Package pdftex.def Info: residuen_lm_rim.png  used on input line 298.
+(pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
+ [15 <./random_intercept.png>] [16 <./residuen_lm_rim.png>] [17] [18]
+[19] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 18--36
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -833,15 +838,15 @@ Underfull \hbox (badness 6396) in paragraph at lines 18--36
   Zu-griff auf
  []
 
-[19]) [20] (masterarbeit_multilevelanalysis.aux) ) 
+[20]) [21] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 18564 strings out of 492450
- 352461 string characters out of 3129748
- 410096 words of memory out of 3000000
- 22705 multiletter control sequences out of 15000+200000
+ 18572 strings out of 492450
+ 352631 string characters out of 3129748
+ 410105 words of memory out of 3000000
+ 22713 multiletter control sequences out of 15000+200000
  542967 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,17n,67p,1727b,506s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 52i,17n,67p,2145b,510s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
@@ -854,10 +859,10 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (26 pages, 287563 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (27 pages, 306863 bytes).
 
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
+ 153 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
