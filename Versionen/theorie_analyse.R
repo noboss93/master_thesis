@@ -140,22 +140,32 @@ grid.arrange(a,b, nrow = 1)
 
 # Theory Plots HLM --------------------------------------------------------
 
-ggplot(data = test, mapping = aes(x = iq_centered, y = leistung, color = klasse)) + 
+intercept <- as.numeric(ranef(lm2)$klasse[,1]) + as.numeric(fixef(lm2)[1])
+fix_slope <- rep(as.numeric(fixef(lm2)[2]), times = 5)
+klasse <- c(1:5)
+coef_data <- data.frame(intercept, fix_slope, klasse)
+colors <- c("Gesamtgerade" = "red", "Klassengerade" = "black")
+
+a <- ggplot(data = test, mapping = aes(x = uebung, y = leistung)) + 
   geom_point(size = 2) +
-  scale_color_viridis_d() +
-  geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8), size = 1) +
-  geom_abline(slope = mean(slope()), 
-              intercept = mean(intercept()), col = "red", size = 1) +
-  labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
-  xlim(-20, 20)
+  geom_abline(slope = fix_slope, intercept = intercept, size = 1) +
+  geom_abline(slope = fix_slope, 
+              intercept = mean(intercept), col = "red", size = 1) +
+  theme_gray(base_size = 15) +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl")
 
-
-ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
+b <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
   geom_point()+
-  geom_smooth(method = "lm", se = FALSE, col = "red", fullrange = TRUE)+
+  geom_abline(data = coef_data, aes(intercept = intercept, slope = fix_slope, group = klasse, color = "Klassenspezifisch"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(fix_slope), color = "Gesamtgerade"), size = 1)+
   facet_wrap(~klasse)+
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl") +
-  theme_gray(base_size = 15)
+  theme_gray(base_size = 15) +
+  scale_color_manual(values = colors, name = "Legende")+
+  theme(axis.title.y = element_blank(), legend.position = c(0.85,0.25))
+
+grid.arrange(a,b, nrow = 1)
+
 
 
 
@@ -173,7 +183,7 @@ ggplot(data = test, mapping = aes(sample = leistung))+
 
 lm0 <- lmer(leistung ~ (1|klasse), data = test)
 lm01 <- lmer(leistung ~ (uebung|klasse), data = test)
-lm2 <- lmer(leistung ~ math_lektionen + (1|klasse), data = test)
+lm2<- lmer(leistung ~ uebung + (1|klasse), data = test)
 lm3 <- lmer(leistung ~ math_lektionen + (math_lektionen | klasse), data = test)
 
 as0 <- lm(data = test, leistung ~ 1)

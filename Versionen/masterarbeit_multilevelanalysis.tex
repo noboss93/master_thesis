@@ -258,7 +258,7 @@ Die Aggregation als auch die Disaggregation der Daten unterliegen massiven Einsc
 \subsection{Hierarchische Linearen Modelle}
 In den letzten Abschnitten wurde angenommen, dass sich die Regressionskoeffizienten $\beta_0$ und $\beta_1$ feste Werte sind, die sich nicht verändern. In Abbildung \ref{fig:disaggregation} aus dem vorherigen Abschnitt konnte man aber erkennen, dass diese Annahme nicht in allen Fällen zu einem erwünschten Ergebnis führt. In unserem Beispiel gibt es offensichtlich Klassen, die eine über- oder unterdurchschnittliche erreichte Punktzahl verzeichnen. Man kann nun annehmen, dass diese Regressionskoeffizienten zufällig sind. In diesem Kontext versteht man unter zufällig aber nicht, dass die Koeffizienten irgendwie gewählt werden können, sondern vielmehr, dass diese Koefizienten variieren können. 
 
-In den folgenden Abschnitten werden nun hierarchische lineare Modelle besprochen, mit denen es möglich ist solche zufällige Koeffizienten zu schätzen. Als erstes wird das \textit{Random Intercept} Modell vorgestellt. Dieses Modell geht davon aus, dass die Höhe des Achsenabschnittes (\textit{intercept}) von der Gruppenzugehörigkeit abhängt und schätzt folglich mehrere verschiedene Achsenabschnitte. Das zweite besprochenen Modell ist das \textit{Random Intercept and Slope} Modell, bei dem sich nicht nur der Achsenabschnitt, sondern auch die Steigung (\textit{slope}) in Abhängigkeit der Gruppe unterscheidet.
+In den folgenden Abschnitten werden nun hierarchische lineare Modelle besprochen, mit denen es möglich ist solche zufällige Koeffizienten zu schätzen. Als erstes wird das \textit{Random Intercept} Modell vorgestellt. Dieses Modell geht davon aus, dass die Höhe des Achsenabschnittes (\textit{intercept}) von der Gruppenzugehörigkeit abhängt und schätzt folglich mehrere verschiedene Achsenabschnitte. Das zweite besprochenen Modell ist das \textit{Random Intercept and Slope} Modell, bei dem sich nicht nur der Achsenabschnitt, sondern auch die Steigung (\textit{slope}) in Abhängigkeit der Gruppe unterscheidet. Dabei wird der Fokus vor allem darauf gesetzt, dass das Konzept von hierarchischen linearen Modellen verstanden wird. Wie genau solche HLMs berechnet und analysiert werden, wird im Abschnitt \ref{section:ml_in_R} behandelt. 
 
 \subsubsection{\textit{Random Intercept} Modell} \label{section:random_intercept_model}
 Das \textit{Random Intercept} Modell ermöglicht es für jede Gruppe unterschiedliche Achsenabschnitte zu schätzen. Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
@@ -268,23 +268,37 @@ Das \textit{Random Intercept} Modell ermöglicht es für jede Gruppe unterschied
 \text{Level 2:} & \qquad \beta_{0j} = \gamma_{00} + U_{0j}
 \end{split}	
 \end{equation} 
-Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1 gelangt man zur flachen Notation dieses \textit{Random Interceot} Modells:
+Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt und folglich für jede Klasse einen anderen Wert einnimmt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1 gelangt man zur flachen Notation dieses \textit{Random Interceot} Modells:
 \begin{equation}
 y_{ji} = \gamma_{00} + U_{0j} + \epsilon_{i}
 \end{equation}
-Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die Intraklassen Korrelation berechnet. Zu diesem leeren Modell können nun Variablen hinzugefügt werden, um die Varianz in der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. Wir fügen nun dem Modell die Anzahl der gelösten Übungsaufgabe als Level-1 Variable hinzu:  
+Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die Intraklassen Korrelation berechnet. Ähnlich wie bei der normalen linearen Regression können diesem Modell nun weitere Variablen hinzugefügt werden, um die Varianz in der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. In unserem Beispiel ergänzen wir das Modell mit nur einer weiteren Varialbe $x_{ij}$, die der Anzahl gelöster Übungsaufgaben entspricht:
 \begin{equation}
 \begin{split}	
- \text{Level 1:}  \qquad \text{Punktzahl}_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{Übungen}_{ij} + \epsilon_{i}\\
- \text{Level 2:} \qquad \qquad \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{1} & = \gamma_{10}
 \end{split}	
 \end{equation} 
-Der Koeffizient $\beta_{1}$ ist nicht von der Klasse $j$ abhängig und bleibt über alle Klassen konstant, da es sich hier nur um ein \textit{Random Interceot} Modell handelt. 
+Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, gelangen wir wieder zur flachen Notation des \textit{Random Intercept} Modells:
+\begin{equation}
+y_{ji} = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{i}
+\end{equation}
+In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und kann hier als Vergleichswert zu den anderen Geraden verwendet werden. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. 
+
+\begin{figure}[b!]
+\centering
+\includegraphics[width = \textwidth]{random_intercept}
+\caption{Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl unter Berücksichtigung der Klassenzugehörigkeit}
+\label{fig:random_intercept}
+\end{figure}
+
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
 
 \subsection{Anwendung von Multilevel Analyse in R} \label{section:ml_in_R}
+Da nun das Konzept der hierarchischen linearen Modellen erläutert wurde, gelangen wir hier in diesem abschnitt zu einer etwas mehr anwendungsbezogenene dingen. Dabe möchte ich hier besprechen, wie nun solche HLMs in er erstellt und analysiert werden. Dazu erkläre ich zuerst welche Pakete es gibt um HLMS zu erstellen und welches hier gentutz wird. Ausserdem wird gezeigt, wie modelle miteinander verglichen werden können und welche Varianzen genau durch welche Variablen erklärt werden. 
+
 \subsubsection{R Pakete für die Multilevel Analyse}
 Beschreibung von lme4 und grund warum in dieser Arbeit nur mit diesem Paket gearbeitet wird. (Buch und Studie von D. Bates)
 \subsubsection{Aufbau eines Modells}
