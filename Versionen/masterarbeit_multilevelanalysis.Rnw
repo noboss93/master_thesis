@@ -273,7 +273,7 @@ In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzel
 Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Modells besser zu den Daten passen. Dies wird etwas klarer, wenn man die Residuenplots des \textit{Random Intercept} Modells und des normalen linearen Modells vergleicht. In Abbildung \ref{fig:resid_lm_rim} sind die beiden Residuenplots abgebildet. Auch wenn die Unterschiede nicht all zu gross sind, kann man erkennen, dass es beim \textit{Random Intercept} Modell weniger grosse Abweichungen gibt zwischen den tatsächlich beobachteten Werten und den vom Regressionsmodell erwarteten Werten. Allerdings fällt beim Residuenplot des \textit{Random Intercept} Modells auf, dass an den Endpunkten die Residuen nicht mehr um den Nullpunkt verteilt sind, beim linearen Modell allerdings schon. Die Ursache dafür besteht darin, dass die Residuen nun für jede einzelne Regressionsgerade der Klassen berechnet werden. Da bei dem normalen linearen Modell die Residuen alle nur an einer Geraden berechnet werden, gleichen sich die Residuen der Schulkinder aus leistungsstärkeren Klassen mit den Kindern aus leistungsschwächeren Klassen aus. Betrachtet man in Abbildung \ref{fig:random_intercept} die rechte Seite, passen die Regressionsgeraden des \textit{Random Intercept} Modells besser zu den Daten als das lineare Modell. Allerdings gibt es immer noch Schulkinder, die noch nicht optimal durch die Gerade beschrieben werden. Bei der zweiten und dritten Klasse erreichten beispielsweise Schulkinder, die viele Übungen gelöst haben eine noch viel höhere Punktzahl als vom Modell angenommen wird. Diese Ungenauigkeit führt folglich zu einem Anstieg der Residuen an den Endpunkten. Anscheinend gibt es in unserem Datensatz Klassen, bei denen die Schulkinder einen stärkeren oder schwächeren Anstieg der erreichten Punktzahl bei steigender Anzahl gelöster Übungsaufgaben verzeichnen. Daraus könnte man nun folgern, dass sich nicht nur der Achsenabschnitt zwischen den Klassen unterscheidet, sondern auch die Steigung.
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
-Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und aufgezeigt, dass man durch die Hinzunahme von variierenden Achsenabschnitten eine bessere Passung zwischen dem Modell und den Daten erreicht. Um eine noch bessere Passung zu erreichen kann man nun nicht nur den Achsenabschnitt, sondern auch die Steigung variieren lassen. Dies führt zum \textit{Random Intercept and Slope} Modell, das die Interaktion zwischen Klassenzugehörigkeit und der Anzahl gelöster Übungsaufgabe berücksichtigt. Der Regressionskoeffizient $\beta_{1}$ aus dem \textit{Random Intercept} Modell \eqref{eq:random_intercept_model} ist nun von der Klasse $j$ abhängig und wird durch die zufällige Abweichung $U_{1j}$ erweitert. Dies führt zum folgenden Modell in der hierarchischen Notation:
+Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und aufgezeigt, dass man durch die Hinzunahme von variierenden Achsenabschnitten eine bessere Passung zwischen dem Modell und den Daten erreicht. Um eine noch bessere Passung zu erreichen und genauere Vorhersagen zu treffen kann man nun nicht nur den Achsenabschnitt, sondern auch die Steigung variieren lassen. Dies führt zum \textit{Random Intercept and Slope} Modell, das die Interaktion zwischen Klassenzugehörigkeit und der Anzahl gelöster Übungsaufgabe berücksichtigt. Der Regressionskoeffizient $\beta_{1}$ aus dem \textit{Random Intercept} Modell \eqref{eq:random_intercept_model} ist nun von der Klasse $j$ abhängig und wird durch die zufällige Abweichung $U_{1j}$ erweitert. Dies führt zum folgenden Modell in der hierarchischen Notation:
 \begin{equation} \label{eq:random_intercept_slope_model}
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
@@ -281,8 +281,16 @@ Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und a
  \beta_{1j} & = \gamma_{10} + U_{1j}
 \end{split}	
 \end{equation} 
+Durch Einsetzen und Umformen erhalten wir wieder die flache Notation:
 
-
+\begin{equation} \label{eq:flat_random_intercept_slope_model}
+\begin{split}	
+y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
+& = \gamma_{00} + U_{0j} + (\gamma_{10} + U_{1j})x_{ij} + \epsilon_{i}\\
+& = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + U_{1j}x_{ij} + \epsilon_{i}\\
+& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{i}\\
+\end{split}	
+\end{equation} 
 
 
 

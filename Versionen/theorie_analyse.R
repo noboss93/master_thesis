@@ -207,11 +207,39 @@ d <- ggplot(lm2, aes(.fitted, .resid))+
 
 grid.arrange(c,d, nrow = 1)
 
+
+lm3<- lmer(leistung ~ uebung + (uebung|klasse), data = test)
+intercept <- as.numeric(ranef(lm3)$klasse[,1]) + as.numeric(fixef(lm3)[1])
+slope <- as.numeric(ranef(lm3)$klasse[,2]) + as.numeric(fixef(lm3)[2])
+klasse <- c(1:5)
+coef_data <- data.frame(intercept, slope, klasse)
+colors <- c("Gesamtgerade" = "red", "Klassengerade" = "black")
+
+e <- ggplot(data = test, mapping = aes(x = uebung, y = leistung)) + 
+  geom_point(size = 2) +
+  geom_abline(slope = slope, intercept = intercept, size = 1) +
+  geom_abline(slope = mean(slope), 
+              intercept = mean(intercept), col = "red", size = 1) +
+  theme_gray(base_size = 15) +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für gesamten Datensatz")
+
+f <- ggplot(data = test, mapping = aes(x = uebung, y = leistung))+
+  geom_point()+
+  geom_abline(data = coef_data, aes(intercept = intercept, slope = slope, group = klasse, color = "Klassengerade"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(slope), color = "Gesamtgerade"), size = 1)+
+  facet_wrap(~klasse)+
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für jede Klasse") +
+  theme_gray(base_size = 15) +
+  scale_color_manual(values = colors, name = "Legende")+
+  theme(axis.title.y = element_blank(), legend.position = c(0.85,0.25))
+
+grid.arrange(e,f, nrow = 1)
+
 ggplot(lm3, aes(.fitted, .resid))+
   geom_point()+
   geom_smooth(method = "loess", se = FALSE, color = "red", size = 1)+
   geom_hline(yintercept = 0, color = "black", size = 1) +
-  labs(y = "Residuen", x = "Erwartete Werte") +
+  labs(y = "Residuen", x = "Erwartete Werte", title = "Random Intercept and Slope Modell") +
   ylim(-25,25)+
   theme_gray(base_size = 15)
 
