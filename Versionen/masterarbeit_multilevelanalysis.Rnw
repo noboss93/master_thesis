@@ -321,9 +321,19 @@ In Abbildung \ref{fig:random_intercept_slope} ist diese zufällige Interaktion e
 \begin{equation} \label{eq:beta1_example}	
 \beta_{13} = \Sexpr{gamma10} + \Sexpr{u13} = \Sexpr{beta13}
 \end{equation} 
-Für jede weitere gelöste Übungsaufgabe eines Schulkindes $j$ aus der Klasse 3 steigt also die erwartete Punktzahl im Mittel um $\Sexpr{beta13}$ Punkte an. Betrachten wir nun die Klasse 1 aus unserem Beispiel, schätzt unser Modell eine negative zufällige Abweichung $U_{11} = \Sexpr{u11}$ von der mittleren Steigung. Wird dieser Wert wieder in die Gleichung für $\beta_{1j}$ aus \eqref{eq:random_intercept_slope_model} eingesetzt, erhalten wir einen klassenspezifische Steigung von $\beta_{11} = \Sexpr{beta11}$. Diese Steigung ist nun kleiner als die mittlere Steigung aller Klassen $\gamma_{10} = \Sexpr{gamma10}$. Folglich nimmt die erreichte Punktzahl bei einer weiteren gelösten Übungsaufgabe eines Schulkindes $j$ aus der Klasse 1 im Mittel nur um $\Sexpr{beta11}$ zu.
+Für jede weitere gelöste Übungsaufgabe eines Schulkindes $j$ aus der Klasse 3 steigt also die erwartete Punktzahl im Mittel um $\Sexpr{beta13}$ Punkte an. Betrachten wir nun die Klasse 1 aus unserem Beispiel, schätzt unser Modell eine negative zufällige Abweichung $U_{11} = \Sexpr{u11}$ von der mittleren Steigung. Wird dieser Wert wieder in die Gleichung für $\beta_{1j}$ aus \eqref{eq:random_intercept_slope_model} eingesetzt, erhalten wir einen klassenspezifische Steigung von $\beta_{11} = \Sexpr{beta11}$. Diese Steigung ist nun kleiner als die mittlere Steigung aller Klassen $\gamma_{10} = \Sexpr{gamma10}$. Folglich nimmt die erreichte Punktzahl bei einer weiteren gelösten Übungsaufgabe eines Schulkindes $j$ aus der Klasse 1 im Mittel nur um $\Sexpr{beta11}$ zu. 
 
-Anhand der Abbildung \ref{fig:random_intercept_slope} lässt sich erahnen, dass das \textit{Random Intercept and Slope} Modell besser zu den Daten passt. Diese Vermutung bestätigt sich, wenn man den Residuenplot in Abbildung \ref{fig:resid_rism} betrachtet. An den beiden Endpunkten hat sich die Verteilung der Residuen stark normalisiert im Vergleich zum Residuenplot des \textit{Random Intercept} Modells aus Abbildung \ref{fig:resid_lm_rim}.  
+In unserem Beispiel ist es also so, dass je höher der klassenspezifische Achsenabschnitt ist, desto höher ist auch die klassenspezifische Steigung Steigung. Man spricht hier auch von einer positiven Korrelation zwischen Achsenabschnitt und Steigung. Diese beiden Koeffizienten müssen aber nicht zwingend positive miteinander korreliert sein. Es gibt auch die Möglichkeit, dass diese Koeffizienten negativ korreliert oder sogar unkorreliert sind. In Abbildung \ref{fig:corr_s_i} kann man betrachten, wie die weiteren Korrelationen von Achsenabschnitt und Steigung sich auswirken. Bei einer negativen Korrelation nimmt die Steigung mit der Höhe des Achsenabschnittes ab. Sind die beiden Koeffizienten unkorreliert, bildet sich kein offensichtliches Muster zwischen der Höhe des Achsenabschnittes und der Steigung.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width = \textwidth]{corr_s_i}
+\caption{Darstellung einer negativen und nicht vorhandenen Korrelationen zwischen Achsenabschnitt und Steigung}
+\label{fig:corr_s_i}
+\end{figure}
+
+In Abschnitt \ref{section:random_intercept_model} wurden die Residuenplots eines linearen Modells und eines \textit{Random Intercept} Modells verglichen. Dabei ist aufgefallen, dass das \textit{Random Intercept} Modell zwar kleinere Residuen aufwies, diese aber an den Endpunkten nicht um den Nullpunkt normalverteilt waren. Vergleicht man nun den Residuenplot aus Abbildung \ref{fig:resid_rism} mit den anderen aus der Abbildung \ref{fig:resid_lm_rim}, hat sich die Lage bezüglich der Verteilung der Residuen an den Endpunkten deutlich verbessert im \textit{Random Intercept and Slope} Modell.
+ 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width = 8cm, height = 8cm]{residuen_rism}
@@ -333,6 +343,9 @@ Anhand der Abbildung \ref{fig:random_intercept_slope} lässt sich erahnen, dass 
 
 \subsubsection{\textit{Intercept} und \textit{Slope} Variabilität}
 
+
+
+Wir haben nun die beiden hierarchischen Modelle besprochen und das Konzept dieser beiden Modelle sollte nun verstanden sein. Es ist dabei zu berücksichtigen, dass hier nur die absoluten Grundlagen zu den hierarchischen linearen Modellen behandelt wurden. Für eine weitere Vertiefung dieses Themas wird auf die gängige Literatur zur Multilevel Analyse verwiesen \citep{andrew_data, SnijdersTomA.B2012Ma:a, twisk_2006}. Im anschliessenden Kapitel geht es nun darum, wie man genau solche Modelle in R berechnet und Multilevel Analysen durchführt.
 
 \subsection{Anwendung von Multilevel Analyse in R} \label{section:ml_in_R}
 Da nun das Konzept der hierarchischen linearen Modellen erläutert wurde, gelangen wir hier in diesem abschnitt zu einer etwas mehr anwendungsbezogenene dingen. Dabe möchte ich hier besprechen, wie nun solche HLMs in er erstellt und analysiert werden. Dazu erkläre ich zuerst welche Pakete es gibt um HLMS zu erstellen und welches hier gentutz wird. Ausserdem wird gezeigt, wie modelle miteinander verglichen werden können und welche Varianzen genau durch welche Variablen erklärt werden. 
@@ -359,6 +372,9 @@ Konfidenzintervall am besten durch profile likelihood (via lme4 Paket). Profile 
 Wenn diese Methode nicht vorhanden ist können andere Methoden gewählt werden, die allerdings nicht so genau/reliabel sind.
 
 Proportionale Reduktion der Varianz und Pseude R Squared (Zitation nötig!)
+
+
+level-1 variablen können auch gruppen varianz erklären, wenn die komposition dieser level-1 variable relevant für gruppe ist.
 
 \section{Simulationsstudie zur Multilevel Analyse}
 \subsection{Herleitung der Forschungsfrage}

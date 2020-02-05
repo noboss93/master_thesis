@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  5 FEB 2020 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  5 FEB 2020 16:40
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -854,13 +854,19 @@ File: random_intercept_slope.png Graphic file (type png)
 Package pdftex.def Info: random_intercept_slope.png  used on input line 332.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [18]
-<residuen_rism.png, id=106, 526.96875pt x 526.96875pt>
+<corr_s_i.png, id=106, 1053.9375pt x 526.96875pt>
+File: corr_s_i.png Graphic file (type png)
+<use corr_s_i.png>
+Package pdftex.def Info: corr_s_i.png  used on input line 346.
+(pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
+ [19 <./random_intercept_slope.png>]
+<residuen_rism.png, id=112, 526.96875pt x 526.96875pt>
 File: residuen_rism.png Graphic file (type png)
 <use residuen_rism.png>
-Package pdftex.def Info: residuen_rism.png  used on input line 345.
+Package pdftex.def Info: residuen_rism.png  used on input line 355.
 (pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
- [19 <./random_intercept_slope.png>] [20 <./residuen_rism.png>] [21] [22] [23] 
-(masterarbeit_multilevelanalysis.bbl
+ [20 <./corr_s_i.png>] [21 <./residuen_rism.png>] [22] [23] (masterarbeit_multi
+levelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 18--36
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -874,10 +880,10 @@ Underfull \hbox (badness 6396) in paragraph at lines 18--36
 
 [24]) [25] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 19696 strings out of 492450
- 373449 string characters out of 3129748
- 430187 words of memory out of 3000000
- 23827 multiletter control sequences out of 15000+200000
+ 19704 strings out of 492450
+ 373566 string characters out of 3129748
+ 430196 words of memory out of 3000000
+ 23835 multiletter control sequences out of 15000+200000
  543313 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,17n,67p,2075b,541s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -894,10 +900,10 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9
 ype1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (31 pages, 362656 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (31 pages, 384388 bytes).
 
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
