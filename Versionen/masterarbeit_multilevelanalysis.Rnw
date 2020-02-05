@@ -273,6 +273,17 @@ In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzel
 Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Modells besser zu den Daten passen. Dies wird etwas klarer, wenn man die Residuenplots des \textit{Random Intercept} Modells und des normalen linearen Modells vergleicht. In Abbildung \ref{fig:resid_lm_rim} sind die beiden Residuenplots abgebildet. Auch wenn die Unterschiede nicht all zu gross sind, kann man erkennen, dass es beim \textit{Random Intercept} Modell weniger grosse Abweichungen gibt zwischen den tatsächlich beobachteten Werten und den vom Regressionsmodell erwarteten Werten. Allerdings fällt beim Residuenplot des \textit{Random Intercept} Modells auf, dass an den Endpunkten die Residuen nicht mehr um den Nullpunkt verteilt sind, beim linearen Modell allerdings schon. Die Ursache dafür besteht darin, dass die Residuen nun für jede einzelne Regressionsgerade der Klassen berechnet werden. Da bei dem normalen linearen Modell die Residuen alle nur an einer Geraden berechnet werden, gleichen sich die Residuen der Schulkinder aus leistungsstärkeren Klassen mit den Kindern aus leistungsschwächeren Klassen aus. Betrachtet man in Abbildung \ref{fig:random_intercept} die rechte Seite, passen die Regressionsgeraden des \textit{Random Intercept} Modells besser zu den Daten als das lineare Modell. Allerdings gibt es immer noch Schulkinder, die noch nicht optimal durch die Gerade beschrieben werden. Bei der zweiten und dritten Klasse erreichten beispielsweise Schulkinder, die viele Übungen gelöst haben eine noch viel höhere Punktzahl als vom Modell angenommen wird. Diese Ungenauigkeit führt folglich zu einem Anstieg der Residuen an den Endpunkten. Anscheinend gibt es in unserem Datensatz Klassen, bei denen die Schulkinder einen stärkeren oder schwächeren Anstieg der erreichten Punktzahl bei steigender Anzahl gelöster Übungsaufgaben verzeichnen. Daraus könnte man nun folgern, dass sich nicht nur der Achsenabschnitt zwischen den Klassen unterscheidet, sondern auch die Steigung.
 
 \subsubsection{\textit{Random Intercept and Slope} Modell}
+<<echo = FALSE, error=FALSE, warning=FALSE, message=FALSE>>=
+options(digits = 2)
+ml_data <- readRDS(file = "dataset_theory")
+model <- lmer(leistung ~ uebung + (uebung|klasse), data = ml_data)
+
+u13 <- ranef(model)$klasse[3,2]
+u11 <- ranef(model)$klasse[1,2]
+gamma10 <- fixef(model)[2]
+beta13 <- gamma10 + u13
+beta11 <- gamma10 + u11
+@
 Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und aufgezeigt, dass man durch die Hinzunahme von variierenden Achsenabschnitten eine bessere Passung zwischen dem Modell und den Daten erreicht. Um eine noch bessere Passung zu erreichen und genauere Vorhersagen zu treffen kann man nun nicht nur den Achsenabschnitt, sondern auch die Steigung variieren lassen. Dies führt zum \textit{Random Intercept and Slope} Modell, das die Interaktion zwischen Klassenzugehörigkeit und der Anzahl gelöster Übungsaufgabe berücksichtigt. Der Regressionskoeffizient $\beta_{1}$ aus dem \textit{Random Intercept} Modell \eqref{eq:random_intercept_model} ist nun von der Klasse $j$ abhängig und wird durch die zufällige Abweichung $U_{1j}$ erweitert. Dies führt zum folgenden Modell in der hierarchischen Notation:
 \begin{equation} \label{eq:random_intercept_slope_model}
 \begin{split}	
@@ -290,18 +301,13 @@ y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
 & = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{i}\\
 \end{split}	
 \end{equation} 
-Dabei wurde die Gleichung so umgeformt, dass der erste Teil $\gamma_{00} + \gamma_{10}x_{ij}$ die jeweiligen Gesamtmittelwerte enthält. Diese Werte sind unveränderbar und werden folglich als fester Teil des Modells bezeichnet. Der zweite Teil der Gleichung mit $U_{0j} + U_{1j}x_{ij} + \epsilon_{i}$ wird als zufälliger Teil bezeichnet, weil er alle veränderbaren Werte enthält. Der Term $U_{1j}x_{ij}$ beschreibt die zufällige Interaktion zwischen Gruppenzugehörigkeit und der Variable $x_{ij}$. Bezogen auf unser Beispiel bedeutet dieser Term, wie stark und in welche Richtung sich die erreichte Punktzahl verändert in Abhängigkeit der Klassenzugehörigkeit und der Anzahl gelöster Übungen. 
-<<echo = FALSE, error=FALSE, warning=FALSE, message=FALSE>>=
-options(digits = 2)
-ml_data <- readRDS(file = "dataset_theory")
-model <- lmer(leistung ~ uebung + (uebung|klasse), data = ml_data)
+Dabei wurde die Gleichung so umgeformt, dass der erste Teil $\gamma_{00} + \gamma_{10}x_{ij}$ die jeweiligen Gesamtmittelwerte enthält. Diese Werte sind unveränderbar und werden folglich als fester Teil des Modells bezeichnet. Der zweite Teil der Gleichung mit $U_{0j} + U_{1j}x_{ij} + \epsilon_{i}$ wird als zufälliger Teil bezeichnet, weil er alle veränderbaren Werte enthält. Der Term $U_{1j}x_{ij}$ beschreibt die zufällige Interaktion zwischen Gruppenzugehörigkeit und der Variable $x_{ij}$. Bezogen auf unser Beispiel bedeutet dieser Term, wie stark und in welche Richtung sich die erreichte Punktzahl verändert in Abhängigkeit der Klassenzugehörigkeit und der Anzahl gelöster Übungen. In Abbildung \ref{fig:random_intercept_slope} ist diese zufällige Interaktion einfach zu erkennen. Für gewisse Klassen nimmt die Zufallsvariable $U_{1j}$ eine positiven und für andere einen negativen Wert ein. Dies spiegelt sich wiederum in klassenspezifischen Steigungen $\beta_{1j}$ die höher oder tiefer als die mittlere Steigung $\gamma_{10}$ sind. Betrachten wir die Klasse 3 unseres Beispiels. Das \textit{Random Intercept and Slope} Modell schätzt für diese Klasse eine zufällige Abweichung $U_{13} = \Sexpr{u13}$ von der mittleren Steigung $\gamma_{10} = \Sexpr{gamma10}$. Setzt man nun diese beide Werte in die Gleichung für $\beta_{1j}$ aus \eqref{eq:random_intercept_slope_model} ein erhält man die klassenspezifische Steigung $\beta_{13}$.
+\begin{equation} \label{eq:beta1_example}	
+\beta_{13} = \Sexpr{gamma10} + \Sexpr{u13} = \Sexpr{beta13}
+\end{equation} 
+Für jede weitere gelöste Übungsaufgabe eines Schulkindes $j$ aus der Klasse 3 steigt also die erwartete Punktzahl um $\Sexpr{beta13}$ Punkte an. Betrachten wir nun die Klasse 1 aus unserem Beispiel, schätzt unser Modell eine negative zufällige Abweichung $U_{11} = \Sexpr{u11}$ von der mittleren Steigung. Wird dieser Wert wieder in die Gleichung für $\beta_{1j}$ aus \eqref{eq:random_intercept_slope_model} eingesetzt, erhalten wir einen klassenspezifische Steigung von $\beta_{11} = \Sexpr{beta11}$. Diese Steigung ist nun kleiner als die mittlere Steigung aller Klassen $\gamma_{10} = \Sexpr{gamma10}$. Folglich nimmt die erreichte Punktzahl bei einer weiteren gelösten Übungsaufgabe eines Schulkindes $j$ aus der Klasse 1 nur um $\Sexpr{beta11}$ zu. Das Prinzip des Zusammenhangs zwischen der zufälligen Abweichung $U_{1j}$ und der mittleren Steigung $\beta_{1j}$ kann also ähnlich wie bei einer Dummykodierung verstanden werden. Dabei ist die mittlere Steigung die Referenzkategorie, von der jede Klasse um $U_{1j}$ abweicht.
 
-u13 <- ranef(model)$klasse[3,2]
-gamma10 <- fixef(model)[2]
-@
-In Abbildung \ref{fig:random_intercept_slope} ist diese zufällige Interaktion einfach zu erkennen. Für gewisse Klassen nimmt die Zufallsvariable $U_{1j}$ eine positiven und für andere einen negativen Wert ein. Dies spiegelt sich wiederum in klassenspezifischen Steigungen $\beta_{1j}$ die höher oder tiefer als die mittlere Steigung $\gamma_{10}$ sind. Betrachten wir die Klasse 3 unseres Beispiels. Das \textit{Random Intercept and Slope} Modell schätzt für diese Klasse eine zufällige Abweichung $U_{13} = \Sexpr{u13}$ von der mittleren Steigung $\gamma_{10} = \Sexpr{gamma10}$.
-
-\begin{figure}[ht!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width = \textwidth]{random_intercept_slope}
 \caption{Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl unter Berücksichtigung der Klassenzugehörigkeit und deren Interaktion mit der Anzahl gelöster Übungsaufgaben}
@@ -310,11 +316,9 @@ In Abbildung \ref{fig:random_intercept_slope} ist diese zufällige Interaktion e
 
 
 
-Ebenfalls lässt sich anhand der Abbildung erahnen, dass das \textit{Random Intercept and Slope} Modell besser zu den Daten passt, dies bestätigt sich ebenfalls bei Begutachtung des Residuenplots in Abbildung \ref{fig:resid_rism}. 
+Ebenfalls lässt sich anhand der Abbildung \ref{fig:random_intercept_slope} erahnen, dass das \textit{Random Intercept and Slope} Modell besser zu den Daten passt. Diese Vermutung bestätigt sich, wenn man den Residuenplot in Abbildung \ref{fig:resid_rism} betrachtet. 
 
-
-
-\begin{figure}[b!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width = 10cm, height = 10cm]{residuen_rism}
 \caption{Residuenplot des \textit{Random Intercept and Slope} Modells}
