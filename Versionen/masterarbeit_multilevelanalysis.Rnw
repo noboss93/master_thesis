@@ -87,7 +87,7 @@ Dabei ist zu beachten, dass sich das Level der selben Einheit je nach Untersuchu
 
 In der Forschung ist es aus Kostengründen oder aus Gründen des Studiendesigns oft nicht möglich, solche gruppierte Datenstrukturen zu vermeiden \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Als eine von vielen Ursachen, die zur Entstehung solcher Datenstrukturen führt, nennen Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} \textit{multistage sampling}. Unter \textit{multistage sampling} versteht man, dass die Forschenden in der Datenerhebung auf in der Population vorhandene Gruppen zugreifen. Beispielsweise ist es Kostengünstiger zufällig 100 Schulkassen und von diesen Schulklassen wieder jeweils 10 Kinder auszuwählen als von 1000 Schulklassen jeweils nur einen Schulkind auszuwählen. Da man sonst in 1000 verschiedenen Schulklassen eine Studie durchführen müsste, um die gleiche Stichprobengrösse zu erreichen. Dieses Auswahlverfahren führt dazu, dass die erhobenen Daten nicht mehr voneinander unabhängig sind. Werden nun aus jeder Schulklasse 10 Schulkinder für eine Studie ausgewählt, ist es sehr wahrscheinlich, dass Schulkinder aus der selben Klasse zueinander ähnlichere Leistungen erzielen werden. Dieser Zusammenhang kann auf unterschiedliche Ursache zurückzuführen sein. Beispielsweise könnte die didaktischen Fähigkeiten der Lehrpersonen oder die Lichtverhältnisse im Klassenzimmer einen Einfluss auf die Leistungen der Kinder aus der selben Klasse haben. Das heisst, dass Einflussfaktoren aus unterschiedlichen Levels sich gegenseitig beeinflussen können. 
 
-Nach Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} gibt es unterschiedliche Formen, wie diese Einheiten zueinander in Beziehung stehen können. Ein Beispiel für einen Zusammenhang auf Level-1 wäre, dass die Lernmotivation eines Schulkindes sich auf seine Schulische Leistung auswirkt. Aber auch Level-2 Einheiten können sich gegenseitig beeinflussen. Das Klima der Schulklasse könnte sich beispielsweise auf das Stressempfinden der Lehrperson auswirken. Hier wird von einem Zusammenhang innerhalb des Levels gesprochen, weil die unabhängige Variable (z.B. Lernmotivation, Klima der Schulklasse) auf dem gleichen Level wie die abhängige Variable (z.B. schulische Leistung, Stressempfinden) ist. Häufig ist es allerdings der Fall, dass es levelübergreifende Zusammenhänge zwischen den Einheiten gibt. So können beispielsweise die didaktischen Fähigkeiten einer Lehrperson (Level-2) und die Lernmotivation der Schulkinder (Level-1) die individuelle Leistung (Level-1) beeinflussen. Dieser Zusammenhang muss nicht zwingend direkt sein. Es kann auch vorkommen, dass die didaktischen Fähigkeiten den Zusammenhang zwischen Lernmotivation und individueller Leistung moderiert. In diesem Fall wird gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} von einer \textit{cross-level interaction} gesprochen.
+Nach Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} gibt es unterschiedliche Formen, wie diese Einheiten zueinander in Beziehung stehen können. Ein Beispiel für einen Zusammenhang auf Level-1 wäre, dass die Lernmotivation eines Schulkindes sich auf seine Schulische Leistung auswirkt. Aber auch Level-2 Einheiten können sich gegenseitig beeinflussen. Das Klima der Schulklasse könnte sich beispielsweise auf das Stressempfinden der Lehrperson auswirken. Hier wird von einem Zusammenhang innerhalb des Levels gesprochen, weil die unabhängige Variable (z.B. Lernmotivation, Klima der Schulklasse) auf dem gleichen Level wie die abhängige Variable (z.B. schulische Leistung, Stressempfinden) ist. Häufig ist es allerdings der Fall, dass es levelübergreifende Zusammenhänge zwischen den Einheiten gibt. So können beispielsweise die didaktischen Fähigkeiten einer Lehrperson (Level-2) und die Lernmotivation der Schulkinder (Level-1) die individuelle Leistung (Level-1) beeinflussen. Dieser Zusammenhang muss nicht zwingend direkt sein. Es kann auch vorkommen, dass die didaktischen Fähigkeiten den Zusammenhang zwischen Lernmotivation und individueller Leistung moderiert. In diesem Fall wird gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} von einer \textit{Cross-Level} Interaktion gesprochen.
 
 Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies zu einer erhöhten Fehler Typ-1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Abhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt. Das Vorhandensein von hierarchischen Daten ist allerdings kein unlösbares Problem. Mit Analyseansätzen, die diese hierarchische Struktur der Daten berücksichtigen, lassen sich solche erhöhten Fehler Typ-1 Raten vermeiden. Einer dieser Ansätze ist die Multilevel Analyse, die im Fokus dieser Arbeit steht.
 
@@ -159,9 +159,9 @@ Die daraus resultierende Intraklassen Korrelation von $\rho_{I} = 0.22$ weist da
 \subsection{Lineare Modelle} \label{section:linear_model}
 Bevor wir uns mit den hierarchischen linearen Modellen beschäftigen, werden die Grundlagen der linearen Regression kurz erläutert und aufgezeigt zu welchen Problemen es führen kann, wenn die hierarchische Datenstruktur ignoriert wird. Gemäss Gelman und Hill \citeyearpar{andrew_data} ist die lineare Regression eine Methode, die Veränderungen von Durchschnittswerten einer abhängigen Variablen durch eine lineare Funktion von Prädiktoren beschreibt. In etwas einfacheren Worten ausgedrückt, versucht die lineare Regression durch die Kombination von unabhängigen Variablen die mittlere Ausprägung einer abhängigen Variable zu beschreiben. Ein lineares Regressionsmodell kann wie folgt formuliert werden:
 \begin{equation} \label{eq:ols_model}
-y_{i} = \beta_{0} + \beta_{1}x_{i1} + \dots + \beta_{ik}x_{ik} + \epsilon_{i}, \text{ für } i = 1, \dots, n \text{ und } \epsilon_{i} \sim \mathcal{N}(0,\sigma^{2})
+y_{i} = \beta_{0} + \beta_{1}x_{i1} + \dots + \beta_{ik}x_{ik} + \epsilon_{ij}, \text{ für } i = 1, \dots, n \text{ und } \epsilon_{ij} \sim \mathcal{N}(0,\sigma^{2})
 \end{equation}
-Dabei ist $y_{i}$ die abhängige Variable von der Person $i$. In unserem Beispiel wäre das die erreichte Punktzahl des Schulkindes $i$. $\beta_0$ beschreibt den Achsenabschnittes (\textit{intercept}) und ist die durchschnittlich erreichte Punktzahl in der Mathematikprüfung, wenn keine weitere Prädiktoren berücksichtigt werden. Die weiteren Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben für jede unabhängige Variable $x_{i1}$ bis $x_{ik}$ wie stark $y_{i}$ des $i$-ten Schulkindes bei einer Zunahme um eine Einheit ansteigt. Die Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben also die Steigung (\textit{slope}). Möchten wir in unserem Beispiel die erreichte Punktzahl durch die Anzahl gelöster Übungsaufgaben beschreiben, wäre $x_{i1}$ die Anzahl gelöster Übungsaufgaben des $i$-ten Schulkindes und der dazugehörige Regressionskoeffizient $\beta_{1}$ gibt die Zunahme der Punktzahl in der Mathematikprüfung an. Der letzte Koeffizient des Regressionsmodells ist $\epsilon_{i}$ und wird als zufälliger Fehler oder Residuum bezeichnet. Das Residuum ist die normal verteilte zufällige Abweichung jedes $i$-ten Schulkindes, mit einem Erwartungswert von 0 und Varianz von $\sigma^{2}$. Das bedeutet, dass es zwischen den Kindern zufällige Unterschiede in ihrer Prüfungsleistung gibt, die nicht durch das Regressionsmodell erfasst werden. Diese Unterschiede sind im Mittel aber 0. 
+Dabei ist $y_{i}$ die abhängige Variable von der Person $i$. In unserem Beispiel wäre das die erreichte Punktzahl des Schulkindes $i$. $\beta_0$ beschreibt den Achsenabschnittes (\textit{intercept}) und ist die durchschnittlich erreichte Punktzahl in der Mathematikprüfung, wenn keine weitere Prädiktoren berücksichtigt werden. Die weiteren Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben für jede unabhängige Variable $x_{i1}$ bis $x_{ik}$ wie stark $y_{i}$ des $i$-ten Schulkindes bei einer Zunahme um eine Einheit ansteigt. Die Regressionskoeffizienten $\beta_{1}$ bis $\beta_{k}$ beschreiben also die Steigung (\textit{slope}). Möchten wir in unserem Beispiel die erreichte Punktzahl durch die Anzahl gelöster Übungsaufgaben beschreiben, wäre $x_{i1}$ die Anzahl gelöster Übungsaufgaben des $i$-ten Schulkindes und der dazugehörige Regressionskoeffizient $\beta_{1}$ gibt die Zunahme der Punktzahl in der Mathematikprüfung an. Der letzte Koeffizient des Regressionsmodells ist $\epsilon_{ij}$ und wird als zufälliger Fehler oder Residuum bezeichnet. Das Residuum ist die normal verteilte zufällige Abweichung jedes $i$-ten Schulkindes, mit einem Erwartungswert von 0 und Varianz von $\sigma^{2}$. Das bedeutet, dass es zwischen den Kindern zufällige Unterschiede in ihrer Prüfungsleistung gibt, die nicht durch das Regressionsmodell erfasst werden. Diese Unterschiede sind im Mittel aber 0. 
 
 Möchte man mit einem linearen Regressionsmodell die Daten unseres Beispiels untersuchen gibt es zwei Möglichkeiten. Die erste Möglichkeit ist die Aggregation, die häufig in den Sozialwissenschaften angewandt wird \citep{SnijdersTomA.B2012Ma:a}. Bei dieser Methode werden Mittelwerte für jede Klasse berechnet und anhand dieser wird dann ein lineares Modell erstellt. Die zweite Möglichkeit ist die Disaggregation, bei der die Klassenstruktur aufgelöst wird und alle 150 Schulkinder als unabhängige Werte in die Analyse einfliessen.
 
@@ -232,21 +232,21 @@ beta01 <- gamma00 + u01
 Das \textit{Random Intercept} Modell ermöglicht es für jede Gruppe unterschiedliche Achsenabschnitte zu schätzen. Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
 \begin{equation}
 \begin{split}	
-\text{Level 1:} & \qquad y_{ji} 	= \beta_{0j} + \epsilon_{i}\\
+\text{Level 1:} & \qquad y_{ji} 	= \beta_{0j} + \epsilon_{ij}\\
 \text{Level 2:} & \qquad \beta_{0j} = \gamma_{00} + U_{0j}
 \end{split}	
 \end{equation} 
 Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt und folglich für jede Klasse einen anderen Wert einnimmt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1 gelangt man zur flachen Notation dieses \textit{Random Interceot} Modells:
 \begin{equation}
 \begin{split}
-y_{ji} 	& = \beta_{0j} + \epsilon_{i}\\
-		& = \gamma_{00} + U_{0j} + \epsilon_{i}
+y_{ji} 	& = \beta_{0j} + \epsilon_{ij}\\
+		& = \gamma_{00} + U_{0j} + \epsilon_{ij}
 \end{split}
 \end{equation}
 Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die Intraklassen Korrelation berechnet. Ähnlich wie bei der normalen linearen Regression können diesem Modell nun weitere Variablen hinzugefügt werden, um die Varianz in der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. In unserem Beispiel ergänzen wir das Modell mit nur einer weiteren Varialbe $x_{ij}$, die der Anzahl gelöster Übungsaufgaben entspricht:
 \begin{equation} \label{eq:random_intercept_model}
 \begin{split}	
- \text{Level 1:}  	\qquad 	y_{ji} 		& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
+ \text{Level 1:}  	\qquad 	y_{ji} 		& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
  \text{Level 2:} 	\qquad 	\beta_{0j} 	& = \gamma_{00} + U_{0j}\\
  							\beta_{1} 	& = \gamma_{10}
 \end{split}	
@@ -254,9 +254,9 @@ Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, an
 Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun aus \eqref{eq:random_intercept_model} die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, gelangen wir wieder zur flachen Notation des \textit{Random Intercept} Modells:
 \begin{equation}
 \begin{split}
-y_{ji} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i} \\
-		& = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{i} \\
-		& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + \epsilon_{i}
+y_{ji} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij} \\
+		& = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{ij} \\
+		& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + \epsilon_{ij}
 \end{split}
 \end{equation}
 
@@ -297,7 +297,7 @@ beta11 <- gamma10 + u11
 Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und aufgezeigt, dass man durch die Hinzunahme von variierenden Achsenabschnitten eine bessere Passung zwischen dem Modell und den Daten erreicht. Um eine noch bessere Passung zu erreichen und genauere Vorhersagen zu treffen kann man nun nicht nur den Achsenabschnitt, sondern auch die Steigung variieren lassen. Dies führt zum \textit{Random Intercept and Slope} Modell, das die Interaktion zwischen Klassenzugehörigkeit und der Anzahl gelöster Übungsaufgabe berücksichtigt. Der Regressionskoeffizient $\beta_{1}$ aus dem \textit{Random Intercept} Modell \eqref{eq:random_intercept_model} ist nun von der Klasse $j$ abhängig und wird durch die zufällige Abweichung $U_{1j}$ erweitert. Dies führt zum folgenden Modell in der hierarchischen Notation:
 \begin{equation} \label{eq:random_intercept_slope_model}
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{1j} & = \gamma_{10} + U_{1j}
 \end{split}	
@@ -305,12 +305,12 @@ Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und a
 Durch Einsetzen und Umformen erhalten wir wieder die flache Notation unseres Modells:
 \begin{equation} \label{eq:flat_random_intercept_slope_model}
 \begin{split}	
-y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{i}\\
-& = \gamma_{00} + U_{0j} + (\gamma_{10} + U_{1j})x_{ij} + \epsilon_{i}\\
-& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{i}
+y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+& = \gamma_{00} + U_{0j} + (\gamma_{10} + U_{1j})x_{ij} + \epsilon_{ij}\\
+& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{ij}
 \end{split}	
 \end{equation} 
-Dabei wurde die Gleichung so umgeformt, dass der erste Teil $\gamma_{00} + \gamma_{10}x_{ij}$ die jeweiligen Gesamtmittelwerte enthält. Diese Werte sind unveränderbar und werden folglich als fester Teil des Modells bezeichnet. Der zweite Teil der Gleichung mit $U_{0j} + U_{1j}x_{ij} + \epsilon_{i}$ wird als zufälliger Teil bezeichnet, weil er alle veränderbaren Werte enthält. Der Term $U_{1j}x_{ij}$ beschreibt die zufällige Interaktion zwischen Gruppenzugehörigkeit und der Variable $x_{ij}$. Bezogen auf unser Beispiel bedeutet dieser Term, wie stark und in welche Richtung sich die erreichte Punktzahl verändert in Abhängigkeit der Klassenzugehörigkeit und der Anzahl gelöster Übungen. 
+Dabei wurde die Gleichung so umgeformt, dass der erste Teil $\gamma_{00} + \gamma_{10}x_{ij}$ die jeweiligen Gesamtmittelwerte enthält. Diese Werte sind unveränderbar und werden folglich als fester Teil des Modells bezeichnet. Der zweite Teil der Gleichung mit $U_{0j} + U_{1j}x_{ij} + \epsilon_{ij}$ wird als zufälliger Teil bezeichnet, weil er alle veränderbaren Werte enthält. Der Term $U_{1j}x_{ij}$ beschreibt die zufällige Interaktion zwischen Gruppenzugehörigkeit und der Variable $x_{ij}$. Bezogen auf unser Beispiel bedeutet dieser Term, wie stark und in welche Richtung sich die erreichte Punktzahl verändert in Abhängigkeit der Klassenzugehörigkeit und der Anzahl gelöster Übungen. 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width = \textwidth]{random_intercept_slope}
@@ -342,8 +342,24 @@ In Abschnitt \ref{section:random_intercept_model} wurden die Residuenplots eines
 \end{figure}
 
 \subsubsection{\textit{Intercept} und \textit{Slope} Variabilität}
-
-
+Wie bei linearen Regressionsmodellen wird auch bei hierarchsichen linearen Regressionsmodellen versucht die Variabilität einer bestimmten Abhängigen Variablen zu erklären. Diese unerklärte Variabilität hängt in hierarchischen linearen Modellen nicht nur von der Varianz des Residuums $\epsilon_{ij}$ ab, sondern auch von der Varianz der zufälligen Abweichung des Achsenabschnittes $U_{0j}$ und der Steigung $U_{1j}$ \citep{SnijdersTomA.B2012Ma:a}. Um nun unerklärte Variabilität in hierarchischen Modellen zu beschreiben, können alle dieser Komponenten angegangen werden. Um die Varianz des Residuums zu verringern können, wie bei der normalen linearen Regression, weitere Level-1 Variablen in das Modell aufgenommen werden. Um die Varianz der beide zufälligen Abweichungen zu verringern wird es etwas anspruchsvoller, da diese beiden Varianzen nicht durch Unterschieden innerhalb der Gruppen sondern zwischen den Gruppen entstehen. Folglich können diese Varianzen nicht durch das Hinzufügen von Level-1 Variablen reduziert werden, sondern erfordern das Hinzufügen von Level-2 Variablen. Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} erweitern hierfür die beiden Gleichungen für die Regressionskoeffizienten $\beta_{0j}$ und $\beta_{1j}$:
+\begin{equation} \label{eq:variance}
+\begin{split}	
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + \gamma_{01}z_{j} + U_{0j}\\
+ \beta_{1j} & = \gamma_{10} + \gamma_{11}z_{j} + U_{1j}
+\end{split}	
+\end{equation}
+Dabei ist $z_{j}$ eine Level-2 Variable, die sich zwischen den Gruppen unterscheidet. Auf unser Beispiel bezogen, könnte die Variable $z_{j}$ die Anzahl Fenster im Klassenzimmer sein. Durch das Hinzufügen dieser Level-2 Variablen werden die Regressionskoeffizienten selbst zu einer Abhängigen Variablen eines Regressionmodells. Setzt man nun die beiden Koeffizienten in die Level-1 Gleichung ein erhält man wieder die flache Notation des Modells:
+\begin{equation} \label{eq:flat_variance}
+\begin{split}	
+y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+& = \gamma_{00} + \gamma_{01}z_{j} + U_{0j} + (\gamma_{10} + \gamma_{11}z_{j} + U_{1j})x_{ij} + \epsilon_{ij}\\
+& = \gamma_{00} + \gamma_{01}z_{j} + U_{0j} + \gamma_{10}x_{ij} + \gamma_{11}z_{j}x_{ij} + U_{1j}x_{ij} + \epsilon_{ij}\\
+& = \gamma_{00} + \gamma_{01}z_{j} + \gamma_{10}x_{ij} + \gamma_{11}z_{j}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{ij}\\
+\end{split}	
+\end{equation} 
+Auch wenn es in der hierarchischen Notation einfacher ist zu erkennen, welche Varianz genau durch die Hinzunahme dieser Level-2 Variable verringert wird, erkennt man in der flachen Notation einen weiteren wichtigen Zusammenhang. Der Term $\gamma_{11}z_{j}x_{ij}$ beschreibt eine besondere Interaktion zwischen einer Level-1 und einer Level-2 Variable und wird, wie bereits in der Einleitung kurz erwähnt, als \textit{Cross-Level} Interaktion bezeichnet. Da diese \textit{Cross-Level} Interaktion durch das Hinzufügen einer Level-2 Variable als Prädiktor in der Gleichung des Steigungskoeffizienten entsteht, ist diese Interaktion vor allem wichtig, um unerklärte Varianz in der Steigung zu erklären.
 
 Wir haben nun die beiden hierarchischen Modelle besprochen und das Konzept dieser beiden Modelle sollte nun verstanden sein. Es ist dabei zu berücksichtigen, dass hier nur die absoluten Grundlagen zu den hierarchischen linearen Modellen behandelt wurden. Für eine weitere Vertiefung dieses Themas wird auf die gängige Literatur zur Multilevel Analyse verwiesen \citep{andrew_data, SnijdersTomA.B2012Ma:a, twisk_2006}. Im anschliessenden Kapitel geht es nun darum, wie man genau solche Modelle in R berechnet und Multilevel Analysen durchführt.
 
