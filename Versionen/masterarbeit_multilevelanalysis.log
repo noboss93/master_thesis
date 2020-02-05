@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  5 FEB 2020 11:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  5 FEB 2020 15:51
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -586,6 +586,32 @@ Package: l3keys2e 2020-01-12 LaTeX2e option processing using LaTeX3 keys
 ("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator.sty"
 Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
 ))
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen197
+\captionmargin@=\dimen198
+\captionwidth=\dimen199
+\caption@tempdima=\dimen256
+\caption@indent=\dimen257
+\caption@parindent=\dimen258
+\caption@hangindent=\dimen259
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count300
+\c@continuedfloat=\count301
+Package caption Info: float package is loaded.
+Package caption Info: longtable package is loaded.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\ltcaption.sty"
+Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
+)
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/upquote\upquote.sty"
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
@@ -593,31 +619,31 @@ tim
 (masterarbeit_multilevelanalysis.aux)
 \openout1 = `masterarbeit_multilevelanalysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count300
-\scratchdimen=\dimen197
+\scratchcounter=\count302
+\scratchdimen=\dimen260
 \scratchbox=\box73
-\nofMPsegments=\count301
-\nofMParguments=\count302
+\nofMPsegments=\count303
+\nofMParguments=\count304
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count303
-\MPscratchDim=\dimen198
-\MPnumerator=\count304
-\makeMPintoPDFobject=\count305
+\MPscratchCnt=\count305
+\MPscratchDim=\dimen261
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
 \everyMPtoPDFconversion=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -661,7 +687,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\c@maskedRefs=\count306
+\c@maskedRefs=\count308
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/apacite\german.apc"
 File: german.apc 2013/07/21 v6.03 apacite language file
@@ -753,6 +779,8 @@ Dictionary: translator-basic-dictionary, Language: English
 ("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx-abbreviations.cfg"
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 Package epstopdf Info: Source file: <uzh_logo.eps>
 (epstopdf)                    date: 2019-07-24 14:32:54
 (epstopdf)                    size: 509174 bytes
@@ -761,12 +789,12 @@ Package epstopdf Info: Source file: <uzh_logo.eps>
 (epstopdf)                    size: 42683 bytes
 (epstopdf)             Command: <epstopdf --outfile=uzh_logo-eps-converted-to.p
 df uzh_logo.eps>
-(epstopdf)             \includegraphics on input line 90.
+(epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
 <uzh_logo-eps-converted-to.pdf, id=1, 142.5325pt x 49.18375pt>
 File: uzh_logo-eps-converted-to.pdf Graphic file (type pdf)
 <use uzh_logo-eps-converted-to.pdf>
-Package pdftex.def Info: uzh_logo-eps-converted-to.pdf  used on input line 90.
+Package pdftex.def Info: uzh_logo-eps-converted-to.pdf  used on input line 92.
 (pdftex.def)             Requested size: 227.62204pt x 78.54547pt.
 
 [1
@@ -799,45 +827,39 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <aggregation.png, id=67, 526.96875pt x 526.96875pt>
 File: aggregation.png Graphic file (type png)
 <use aggregation.png>
-Package pdftex.def Info: aggregation.png  used on input line 234.
-(pdftex.def)             Requested size: 284.5428pt x 284.5428pt.
-
-Underfull \hbox (badness 3895) in paragraph at lines 235--235
-[]\OT1/cmr/m/n/12 Abbildung 1: Zu-sam-men-hang zwi-schen der durch-schnitt-lich
- gel[]osten An-zahl an
- []
-
-[10 <./aggregation.png>]
+Package pdftex.def Info: aggregation.png  used on input line 230.
+(pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
+ [10 <./aggregation.png>]
 <disaggregation_combined.png, id=72, 1053.9375pt x 526.96875pt>
 File: disaggregation_combined.png Graphic file (type png)
 <use disaggregation_combined.png>
-Package pdftex.def Info: disaggregation_combined.png  used on input line 248.
+Package pdftex.def Info: disaggregation_combined.png  used on input line 244.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [11] [12 <./disaggregation_combined.png>] [13]
-[14]
+ [11] [12 <./disaggregation_combined.png>] [13] [14]
 <random_intercept.png, id=88, 1053.9375pt x 526.96875pt>
 File: random_intercept.png Graphic file (type png)
 <use random_intercept.png>
 Package pdftex.def Info: random_intercept.png  used on input line 297.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
-<residuen_lm_rim.png, id=89, 1053.9375pt x 526.96875pt>
+ [15] [16 <./random_intercept.png>]
+<residuen_lm_rim.png, id=96, 1053.9375pt x 526.96875pt>
 File: residuen_lm_rim.png Graphic file (type png)
 <use residuen_lm_rim.png>
-Package pdftex.def Info: residuen_lm_rim.png  used on input line 305.
+Package pdftex.def Info: residuen_lm_rim.png  used on input line 306.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [15 <./random_intercept.png>] [16 <./residuen_lm_rim.png>] [17] [18]
-<random_intercept_slope.png, id=104, 1053.9375pt x 526.96875pt>
+ [17 <./residuen_lm_rim.png>]
+<random_intercept_slope.png, id=102, 1053.9375pt x 526.96875pt>
 File: random_intercept_slope.png Graphic file (type png)
 <use random_intercept_slope.png>
-Package pdftex.def Info: random_intercept_slope.png  used on input line 338.
+Package pdftex.def Info: random_intercept_slope.png  used on input line 332.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
-<residuen_rism.png, id=105, 526.96875pt x 526.96875pt>
+ [18]
+<residuen_rism.png, id=106, 526.96875pt x 526.96875pt>
 File: residuen_rism.png Graphic file (type png)
 <use residuen_rism.png>
-Package pdftex.def Info: residuen_rism.png  used on input line 349.
-(pdftex.def)             Requested size: 284.5428pt x 284.5428pt.
-
-[19 <./random_intercept_slope.png>] [20 <./residuen_rism.png>] [21] [22]
+Package pdftex.def Info: residuen_rism.png  used on input line 345.
+(pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
+ [19 <./random_intercept_slope.png>] [20 <./residuen_rism.png>] [21] [22] [23] 
 (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 18--36
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
@@ -850,15 +872,15 @@ Underfull \hbox (badness 6396) in paragraph at lines 18--36
   Zu-griff auf
  []
 
-[23]) [24] (masterarbeit_multilevelanalysis.aux) ) 
+[24]) [25] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 18593 strings out of 492450
- 353157 string characters out of 3129748
- 410182 words of memory out of 3000000
- 22734 multiletter control sequences out of 15000+200000
- 542967 words of font info for 64 fonts, out of 3000000 for 9000
+ 19696 strings out of 492450
+ 373449 string characters out of 3129748
+ 430187 words of memory out of 3000000
+ 23827 multiletter control sequences out of 15000+200000
+ 543313 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,17n,67p,2060b,510s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 52i,17n,67p,2075b,541s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
@@ -869,12 +891,13 @@ cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (30 pages, 345966 bytes).
+ype1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmtt12.pfb>
+Output written on masterarbeit_multilevelanalysis.pdf (31 pages, 362656 bytes).
 
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
+ 174 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
