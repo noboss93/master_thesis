@@ -84,7 +84,18 @@ test <- gen_ml_data(n = 150, nklassen = 5, sd_intercept = 2,
                     b10 = 0.5, b00 = 20,
                     sd_slope = 0.2, corr = 0.5, sd_error = 5)
 
+test_neg <- gen_ml_data(n = 150, nklassen = 5, sd_intercept = 5, 
+                        b10 = 0.5, b00 = 20,
+                        sd_slope = 1, corr = -0.8, sd_error = 5)
+test_neutr <- gen_ml_data(n = 150, nklassen = 5, sd_intercept = 5, 
+                          b10 = 0.5, b00 = 20,
+                          sd_slope = 1, corr = 0, sd_error = 5)
+
+
 # saveRDS(test, file = "dataset_theory")
+# saveRDS(test_neg, file = "neg_corr")
+# saveRDS(test_neutr, file = "neutr_corr")
+
 test <- readRDS("dataset_theory")
 
 # Aggregated Dataframe
@@ -242,5 +253,44 @@ ggplot(lm3, aes(.fitted, .resid))+
   labs(y = "Residuen", x = "Erwartete Werte", title = "Random Intercept and Slope Modell") +
   ylim(-25,25)+
   theme_gray(base_size = 15)
+
+
+
+lm_neg<- lmer(leistung ~ uebung + (uebung|klasse), data = test_neg)
+intercept <- as.numeric(ranef(lm_neg)$klasse[,1]) + as.numeric(fixef(lm_neg)[1])
+slope <- as.numeric(ranef(lm_neg)$klasse[,2]) + as.numeric(fixef(lm_neg)[2])
+klasse <- c(1:5)
+coef_data <- data.frame(intercept, slope, klasse)
+colors <- c("Gesamtgerade" = "red", "Klassengerade" = "black")
+
+neg <- ggplot(data = test_neg, mapping = aes(x = uebung, y = leistung)) + 
+  geom_point(size = 2) +
+  geom_abline(slope = slope, intercept = intercept, size = 1) +
+  geom_abline(slope = mean(slope), 
+              intercept = mean(intercept), col = "red", size = 1) +
+  theme_gray(base_size = 15) +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Negative Korrelation")
+
+
+lm_neutr<- lmer(leistung ~ uebung + (uebung||klasse), data = test_neutr)
+intercept <- as.numeric(ranef(lm_neutr)$klasse[,1]) + as.numeric(fixef(lm_neutr)[1])
+slope <- as.numeric(ranef(lm_neutr)$klasse[,2]) + as.numeric(fixef(lm_neutr)[2])
+klasse <- c(1:5)
+coef_data <- data.frame(intercept, slope, klasse)
+colors <- c("Gesamtgerade" = "red", "Klassengerade" = "black")
+
+neutr <- ggplot(data = test_neutr, mapping = aes(x = uebung, y = leistung)) + 
+  geom_point(size = 2) +
+  geom_abline(slope = slope, intercept = intercept, size = 1) +
+  geom_abline(slope = mean(slope), 
+              intercept = mean(intercept), col = "red", size = 1) +
+  theme_gray(base_size = 15) +
+  labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Unkorreliert")+
+  theme(axis.title.y = element_blank())
+
+grid.arrange(neg,neutr, nrow = 1)
+
+
+
 
 
