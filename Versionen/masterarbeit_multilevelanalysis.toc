@@ -14,7 +14,7 @@
 \contentsline {subsubsection}{\numberline {3.4.2}\textit {Random Intercept and Slope} Modell}{17}%
 \contentsline {subsubsection}{\numberline {3.4.3}\textit {Intercept} und \textit {Slope} Variabilität}{20}%
 \contentsline {subsection}{\numberline {3.5}Anwendung von Multilevel Analyse in R}{22}%
-\contentsline {subsubsection}{\numberline {3.5.1}Installation und Syntax von \texttt {lme4}}{23}%
+\contentsline {subsubsection}{\numberline {3.5.1}Informationen und Syntax von \texttt {lme4}}{23}%
 \contentsline {subsubsection}{\numberline {3.5.2}Interpretation eines Outputs}{23}%
 \contentsline {subsubsection}{\numberline {3.5.3}Aufbau eines HLMs}{23}%
 \contentsline {subsubsection}{\numberline {3.5.4}Vergleich von HLMs}{23}%
