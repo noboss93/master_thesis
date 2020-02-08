@@ -202,6 +202,36 @@ McNeish, D\BPBI M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Peugh%
+}{%
+Peugh%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+PEUGH201085}
+\APACinsertmetastar {%
+PEUGH201085}%
+\begin{APACrefauthors}%
+Peugh, J\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A practical guide to multilevel modeling} {A practical
+  guide to multilevel modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of School Psychology}{48}{1}{85 - 112}.
+\newblock
+\begin{APACrefURL}
+  \url{http://www.sciencedirect.com/science/article/pii/S0022440509000545}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1016/j.jsp.2009.09.002}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 {R Core Team}%
 }{%
 {R Core Team}%

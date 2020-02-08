@@ -73,9 +73,8 @@
 \usepackage{makecell}
 \usepackage{siunitx}
 \usepackage{caption}
+\usepackage{setspace}
 \captionsetup{font=footnotesize}
-
-\renewcommand{\baselinestretch}{1.5}
 \numberwithin{equation}{section}
 
 
@@ -85,7 +84,7 @@
 \author{Masterarbeit von \\ Noah Bosshart \\ Mat-Nr.: 13-747-141 \\ \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
-
+\setstretch{1.5}
 
 \begin{figure}[t]
   \centering
@@ -208,15 +207,15 @@ Wie bereits erwähnt, werden bei der Aggregation für jede Level-2 Einheit Mitte
 \centering
 \caption{Mittlere Anzahl gelöster Übungsaufgaben und erreichte Punktzahl}
 \begin{tabular}{ccc}
-  \hline
+  \toprule
 Klasse & Übungen & Punktzahl \\ 
-  \hline
+  \midrule
 1 & 13.1 & 21.5 \\ 
 2 & 12.8 & 29.3 \\ 
 3 & 13.5 & 30.7 \\ 
 4 & 15.7 & 25.6 \\ 
 5 & 17.5 & 24.7 \\ 
-   \hline
+   \bottomrule
 \end{tabular}
 \label{tab:aggregation}
 \end{table}
@@ -380,13 +379,103 @@ Auch wenn es in der hierarchischen Notation einfacher ist zu erkennen, welche Va
 In den letzten Abschnitten wurden zwei verschiedene hierarchische lineare Modelle besprochen und das Prinzip ihrer Anwendung etwas näher gebracht. Es ist dabei zu berücksichtigen, dass hier nur die Grundlagen zu den hierarchischen linearen Modellen behandelt wurden. Für eine weitere Vertiefung dieses Themas wird auf die gängige Literatur zur Multilevel Analyse verwiesen \citep{andrew_data, SnijdersTomA.B2012Ma:a, twisk_2006}. Im anschliessenden Kapitel geht es nun darum, wie man genau solche Modelle in R berechnet und Multilevel Analysen durchführt.
 
 \subsection{Anwendung von Multilevel Analyse in R} \label{section:ml_in_R}
-Das Konzept von hierarchischen linearen Modellen wurde in den letzten Abschnitten ausführlich besprochen. In den nächsten Abschnitten wird vor allem die Anwendung dieser Modelle behandelt. Dabei der Fokus auf die Programmiersprache R gelegt und dessen Zusatzpaket \texttt{lme4} \citep{batesetal2015lme4}, das neben weiteren Paketen die Analyse mittels HLMs ermöglicht. Zuerst wird die Syntax von \texttt{lme4} und zusätzlich wichtige Informationen. Anschliessend wird anhand unseres Beispiels ein erstes Modell geschätzt und dessen \texttt{summary()}-Output interpretiert. Dabei werden noch weitere Möglichkeiten besprochen, wie man Ergebnisse eines Geschätzten Modells präsentieren kann. Nachdem die Syntax und Interpretation des Modells besprochen wurden, wird Schritt für Schritt eine Multilevel Analyse unseres Beispiels durchgeführt. Hierbei wird aufgezeigt, wie HLMs aufgebaut und miteinander verglichen werden, um eine optimale Repräsentation der Daten zu erhalten. Am Ende dieses Abschnittes werden Kennwerte besprochen, die bei der Auswertung und Berichterstattung von HLMs wichtig sind.  
+Das Konzept von hierarchischen linearen Modellen wurde in den letzten Abschnitten ausführlich besprochen. In den nächsten Abschnitten wird vor allem die Anwendung dieser Modelle behandelt. Dabei wird der Fokus auf die Programmiersprache R gelegt und dessen Zusatzpaket \texttt{lme4} \citep{batesetal2015lme4}, das neben weiteren Paketen die Analyse mittels HLMs ermöglicht. Dabei wird davon ausgegangen, dass die Grundlagen dieser Programmiersprache verstanden wurden. Zuerst werden allgemeine Informationen und die Syntax von \texttt{lme4} besprochen. Anschliessend wird anhand unseres Beispiels ein erstes Modell geschätzt und dessen \texttt{summary()}-Output interpretiert. Dabei werden noch weitere Möglichkeiten besprochen, wie man Ergebnisse eines Geschätzten Modells präsentieren kann. Nachdem die Syntax und Interpretation des Modells besprochen wurden, wird Schritt für Schritt eine Multilevel Analyse unseres Beispiels durchgeführt. Hierbei wird aufgezeigt, wie HLMs aufgebaut und miteinander verglichen werden, um eine optimale Repräsentation der Daten zu erhalten. Am Ende dieses Abschnittes werden Kennwerte besprochen, die bei der Auswertung und Berichterstattung von HLMs wichtig sind.  
 
 \subsubsection{Informationen und Syntax von \texttt{lme4}}
-Das Paket \texttt{lme4} 
+Mit dem Paket \texttt{lme4} lassen sich verschiedenste Formen von hierarchischen Modellen schätzen und analysieren. Dabei werden wir uns hier hauptsächlich auf die Funktion \texttt{lmer()} beschränken. Diese Funktion wird verwendet, um hierarchische lineare Modelle zu schätzen und dessen Syntax ist relativ ähnlich mit der Syntax des Befehls für die Berechnung normaler linearer Modelle \texttt{lm()}. Sie ist wie folgt aufgebaut:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{lmer}\hlstd{(formula, data, REML)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, bei \texttt{data} wird der Datensatz festgelegt anhand das Modell geschätzt werden soll und bei \texttt{REML} wird durch einen logischen Operator (\textit{TRUE} oder \textit{FALSE}) eingestellt, ob das Modell mit \textit{Maximum Likelihood} (ML) oder mit \textit{Restricted Maximum Likelihood} (REML) geschätzt werden soll. In unserem Fall ist diese Einstellung vor allem beim Vergleich von Modellen wichtig. Da bei Modellen die mit REML geschätzt wurden nur die zufälligen Effekte miteinander verglichen werden können. Wenn man also feste als auch zufällige Effekte vergleichen möchte, sollte man Modelle mit ML schätzen \citep{PEUGH201085}. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{lmer}(Abhängige Variable ~ Feste Effekte + (Zufällige Effekte | Gruppe), ... )
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die gleiche wie bei \texttt{lm()}. Innerhalb der Klammern können nun die zufälligen Effekte und die variierende Gruppe festgelegt werden. Dabei kann innerhalb der Klammern eingestellt werden, ob der Achsenabschnitt und die Steigung korrelieren sollten oder nicht. In Tabelle \ref{tab:lmersyntax} findet man einen Überblick über die möglichen Interaktionen, die man innerhalb der Klammer festlegen kann und die für uns relevant sind\footnote{Weitere Funktionen und eine ausführliche Beschreibung des Paketes \texttt{lme4} können in Bates et al. \citeyearpar{batesetal2015lme4} nachgeschlagen werden.}.
+\begin{table}[ht] 
+\centering
+\caption{Mögliche Syntax für \texttt{lmer()} nach Bates et al. \citeyearpar{batesetal2015lme4}}
+\begin{tabular}{ll}
+ 	\toprule
+	Formel & Bedeutung\\ 
+  	\midrule
+	(1 $|$ Gruppe)	& Zufälliger Achsenabschnitt \\
+	(x $|$ Gruppe) & Korrelierter Achsenabschnitt und Steigung \\
+	(x $||$ Gruppe) & Unkorrelierter Achsenabschnitt und Steigung\\
+  	\bottomrule
+\end{tabular}
+\label{tab:lmersyntax}
+\end{table}
 
 \subsubsection{Interpretation eines Outputs}
+Wir haben nun den groben Aufbau von \texttt{lmer()} besprochen und schätzen nun ein erstes Modell. Dafür muss zuerst das Paket \texttt{lme4} und unser Beispieldatensatz geladen werden.
 
+\singlespacing
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(lme4)}
+\hlstd{beispiel_data} \hlkwb{<-} \hlkwd{readRDS}\hlstd{(}\hlkwc{file} \hlstd{=} \hlstr{"dataset_theory"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\setstretch{1.5}
+
+Anschliessend wird ein Modell mit der Anzahl gelösten Übungen als fester Effekt und mit variierenden Achsenabschnitten und Steigungen geschätzt und mittels \texttt{summary()} übersichtlich ausgegeben.
+
+\singlespacing
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{beispiel_model} \hlkwb{<-} \hlkwd{lmer}\hlstd{(leistung} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(uebung} \hlopt{|} \hlstd{klasse),}
+                                \hlkwc{data} \hlstd{= beispiel_data)}
+\hlkwd{summary}\hlstd{(beispiel_model)}
+\end{alltt}
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: leistung ~ uebung + (uebung | klasse)
+##    Data: beispiel_data
+## 
+## REML criterion at convergence: 934
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.0982 -0.8333  0.0372  0.7253  2.8949 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr
+##  klasse   (Intercept)  1.1444  1.070        
+##           uebung       0.0445  0.211    1.00
+##  Residual             26.7805  5.175        
+## Number of obs: 150, groups:  klasse, 5
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)   19.993      0.962    20.8
+## uebung         0.449      0.107     4.2
+## 
+## Correlation of Fixed Effects:
+##        (Intr)
+## uebung 0.088 
+## convergence code: 0
+## boundary (singular) fit: see ?isSingular
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\setstretch{1.5}
+
+Dabei kann man im \texttt{summary()}-Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Der Abschnitt zu den festen Effekten ähnelt stark dem \texttt{summary()}-Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. 
 
 \subsubsection{Aufbau eines HLMs}
 
