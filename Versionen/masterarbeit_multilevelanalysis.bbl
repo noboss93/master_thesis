@@ -178,6 +178,35 @@ Hedges, L\BPBI V.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Kuznetsova%
+, Brockhoff%
+\BCBL {}\ \BBA {} Christensen%
+}{%
+Kuznetsova%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+lmertest}
+\APACinsertmetastar {%
+lmertest}%
+\begin{APACrefauthors}%
+Kuznetsova, A.%
+, Brockhoff, P\BPBI B.%
+\BCBL {}\ \BBA {} Christensen, R\BPBI H\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{lmerTest} Package: Tests in Linear Mixed Effects
+  Models} {{lmerTest} package: Tests in linear mixed effects models}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Statistical Software}{82}{13}{1--26}.
+\newblock
+\begin{APACrefDOI} \doi{10.18637/jss.v082.i13} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 McNeish%
 }{%
 McNeish%

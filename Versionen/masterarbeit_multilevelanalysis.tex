@@ -475,13 +475,23 @@ Anschliessend wird ein Modell mit der Anzahl gelösten Übungen als fester Effek
 \end{knitrout}
 \setstretch{1.5}
 
-Dabei kann man im \texttt{summary()}-Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Der Abschnitt zu den festen Effekten ähnelt stark dem \texttt{summary()}-Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. 
+Dabei kann man im Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren\footnote{Hier werden absichtlich keine p-Werte angezeigt. Möchte man p-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
+\begin{quote}
+Die erwartete erreichte Punktzahl in der Mathematikprüfung ist $19.99 \pm 2 \cdot 1.07$ Punkte, wenn keine einzige Übungsaufgabe gelöst wurde.
+\end{quote}
+Und für die Steigung:
+\begin{quote}
+Die erwartete Zunahme der Punktzahl beträgt $0.45 \pm 2 \cdot 0.21$ pro gelöste Übungsaufgabe.
+\end{quote}
+Dabei ist 1.07 die Standardabweichung des Achsenabschnittes und 0.21 die Standardabweichung der Steigung. Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit (Punktzahl) entspricht. 
 
-\subsubsection{Aufbau eines HLMs}
+\subsubsection{Aufbau eines Modells}
 
-\subsubsection{Vergleich von HLMs}
 
-\subsubsection{Auswertung von HLMs}
+
+\subsubsection{Vergleich von Modellen}
+
+\subsubsection{Auswertung von Modellen}
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
 
 Tests für feste Effekte Wald-Test \cite{SnijdersTomA.B2012Ma:a} Inkl. Dummy-Test

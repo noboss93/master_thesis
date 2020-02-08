@@ -420,24 +420,27 @@ options(digits = 2)
 ml_data <- readRDS(file = "dataset_theory")
 model <- lmer(leistung ~ uebung + (uebung|klasse), data = ml_data)
 
-
 std_i <- attr(VarCorr(model)$klasse, "stddev")[1]
 std_s <- attr(VarCorr(model)$klasse, "stddev")[2]
 
 gamma00 <- fixef(model)[1]
 gamma10 <- fixef(model)[2]
 @
-Dabei kann man im Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. Eine Interpretation dieser Werte unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
-
+Dabei kann man im Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren\footnote{Hier werden absichtlich keine p-Werte angezeigt. Möchte man p-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
 \begin{quote}
-
+Die erwartete erreichte Punktzahl in der Mathematikprüfung ist $\Sexpr{gamma00} \pm 2 \cdot \Sexpr{std_i}$ Punkte, wenn keine einzige Übungsaufgabe gelöst wurde.
 \end{quote}
+Und für die Steigung:
+\begin{quote}
+Die erwartete Zunahme der Punktzahl beträgt $\Sexpr{gamma10} \pm 2 \cdot \Sexpr{std_s}$ pro gelöste Übungsaufgabe.
+\end{quote}
+Dabei ist \Sexpr{std_i} die Standardabweichung des Achsenabschnittes und \Sexpr{std_s} die Standardabweichung der Steigung. Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit (Punktzahl) entspricht. 
 
-\subsubsection{Aufbau eines HLMs}
+\subsubsection{Aufbau eines Modells}
 
-\subsubsection{Vergleich von HLMs}
+\subsubsection{Vergleich von Modellen}
 
-\subsubsection{Auswertung von HLMs}
+\subsubsection{Auswertung von Modellen}
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
 
 Tests für feste Effekte Wald-Test \cite{SnijdersTomA.B2012Ma:a} Inkl. Dummy-Test

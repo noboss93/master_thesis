@@ -16,9 +16,9 @@
 \contentsline {subsection}{\numberline {3.5}Anwendung von Multilevel Analyse in R}{22}%
 \contentsline {subsubsection}{\numberline {3.5.1}Informationen und Syntax von \texttt {lme4}}{23}%
 \contentsline {subsubsection}{\numberline {3.5.2}Interpretation eines Outputs}{24}%
-\contentsline {subsubsection}{\numberline {3.5.3}Aufbau eines HLMs}{26}%
-\contentsline {subsubsection}{\numberline {3.5.4}Vergleich von HLMs}{26}%
-\contentsline {subsubsection}{\numberline {3.5.5}Auswertung von HLMs}{26}%
+\contentsline {subsubsection}{\numberline {3.5.3}Aufbau eines Modells}{26}%
+\contentsline {subsubsection}{\numberline {3.5.4}Vergleich von Modellen}{26}%
+\contentsline {subsubsection}{\numberline {3.5.5}Auswertung von Modellen}{26}%
 \contentsline {section}{\numberline {4}Simulationsstudie zur Multilevel Analyse}{27}%
 \contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{27}%
 \contentsline {subsection}{\numberline {4.2}Design der Simulationsstudie}{28}%
