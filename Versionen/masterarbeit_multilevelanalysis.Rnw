@@ -544,26 +544,11 @@ anova(m_uncorr, m_lvl2, m_cross)
 Wie man erkennen kann, ist keines der neuen Modelle besser als das unkorrelierte \textit{Random Intercept and Slope} Modell. Folglich wird für die weiteren Abschnitte dieses Modell verwendet, da es anscheinend am meisten Varianz aufklärt.
 
 \subsubsection{Auswertung von Modellen}
+Bis jetzt wurden nur Modelle miteinander verglichen und herausgefunden, dass ein unkorreliertes \textit{Random Intercept and Slope} Modell am meisten Varianz aufklärt. Es stellt sich dann aber die Frage, wie viel Varianz denn eigentlich durch dieses Modell aufgeklärt wird. Dazu gibt es bei der normalen linearen Regression das $R^2$.
 
-
-Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
-
-Tests für feste Effekte Wald-Test \cite{SnijdersTomA.B2012Ma:a} Inkl. Dummy-Test
-
-Deviance Tests ebenfalls verwendbar für feste Effekte. Bei Random Intercept an chi-square verteilung mit df = anz. veränderte variable teile (wichtig fixed effect müssen gleich bleiben, wenn mit REML, sonst ML)
-
-Da Varianzen nicht negativ werden können, wird oft einseitig getestet. Konservativere Möglichkeit druch halbierung des testwertes ("Zweiseitiges Testen").
-
-
-Deviance Tests für Random Slope etwas aufwändiger, df = m1 - m0 = p + 1 (anz. covarianzen p, von denen sich das m0 zu m1 unterscheiden + 1 varianz) Prüfwert wird für df = p und für df = p+1 in einer chi-quadrat verteilung bestimmt. danach mittelwert davon ergibt den eigentlichen prüfwert. 
 
 Konfidenzintervall am besten durch profile likelihood (via lme4 Paket). Profile likelihood verhindert, dass Konfidenzintervalle den Wert 0 Unterschreiten, da Varianzen nicht negativ sein können. 
 
-Wenn diese Methode nicht vorhanden ist können andere Methoden gewählt werden, die allerdings nicht so genau/reliabel sind.
-
-Proportionale Reduktion der Varianz und Pseude R Squared (snijders, guide)
-
-level-1 variablen können auch gruppen varianz erklären, wenn die komposition dieser level-1 variable relevant für gruppe ist. IQ bei vergelich von klassen mit unterschiedlichen leistungsstufen (sek und real)
 
 
 \section{Simulationsstudie zur Multilevel Analyse}
