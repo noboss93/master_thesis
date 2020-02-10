@@ -97,6 +97,8 @@ test_neutr <- gen_ml_data(n = 150, nklassen = 5, sd_intercept = 5,
 # saveRDS(test_neutr, file = "neutr_corr")
 
 test <- readRDS("dataset_theory")
+colnames(test) <- c("klasse", "uebung", "punktzahl", "geschl", "fenster", "ses", "iq")
+
 
 # Aggregated Dataframe
 leistung_aggr <- c()

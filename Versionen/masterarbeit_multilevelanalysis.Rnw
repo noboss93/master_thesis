@@ -135,25 +135,27 @@ Bei der IKK wird von einer Korrelation gesprochen, da es sich um die Korrelation
 \end{equation} 
 Dabei beschreibt $\tau^2$ die \textit{between-group variance}. In unserem Beispiel wäre das die Varianz der erreichten Punktzahl zwischen den verschiedenen Klassen. Die Gesamtvarianz setzt sich aus der \textit{between-group variance} und der \textit{within-group variance} zusammen. Die Varianz innerhalb der Klassen wird, wie bereits erwähnt, mit $\sigma^2$ bezeichnet. Besteht nun innerhalb der Klassen eine kleine Varianz zwischen den Ergebnissen der Schulkinder ergibt sich eine grössere Intraklassen Korrelation. Steigt die Varianz innerhalb der Klassen an, wird der Nenner der Formel grösser und mit einem wachsenden Nenner, verringert sich die Intraklassen Korrelation.
 <<echo = FALSE, error=FALSE, warning=FALSE, message=FALSE>>=
+library("formatR")
 library("lme4")
 options(digits = 2)
 ml_data <- readRDS(file = "dataset_theory")
-lm0 <- lmer(leistung ~ (1|klasse), data = ml_data)
+lm0 <- lmer(punktzahl ~ (1|klasse), data = ml_data, REML = FALSE)
 
 var_between <- VarCorr(lm0)$klasse[1,1]
 var_within <- sigma(lm0)^2
 var_tot <- var_between + var_within
 
 icc <- var_between / (var_tot)
+icc_p <- round(icc * 100, digits = 0)
 
-ols <- lm(leistung ~ klasse, data = ml_data)
+ols <- lm(punktzahl ~ klasse, data = ml_data)
 pvalue <- anova(ols)[1,5]
 @
 Um nun zu überprüfen, ob in unserem Datensatz überhaupt abhängige hierarchische Strukturen vorhanden sind, können wir die IKK für unser Datensatz berechnen. Da die Populationswerte oft nicht bekannt sind, gibt es viele statistische Verfahren, um Schätzer für die nötigen Varianzen zu berechnen. Da diese Verfahren den Umfang dieser Arbeit sprengen würden und es viele Statistikprogramme gibt, die diese Berechnungen mit präzieseren Methoden durchführen können, werden in dieser Arbeit nur die computerbasierten Verfahren behandelt. Die restlichen Verfahren können aber in der gängigen Literatur zur Multilevel Analyse nachgeschlagen werden \citep[z.B.][]{SnijdersTomA.B2012Ma:a}. Mit Hilfe des Statistikprogramms R wurden nun alle nötigen Varianzen geschätzt und in die Formel \eqref{eq:icc} eingesetzt\footnote{Die Berechnung dieser Schätzer in R werden in Abschnitt \ref{section:ml_in_R} erläutert.}:
 \begin{equation} \label{eq:icc_calc}
 \rho_{I} = \dfrac{\Sexpr{var_between}}{\Sexpr{var_between} + \Sexpr{var_within}} = \Sexpr{icc}
 \end{equation}
-Die daraus resultierende Intraklassen Korrelation von $\rho_{I} = 0.22$ weist darauf hin, dass 22\% der Varianz in der erreichten Punktzahl in der Mathematikprüfung durch die Klassenzugehörigkeit erklärt wird. Gemäss Hedges und Hedberg \citeyearpar{hedges&hedberg:2007} werden in den Erziehungswissenschaften oft Intraklassen Korrelationen von 0.10 und 0.25 gefundenn. Folglich liegt unsere IKK von $\rho_{I} = 0.22$ in einem realistischen Bereich. Eine Intraklassen Korrelation von $\rho_{I} > 0$ bedeutet aber noch nicht, dass eine Multilevel Analyse notwendig ist. Unter der Annahme, dass die zufällige Abweichungen der Schulkinder $R_{ij}$ normalverteilt sind, kann gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} eine Varianzanalyse durchgeführt werden, um zu untersuchen, ob Gruppenunterschiede vorhanden sind. In unserem Fall führte die Varianzanalyse zu einem hoch signifikantem Ergebnis ($p<.001$) und es bestehen folglich Unterschiede zwischen den Klassen. Wir wissen nun nicht nur, wie viel Varianz durch die Klasse erklärt wird sondern auch, dass diese sich signifikant Unterscheiden. Folglich sollten diese Daten mit einem Multilevel Ansatz analysiert werden.
+Die daraus resultierende Intraklassen Korrelation von $\rho_{I} = \Sexpr{icc}$ weist darauf hin, dass \Sexpr{icc_p}\% der Varianz in der erreichten Punktzahl in der Mathematikprüfung durch die Klassenzugehörigkeit erklärt wird. Gemäss Hedges und Hedberg \citeyearpar{hedges&hedberg:2007} werden in den Erziehungswissenschaften oft Intraklassen Korrelationen von 0.10 und 0.25 gefundenn. Folglich liegt unsere IKK von $\rho_{I} = \Sexpr{icc}$ in einem realistischen Bereich. Eine Intraklassen Korrelation von $\rho_{I} > 0$ bedeutet aber noch nicht, dass eine Multilevel Analyse notwendig ist. Unter der Annahme, dass die zufällige Abweichungen der Schulkinder $R_{ij}$ normalverteilt sind, kann gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} eine Varianzanalyse durchgeführt werden, um zu untersuchen, ob Gruppenunterschiede vorhanden sind. In unserem Fall führte die Varianzanalyse zu einem hoch signifikantem Ergebnis ($p<.001$) und es bestehen folglich Unterschiede zwischen den Klassen. Wir wissen nun nicht nur, wie viel Varianz durch die Klasse erklärt wird sondern auch, dass diese sich signifikant Unterscheiden. Folglich sollten diese Daten mit einem Multilevel Ansatz analysiert werden.
 
 \subsection{Lineare Modelle} \label{section:linear_model}
 Bevor wir uns mit den hierarchischen linearen Modellen beschäftigen, werden die Grundlagen der linearen Regression kurz erläutert und aufgezeigt zu welchen Problemen es führen kann, wenn die hierarchische Datenstruktur ignoriert wird. Gemäss Gelman und Hill \citeyearpar{andrew_data} ist die lineare Regression eine Methode, die Veränderungen von Durchschnittswerten einer abhängigen Variablen durch eine lineare Funktion von Prädiktoren beschreibt. In etwas einfacheren Worten ausgedrückt, versucht die lineare Regression durch die Kombination von unabhängigen Variablen die mittlere Ausprägung einer abhängigen Variable zu beschreiben. Ein lineares Regressionsmodell kann wie folgt formuliert werden:
@@ -220,7 +222,7 @@ In den folgenden Abschnitten werden nun hierarchische lineare Modelle besprochen
 <<echo = FALSE, error=FALSE, warning=FALSE, message=FALSE>>=
 options(digits = 2)
 ml_data <- readRDS(file = "dataset_theory")
-model <- lmer(leistung ~ uebung + (1|klasse), data = ml_data)
+model <- lmer(punktzahl ~ uebung + (1|klasse), data = ml_data)
 
 u03 <- ranef(model)$klasse[3,1]
 u01 <- ranef(model)$klasse[1,1]
@@ -286,7 +288,7 @@ Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Mode
 options(width=60)
 options(digits = 2)
 ml_data <- readRDS(file = "dataset_theory")
-model <- lmer(leistung ~ uebung + (uebung|klasse), data = ml_data)
+model <- lmer(punktzahl ~ uebung + (uebung|klasse), data = ml_data)
 
 u13 <- ranef(model)$klasse[3,2]
 u11 <- ranef(model)$klasse[1,2]
@@ -409,8 +411,7 @@ Anschliessend wird ein Modell mit der Anzahl gelösten Übungen als fester Effek
 
 \singlespacing
 <<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
-beispiel_model <- lmer(leistung ~ uebung + (uebung | klasse), 
-				data = beispiel_data)
+beispiel_model <- lmer(punktzahl ~ uebung + (uebung | klasse), data = beispiel_data)
 summary(beispiel_model)
 @
 \setstretch{1.5}
@@ -418,7 +419,7 @@ summary(beispiel_model)
 options(width=60)
 options(digits = 2)
 ml_data <- readRDS(file = "dataset_theory")
-model <- lmer(leistung ~ uebung + (uebung|klasse), data = ml_data)
+model <- lmer(punktzahl ~ uebung + (uebung|klasse), data = ml_data)
 
 std_i <- attr(VarCorr(model)$klasse, "stddev")[1]
 std_s <- attr(VarCorr(model)$klasse, "stddev")[2]
@@ -426,7 +427,7 @@ std_s <- attr(VarCorr(model)$klasse, "stddev")[2]
 gamma00 <- fixef(model)[1]
 gamma10 <- fixef(model)[2]
 @
-Dabei kann man im Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren\footnote{Hier werden absichtlich keine p-Werte angezeigt. Möchte man p-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
+Dabei kann man im Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. Es werden hier aber keine $p$-Werte angezeigt, da man sich in der Forschung noch uneinig darüber ist, wie genau die Anzahl der Freiheitsgrade geschätzt werden soll \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}\footnote{Möchte man $p$-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
 \begin{quote}
 Die erwartete erreichte Punktzahl in der Mathematikprüfung ist $\Sexpr{gamma00} \pm 2 \cdot \Sexpr{std_i}$ Punkte, wenn keine einzige Übungsaufgabe gelöst wurde.
 \end{quote}
@@ -436,9 +437,64 @@ Die erwartete Zunahme der Punktzahl beträgt $\Sexpr{gamma10} \pm 2 \cdot \Sexpr
 \end{quote}
 Dabei ist \Sexpr{std_i} die Standardabweichung des Achsenabschnittes und \Sexpr{std_s} die Standardabweichung der Steigung. Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit (Punktzahl) entspricht. 
 
-\subsubsection{Aufbau eines Modells}
+\subsubsection{Aufbau und Vergleich von Modellen}
+Wir gelangen nun zur Analyse unseres Beispieldatensatzes. Bevor wir mit der Analyse starten können ist es wichtig, dass wir unsere Forschungsfrage klar definieren. In unserem Fall möchten wir herausfinden, wie genau sich die Prüfungsleistung von Schulkindern unter Berücksichtigung der Klassenzugehörigkeit verändert. Da wir sehr wahrscheinlich nicht nur feste Effekte sondern auch zufällige Effekte miteinander Vergleichen möchten müssen wir zudem die Modelle mit ML schätzen \citep{PEUGH201085}. Als Erstes sollte immer geprüft werden, ob eine Multilevel Analyse überhaupt nötig ist. Dies geschieht zum einen durch die Berechnung der Intraklassen Korrelation und der Überprüfung, ob überhaupt Unterschiede zwischen den Klassen besteht. Wie bereits im Abschnitt \ref{section:icc} besprochen, lässt sich die IKK aus den Varianzen des leeren Modells berechnen, das hier noch einmal kurz aufgeführt ist:
+\begin{equation} \label{eq:random_intercept_slope_model}
+\begin{split}	
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \epsilon_{ij}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
+\end{split}	
+\end{equation} 
+Dieses Modell wird wie folgt in R mittels der Funktion \texttt{lmer()} geschätzt:
 
-\subsubsection{Vergleich von Modellen}
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
+leeres_modell <- lmer(punktzahl ~ (1 | klasse), data = beispiel_data, REML = FALSE)
+
+summary(leeres_modell)
+@
+\setstretch{1.5}
+
+Aus dem Output können nun die Varianzen für den Achsenabschnitt und das Residuum abgelesen und in die Formel \eqref{eq:icc} eingesetzt werden. Daraus ergibt sich die bereits berechnete intraklassen Korrelation von $\rho_I = \Sexpr{icc}$. Folglich werden \Sexpr{icc_p}\% der Variabilität in der erreichten Punktzahl durch die Klassenzugehörigkeit erklärt. Um nun noch herauszufinden, ob diese Klassenunterschiede auch signifikant sind, kann eine Varianzanalyse durchgeführt werden \citep{SnijdersTomA.B2012Ma:a}. Dies geschieht indem man ein normales lineares Modell schätzt, das nur anhand der Klasse Leistungsunterschiede erklären möchte. Wie ebenfalls aus Abschnitt \ref{section:icc} bekannt, ergibt sich aus der Varianzanalyse einen hoch signifikanten $p$-Wert. Es bestehen folglich mittlere Klassenunterschiede in der erreichten Punktzahl, die in der Analyse zu berücksichtigen sind. 
+
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
+lineares_modell <- lm(punktzahl ~ klasse, data = beispiel_data)
+
+anova(lineares_modell)
+@
+\setstretch{1.5}
+
+Da nun die Frage geklärt ist, ob unser Datensatz eine Multilevel Analyse verlangt, können wir damit anfangen unser leeres Modell mit weitere Prädiktoren aufzubauen. Als erstes möchten wir die Anzahl gelöste Übungsaufgaben als festen Effekt hinzufügen. Da die Anzahl gelösten Übungsaufgaben eine Level-1 Variable ist, wird sie auch auf diesem Level der Gleichung hinzugefügt:
+\begin{equation} \label{eq:random_intercept_slope_model}
+\begin{split}	
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
+ \beta_{1} & = \gamma_{10}\\
+\end{split}	
+\end{equation} 
+
+In der oberen Gleichung kann man ebenfalls erkennen, dass es sich hier um ein einfaches \textit{Random Intercept} Modell handelt, da bei $\beta_{1}$ keine zufällige Abweichung hinzugefügt wurde. Um nun ein \textit{Random Intercept} Modell in R zu schätzen wird der Funktion die Variable wie folgt hinzugefügt:
+
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
+modell_1 <- lmer(punktzahl ~ uebung + (1 | klasse), data = beispiel_data, REML = FALSE)
+@
+\setstretch{1.5}
+
+Dabei ist zu beachten, dass der Term innerhalb der Klammern immer noch durch \texttt{(1 | klasse)} beschrieben wird und gemäss Tabelle \ref{tab:lmersyntax} ein \textit{Random Intercept} Modell geschätzt wird. Wir möchten 
+
+
+
+Wie bei normalen linearen Modellen können diese beide Modelle nun mit dem \texttt{anova()} Befehl miteinander verglichen werden:
+
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
+anova(leeres_modell, modell_1)
+@
+\setstretch{1.5}
+
+
 
 \subsubsection{Auswertung von Modellen}
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
@@ -465,7 +521,7 @@ level-1 variablen können auch gruppen varianz erklären, wenn die komposition d
 \subsection{Herleitung der Forschungsfrage}
 Es gibt schon Tutorials etc. wie man HLM in der Forschung einsetzt. Dabei achten auf Kennwerte (ICC und DEFF). Studien haben gezeigt, dass Fehler Typ-1 Rate steigt wenn MLM anstatt HLM) Studien zitieren, Dorman, Neith, Etc. Es stellt sich aber auch die Frage, wie es genau mit Treatments aussieht (studie treatment zitieren) auch diese haben einen erhöhte Typ-1 Rate gefunden. Ziel: replikation der ergebnisse, dass Fehler typ-1 rate erhöht ist und in einen für psychologiestudenten relevanten kontext bringen um das Konzept der HLM den studierenden zu verkaufen. 
 H1: betas werden genau geschätzt
-H2: SE bei Effekt von 0 zu klein bei MLM -> folglich zu viele p-werte < 0.05
+H2: SE bei Effekt von 0 zu klein bei MLM -> folglich zu viele $p$-Werte < 0.05
 \subsection{Design der Simulationsstudie}
 \subsubsection{Generierung von hierarchischen Daten} \label{section:generierung_daten}
 \subsubsection{Manipulierte Faktoren}
