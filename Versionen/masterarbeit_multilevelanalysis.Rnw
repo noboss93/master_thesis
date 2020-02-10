@@ -283,7 +283,7 @@ Ebenfalls kann man beobachten, dass die Geraden des hierarchischen linearen Mode
 \label{fig:resid_lm_rim}
 \end{figure}
 
-\subsubsection{\textit{Random Intercept and Slope} Modell}
+\subsubsection{\textit{Random Intercept and Slope} Modell} \label{section:random_intercept_slope_model}
 <<echo = FALSE, error=FALSE, warning=FALSE, message=FALSE>>=
 options(width=60)
 options(digits = 2)
@@ -375,13 +375,13 @@ Mit dem Paket \texttt{lme4} lassen sich verschiedenste Formen von hierarchischen
 lmer(formula, data, REML)
 @
 
-Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, bei \texttt{data} wird der Datensatz festgelegt anhand das Modell geschätzt werden soll und bei \texttt{REML} wird durch einen logischen Operator (\textit{TRUE} oder \textit{FALSE}) eingestellt, ob das Modell mit \textit{Maximum Likelihood} (ML) oder mit \textit{Restricted Maximum Likelihood} (REML) geschätzt werden soll. In unserem Fall ist diese Einstellung vor allem beim Vergleich von Modellen wichtig. Da bei Modellen die mit REML geschätzt wurden nur die zufälligen Effekte miteinander verglichen werden können. Wenn man also feste als auch zufällige Effekte vergleichen möchte, sollte man Modelle mit ML schätzen \citep{PEUGH201085}. 
+Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, bei \texttt{data} wird der Datensatz festgelegt anhand das Modell geschätzt werden soll und bei \texttt{REML} wird durch einen logischen Operator (\textit{TRUE} oder \textit{FALSE}) eingestellt, ob das Modell mit \textit{Restricted Maximum Likelihood} (REML) oder mit \textit{Maximum Likelihood} (ML) geschätzt werden soll. In unserem Fall ist diese Einstellung vor allem beim Vergleich von Modellen wichtig. Bei Modellen die mit REML geschätzt wurden, können nur die zufälligen Effekte miteinander verglichen werden. Wenn man also feste als auch zufällige Effekte vergleichen möchte, sollte man Modelle mit ML schätzen \citep{PEUGH201085}. 
 
 <<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = FALSE>>=
 lmer(Abhängige Variable ~ Feste Effekte + (Zufällige Effekte | Gruppe), ... )
 @
 
-Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die gleiche wie bei \texttt{lm()}. Innerhalb der Klammern können nun die zufälligen Effekte und die variierende Gruppe festgelegt werden. Dabei kann innerhalb der Klammern eingestellt werden, ob der Achsenabschnitt und die Steigung korrelieren sollten oder nicht. In Tabelle \ref{tab:lmersyntax} findet man einen Überblick über die möglichen Interaktionen, die man innerhalb der Klammer festlegen kann und die für uns relevant sind\footnote{Weitere Funktionen und eine ausführliche Beschreibung des Paketes \texttt{lme4} können in Bates et al. \citeyearpar{batesetal2015lme4} nachgeschlagen werden.}.
+Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die gleiche wie bei \texttt{lm()}. Dabei wird auf zuerst die zu erklärende Variable aufgeführt und anschliessend alle Variablen, die als feste Effekte in das Modell aufgenommen werden sollen. Innerhalb der Klammern können nun die zufälligen Effekte und die variierende Gruppe festgelegt werden. Dabei kann innerhalb der Klammern eingestellt werden, ob der Achsenabschnitt und die Steigung korrelieren sollten oder nicht. In Tabelle \ref{tab:lmersyntax} findet man einen Überblick über die möglichen Interaktionen, die man innerhalb der Klammer festlegen kann und die für uns relevant sind\footnote{Weitere Funktionen und eine ausführliche Beschreibung des Paketes \texttt{lme4} können in Bates et al. \citeyearpar{batesetal2015lme4} nachgeschlagen werden.}.
 \begin{table}[ht] 
 \centering
 \caption{Mögliche Syntax für \texttt{lmer()} nach Bates et al. \citeyearpar{batesetal2015lme4}}
@@ -437,9 +437,11 @@ Die erwartete Zunahme der Punktzahl beträgt $\Sexpr{gamma10} \pm 2 \cdot \Sexpr
 \end{quote}
 Dabei ist \Sexpr{std_i} die Standardabweichung des Achsenabschnittes und \Sexpr{std_s} die Standardabweichung der Steigung. Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit (Punktzahl) entspricht. 
 
-\subsubsection{Aufbau und Vergleich von Modellen}
-Wir gelangen nun zur Analyse unseres Beispieldatensatzes. Bevor wir mit der Analyse starten können ist es wichtig, dass wir unsere Forschungsfrage klar definieren. In unserem Fall möchten wir herausfinden, wie genau sich die Prüfungsleistung von Schulkindern unter Berücksichtigung der Klassenzugehörigkeit verändert. Da wir sehr wahrscheinlich nicht nur feste Effekte sondern auch zufällige Effekte miteinander Vergleichen möchten müssen wir zudem die Modelle mit ML schätzen \citep{PEUGH201085}. Als Erstes sollte immer geprüft werden, ob eine Multilevel Analyse überhaupt nötig ist. Dies geschieht zum einen durch die Berechnung der Intraklassen Korrelation und der Überprüfung, ob überhaupt Unterschiede zwischen den Klassen besteht. Wie bereits im Abschnitt \ref{section:icc} besprochen, lässt sich die IKK aus den Varianzen des leeren Modells berechnen, das hier noch einmal kurz aufgeführt ist:
-\begin{equation} \label{eq:random_intercept_slope_model}
+\subsubsection{Berechnung der Intraklassen Korrelation in R}
+Wir gelangen nun zur Analyse unseres Beispieldatensatzes. Bevor wir mit der Analyse starten können ist es wichtig, dass wir das Level unserer Forschungsfrage klar definieren. In unserem Fall möchten wir herausfinden, wie genau sich die Prüfungsleistung von Schulkindern mit der Anzahl gelöster Übungsaufgaben unter Berücksichtigung der Klassenzugehörigkeit verändert. Das bedeutet, dass sich unsere abhängige Variable auf Level-1 befindet. Ebenfalls sollte berücksichtigt werden, dass es zu Interaktionen zwischen Level-1 und Level-2 variablen kommen kann. Da wir sehr wahrscheinlich nicht nur feste Effekte sondern auch zufällige Effekte miteinander Vergleichen möchten, müssen wir zudem die Modelle mit ML schätzen \citep{PEUGH201085}. 
+
+Als Erstes sollte immer geprüft werden, ob eine Multilevel Analyse überhaupt nötig ist. Dies geschieht zum einen durch die Berechnung der Intraklassen Korrelation und der Überprüfung, ob überhaupt Unterschiede zwischen den Klassen besteht. Wie bereits im Abschnitt \ref{section:icc} besprochen, lässt sich die IKK aus den Varianzen des leeren Modells berechnen, das hier noch einmal kurz aufgeführt ist:
+\begin{equation}
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
@@ -449,9 +451,9 @@ Dieses Modell wird wie folgt in R mittels der Funktion \texttt{lmer()} geschätz
 
 \singlespacing
 <<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
-leeres_modell <- lmer(punktzahl ~ (1 | klasse), data = beispiel_data, REML = FALSE)
+m_leer <- lmer(punktzahl ~ (1 | klasse), data = beispiel_data, REML = FALSE)
 
-summary(leeres_modell)
+summary(m_leer)
 @
 \setstretch{1.5}
 
@@ -459,44 +461,91 @@ Aus dem Output können nun die Varianzen für den Achsenabschnitt und das Residu
 
 \singlespacing
 <<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
-lineares_modell <- lm(punktzahl ~ klasse, data = beispiel_data)
+m_linear <- lm(punktzahl ~ klasse, data = beispiel_data)
 
-anova(lineares_modell)
+anova(m_linear)
 @
 \setstretch{1.5}
 
-Da nun die Frage geklärt ist, ob unser Datensatz eine Multilevel Analyse verlangt, können wir damit anfangen unser leeres Modell mit weitere Prädiktoren aufzubauen. Als erstes möchten wir die Anzahl gelöste Übungsaufgaben als festen Effekt hinzufügen. Da die Anzahl gelösten Übungsaufgaben eine Level-1 Variable ist, wird sie auch auf diesem Level der Gleichung hinzugefügt:
-\begin{equation} \label{eq:random_intercept_slope_model}
+\subsubsection{Aufbau und Vergleich von Modellen}
+Da nun die Frage geklärt ist, ob unser Datensatz eine Multilevel Analyse verlangt, können wir damit anfangen unser leeres Modell mit weitere Prädiktoren aufzubauen. In unserem Beispiel fügen wir die Anzahl gelöste Übungsaufgaben als festen Effekt dem Modell hinzu. Natürlich könnten hier noch weitere feste Effekte hinzugefügt werden, damit das Beispiel aber übersichtlich bleibt, ist das Modell hier auf einen festen Effekt beschränkt:
+\begin{equation}
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{1} & = \gamma_{10}\\
 \end{split}	
 \end{equation} 
-
-In der oberen Gleichung kann man ebenfalls erkennen, dass es sich hier um ein einfaches \textit{Random Intercept} Modell handelt, da bei $\beta_{1}$ keine zufällige Abweichung hinzugefügt wurde. Um nun ein \textit{Random Intercept} Modell in R zu schätzen wird der Funktion die Variable wie folgt hinzugefügt:
+In der oberen Gleichung kann man erkennen, dass es sich hier um ein einfaches \textit{Random Intercept} Modell handelt, da bei $\beta_{1}$ keine zufällige Abweichung hinzugefügt wurde. Um nun ein \textit{Random Intercept} Modell in R zu schätzen wird der Funktion die Variable wie folgt hinzugefügt:
 
 \singlespacing
-<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
-modell_1 <- lmer(punktzahl ~ uebung + (1 | klasse), data = beispiel_data, REML = FALSE)
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=FALSE>>=
+m_intercept <- lmer(punktzahl ~ uebung + (1 | klasse), 
+	data = beispiel_data, REML = FALSE)
 @
 \setstretch{1.5}
 
-Dabei ist zu beachten, dass der Term innerhalb der Klammern immer noch durch \texttt{(1 | klasse)} beschrieben wird und gemäss Tabelle \ref{tab:lmersyntax} ein \textit{Random Intercept} Modell geschätzt wird. Wir möchten 
-
-
-
-Wie bei normalen linearen Modellen können diese beide Modelle nun mit dem \texttt{anova()} Befehl miteinander verglichen werden:
+Dabei ist zu beachten, dass der Term innerhalb der Klammern der Vorgabe aus Tabelle \ref{tab:lmersyntax} entspricht, um ein \textit{Random Intercept} Modellzu schätzen. Möchte man nun zusätzlich ein \textit{Random Intercept and Slope} Modell schätzen wird entsprechend des Abschnittes \ref{section:random_intercept_slope_model} der Gleichung von $\beta_{1j}$ eine zufällige Abweichung von der mittleren Steigung hinzugefügt: 
+\begin{equation} 
+\begin{split}	
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
+ \beta_{j1} & = \gamma_{10 }+ U_{1j}\\
+\end{split}	
+\end{equation} 
+Dieser zufällige Effekt wird nun auch in der Formel in R gemäss Tabelle \ref{tab:lmersyntax} hinzugefügt:
 
 \singlespacing
-<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
-anova(leeres_modell, modell_1)
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=FALSE>>=
+m_uncorr <- lmer(punktzahl ~ uebung + (uebung || klasse), 
+	data = beispiel_data, REML = FALSE)
+	
+m_corr <- lmer(punktzahl ~ uebung + (uebung | klasse), 
+	data = beispiel_data, REML = FALSE)
 @
 \setstretch{1.5}
 
+Wir haben hier gleich zwei Varianten eines \textit{Random Intercept and Slope} Modell geschätzt. Zum einen eines bei dem der Achsenabschnitt und die Steigung unkorreliert sind und zum anderen ein Modell, bei dem beide Koeffizienten miteinander korrelieren. Um das Modell zu identifizieren, das am meisten erklärte Varianz aufweist, kann man wie beim Vergleich von normalen linearen Modellen mit dem Befehl \texttt{anova()} die Modelle vergleichen. Bei Betrachtung des Outputs wird klar, dass ein \textit{Random Intercept and Slope} Modell mit unkorrelierten Achsenabschnitten und Steigungen am besten zu unseren Daten passt. 
 
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
+anova(m_intercept, m_corr, m_uncorr)
+@
+\setstretch{1.5}
+
+Bis jetzt haben wir uns nur mit Level-1 Variablen beschäftigt. Möchten wir dem Modell die Anzahl Fenster im Klassenzimmer als Level-2 Variable hinzufügen, stellt sich die Frage, ob man eine \textit{Cross-Level} Interaktion zulassen möchte oder nicht. In der folgenden Gleichung wurde die Variable mit einer \textit{Cross-Level} Interaktion hinzugefügt, um nicht nur den Achsenabschnitt sondern auch die Steigung besser zu beschreiben:
+\begin{equation} 
+\begin{split}	
+ \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
+ \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + \gamma_{01} \cdot \text{fenster}_{j} + U_{0j}\\
+ \beta_{j1} & = \gamma_{1j} + \gamma_{11} \cdot \text{fenster}_{j} + U_{1j}\\
+\end{split}	
+\end{equation} 
+In R ist das Hinzufügen von Level-2 Variablen relativ einfach, da eine Level-2 Variable genau gleich, wie eine Level-1 Variable hinzugefügt werden kann. Folgend wurden gleich zwei Modelle geschätzt, eines ohne und eines mit \textit{Cross-Level} Interaktion.
+
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=FALSE>>=
+m_lvl2 <- lmer(punktzahl ~ uebung + fenster + (uebung || klasse), 
+	data = beispiel_data, REML = FALSE)
+	
+m_cross <- lmer(punktzahl ~ uebung * fenster + (uebung || klasse), 
+	data = beispiel_data, REML = FALSE)
+@
+\setstretch{1.5}
+
+Diese Modelle werden nun wieder mit unserem unkorrelierten \textit{Random Intercept and Slope} Modell verglichen, um herauszufinden, ob das Hinzufügen einer Level-2 Variable das Modell verbessert hat:
+
+\singlespacing
+<<echo = TRUE, error=FALSE, warning=FALSE, message=FALSE, eval = TRUE, tidy=TRUE>>=
+anova(m_uncorr, m_lvl2, m_cross)
+@
+\setstretch{1.5}
+
+Wie man erkennen kann, ist keines der neuen Modelle besser als das unkorrelierte \textit{Random Intercept and Slope} Modell. Folglich wird für die weiteren Abschnitte dieses Modell verwendet, da es anscheinend am meisten Varianz aufklärt.
 
 \subsubsection{Auswertung von Modellen}
+
+
 Modelle welche sich nur in fixen Effekten unterscheiden sollten mit ML und Modelle welche sich in zufälligen Effekten unterscheiden mit REML verglichen werden \cite{SnijdersTomA.B2012Ma:a}
 
 Tests für feste Effekte Wald-Test \cite{SnijdersTomA.B2012Ma:a} Inkl. Dummy-Test
