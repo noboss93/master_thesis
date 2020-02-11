@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  10 FEB 2020 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  11 FEB 2020 12:38
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -893,7 +893,7 @@ Package xcolor Warning: Incompatible color definition on input line 426.
 Package xcolor Warning: Incompatible color definition on input line 439.
 
 [24] [25]
-Overfull \hbox (35.11824pt too wide) in paragraph at lines 484--485
+Overfull \hbox (35.11824pt too wide) in paragraph at lines 485--486
 []\OT1/cmr/m/n/12 Die er-war-te-te Zu-nah-me der Punkt-zahl be-tr[]agt $0\OML/c
 mm/m/it/12 :\OT1/cmr/m/n/12 45 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 2 \OMS/cmsy/m
 /n/12  \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 21$ pro gel[]oste []
@@ -902,37 +902,42 @@ Ubungsaufgabe.
 
 [26]
 
-Package xcolor Warning: Incompatible color definition on input line 502.
+Package xcolor Warning: Incompatible color definition on input line 503.
 
 [27]
 
-Package xcolor Warning: Incompatible color definition on input line 539.
+Package xcolor Warning: Incompatible color definition on input line 540.
 
 [28]
 
-Package xcolor Warning: Incompatible color definition on input line 573.
+Package xcolor Warning: Incompatible color definition on input line 574.
 
 
-Package xcolor Warning: Incompatible color definition on input line 594.
+Package xcolor Warning: Incompatible color definition on input line 595.
 
 
-Overfull \hbox (4.45027pt too wide) in paragraph at lines 606--607
+Overfull \hbox (4.45027pt too wide) in paragraph at lines 607--608
 []\OT1/cmr/m/n/12 Wir ha-ben hier gleich zwei Va-ri-an-ten ei-nes \OT1/cmr/m/it
 /12 Ran-dom In-ter-cept and Slo-pe \OT1/cmr/m/n/12 Mo-dell gesch[]atzt.
  []
 
-
-Package xcolor Warning: Incompatible color definition on input line 610.
-
 [29]
 
-Package xcolor Warning: Incompatible color definition on input line 648.
+Package xcolor Warning: Incompatible color definition on input line 615.
 
 [30]
 
-Package xcolor Warning: Incompatible color definition on input line 664.
+Package xcolor Warning: Incompatible color definition on input line 661.
 
-[31] [32] [33] (masterarbeit_multilevelanalysis.bbl
+[31]
+
+Package xcolor Warning: Incompatible color definition on input line 677.
+
+[32]
+
+Package xcolor Warning: Incompatible color definition on input line 724.
+
+[33] [34] [35] [36] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -944,15 +949,15 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
   Zu-griff auf
  []
 
-[34]) [35] (masterarbeit_multilevelanalysis.aux) ) 
+[37]) [38] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 19743 strings out of 492450
- 374320 string characters out of 3129748
- 430735 words of memory out of 3000000
- 23870 multiletter control sequences out of 15000+200000
+ 19746 strings out of 492450
+ 374387 string characters out of 3129748
+ 430774 words of memory out of 3000000
+ 23873 multiletter control sequences out of 15000+200000
  543313 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,17n,67p,2075b,541s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 52i,20n,67p,2075b,541s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
@@ -968,10 +973,10 @@ lic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.p
 fb>
-Output written on masterarbeit_multilevelanalysis.pdf (41 pages, 438150 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (44 pages, 446272 bytes).
 
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
+ 227 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
