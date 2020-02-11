@@ -75,7 +75,7 @@
 \usepackage{caption}
 \usepackage{setspace}
 \captionsetup{font=footnotesize}
-\numberwithin{equation}{section}
+
 
 
 
@@ -807,12 +807,12 @@ Dabei ist $Var_{0}$ die Varianz des Modells, das den gewünschten Prädiktor nic
 \setstretch{1.5}
 
 Die Varianz der Residuen des leeren Modells beträgt $\sigma_{0}^2 = 44$ und die Varianz der Residuen des \textit{Random Intercept} Modells $\sigma_{1}^2 = 29.09$. Fügen wir diese beiden Werte in die Formel \eqref{eq:prv} ein erhalten wir die proportionale Reduktion der Varianz des Residuums:
-\begin{equation} \label{eq:prv}
+\begin{equation} 
 \begin{split}	
  PRV_{R} = \dfrac{44 - 29.09}{44} = 0.34
 \end{split}	
 \end{equation}
-Daraus kann nun geschlossen werden, dass durch die Hinzunahme der Anzahl gelösten Übungsaufgaben als Prädiktor für die erreichte Punktzahl in der Mathematikprüfung eine Reduktion der Residualvarianz von 34\% erreicht wird.
+Daraus kann nun geschlossen werden, dass durch die Hinzunahme der Anzahl gelösten Übungsaufgaben als Prädiktor für die erreichte Punktzahl in der Mathematikprüfung eine Reduktion der Residualvarianz von 34\% erreicht wird. Da wir in unserem Modell nur eine Level-1 Variable als festen Effekt hinzugefügt haben, kann keine weitere PRV für den Achsenabschnitt und der Steigung berechnet werden. Möchte man die Varianzen dieser beiden Koeffiziente reduzieren, müssen wie bereits in Abschnitt \ref{section:variability} besprochen Level-2 Variablen in das Modell aufgenommen werden. Erst dann kann auch die proportionale Reduktion der Varianz mit der oberen Formel berechnet werden.
 
 \section{Simulationsstudie zur Multilevel Analyse}
 \subsection{Herleitung der Forschungsfrage}
