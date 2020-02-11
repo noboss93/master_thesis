@@ -127,7 +127,6 @@ xtable(data_aggr, digits = 1)
 # Regressionsmodelle ------------------------------------------------------
 
 lm0 <- lmer(punktzahl ~ (1|klasse), data = test)
-lm01 <- lmer(punktzahl ~ (uebung|klasse), data = test)
 lm2<- lmer(punktzahl ~ uebung + (1|klasse), data = test)
 lm3 <- lmer(punktzahl ~ uebung + (uebung | klasse), data = test)
 

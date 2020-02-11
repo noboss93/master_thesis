@@ -761,15 +761,58 @@ Möchten wir nun $R_{1}^2$ für unser Beispiel berechnen müssen wir zuerst unse
 
 \setstretch{1.5}
 
-Aus dem Output aus Abschnitt \ref{section:icc_r} können die Varianzen des leeren Modells abgelesen werden und mit den Varianzen aus dem Outupt für das \textit{Random Intercept} Modells in die Formel eingesetzt werden:
+Im Output aus Abschnitt \ref{section:icc_r} können die Varianzen des leeren Modells abgelesen werden und mit den Varianzen aus dem Outupt für das \textit{Random Intercept} Modells in die Formel eingesetzt werden:
 \begin{equation} 
 \begin{split}	
  R_{1}^2 & = 1 - \dfrac{29.09 + 12.17}{44 + 9.57} = 0.23
 \end{split}	
 \end{equation}
-Folglich kann man nun die Aussage treffen, dass unser Modell 22.99\% der Varianz in der erreichten Punktzahl von Schulkindern erklärt.
+Folglich kann man nun die Aussage treffen, dass unser Modell 23\% der Varianz in der erreichten Punktzahl von Schulkindern erklärt.
 
-Es gibt aber auch Situationen in denen man genau wissen möchte, wie viel Varianz durch die Hinzunahme eines bestimmten Prädiktors im Modell erklärt wird. 
+Es gibt aber auch Situationen in denen man genau wissen möchte, wie viel Varianz durch die Hinzunahme eines bestimmten Prädiktors im Modell erklärt wird. Dies kann man mit der proportionalen Reduktion der Varianz (PRV) erklären, die als eines der lokale Effektstärkemasse von hierarchischen linearen Modellen gilt \citep{PEUGH201085, woltman2012introduction}. Die Berechnung der proportionalen Reduktion der Varianz wird für jede einzelne Varianz des Modells durchgeführt. Das bedeutet, dass die PRV für die Varianz des Residuums, des Achsenabschnittes und für die der Steigung berechnet werden kann. Die Formel zur Berechnung der PRV bleibt aber für alle Fälle die gleiche:
+\begin{equation} \label{eq:prv}
+\begin{split}	
+ PRV = \dfrac{Var_{0} - Var_{1}}{Var_{0}}
+\end{split}	
+\end{equation}
+Dabei ist $Var_{0}$ die Varianz des Modells, das den gewünschten Prädiktor nicht enthält und $Var_{1}$ des Modells, das den Prädiktor enthält. Gehen wir nun ganz an den Anfang unserer Analyse zurück und überprüfen, wie viel Varianz im Vergleich zum leeren Modell durch die Hinzunahme der Anzahl gelösten Übungsaufgaben als Prädiktor reduziert wird. Dazu wurden folgend die Varianzkomponenten des leeren Modells und des ersten \textit{Random Intercept} Modells ausgegeben. 
+
+\singlespacing
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{m_leer} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{(}\hlnum{1} \hlopt{|} \hlstd{klasse),} \hlkwc{data} \hlstd{= beispiel_data,}
+    \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlkwd{print}\hlstd{(}\hlkwd{VarCorr}\hlstd{(m_leer),} \hlkwc{comp} \hlstd{=} \hlstr{"Variance"}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+##  Groups   Name        Variance
+##  klasse   (Intercept)  9.57   
+##  Residual             44.00
+\end{verbatim}
+\begin{alltt}
+\hlstd{m_uebung} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(}\hlnum{1} \hlopt{|} \hlstd{klasse),} \hlkwc{data} \hlstd{= beispiel_data,}
+    \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlkwd{print}\hlstd{(}\hlkwd{VarCorr}\hlstd{(m_uebung),} \hlkwc{comp} \hlstd{=} \hlstr{"Variance"}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+##  Groups   Name        Variance
+##  klasse   (Intercept) 12.2    
+##  Residual             29.1
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\setstretch{1.5}
+
+Die Varianz der Residuen des leeren Modells beträgt $\sigma_{0}^2 = 44$ und die Varianz der Residuen des \textit{Random Intercept} Modells $\sigma_{1}^2 = 29.09$. Fügen wir diese beiden Werte in die Formel \eqref{eq:prv} ein erhalten wir die proportionale Reduktion der Varianz des Residuums:
+\begin{equation} \label{eq:prv}
+\begin{split}	
+ PRV_{R} = \dfrac{44 - 29.09}{44} = 0.34
+\end{split}	
+\end{equation}
+Daraus kann nun geschlossen werden, dass durch die Hinzunahme der Anzahl gelösten Übungsaufgaben als Prädiktor für die erreichte Punktzahl in der Mathematikprüfung eine Reduktion der Residualvarianz von 34\% erreicht wird.
 
 \section{Simulationsstudie zur Multilevel Analyse}
 \subsection{Herleitung der Forschungsfrage}
