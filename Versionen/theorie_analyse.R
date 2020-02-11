@@ -128,7 +128,7 @@ xtable(data_aggr, digits = 1)
 
 lm0 <- lmer(punktzahl ~ (1|klasse), data = test)
 lm2<- lmer(punktzahl ~ uebung + (1|klasse), data = test)
-lm3 <- lmer(punktzahl ~ uebung + (uebung | klasse), data = test)
+lm3 <- lmer(punktzahl ~ uebung + (uebung || klasse), data = test)
 
 as0 <- lm(data = test, punktzahl ~ 1)
 as1 <- lm(data = test, punktzahl ~ math_lektionen)
