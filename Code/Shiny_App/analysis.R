@@ -8,18 +8,19 @@ saveRDS(test_lvl1, file = "test_sim_lvl1")
 
 # Simulating test study
 source("simulation_study.R")
-test_lvl1 <- simulation_study(niter = 10, sd_intercept = c(0,1,2,3,4,5), 
-                              y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5), treatment_level1 = TRUE)
+test_lvl1 <- simulation_study(niter = 100, sd_intercept = 5, sd_slope = 3, 
+                              y10 = 0, treatment_level1 = TRUE)
 
-power_analyze(test_lvl1)
+ggplot(data = test_lvl1, mapping = aes(x = p_value_treatment))+
+  geom_histogram(bins = 50) +
+  facet_wrap(~ method)
 
-test_lvl2 <- simulation_study(niter = 10, sd_intercept = c(0,1,2,3,4,5), 
-                              y10 = c(0, 0.25, 0.5, 0.75, 1, 1.5), treatment_level1 = FALSE)
-power_analyze(test_lvl2)
+test_lvl2 <- simulation_study(niter = 100, sd_intercept = 5, 
+                              y10 = 0, treatment_level1 = FALSE)
 
-ggplot(data = test_lvl1, mapping = aes(x = p_value_treatment, group = method))+
-  geom_histogram() +
-  facet_wrap(~ method + effect_treatment)
+ggplot(data = test_lvl2, mapping = aes(x = p_value_treatment))+
+  geom_histogram(bins = 20) +
+  facet_wrap(~ method)
 
 # loading files
 test_sim_lvl1 <- readRDS("test_sim_lvl1")

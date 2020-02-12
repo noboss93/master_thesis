@@ -30,7 +30,7 @@ one_simulation <- function(nschueler = 50,
   
   if (treatment_level1 == TRUE){
     
-    mlm_model <- lmer(leistung ~ uebung + (uebung | klasse), data = ml_data, REML = FALSE)
+    mlm_model <- lmer(leistung ~ uebung + (uebung || klasse), data = ml_data, REML = FALSE)
     
   } else{
     mlm_model <- lmer(leistung ~ uebung + (1 | klasse), data = ml_data, REML = FALSE)

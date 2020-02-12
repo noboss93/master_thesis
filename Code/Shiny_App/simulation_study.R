@@ -46,3 +46,18 @@ simulation_study <- function(nschueler = 50,
   coef_models[,1:9] <- apply(coef_models[,1:9], 2, as.numeric)
   return(coef_models)
 }
+
+test_lvl1 <- simulation_study(sd_intercept = sqrt(0.1), sd_slope = sqrt(0.06), y00 = 2.34, y10 = 0.12)
+
+test_lvl2 <- simulation_study(sd_intercept = sqrt(0.16), y00 = 2.34, y10 = 0.12, treatment_level1 = FALSE)
+
+par(mfrow = c(2,2))
+hist(test_lvl1$p_value_likelihood[test_lvl1$method == "lm"], main = "Level 1 LM")
+hist(test_lvl1$p_value_likelihood[test_lvl1$method == "mlm"], main = "Level 1 MLM")
+hist(test_lvl2$p_value_likelihood[test_lvl2$method == "lm"], main = "Level 2 LM")
+hist(test_lvl2$p_value_likelihood[test_lvl2$method == "mlm"], main = "Level 2 MLM")
+
+sum(test_lvl1$p_value_likelihood[test_lvl1$method == "lm"] < .05)
+sum(test_lvl1$p_value_likelihood[test_lvl1$method == "mlm"] < .05)
+sum(test_lvl2$p_value_likelihood[test_lvl2$method == "lm"] < .05)
+sum(test_lvl2$p_value_likelihood[test_lvl2$method == "mlm"] < .05)
