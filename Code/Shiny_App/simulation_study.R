@@ -47,20 +47,20 @@ simulation_study <- function(nschueler = 50,
   return(coef_models)
 }
 
-test_lvl1 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0.35)
+test_lvl1 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0.35, niter = 10)
 
 test_lvl2 <- simulation_study(sd_intercept = sqrt(var_i), y00 = 15, y10 = 0.35, treatment_level1 = FALSE)
 
-par(mfrow = c(2,2))
-hist(test_lvl1$p_value_treatment[test_lvl1$method == "lm"], main = "Level 1 LM")
-hist(test_lvl1$p_value_treatment[test_lvl1$method == "mlm"], main = "Level 1 MLM")
-hist(test_lvl2$p_value_treatment[test_lvl2$method == "lm"], main = "Level 2 LM")
-hist(test_lvl2$p_value_treatment[test_lvl2$method == "mlm"], main = "Level 2 MLM")
+#saveRDS(test_lvl1, file = "test_lvl1")
+#saveRDS(test_lvl2, file = "test_lvl2")
+test_lvl1 <- readRDS(file = "test_lvl1")
+test_lvl2 <- readRDS(file = "test_lvl2")
 
-sum(test_lvl1$p_value_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == 0.05] < .05) / 100
-sum(test_lvl1$p_value_treatment[test_lvl1$method == "mlm"& test_lvl1$theoretical_icc == 0.05] < .05) / 100
-sum(test_lvl2$p_value_treatment[test_lvl2$method == "lm"& test_lvl1$theoretical_icc == 0.05] < .05) / 100
-sum(test_lvl2$p_value_treatment[test_lvl2$method == "mlm"& test_lvl1$theoretical_icc == 0.05] < .05) / 100
+par(mfrow = c(2,2))
+hist(test_lvl1$p_value_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == 0.5], main = "Level 1 LM")
+hist(test_lvl1$p_value_treatment[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == 0.5], main = "Level 1 MLM")
+hist(test_lvl2$p_value_treatment[test_lvl2$method == "lm" & test_lvl2$theoretical_icc == 0.5], main = "Level 2 LM")
+hist(test_lvl2$p_value_treatment[test_lvl2$method == "mlm" & test_lvl2$theoretical_icc == 0.5], main = "Level 2 MLM")
 
 
 icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
@@ -71,38 +71,39 @@ for(i in 1:length(icc)){
 }
 
 
-mean(test_lvl1$SE_beta_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == 0.1]) / 
- sd(test_lvl1$beta_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == 0.1])
-
-
 efficacy_lm_lvl1 <- c()
 for(i in 1:length(icc)){
-efficacy_lm_lvl1[i] <- mean(test_lvl1$SE_beta_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]]) / 
-  sd(test_lvl1$beta_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]])
+efficacy_lm_lvl1[i] <- mean(test_lvl1$SE_beta_0[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]]) / 
+  sd(test_lvl1$beta_0[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]])
 }
 
 efficacy_mlm_lvl1 <- c()
 for(i in 1:length(icc)){
-  efficacy_mlm_lvl1[i] <- mean(test_lvl1$SE_beta_treatment[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]]) / 
-    sd(test_lvl1$beta_treatment[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]])
+  efficacy_mlm_lvl1[i] <- mean(test_lvl1$SE_beta_0[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]]) / 
+    sd(test_lvl1$beta_0[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]])
 }
 
 efficacy_lm_lvl2 <- c()
 for(i in 1:length(icc)){
-  efficacy_lm_lvl2[i] <- mean(test_lvl2$SE_beta_treatment[test_lvl2$method == "lm" & test_lvl2$theoretical_icc == icc[i]]) / 
-    sd(test_lvl2$beta_treatment[test_lvl2$method == "lm" & test_lvl2$theoretical_icc == icc[i]])
+  efficacy_lm_lvl2[i] <- mean(test_lvl2$SE_beta_0[test_lvl2$method == "lm" & test_lvl2$theoretical_icc == icc[i]]) / 
+    sd(test_lvl2$beta_0[test_lvl2$method == "lm" & test_lvl2$theoretical_icc == icc[i]])
 }
 
 efficacy_mlm_lvl2 <- c()
 for(i in 1:length(icc)){
-  efficacy_mlm_lvl2[i] <- mean(test_lvl2$SE_beta_treatment[test_lvl2$method == "mlm" & test_lvl1$theoretical_icc == icc[i]]) / 
-    sd(test_lvl2$beta_treatment[test_lvl2$method == "mlm" & test_lvl2$theoretical_icc == icc[i]])
+  efficacy_mlm_lvl2[i] <- mean(test_lvl2$SE_beta_0[test_lvl2$method == "mlm" & test_lvl1$theoretical_icc == icc[i]]) / 
+    sd(test_lvl2$beta_0[test_lvl2$method == "mlm" & test_lvl2$theoretical_icc == icc[i]])
 }
 
 efficacy_lm_lvl1
 efficacy_mlm_lvl1
 efficacy_lm_lvl2
 efficacy_mlm_lvl2
+
+barplot(c(efficacy_lm_lvl1, efficacy_mlm_lvl1), 
+        names.arg = c("0", "0.05", "0.1", "0.15", "0.2", "0.25", "0.3", "0.4", "0.5", "0", "0.05", "0.1", "0.15", "0.2", "0.25", "0.3", "0.4", "0.5"))
+barplot(c(efficacy_lm_lvl2, efficacy_mlm_lvl2), 
+        names.arg = c("0", "0.05", "0.1", "0.15", "0.2", "0.25", "0.3", "0.4", "0.5", "0", "0.05", "0.1", "0.15", "0.2", "0.25", "0.3", "0.4", "0.5"))
 
 ggplot(data = test_lvl1, mapping = aes(x = SE_beta_treatment))+
   geom_histogram(bins = 20) +
