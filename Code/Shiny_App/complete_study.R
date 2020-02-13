@@ -29,7 +29,7 @@ gen_ml_data <- function(nschueler = 50,
                                  covar01,
                                  covar01,
                                  sd_slope^2
-  ), 2, 2)
+                                 ), 2, 2)
   
   effekte <- mvrnorm(n = nklassen, mu = c(0,0), 
                      Sigma = effekte_cov_matrix, empirical = TRUE)
@@ -38,7 +38,7 @@ gen_ml_data <- function(nschueler = 50,
   random_slope <- rep(effekte[,2], each = nschueler)
   
   if (treatment_level1 == TRUE){
-    uebung <- sample(rep(c(-1,1), each = (nschueler*nklassen)/2), size = nschueler*nklassen)
+    uebung <- rep(c(-1,1), each = nschueler/2, times = nklassen)
     
     # Calculating individual leistung score
     leistung <- numeric(n)
@@ -103,7 +103,7 @@ one_simulation <- function(nschueler = 50,
   
   if (treatment_level1 == TRUE){
     
-    mlm_model <- lmer(leistung ~ uebung + (uebung || klasse), data = ml_data, REML = FALSE)
+    mlm_model <- lmer(leistung ~ uebung + (uebung | klasse), data = ml_data, REML = FALSE)
     
   } else{
     mlm_model <- lmer(leistung ~ uebung + (1 | klasse), data = ml_data, REML = FALSE)
@@ -200,7 +200,7 @@ for(i in 1:length(icc)){
 }
 
 test_lvl1 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0.35, niter = 1000)
-test_lvl2 <- simulation_study(sd_intercept = sqrt(var_i), y00 = 15, y10 = 0.35, treatment_level1 = FALSE, niter = 1000)
+test_lvl2 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0.35, treatment_level1 = FALSE, niter = 1000)
 
 #saveRDS(test_lvl1, file = "test_lvl1")
 #saveRDS(test_lvl2, file = "test_lvl2")
@@ -248,6 +248,80 @@ ggplot(data = test_lvl2, mapping = aes(y = SE_beta_treatment, fill = method))+
   geom_boxplot() +
   facet_wrap(~ theoretical_icc) +
   labs(title = "SE Treatment Level 2")
+
+# Parameter Efficacy for Treatment at bot levels and for every ICC
+mean_parameters <- function(df){
+  icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+  intercept_mean_lm <- c()
+  intercept_mean_mlm <- c()
+  treatment_mean_lm <- c()
+  treatment_mean_mlm <- c()
+  
+  for(i in 1:length(icc)){
+    intercept_mean_lm[i] <- mean(df$beta_0[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]])
+    intercept_mean_mlm[i] <- mean(df$beta_0[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]])
+    treatment_mean_lm[i] <- mean(df$beta_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]])
+    treatment_mean_mlm[i] <- mean(df$beta_treatment[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]])
+  }
+  
+  methods <- rep(c("lm", "mlm"), each = 9)
+  icc_df <- rep(icc, times = 2)
+  
+  temp_m <- matrix(c(intercept_mean_lm, intercept_mean_mlm, treatment_mean_lm, treatment_mean_mlm, methods, icc_df), ncol = 4)
+  mean_dataframe <- data.frame(temp_m)
+  colnames(mean_dataframe) <- c("intercept_mean", "treatment_mean", "methods", "icc")
+  mean_dataframe[,1:2] <- apply(mean_dataframe[,1:2], 2, as.character)
+  mean_dataframe[,1:2] <- apply(mean_dataframe[,1:2], 2, as.numeric)
+  
+  return(mean_dataframe)
+}
+
+parameter_efficacy <- function(df){
+  mean_par <- mean_parameters(df)
+  
+  intercept_efficacy <- mean_par$intercept_mean / 15
+  treatment_efficacy <- mean_par$treatment_mean / 0.35
+  
+  methods <- rep(c("lm", "mlm"), each = 9)
+  icc_df <- rep(icc, times = 2)
+  
+  temp_m <- matrix(c(intercept_efficacy, treatment_efficacy, methods, icc_df), ncol = 4)
+  
+  par_efficacy_df <- data.frame(temp_m)
+  colnames(par_efficacy_df) <- c("intercept_efficacy", "treatment_efficacy", "methods", "icc")
+  par_efficacy_df[,1:2] <- apply(par_efficacy_df[,1:2], 2, as.character)
+  par_efficacy_df[,1:2] <- apply(par_efficacy_df[,1:2], 2, as.numeric)
+  
+  return(par_efficacy_df)
+}
+
+parameter_efficacy_lvl1 <- parameter_efficacy(test_lvl1)
+parameter_efficacy_lvl2 <- parameter_efficacy(test_lvl2)
+
+ggplot(data = parameter_efficacy_lvl1, aes(y = intercept_efficacy, x = methods, fill = methods))+
+  geom_col() +
+  geom_hline(yintercept = 1, size = 1) +
+  facet_grid(~ icc) + 
+  labs(title = "SE Efficacy Intercept fo Treatment at Level 1")
+
+ggplot(data = parameter_efficacy_lvl1, aes(y = treatment_efficacy, x = methods, fill = methods))+
+  geom_col() +
+  geom_hline(yintercept = 1, size = 1) +
+  facet_grid(~ icc) +
+  labs(title = "SE Efficacy Treatment fo Treatment at Level 1")
+
+ggplot(data = parameter_efficacy_lvl2, aes(y = intercept_efficacy, x = methods, fill = methods))+
+  geom_col() +
+  geom_hline(yintercept = 1, size = 1) +
+  facet_grid(~ icc) + 
+  labs(title = "SE Efficacy Intercept fo Treatment at Level 2")
+
+ggplot(data = parameter_efficacy_lvl2, aes(y = treatment_efficacy, x = methods, fill = methods))+
+  geom_col() +
+  geom_hline(yintercept = 1, size = 1) +
+  facet_grid(~ icc) +
+  labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
+
 
 # SE Efficacy for Treatment at both levels and for every ICC
 mean_se <- function(df){
@@ -349,14 +423,6 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = methods, fill = 
   geom_hline(yintercept = 1, size = 1) +
   facet_grid(~ icc) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
-
-
-
-
-
-
-
-
 
 
 
