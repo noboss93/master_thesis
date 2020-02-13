@@ -199,13 +199,18 @@ for(i in 1:length(icc)){
   var_i[i] <- (icc[i] * 25) / (1 - icc[i])
 }
 
-test_lvl1 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0.35, niter = 1000)
-test_lvl2 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0.35, treatment_level1 = FALSE, niter = 1000)
+test_lvl1_noeff <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0, niter = 1000)
+test_lvl2_noeff <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0, treatment_level1 = FALSE, niter = 1000)
 
+
+#saveRDS(test_lvl1_noeff, file = "test_lvl1_noeff")
+#saveRDS(test_lvl2_noeff, file = "test_lvl2_noeff")
 #saveRDS(test_lvl1, file = "test_lvl1")
 #saveRDS(test_lvl2, file = "test_lvl2")
 test_lvl1 <- readRDS(file = "test_lvl1")
 test_lvl2 <- readRDS(file = "test_lvl2")
+test_lvl1_noeff <- readRDS(file = "test_lvl1_noeff")
+test_lvl2_noeff <- readRDS(file = "test_lvl2_noeff")
 
 # Boxplots for Coefficients for Treatment at both Levels
 ggplot(data = test_lvl1, mapping = aes(y = beta_0, fill = method))+
@@ -229,6 +234,7 @@ ggplot(data = test_lvl2, mapping = aes(y = beta_treatment, fill = method))+
   labs(title = "Treatment Level 2")
 
 # Boxplots for Standard Errors of Coefs for Treatment at both Levels
+
 ggplot(data = test_lvl1, mapping = aes(y = SE_beta_0, fill = method))+
   geom_boxplot() +
   facet_wrap(~ theoretical_icc) +
@@ -246,8 +252,9 @@ ggplot(data = test_lvl2, mapping = aes(y = SE_beta_0, fill = method))+
 
 ggplot(data = test_lvl2, mapping = aes(y = SE_beta_treatment, fill = method))+
   geom_boxplot() +
-  facet_wrap(~ theoretical_icc) +
+  facet_wrap( ~ theoretical_icc) +
   labs(title = "SE Treatment Level 2")
+
 
 # Parameter Efficacy for Treatment at bot levels and for every ICC
 mean_parameters <- function(df){
@@ -424,5 +431,3 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = methods, fill = 
   facet_grid(~ icc) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
 
-mean_se(test_lvl1)
-sd_coefs(test_lvl1)
