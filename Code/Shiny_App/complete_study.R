@@ -424,5 +424,5 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = methods, fill = 
   facet_grid(~ icc) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
 
-
-
+mean_se(test_lvl1)
+sd_coefs(test_lvl1)

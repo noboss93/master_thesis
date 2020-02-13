@@ -13,10 +13,9 @@ ui <- dashboardPage(
   dashboardHeader(title = "Multilevel Analyse", titleWidth = 350),
   dashboardSidebar(width = 350,
     sidebarMenu(
-      menuItem("Einführung", tabName = "einführung"),
       menuItem("Was ist eine Multilevel Analyse?", tabName = "intro"),
-      menuItem("Genestete Daten generieren", tabName = "generating"),
-      menuItem("Daten analysieren", tabName = "analysing")
+      menuItem("Beispiel einer Multilevel Analyse", tabName = "analysing"),
+      menuItem("Simulationsstudie", tabName = "simstudy")
       )
   ),
   dashboardBody(
@@ -24,36 +23,10 @@ ui <- dashboardPage(
     tabItems(
     tabItem(tabName = "intro",
             source("tab_intro.R", encoding = "utf8")[1]),
-    
-    tabItem(tabName = "generating", 
-            source("tab_generating.R", encoding = "utf8")[1]),
-    
     tabItem(tabName = "analysing", 
-            source("tab_analysing_intro.R", encoding = "utf8")[1])
-    #,
-    #tabItem(tabName = "infos", 
-    #        source("tab_info_mla.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "researchquestion", 
-    #        source("tab_researchquestion.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "estimator", 
-    #        source("tab_estimator.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "needformla", 
-    #        source("tab_needformla.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "lvl1", 
-    #        source("tab_lvl1.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "lvl2", 
-    #        source("tab_lvl2.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "effectsize", 
-    #        source("tab_effectsize.R", encoding = "utf8")[1]),
-    #
-    #tabItem(tabName = "modeltesting", 
-    #        source("tab_modeltesting.R", encoding = "utf8")[1])
+            source("tab_analysing_intro.R", encoding = "utf8")[1]),
+    tabItem(tabName = "simstudy", 
+            source("simstudy_app.R", encoding = "utf8")[1])
     )
   )
 )
@@ -62,21 +35,20 @@ ui <- dashboardPage(
 server <- function(input, output, session) {
   
   # Laden der richtigen Funktion
-  source("dgp_multi_ml.R")
-  source("ICC_finder.R")
+  source("dgp_app.R")
   
   # Generieren des Datensatzes
   data_model  <- eventReactive(input$gen_data, {
-    gen_ml_data(n = 240, nklassen = 8, sd_intercept = input$int_sd, 
+    gen_ml_data(nschueler = 30, nklassen = 8, sd_intercept = input$int_sd, 
               sd_slope = input$slope_sd, corr = input$corr)
     })
   
   # Model und Koeffizienten berechnen
   model <- eventReactive(c(input$method, input$gen_data), {
     switch(input$method,
-           "lm" = lm(leistung ~ iq_centered, data = data_model()),
-           "ri" = lmer(leistung ~ iq_centered + (1|klasse), data = data_model()),
-           "rs" = lmer(leistung ~ iq_centered + (iq_centered|klasse), data = data_model())
+           "lm" = lm(punktzahl ~ uebung, data = data_model()),
+           "ri" = lmer(punktzahl ~ uebung + (1|klasse), data = data_model()),
+           "rs" = lmer(punktzahl ~ uebung + (uebung|klasse), data = data_model())
     )
   })
   
@@ -99,10 +71,6 @@ server <- function(input, output, session) {
 
 # Intro Summary Data ------------------------------------------------------
   
-  # Anzeige des ICCs
-  output$icc <- renderText({
-    find_icc(data_model())
-  })
   
   # Ausgabe der Tabelle
   output$table <- renderDataTable({
@@ -134,30 +102,27 @@ server <- function(input, output, session) {
   output$multiplot <- renderPlot({
     if (input$method == "lm"){
       if (input$groupcolor == TRUE){
-      ggplot(data = data_model(), mapping = aes(x = iq_centered, y = leistung, color = klasse)) + 
+      ggplot(data = data_model(), mapping = aes(x = uebung, y = punktzahl, color = klasse)) + 
         geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
-        labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
-        xlim(-20, 20)
+        labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte")
           
       } else {
-        ggplot(data = data_model(), mapping = aes(x = iq_centered, y = leistung)) + 
+        ggplot(data = data_model(), mapping = aes(x = uebung, y = punktzahl)) + 
           geom_point(size = 2) +
           geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
-          labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
-          xlim(-20, 20)
+          labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte")
           
       }
     } else {
-      ggplot(data = data_model(), mapping = aes(x = iq_centered, y = leistung, color = klasse)) + 
+      ggplot(data = data_model(), mapping = aes(x = uebung, y = punktzahl, color = klasse)) + 
         geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8), size = 1) +
         geom_abline(slope = mean(slope()), 
                     intercept = mean(intercept()), col = "red", size = 1) +
-        labs(x = "IQ Zentriert", y = "Anzahl Punkte") +
-        xlim(-20, 20)
+        labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte")
         
     }
   })

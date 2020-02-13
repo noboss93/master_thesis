@@ -15,7 +15,7 @@ gen_ml_data <- function(nschueler = 50,
   
   # Creating random effects of klassen
   covar01 <- corr * sqrt(sd_intercept^2 * sd_slope^2)
-
+  
   effekte_cov_matrix <- matrix(c(sd_intercept^2,
                                  covar01,
                                  covar01,
@@ -29,25 +29,25 @@ gen_ml_data <- function(nschueler = 50,
   random_slope <- rep(effekte[,2], each = nschueler)
   
   if (treatment_level1 == TRUE){
-    uebung <- sample(rep(c(-1,1), each = (nschueler*nklassen)/2), size = nschueler*nklassen)
-  
-  # Calculating individual leistung score
-  leistung <- numeric(n)
-  for (i in 1:n){
-  leistung[i] <- y00 +  
-    y10 * uebung[i] + 
-    random_intercept[i] + 
-    random_slope[i] * uebung[i] + 
-    error[i]
-  }
-  
+    uebung <- sample(c(1:30), replace = TRUE, size = nschueler * nklassen)
+    
+    # Calculating individual punktzahl score
+    punktzahl <- numeric(n)
+    for (i in 1:n){
+      punktzahl[i] <- y00 +  
+        y10 * uebung[i] + 
+        random_intercept[i] + 
+        random_slope[i] * uebung[i] + 
+        error[i]
+    }
+    
   } else{
     uebung <- rep(sample(rep(c(-1,1), each = nklassen/2), size = nklassen), 
                   each = nschueler)
     
-    leistung <- numeric(n)
+    punktzahl <- numeric(n)
     for (i in 1:n){
-      leistung[i] <- y00 +  
+      punktzahl[i] <- y00 +  
         y10 * uebung[i] + 
         random_intercept[i] + 
         error[i]
@@ -57,7 +57,7 @@ gen_ml_data <- function(nschueler = 50,
   # Creating dataframe
   klasse <- as.factor(klasse)
   
-  ml_data <- data.frame(klasse, uebung, leistung, random_intercept, random_slope)
+  ml_data <- data.frame(klasse, uebung, punktzahl, random_intercept, random_slope)
   
   return(ml_data)
 }
