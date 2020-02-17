@@ -5,7 +5,6 @@ library(lme4)
 library(lmerTest)
 library(ggplot2)
 
-
 # Data Generating Process -------------------------------------------------
 gen_ml_data <- function(nschueler = 50, 
                         nklassen = 300, 
@@ -14,7 +13,7 @@ gen_ml_data <- function(nschueler = 50,
                         corr = 0, 
                         sd_error = 5,
                         y00 = 15, 
-                        y10 = 0.3,
+                        y10 = 0.35,
                         treatment_level1 = TRUE){
   
   # Creating Variables
@@ -131,7 +130,7 @@ one_simulation <- function(nschueler = 50,
   
   
   beta_mlm <- fixef(mlm_model)
-  SE_mlm <- summary(mlm_model)$coefficient[,2]
+  SE_mlm <- coef(summary(mlm_model))[,2]
   p_mlm <- coef(summary(mlm_model))[,5]
   
   # lq_mlm <- anova(mlm_model_0, mlm_model, test = "LRT")
@@ -199,27 +198,24 @@ icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
 var_i <- c()
 
 for(i in 1:length(icc)){
-  var_i[i] <- (icc[i] * 4) / (1 - icc[i])
+  var_i[i] <- (icc[i] * 1.72) / (1 - icc[i])
 }
 
 #test_lvl1_noeff <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0, niter = 1000)
 #test_lvl2_noeff <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, y00 = 15, y10 = 0, treatment_level1 = FALSE, niter = 1000)
 
-test_lvl1 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 0, sd_error = 2, 
-                              y00 = 15, y10 = 0.35, 
-                              niter = 100)
-test_lvl2 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = 1, sd_error = 2, y00 = 15, y10 = 0.35, 
-                              treatment_level1 = FALSE, niter = 1000)
+test_lvl1 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = sqrt(0.06), sd_error = sqrt(1.72), 
+                              y00 = 2.34, y10 = 0.12, 
+                              niter = 1000)
+test_lvl2 <- simulation_study(sd_intercept = sqrt(var_i), sd_slope = sqrt(0.06), sd_error = sqrt(1.72), 
+                              y00 = 2.34, y10 = 0.12, 
+                              treatment_level1 = FALSE, 
+                              niter = 1000)
 
 #saveRDS(test_lvl1_noeff, file = "test_lvl1_noeff")
 #saveRDS(test_lvl2_noeff, file = "test_lvl2_noeff")
 #saveRDS(test_lvl1, file = "test_lvl1")
 #saveRDS(test_lvl2, file = "test_lvl2")
-test_lvl1 <-  readRDS(file = "test_lvl1")
-test_lvl2 <-  readRDS(file = "test_lvl2")
-test_lvl1_noeff <- readRDS(file = "test_lvl1_noeff")
-test_lvl2_noeff <- readRDS(file = "test_lvl2_noeff")
-
 
 # Analysing Study ---------------------------------------------------------
 
@@ -304,8 +300,8 @@ parameter_efficacy <- function(df){
   icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
   mean_par <- mean_parameters(df)
   
-  intercept_efficacy <- mean_par$intercept_mean / 15
-  treatment_efficacy <- mean_par$treatment_mean / 0.35
+  intercept_efficacy <- mean_par$intercept_mean / 2.34
+  treatment_efficacy <- mean_par$treatment_mean / 0.12
   
   methods <- rep(c("lm", "mlm"), each = 9)
   icc_df <- rep(icc, times = 2)
@@ -357,9 +353,9 @@ mean_se <- function(df){
   se_treatment_mean_mlm <- c()
   
   for(i in 1:length(icc)){
-  se_0_mean_lm[i] <- mean(df$SE_beta_0[df$method == "lm" & df$theoretical_icc == icc[i]])
+  se_0_mean_lm[i] <-  mean(df$SE_beta_0[df$method == "lm"  & df$theoretical_icc == icc[i]])
   se_0_mean_mlm[i] <- mean(df$SE_beta_0[df$method == "mlm" & df$theoretical_icc == icc[i]])
-  se_treatment_mean_lm[i] <- mean(df$SE_beta_treatment[df$method == "lm" & df$theoretical_icc == icc[i]])
+  se_treatment_mean_lm[i] <-  mean(df$SE_beta_treatment[df$method == "lm"  & df$theoretical_icc == icc[i]])
   se_treatment_mean_mlm[i] <- mean(df$SE_beta_treatment[df$method == "mlm" & df$theoretical_icc == icc[i]])
   }
   
@@ -425,8 +421,9 @@ return(se_efficacy_df)
 
 
 mean_se_lvl1 <- mean_se(test_lvl1)
+mean_se_lvl2 <- mean_se(test_lvl2)
 sd_lvl1 <- sd_coefs(test_lvl1)
-
+sd_lvl2 <- sd_coefs(test_lvl2)
 
 se_efficacy_lvl1 <- se_efficacy(test_lvl1)
 se_efficacy_lvl2 <- se_efficacy(test_lvl2)
@@ -489,7 +486,6 @@ power_model <- function(df){
 
 power_lvl1 <- power_model(test_lvl1)
 power_lvl2 <- power_model(test_lvl2)
-
 
 ggplot(data = power_lvl1, mapping = aes(y = power_intercept, x = method,  fill = method))+
   geom_col() +

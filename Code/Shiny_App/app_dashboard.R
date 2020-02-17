@@ -26,7 +26,7 @@ ui <- dashboardPage(
     tabItem(tabName = "analysing", 
             source("tab_analysing_intro.R", encoding = "utf8")[1]),
     tabItem(tabName = "simstudy", 
-            source("simstudy_app.R", encoding = "utf8")[1])
+            source("tab_simstudy_app.R", encoding = "utf8")[1])
     )
   )
 )
@@ -158,24 +158,158 @@ server <- function(input, output, session) {
   })
    
 
-# MLA Info ----------------------------------------------------------------
+# Sim Study ----------------------------------------------------------------
+  mean_parameters <- function(df){
+    icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+    intercept_mean_lm <- c()
+    intercept_mean_mlm <- c()
+    treatment_mean_lm <- c()
+    treatment_mean_mlm <- c()
+    
+    for(i in 1:length(icc)){
+      intercept_mean_lm[i] <- mean(df$beta_0[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]])
+      intercept_mean_mlm[i] <- mean(df$beta_0[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]])
+      treatment_mean_lm[i] <- mean(df$beta_treatment[test_lvl1$method == "lm" & test_lvl1$theoretical_icc == icc[i]])
+      treatment_mean_mlm[i] <- mean(df$beta_treatment[test_lvl1$method == "mlm" & test_lvl1$theoretical_icc == icc[i]])
+    }
+    
+    methods <- rep(c("lm", "mlm"), each = 9)
+    icc_df <- rep(icc, times = 2)
+    
+    temp_m <- matrix(c(intercept_mean_lm, intercept_mean_mlm, treatment_mean_lm, treatment_mean_mlm, methods, icc_df), ncol = 4)
+    mean_dataframe <- data.frame(temp_m)
+    colnames(mean_dataframe) <- c("intercept_mean", "treatment_mean", "method", "icc")
+    mean_dataframe[,1:2] <- apply(mean_dataframe[,1:2], 2, as.character)
+    mean_dataframe[,1:2] <- apply(mean_dataframe[,1:2], 2, as.numeric)
+    
+    return(mean_dataframe)
+  }
+  
+  parameter_efficacy <- function(df){
+    icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+    mean_par <- mean_parameters(df)
+    
+    intercept_efficacy <- mean_par$intercept_mean / 15
+    treatment_efficacy <- mean_par$treatment_mean / 0.35
+    
+    methods <- rep(c("lm", "mlm"), each = 9)
+    icc_df <- rep(icc, times = 2)
+    
+    temp_m <- matrix(c(intercept_efficacy, treatment_efficacy, methods, icc_df), ncol = 4)
+    
+    par_efficacy_df <- data.frame(temp_m)
+    colnames(par_efficacy_df) <- c("intercept_efficacy", "treatment_efficacy", "method", "icc")
+    par_efficacy_df[,1:2] <- apply(par_efficacy_df[,1:2], 2, as.character)
+    par_efficacy_df[,1:2] <- apply(par_efficacy_df[,1:2], 2, as.numeric)
+    
+    return(par_efficacy_df)
+  }
+  
+  mean_se <- function(df){
+    icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+    se_0_mean_lm <- c()
+    se_0_mean_mlm <- c()
+    se_treatment_mean_lm <- c()
+    se_treatment_mean_mlm <- c()
+    
+    for(i in 1:length(icc)){
+      se_0_mean_lm[i] <-  mean(df$SE_beta_0[df$method == "lm"  & df$theoretical_icc == icc[i]])
+      se_0_mean_mlm[i] <- mean(df$SE_beta_0[df$method == "mlm" & df$theoretical_icc == icc[i]])
+      se_treatment_mean_lm[i] <-  mean(df$SE_beta_treatment[df$method == "lm"  & df$theoretical_icc == icc[i]])
+      se_treatment_mean_mlm[i] <- mean(df$SE_beta_treatment[df$method == "mlm" & df$theoretical_icc == icc[i]])
+    }
+    
+    methods <- rep(c("lm", "mlm"), each = 9)
+    icc_df <- rep(icc, times = 2)
+    
+    temp_m <- matrix(c(se_0_mean_lm, se_0_mean_mlm, se_treatment_mean_lm, se_treatment_mean_mlm, methods, icc_df), ncol = 4)
+    mean_se_dataframe <- data.frame(temp_m)
+    colnames(mean_se_dataframe) <- c("mean_se_intercept", "mean_se_treatment", "method", "icc")
+    mean_se_dataframe[,1:2] <- apply(mean_se_dataframe[,1:2], 2, as.character)
+    mean_se_dataframe[,1:2] <- apply(mean_se_dataframe[,1:2], 2, as.numeric)
+    
+    return(mean_se_dataframe)
+  }
+  
+  sd_coefs <- function(df){
+    icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+    sd_0_lm <- c()
+    sd_0_mlm <- c()
+    sd_treatment_lm <- c()
+    sd_treatment_mlm <- c()
+    
+    for(i in 1:length(icc)){
+      sd_0_lm[i] <- sd(df$beta_0[df$method == "lm" & df$theoretical_icc == icc[i]])
+      sd_0_mlm[i] <- sd(df$beta_0[df$method == "mlm" & df$theoretical_icc == icc[i]])
+      sd_treatment_lm[i] <- sd(df$beta_treatment[df$method == "lm" & df$theoretical_icc == icc[i]])
+      sd_treatment_mlm[i] <- sd(df$beta_treatment[df$method == "mlm" & df$theoretical_icc == icc[i]])
+    }
+    
+    methods <- rep(c("lm", "mlm"), each = 9)
+    icc_df <- rep(icc, times = 2)
+    
+    temp_m <- matrix(c(sd_0_lm, sd_0_mlm, sd_treatment_lm, sd_treatment_mlm, methods, icc_df), ncol = 4)
+    mean_sd_dataframe <- data.frame(temp_m)
+    colnames(mean_sd_dataframe) <- c("sd_intercept", "sd_treatment", "method", "icc")
+    mean_sd_dataframe[,1:2] <- apply(mean_sd_dataframe[,1:2], 2, as.character)
+    mean_sd_dataframe[,1:2] <- apply(mean_sd_dataframe[,1:2], 2, as.numeric)
+    
+    return(mean_sd_dataframe)
+  }
+  
+  se_efficacy <- function(df){
+    icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+    
+    se_means <- mean_se(df)
+    coefs_sd <- sd_coefs(df)
+    
+    se_efficacy_intercept <- se_means$mean_se_intercept / coefs_sd$sd_intercept
+    se_efficacy_treatment <- se_means$mean_se_treatment / coefs_sd$sd_treatment
+    
+    methods <- rep(c("lm", "mlm"), each = 9)
+    icc_df <- rep(icc, times = 2)
+    
+    temp_m <- matrix(c(se_efficacy_intercept, se_efficacy_treatment, methods, icc_df), ncol = 4)
+    
+    se_efficacy_df <- data.frame(temp_m)
+    colnames(se_efficacy_df) <- c("intercept_efficacy", "treatment_efficacy", "method", "icc")
+    se_efficacy_df[,1:2] <- apply(se_efficacy_df[,1:2], 2, as.character)
+    se_efficacy_df[,1:2] <- apply(se_efficacy_df[,1:2], 2, as.numeric)
+    
+    return(se_efficacy_df)
+  }
+  
+  
+sim_data <- eventReactive(c(input$sim_study, input$results),{
+  switch(input$sim_study,
+         "lvl1" = readRDS("test_lvl1"),
+         "lvl2" = readRDS("test_lvl2"))
+})
 
+parameter_efficacy_df <- eventReactive(input$results, {
+  parameter_efficacy(sim_data())
+})
+
+output$parameter_eff <- renderPlot({
+  ggplot(data = parameter_efficacy_df(), aes(y = treatment_efficacy, x = method, fill = method))+
+    geom_col() +
+    geom_hline(yintercept = 1, size = 1) +
+    facet_grid(~ icc) + 
+    labs(title = "Parameter Effizienz")
+})
+
+se_efficacy_df <- eventReactive(input$results, {
+  se_efficacy(sim_data())
+})
+
+output$se_eff <- renderPlot({
+  ggplot(data = se_efficacy_df(), aes(y = treatment_efficacy, x = method, fill = method))+
+    geom_col() +
+    geom_hline(yintercept = 1, size = 1) +
+    facet_grid(~ icc) + 
+    labs(title = "Parameter Effizienz")
+})
   
-  # Ausgabe der Tabelle
-  output$table_full <- renderDataTable({
-    data_model()
-  })
-  
-  # Ausgabe der Struktur
-  output$str_full <- renderPrint({
-    str(data_model())
-  })
-  
-  # Ausgabe der Summary
-  output$data_summary_full <- renderPrint({
-    summary(data_model())
-  })  
-  
+
 }
-
 shinyApp(ui = ui, server = server)
