@@ -171,10 +171,36 @@ Hedges, L\BPBI V.%
 \APACjournalVolNumPages{Educational Evaluation and Policy
   Analysis}{29}{1}{60-87}.
 \newblock
-\begin{APACrefURL} \url{https://doi.org/10.3102/0162373707299706}
-  \end{APACrefURL}
-\newblock
 \begin{APACrefDOI} \doi{10.3102/0162373707299706} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kenward%
+\ \BBA {} Roger%
+}{%
+Kenward%
+\ \BBA {} Roger%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+kenward1997method}
+\APACinsertmetastar {%
+kenward1997method}%
+\begin{APACrefauthors}%
+Kenward, M\BPBI G.%
+\BCBT {}\ \BBA {} Roger, J\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Small Sample Inference for Fixed Effects from Restricted
+  Maximum Likelihood} {Small sample inference for fixed effects from restricted
+  maximum likelihood}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Biometrics}{53}{3}{983--997}.
+\newblock
+\begin{APACrefURL} \url{http://www.jstor.org/stable/2533558} \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -228,6 +254,66 @@ McNeish, D\BPBI M.%
   regression: The effect of a hierarchical data structure}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Multiple Linear Regression Viewpoints}{40}{1}{11--16}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Moerbeek%
+, van Breukelen%
+\BCBL {}\ \BBA {} Berger%
+}{%
+Moerbeek%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2003}}%
+}]{%
+MOERBEEK2003341}
+\APACinsertmetastar {%
+MOERBEEK2003341}%
+\begin{APACrefauthors}%
+Moerbeek, M.%
+, van Breukelen, G\BPBI J.%
+\BCBL {}\ \BBA {} Berger, M\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A comparison between traditional methods and multilevel
+  regression for the analysis of multicenter intervention studies} {A
+  comparison between traditional methods and multilevel regression for the
+  analysis of multicenter intervention studies}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Clinical Epidemiology}{56}{4}{341 - 350}.
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1016/S0895-4356(03)00007-6}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mundfrom%
+\ \BBA {} Schults%
+}{%
+Mundfrom%
+\ \BBA {} Schults%
+}{%
+{\protect \APACyear {2002}}%
+}]{%
+mundfrom2002monte}
+\APACinsertmetastar {%
+mundfrom2002monte}%
+\begin{APACrefauthors}%
+Mundfrom, D\BPBI J.%
+\BCBT {}\ \BBA {} Schults, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Monte Carlo simulation comparing parameter estimates
+  from multiple linear regression and hierarchical linear modeling} {A monte
+  carlo simulation comparing parameter estimates from multiple linear
+  regression and hierarchical linear modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Multiple Regression Viewpoints}{28}{}{18--21}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -331,6 +417,30 @@ Robinson, W\BPBI S.%
 \newblock
 \APACjournalVolNumPages{International journal of
   epidemiology}{38}{2}{337--341}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Satterthwaite%
+}{%
+Satterthwaite%
+}{%
+{\protect \APACyear {1941}}%
+}]{%
+satter1941synthesis}
+\APACinsertmetastar {%
+satter1941synthesis}%
+\begin{APACrefauthors}%
+Satterthwaite, F\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1941}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Synthesis of variance} {Synthesis of variance}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychometrika}{6}{5}{309 - 316}.
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1007/BF02288586} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
