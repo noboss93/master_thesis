@@ -153,15 +153,18 @@ simstudy_lvl2_small <- simulation_study(nschueler = 12, nklassen = 70, sd_interc
                               treatment_level1 = FALSE, 
                               niter = 1000)
 
-saveRDS(simstudy_lvl1, file = "simstudy_lvl1")
-saveRDS(simstudy_lvl2, file = "simstudy_lvl2")
-saveRDS(simstudy_lvl1_small, file = "simstudy_lvl1_small")
-saveRDS(simstudy_lvl2_small, file = "simstudy_lvl2_small")
+#saveRDS(simstudy_lvl1, file = "simstudy_lvl1")
+#saveRDS(simstudy_lvl2, file = "simstudy_lvl2")
+#saveRDS(simstudy_lvl1_small, file = "simstudy_lvl1_small")
+#saveRDS(simstudy_lvl2_small, file = "simstudy_lvl2_small")
 
 # Analysing Study ---------------------------------------------------------
 
-test_lvl1 <- readRDS(file = "simstudy_lvl1")
+test_lvl1 <- readRDS(file = "simstudy_lvl1") # nschueler = 50, nklassen = 300
 test_lvl2 <- readRDS(file = "simstudy_lvl2")
+test_lvl1_small <- readRDS(file = "simstudy_lvl1_small") # nschueler = 12, nklassen = 70
+test_lvl2_small <- readRDS(file = "simstudy_lvl2_small")
+
 
 # Boxplots for Coefficients for Treatment at both Levels
 ggplot(data = test_lvl1, mapping = aes(y = beta_0, fill = method))+
@@ -252,7 +255,7 @@ parameter_efficacy <- function(df){
   return(par_efficacy_df)
 }
 
-parameter_efficacy_lvl1 <- parameter_efficacy(test_lvl1_)
+parameter_efficacy_lvl1 <- parameter_efficacy(test_lvl1)
 parameter_efficacy_lvl2 <- parameter_efficacy(test_lvl2)
 
 
@@ -353,14 +356,8 @@ se_efficacy_df[,1:2] <- apply(se_efficacy_df[,1:2], 2, as.numeric)
 return(se_efficacy_df)
 }
 
-
-mean_se_lvl1 <- mean_se(test_lvl1)
-mean_se_lvl2 <- mean_se(test_lvl2)
-sd_lvl1 <- sd_coefs(test_lvl1)
-sd_lvl2 <- sd_coefs(test_lvl2)
-
-se_efficacy_lvl1 <- se_efficacy(simstudy_lvl1_small)
-se_efficacy_lvl2 <- se_efficacy(simstudy_lvl2_small)
+se_efficacy_lvl1 <- se_efficacy(test_lvl1)
+se_efficacy_lvl2 <- se_efficacy(test_lvl2)
 
 ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = method, fill = method))+
   geom_col() +
@@ -413,8 +410,8 @@ power_model <- function(df){
   return(power_dataframe)
 }
 
-power_lvl1 <- power_model(simstudy_lvl1_small)
-power_lvl2 <- power_model(simstudy_lvl2_small)
+power_lvl1 <- power_model(test_lvl1)
+power_lvl2 <- power_model(test_lvl2)
 
 ggplot(data = power_lvl1, mapping = aes(y = power_intercept, x = method,  fill = method))+
   geom_col() +
@@ -435,6 +432,31 @@ ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = method, fill = 
   geom_col() +
   facet_grid(~ icc) +
   labs(title = "Power Treatment Level 2")
+
+
+power_lvl1_small <- power_model(test_lvl1_small)
+power_lvl2_small <- power_model(test_lvl2_small)
+
+ggplot(data = power_lvl1_small, mapping = aes(y = power_intercept, x = method,  fill = method))+
+  geom_col() +
+  facet_grid(~ icc) +
+  labs(title = "Power Intercept Level 1 Small")
+
+ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = method, fill = method))+
+  geom_col() +
+  facet_grid(~ icc) +
+  labs(title = "Power Treatment Level 1 Small")
+
+ggplot(data = power_lvl2_small, mapping = aes(y = power_intercept, x = method, fill = method))+
+  geom_col() +
+  facet_grid(~ icc) +
+  labs(title = "Power Intercept Level 2 Small")
+
+ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = method, fill = method))+
+  geom_col() +
+  facet_grid(~ icc) +
+  labs(title = "Power Treatment Level 2 Small")
+
 
 
                                     
