@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  19 FEB 2020 10:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  3 MAR 2020 10:41
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -950,7 +950,7 @@ Package xcolor Warning: Incompatible color definition on input line 724.
 
 Package xcolor Warning: Incompatible color definition on input line 782.
 
-[35] [36] [37] [38] [39] (masterarbeit_multilevelanalysis.bbl
+[35] [36] [37] [38] [39] [40] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -962,7 +962,7 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
   Zu-griff auf
  []
 
-[40]) [41] [42] (masterarbeit_multilevelanalysis.aux)
+[41]) [42] [43] (masterarbeit_multilevelanalysis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -989,10 +989,10 @@ iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (48 pages, 457192 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (49 pages, 458628 bytes).
 
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
+ 243 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
