@@ -128,7 +128,7 @@ simulation_study <- function(nschueler = 50,
   print("*** Simulation Complete ***")
   
   # formatting data frame
-  colnames(coef_models) <- c("beta_0", "SE_beta_0", "p_value_0", 
+  colnames(coef_models) <- c("beta_intercept", "SE_beta_intercept", "p_value_intercept", 
                              "beta_treatment", "SE_beta_treatment", "p_value_treatment", 
                              "icc", "method")
   
@@ -219,10 +219,10 @@ mean_parameters <- function(df){
   icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
   
   for(i in 1:length(icc)){
-    intercept_mean_lm[i] <- mean(df$beta_0[test_lvl1$method == "lm" & test_lvl1$icc == icc[i]])
-    intercept_mean_mlm[i] <- mean(df$beta_0[test_lvl1$method == "mlm" & test_lvl1$icc == icc[i]])
-    treatment_mean_lm[i] <- mean(df$beta_treatment[test_lvl1$method == "lm" & test_lvl1$icc == icc[i]])
-    treatment_mean_mlm[i] <- mean(df$beta_treatment[test_lvl1$method == "mlm" & test_lvl1$icc == icc[i]])
+    intercept_mean_lm[i] <- mean(df$beta_0[df$method == "lm" & df$icc == icc[i]])
+    intercept_mean_mlm[i] <- mean(df$beta_0[df$method == "mlm" & df$icc == icc[i]])
+    treatment_mean_lm[i] <- mean(df$beta_treatment[df$method == "lm" & df$icc == icc[i]])
+    treatment_mean_mlm[i] <- mean(df$beta_treatment[df$method == "mlm" & df$icc == icc[i]])
   }
   
   methods <- rep(c("lm", "mlm"), each = length(icc))
@@ -261,28 +261,32 @@ parameter_efficacy_lvl1 <- parameter_efficacy(test_lvl1)
 parameter_efficacy_lvl2 <- parameter_efficacy(test_lvl2)
 
 
-ggplot(data = parameter_efficacy_lvl1, aes(y = intercept_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) + 
+ggplot(data = parameter_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "Parameter Efficacy Intercept fo Treatment at Level 1")
 
-ggplot(data = parameter_efficacy_lvl1, aes(y = treatment_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) +
+ggplot(data = parameter_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "Parameter Efficacy Treatment fo Treatment at Level 1")
 
-ggplot(data = parameter_efficacy_lvl2, aes(y = intercept_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) + 
+ggplot(data = parameter_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "Parameter Efficacy Intercept fo Treatment at Level 2")
 
-ggplot(data = parameter_efficacy_lvl2, aes(y = treatment_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) +
+ggplot(data = parameter_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "Parameter Efficacy Treatment fo Treatment at Level 2")
 
 
@@ -364,28 +368,32 @@ return(se_efficacy_df)
 se_efficacy_lvl1 <- se_efficacy(test_lvl1)
 se_efficacy_lvl2 <- se_efficacy(test_lvl2)
 
-ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) + 
+ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "SE Efficacy Intercept fo Treatment at Level 1")
 
-ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) +
+ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "SE Efficacy Treatment fo Treatment at Level 1")
 
-ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) +
+ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "SE Efficacy Intercept fo Treatment at Level 2")
 
-ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = method, fill = method))+
-  geom_col() +
-  geom_hline(yintercept = 1, size = 1) +
-  facet_grid(~ icc) +
+ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
 
 # Power of Models
@@ -397,7 +405,7 @@ power_model <- function(df){
   power_treatment_mlm <- c()
   
   for(i in 1:length(icc)){
-    power_intercept_lm[i] <- length(df$p_value_0 [df$method == "lm" & df$icc == icc[i] & df$p_value_0 < .05])/1000
+    power_intercept_lm[i] <- length(df$p_value_0[df$method == "lm" & df$icc == icc[i] & df$p_value_0 < .05])/1000
     power_intercept_mlm[i] <- length(df$p_value_0[df$method == "mlm" & df$icc == icc[i] & df$p_value_0 < .05])/1000
     power_treatment_lm[i] <- length(df$p_value_treatment[df$method == "lm" & df$icc == icc[i] & df$p_value_treatment < .05])/1000
     power_treatment_mlm[i] <- length(df$p_value_treatment[df$method == "mlm" & df$icc == icc[i] & df$p_value_treatment < .05])/1000
@@ -419,78 +427,52 @@ power_model <- function(df){
 power_lvl1 <- power_model(test_lvl1)
 power_lvl2 <- power_model(test_lvl2)
 
-ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = icc, col = method, group = method))+
-  geom_point(size = 2) +
-  geom_line(size = 1)+
-  labs(title = "Change in Power Intercept Level 2")
+ggplot(data = power_lvl1, mapping = aes(y = power_intercept, x = icc, fill = method))+
+  geom_col(position = "dodge2")+
+  labs(title = "Change in Power Intercept Level 1")
+
+ggplot(data = power_lvl1, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2")+
+  labs(title = "Power Treatment Level 1")
+
+ggplot(data = power_lvl2, mapping = aes(y = power_intercept, x = icc, fill = method))+
+  geom_col(position = "dodge2")+
+  labs(title = "Power Intercept Level 2")
 
 ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2")+
-  labs(title = "Change in Power Intercept Level 2")
-
-ggplot(data = power_lvl1, mapping = aes(y = power_intercept, x = method,  fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
-  labs(title = "Power Intercept Level 1")
-
-ggplot(data = power_lvl1, mapping = aes(y = power_treatment, x = method, fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
-  labs(title = "Power Treatment Level 1")
-
-ggplot(data = power_lvl2, mapping = aes(y = power_intercept, x = method, fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
-  labs(title = "Power Intercept Level 2")
-
-ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = method, fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
   labs(title = "Power Treatment Level 2")
 
+
+# Small Sample
+se_eff_lvl1_small <- se_efficacy(test_lvl1_small)
+se_eff_lvl2_small <- se_efficacy(test_lvl2_small)
 
 power_lvl1_small <- power_model(test_lvl1_small)
 power_lvl2_small <- power_model(test_lvl2_small)
 
-ggplot(data = power_lvl1_small, mapping = aes(y = power_intercept, x = method,  fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
-  labs(title = "Power Intercept Level 1 Small")
 
-ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = method, fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
+ggplot(data = se_eff_lvl1_small, mapping = aes(y = treatment_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
+  labs(title = "SE Efficacy Treatment Level 1 Small")
+
+ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, group = method, col = method))+
+  geom_line(size = 1) +
+  geom_point(size = 2)+
   labs(title = "Power Treatment Level 1 Small")
 
-ggplot(data = power_lvl2_small, mapping = aes(y = power_intercept, x = method, fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
-  labs(title = "Power Intercept Level 2 Small")
+ggplot(data = se_eff_lvl2_small, mapping = aes(y = treatment_efficacy, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
+  labs(title = "SE Efficacy Treatment Level 2 Small")
 
-ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = method, fill = method))+
-  geom_col() +
-  facet_grid(~ icc) +
+ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, group = method, col = method))+
+  geom_line(size = 1) +
+  geom_point(size = 2)+
   labs(title = "Power Treatment Level 2 Small")
 
-ggplot(data = power_lvl1_small, mapping = aes(y = power_intercept, x = icc, col = method, group = method))+
-  geom_point(size = 2) +
-  geom_line(size = 1)+
-  labs(title = "Change in Power Intercept Level 1 Small")
-
-ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, col = method, group = method))+
-  geom_point(size = 2) +
-  geom_line(size = 1)+
-  labs(title = "Change in Power Treatment Level 1 Small")
-
-ggplot(data = power_lvl2_small, mapping = aes(y = power_intercept, x = icc, col = method, group = method))+
-  geom_point(size = 2) +
-  geom_line(size = 1)+
-  labs(title = "Change in Power Intercept Level 2 Small")
-
-ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, col = method, group = method))+
-  geom_point(size = 2) +
-  geom_line(size = 1)+
-  labs(title = "Change in Power Treatment Level 2 Small")
-
-
-                                    
