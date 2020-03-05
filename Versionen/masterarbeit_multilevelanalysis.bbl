@@ -66,6 +66,39 @@ Chang, W.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Donner%
+, Birkett%
+\BCBL {}\ \BBA {} Buck%
+}{%
+Donner%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1981}}%
+}]{%
+donnerbirkettbuck1981randomization}
+\APACinsertmetastar {%
+donnerbirkettbuck1981randomization}%
+\begin{APACrefauthors}%
+Donner, A.%
+, Birkett, N.%
+\BCBL {}\ \BBA {} Buck, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1981}{12}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Randomization by clusters: Sample size requirements and
+  analysis}} {{Randomization by clusters: Sample size requirements and
+  analysis}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Journal of Epidemiology}{114}{6}{906-914}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1093/oxfordjournals.aje.a113261}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1093/oxfordjournals.aje.a113261} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Dorman%
 }{%
 Dorman%
@@ -175,32 +208,33 @@ Hedges, L\BPBI V.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Kenward%
-\ \BBA {} Roger%
+Hsieh%
 }{%
-Kenward%
-\ \BBA {} Roger%
+Hsieh%
 }{%
-{\protect \APACyear {1997}}%
+{\protect \APACyear {1988}}%
 }]{%
-kenward1997method}
+hsieh1988samplesize}
 \APACinsertmetastar {%
-kenward1997method}%
+hsieh1988samplesize}%
 \begin{APACrefauthors}%
-Kenward, M\BPBI G.%
-\BCBT {}\ \BBA {} Roger, J\BPBI H.%
+Hsieh, F\BPBI Y.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{1997}{}{}.
+\APACrefYearMonthDay{1988}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Small Sample Inference for Fixed Effects from Restricted
-  Maximum Likelihood} {Small sample inference for fixed effects from restricted
-  maximum likelihood}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Sample size formulae for intervention studies with the
+  cluster as unit of randomization} {Sample size formulae for intervention
+  studies with the cluster as unit of randomization}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{Biometrics}{53}{3}{983--997}.
+\APACjournalVolNumPages{Statistics in Medicine}{7}{11}{1195-1201}.
 \newblock
-\begin{APACrefURL} \url{http://www.jstor.org/stable/2533558} \end{APACrefURL}
+\begin{APACrefURL}
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.4780071113}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1002/sim.4780071113} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
