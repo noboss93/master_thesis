@@ -76,6 +76,78 @@
 \usepackage{setspace}
 \captionsetup{font=footnotesize}
 
+\makeatletter
+\let\save@mathaccent\mathaccent
+\newcommand*\if@single[3]{%
+  \setbox0\hbox{${\mathaccent"0362{#1}}^H$}%
+  \setbox2\hbox{${\mathaccent"0362{\kern0pt#1}}^H$}%
+  \ifdim\ht0=\ht2 #3\else #2\fi
+  }
+%The bar will be moved to the right by a half of \macc@kerna, which is computed by amsmath:
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+%If there's a superscript following the bar, then no negative kern may follow the bar;
+%an additional {} makes sure that the superscript is high enough in this case:
+\newcommand*\widebar[1]{\@ifnextchar^{{\wide@bar{#1}{0}}}{\wide@bar{#1}{1}}}
+%Use a separate algorithm for single symbols:
+\newcommand*\wide@bar[2]{\if@single{#1}{\wide@bar@{#1}{#2}{1}}{\wide@bar@{#1}{#2}{2}}}
+\newcommand*\wide@bar@[3]{%
+  \begingroup
+  \def\mathaccent##1##2{%
+%Enable nesting of accents:
+    \let\mathaccent\save@mathaccent
+%If there's more than a single symbol, use the first character instead (see below):
+    \if#32 \let\macc@nucleus\first@char \fi
+%Determine the italic correction:
+    \setbox\z@\hbox{$\macc@style{\macc@nucleus}_{}$}%
+    \setbox\tw@\hbox{$\macc@style{\macc@nucleus}{}_{}$}%
+    \dimen@\wd\tw@
+    \advance\dimen@-\wd\z@
+%Now \dimen@ is the italic correction of the symbol.
+    \divide\dimen@ 3
+    \@tempdima\wd\tw@
+    \advance\@tempdima-\scriptspace
+%Now \@tempdima is the width of the symbol.
+    \divide\@tempdima 10
+    \advance\dimen@-\@tempdima
+%Now \dimen@ = (italic correction / 3) - (Breite / 10)
+    \ifdim\dimen@>\z@ \dimen@0pt\fi
+%The bar will be shortened in the case \dimen@<0 !
+    \rel@kern{0.6}\kern-\dimen@
+    \if#31
+      \overline{\rel@kern{-0.6}\kern\dimen@\macc@nucleus\rel@kern{0.4}\kern\dimen@}%
+      \advance\dimen@0.4\dimexpr\macc@kerna
+%Place the combined final kern (-\dimen@) if it is >0 or if a superscript follows:
+      \let\final@kern#2%
+      \ifdim\dimen@<\z@ \let\final@kern1\fi
+      \if\final@kern1 \kern-\dimen@\fi
+    \else
+      \overline{\rel@kern{-0.6}\kern\dimen@#1}%
+    \fi
+  }%
+  \macc@depth\@ne
+  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+  \macc@set@skewchar\relax
+  \let\mathaccentV\macc@nested@a
+%The following initialises \macc@kerna and calls \mathaccent:
+  \if#31
+    \macc@nested@a\relax111{#1}%
+  \else
+%If the argument consists of more than one symbol, and if the first token is
+%a letter, use that letter for the computations:
+    \def\gobble@till@marker##1\endmarker{}%
+    \futurelet\first@char\gobble@till@marker#1\endmarker
+    \ifcat\noexpand\first@char A\else
+      \def\first@char{}%
+    \fi
+    \macc@nested@a\relax111{\first@char}%
+  \fi
+  \endgroup
+}
+\makeatother
+\newcommand\test[1]{%
+$#1{M}$ $#1{A}$ $#1{g}$ $#1{\beta}$ $#1{\mathcal A}^q$
+$#1{AB}^\sigma$ $#1{H}^C$ $#1{\sin z}$ $#1{W}_n$}
 
 
 
@@ -855,11 +927,25 @@ Das zweite Design berücksichtigt Interventionen auf Stufe der Klassen. Dabei we
 \end{equation} 
 Wieder beschreibt $\epsilon_{ij}$ das Residuum des $i$-ten Schulkindes aus der $j$-ten Klasse. Der Achsenabschnitt $\beta_{0j}$ wird durch den Gesamtmittelwert $\gamma_{00}$, der Gesamtsteigung $\gamma_{01}$, der Variable $z_{j}$ und der klassenspezifischen zufälligen Abweichung $U_{0j}$ beschrieben. Die Variable $z_{j}$ gibt an, zu welcher Interventionsgruppe die $j$-te Klasse gehört. Da in diesem Design die Intervention auf Stufe der Klasse durchgeführt wird, handelt es sich bei der Intervention um eine Level-2 Variable und wird typischerweise mit $z_{j}$ und nicht mit $x_{j}$ bezeichnet. Es wird in beiden Designs angenommen, dass die zufälligen Effekte $\epsilon_{ij}$ und $U_{0j}$ voneinander unabhängig sind und einer Normalverteilung folgen. Ebenfalls wird angenommen, dass diese zufällige Effekte einen Mittelwert von Null und eine Varianz von $\sigma^{2}_{e}$, resp. $\tau^{2}_{0}$ aufweisen.
 
+Gewisse Parameter werden in beiden Simulationsstudien nicht manipuliert. Für diese Parameter wurden die Werte von Moerbeek et al. \citeyearpar{MOERBEEK2003341} und McNeish \citeyearpar{mcneish2014analyzing} verwendet. Die Zuweisung zur Interventionsgruppe wurde für die Variablen $x_{ij}$ und $z_{j}$ durch die Werte -1 und 1 festgelegt. Dabei steht -1 für die Kontrollgruppe und 1 für die Interventionsgruppe. Der Gesamtmittelwert der Population wurde in beiden Designs auf $\gamma_{00}$ = 2.34 festgelegt. Die Gesamtsteigung der Population wurde ebenfalls in beiden Designs beider Simulationsstudien mit $\gamma_{10}$ = 0.12 resp. $\gamma_{01}$ = 0.12 festgehalten. Für die Varianz des Residuums wurde ein Wert von $\sigma^{2}_{e}$ = 1.72 verwendet. 
+
+Neben den nicht manipulierten Parametern wurden die Intraklassen Korrelation und die Analysemethode variiert. Bei der IKK gab es insgesamt neun Bedingungen gab, die in drei Gruppen eingeteilt werden können. Die erste Gruppe entspricht einer IKK von 0.00 und beschreibt einen Datensatz bei der die Klassenzugehörigkeit keinen Einfluss hat. Die zweite Gruppe beinhaltet IKKs die typischerweise in der psychologischen Forschung angetroffen werden und reichen von 0.05 bis 0.25 mit einem Abstand von 0.05 zwischen den jeweiligen IKK Bedingungen \citep{SnijdersTomA.B2012Ma:a}. Die dritte Gruppe beinhaltet Extremwerte der IKK von 0.30, 0.40 und 0.50. Wie aus der Formel \eqref{eq:icc} zu entnehmen ist, wird die IKK alleine durch die Varianz des Residuums und durch die Varianz der zufälligen Abweichung bestimmt. Da durch das Studiendesign die Varianz des Residuums und die theoretische IKK vorgegeben ist, lässt sich durch Umformen der Formel \eqref{eq:icc} die Varianz der zufälligen Abweichung $\tau^{2}_{0}$ bestimmen. Anhand dieser Varianz wurden dann Datensätze generiert, die den theoretischen IKKs entsprechen. Für jede dieser Bedingung wurden in jedem Design jeweils 1000 Replikationen simuliert, das zu einer Gesamtanzahl von 18000 Replikationen führte. Dabei wurde jeder einzelne Replikation zum einen mit einer normalen linearen Regression und zum anderen mit einer hierarchischen linearen Regression analysiert. 
 
 \subsection{Studie 1: Standardfehler}
-Gewisse Parameter werden in dieser Simulationsstudie nicht manipuliert. Für diese Parameter wurden die Werte von Moerbeek et al. \citeyearpar{MOERBEEK2003341} und McNeish \citeyearpar{mcneish2014analyzing} verwendet. Die Zuweisung zur Interventionsgruppe wurde für die Variablen $x_{ij}$ und $z_{j}$ durch die Werte -1 und 1 festgelegt. Dabei steht -1 für die Kontrollgruppe und 1 für die Interventionsgruppe. Der Gesamtmittelwert wurde in beiden Designs auf $\gamma_{00}$ = 2.34 festgelegt. Die Gesamtsteigung wurde ebenfalls in beiden Designs der Simulationsstudie mit $\gamma_{10}$ = 0.12, resp. $\gamma_{01}$ = 0.12 festgehalten. Für die Varianz des Residuums wurde ein Wert von $\sigma^{2}_{e}$ = 1.72 verwendet. Neben diesen Parametern wurde auch die Stichprobengrösse über alle Bedingungen konstant gehalten. Dabei wurden wie bei McNeish 300 Klassen mit jeweils 50 Schulkindern simuliert \citeyearpar{mcneish2014analyzing}. In der Multilevel Literatur wird eine Mindestanzahl von 50 Gruppen empfohlen, damit die Schätzungen der Koeffizienten mittels hierarchischen linearen Modellen genau sind \citep{maashox2005samplesize}. Mit dieser grossen Stichprobengrösse wird sichergestellt, dass Ergebnisse auf die Manipulation der Parameter und nicht auf eine ungenügende Stichprobengrösse zurückzuführen sind.
+Die Stichprobengrösse wurde in der ersten Simulationsstudie über alle Bedingungen konstant gehalten. Dabei wurden wie bei McNeish 300 Klassen mit jeweils 50 Schulkindern mit den oben besprochenen Parametern simuliert \citeyearpar{mcneish2014analyzing}. In der Multilevel Literatur wird eine Mindestanzahl von 50 Gruppen empfohlen, damit die Schätzungen der Koeffizienten mittels hierarchischen linearen Modellen genau sind \citep{maashox2005samplesize}. Mit dieser grossen Stichprobengrösse wird sichergestellt, dass Ergebnisse auf die Manipulation der Parameter und nicht auf eine ungenügende Stichprobengrösse zurückzuführen sind.
 
-Neben den nicht manipulierten Parametern wurden zwei weitere Faktoren manipuliert. Zum einen wurde die Intraklassen Korrelation variiert, wobei es insgesamt neun Bedingungen gab, die in drei Gruppen eingeteilt werden können. Die erste Gruppe entspricht einer IKK von 0.00 und beschreibt einen Datensatz bei der die Klassenzugehörigkeit keinen Einfluss hat. Die zweite Gruppe beinhaltet IKKs die typischerweise in der psychologischen Forschung angetroffen werden und reichen von 0.05 bis 0.25 mit einem Abstand von 0.05 zwischen den jeweiligen IKK Bedingungen \citep{SnijdersTomA.B2012Ma:a}. Die dritte Gruppe beinhaltet Extremwerte der IKK von 0.30, 0.40 und 0.50. Wie aus der Formel \eqref{eq:icc} zu entnehmen ist, wird die IKK alleine durch die Varianz des Residuums und durch die Varianz der zufälligen Abweichung bestimmt. Da durch das Studiendesign die Varianz des Residuums und die theoretische IKK vorgegeben ist, lässt sich durch Umformen der Formel \eqref{eq:icc} die Varianz der zufälligen Abweichung $\tau^{2}_{0}$ bestimmen. Anhand dieser Varianz wurden dann Datensätze generiert, die den theoretischen IKKs entsprechen. Für jede dieser Bedingung wurden in jedem Design jeweils 1000 Replikationen simuliert, das zu einer Gesamtanzahl von 18000 Replikationen führte. Dabei wurde jeder einzelne Replikation zum einen mit einer normalen linearen Regression und zum anderen mit einer hierarchischen linearen Regression analysiert. 
+Um die oben genannten Aussagen zu überprüfen, wurden zwei Kennwerte berechnet. Der erste Kennwert ist die relative Abweichung der geschätzten Regressionskoeffizienten $\hat{\gamma}$ von den Populationsmittelwerten $\gamma$. Die Stärke dieser Abweichung wird in Prozent angegeben \citep{hooglandboosma1998robustness} und nach folgender Formel berechnet: 
+\begin{equation}
+\text{Realitve Abweichung} = \dfrac{\widebar{\widehat{\gamma}} - \gamma}{\gamma}
+\end{equation}
+Dabei ist $\bar{\hat{\gamma}}$ der Mittelwert aller Regressionskoeffizienten aus einer Bedingung. Diese relative Abweichung wurde in beiden Designs für jede Analysemethode in jeder IKK Bedingung für den Gesamtmittelwert $\gamma_{00}$ als auch für die Gesamtsteigung $\gamma_{10}$ resp. $\gamma_{01}$ berechnet. Gemäss Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} gelten relative Abweichungen von kleiner als 5\% als akzeptabel.
+
+Der zweite Kennwert beschreibt die Wirksamkeit der Schätzung des Standardfehlers und berechnet sich aus dem Verhältnis zwischen dem mittleren Standardfehler aus jeder Bedingung und der Standardabweichung der Regressionskoeffizienten über alle 1000 Replikationen dieser Bedingung \citep{hooglandboosma1998robustness, mcneish2014analyzing}. Die Formel zur Berechnung sieht wie folgt aus:
+\begin{equation}
+\text{SE Wirksamkeit} = \dfrac{\widebar{\widehat{SE}}_{\widehat{\gamma}}}{\widehat{SD}_{\widehat{\gamma}}}
+\end{equation}
+Liegen Wirksamkeitswerte über 1 gelten die Standardfehler als Überschätzt und liegen die Werte unter 1 werden Standardfehler unterschätzt.
+Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Wirksamkeitswerte, die um mehr als 0.1 von 1 abweichen als unakzeptabel. Die Wirksamkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode in jeder IKK Bedingung berechnet.
 
 \subsubsection{Ergebnisse}
 

@@ -208,6 +208,38 @@ Hedges, L\BPBI V.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Hoogland%
+\ \BBA {} Boomsma%
+}{%
+Hoogland%
+\ \BBA {} Boomsma%
+}{%
+{\protect \APACyear {1998}}%
+}]{%
+hooglandboosma1998robustness}
+\APACinsertmetastar {%
+hooglandboosma1998robustness}%
+\begin{APACrefauthors}%
+Hoogland, J\BPBI J.%
+\BCBT {}\ \BBA {} Boomsma, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Robustness Studies in Covariance Structure Modeling: An
+  Overview and a Meta-Analysis} {Robustness studies in covariance structure
+  modeling: An overview and a meta-analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Sociological Methods \& Research}{26}{3}{329-367}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1177/0049124198026003003}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0049124198026003003} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hsieh%
 }{%
 Hsieh%

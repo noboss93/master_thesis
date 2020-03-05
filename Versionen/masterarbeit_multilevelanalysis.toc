@@ -23,11 +23,11 @@
 \contentsline {subsection}{\numberline {4.1}Herleitung der Forschungsfrage}{37}%
 \contentsline {subsection}{\numberline {4.2}Studiendesign}{39}%
 \contentsline {subsection}{\numberline {4.3}Simulationsdesign}{40}%
-\contentsline {subsection}{\numberline {4.4}Studie 1: Standardfehler}{41}%
-\contentsline {subsubsection}{\numberline {4.4.1}Ergebnisse}{42}%
-\contentsline {subsection}{\numberline {4.5}Studie 2: Power}{42}%
-\contentsline {subsubsection}{\numberline {4.5.1}Ergebnisse}{42}%
-\contentsline {subsection}{\numberline {4.6}Diskussion und Shiny App}{42}%
-\contentsline {section}{\numberline {5}Literaturverzeichnis}{43}%
-\contentsline {section}{\numberline {6}Anhang}{44}%
-\contentsline {section}{\numberline {A}R Code}{44}%
+\contentsline {subsection}{\numberline {4.4}Studie 1: Standardfehler}{42}%
+\contentsline {subsubsection}{\numberline {4.4.1}Ergebnisse}{43}%
+\contentsline {subsection}{\numberline {4.5}Studie 2: Power}{43}%
+\contentsline {subsubsection}{\numberline {4.5.1}Ergebnisse}{43}%
+\contentsline {subsection}{\numberline {4.6}Diskussion und Shiny App}{43}%
+\contentsline {section}{\numberline {5}Literaturverzeichnis}{44}%
+\contentsline {section}{\numberline {6}Anhang}{45}%
+\contentsline {section}{\numberline {A}R Code}{45}%
