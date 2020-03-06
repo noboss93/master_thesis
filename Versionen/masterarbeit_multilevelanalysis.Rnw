@@ -101,7 +101,7 @@ $#1{AB}^\sigma$ $#1{H}^C$ $#1{\sin z}$ $#1{W}_n$}
 
 
 
-\title{Konzept der Multilevel Analyse und deren Vorteil\\ \large{Erkenntnisse einer Simulationsstudie in R}}
+\title{Schätzgenauigkeit von Standardfehlern und deren Einfluss auf die Power \\ \large{Ein Vergleich zwischen linearen und hierarchischen linearen Modellen}}
 
 \author{Masterarbeit von \\ Noah Bosshart \\ Mat-Nr.: 13-747-141 \\ \\ \\ Betreut durch \\ Prof. Dr. Carolin Strobl}
 
