@@ -92,9 +92,6 @@ Donner, A.%
 \newblock
 \APACjournalVolNumPages{American Journal of Epidemiology}{114}{6}{906-914}.
 \newblock
-\begin{APACrefURL} \url{https://doi.org/10.1093/oxfordjournals.aje.a113261}
-  \end{APACrefURL}
-\newblock
 \begin{APACrefDOI} \doi{10.1093/oxfordjournals.aje.a113261} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
@@ -233,9 +230,6 @@ Hoogland, J\BPBI J.%
 \newblock
 \APACjournalVolNumPages{Sociological Methods \& Research}{26}{3}{329-367}.
 \newblock
-\begin{APACrefURL} \url{https://doi.org/10.1177/0049124198026003003}
-  \end{APACrefURL}
-\newblock
 \begin{APACrefDOI} \doi{10.1177/0049124198026003003} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
@@ -261,10 +255,6 @@ Hsieh, F\BPBI Y.%
   studies with the cluster as unit of randomization}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Statistics in Medicine}{7}{11}{1195-1201}.
-\newblock
-\begin{APACrefURL}
-  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.4780071113}
-  \end{APACrefURL}
 \newblock
 \begin{APACrefDOI} \doi{10.1002/sim.4780071113} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -322,9 +312,6 @@ Maas, C\BPBI J\BPBI M.%
   {Sufficient sample sizes for multilevel modeling}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Methodology}{1}{3}{86-92}.
-\newblock
-\begin{APACrefURL} \url{https://doi.org/10.1027/1614-2241.1.3.86}
-  \end{APACrefURL}
 \newblock
 \begin{APACrefDOI} \doi{10.1027/1614-2241.1.3.86} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -538,6 +525,64 @@ Satterthwaite, F\BPBI E.%
 \APACjournalVolNumPages{Psychometrika}{6}{5}{309 - 316}.
 \newblock
 \begin{APACrefDOI} \doi{https://doi.org/10.1007/BF02288586} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Scherbaum%
+\ \BBA {} Ferreter%
+}{%
+Scherbaum%
+\ \BBA {} Ferreter%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+scherbaumferreter2009powersample}
+\APACinsertmetastar {%
+scherbaumferreter2009powersample}%
+\begin{APACrefauthors}%
+Scherbaum, C\BPBI A.%
+\BCBT {}\ \BBA {} Ferreter, J\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Estimating Statistical Power and Required Sample Sizes
+  for Organizational Research Using Multilevel Modeling} {Estimating
+  statistical power and required sample sizes for organizational research using
+  multilevel modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Organizational Research Methods}{12}{2}{347-367}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/1094428107308906} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Snijders%
+}{%
+Snijders%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+snijders2005samplesizepower}
+\APACinsertmetastar {%
+snijders2005samplesizepower}%
+\begin{APACrefauthors}%
+Snijders, T\BPBI A\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Power and Sample Size in Multilevel Linear Models}
+  {Power and sample size in multilevel linear models}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Encyclopedia of Statistics in Behavioral Science.}
+  {Encyclopedia of statistics in behavioral science.}
+\newblock
+\APACaddressPublisher{}{American Cancer Society}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/0470013192.bsa492} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
