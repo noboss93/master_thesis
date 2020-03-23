@@ -145,18 +145,19 @@ for(i in 1:length(icc)){
   var_i[i] <- (icc[i] * 1.72) / (1 - icc[i])
 }
 
-simstudy_lvl1_small <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
-                              y00 = 2.34, y10 = 0.12, 
-                              niter = 1000)
-simstudy_lvl2_small <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
-                              y00 = 2.34, y10 = 0.12, 
-                              treatment_level1 = FALSE, 
-                              niter = 1000)
+# simstudy_lvl1_small <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
+#                              y00 = 2.34, y10 = 0.12, 
+#                              niter = 1000)
+# simstudy_lvl2_small <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
+#                              y00 = 2.34, y10 = 0.12, 
+#                              treatment_level1 = FALSE, 
+#                              niter = 1000)
 
 #saveRDS(simstudy_lvl1, file = "simstudy_lvl1")
 #saveRDS(simstudy_lvl2, file = "simstudy_lvl2")
 #saveRDS(simstudy_lvl1_small, file = "simstudy_lvl1_small")
 #saveRDS(simstudy_lvl2_small, file = "simstudy_lvl2_small")
+
 
 # Analysing Study ---------------------------------------------------------
 
@@ -164,51 +165,6 @@ test_lvl1 <- readRDS(file = "simstudy_lvl1") # nschueler = 50, nklassen = 300
 test_lvl2 <- readRDS(file = "simstudy_lvl2")
 test_lvl1_small <- readRDS(file = "simstudy_lvl1_small") # nschueler = 12, nklassen = 70
 test_lvl2_small <- readRDS(file = "simstudy_lvl2_small")
-
-
-# Boxplots for Coefficients for Treatment at both Levels
-ggplot(data = test_lvl1, mapping = aes(y = beta_0, fill = method))+
-  geom_boxplot() +
-  facet_wrap(~ icc) +
-  labs(title = "Intercept Level 1")
-
-ggplot(data = test_lvl1, mapping = aes(y = beta_treatment, fill = method))+
-  geom_boxplot() +
-  facet_wrap( ~ icc) +
-  labs(title = "Treatment Level 1")
-
-ggplot(data = test_lvl2, mapping = aes(y = beta_0, fill = method))+
-  geom_boxplot() +
-  facet_wrap(~ icc) +
-  labs(title = "Intercept Level 2")
-
-ggplot(data = test_lvl2, mapping = aes(y = beta_treatment, fill = method))+
-  geom_boxplot() +
-  facet_wrap(~ icc) +
-  labs(title = "Treatment Level 2")
-
-# Boxplots for Standard Errors of Coefs for Treatment at both Levels
-
-ggplot(data = test_lvl1, mapping = aes(y = SE_beta_0, fill = method))+
-  geom_boxplot() +
-  facet_wrap(~ icc) +
-  labs(title = "SE Intercept Level 1")
-
-ggplot(data = test_lvl1, mapping = aes(y = SE_beta_treatment, fill = method))+
-  geom_boxplot() +
-  facet_wrap( ~ icc) +
-  labs(title = "SE Treatment Level 1")
-
-ggplot(data = test_lvl2, mapping = aes(y = SE_beta_0, fill = method))+
-  geom_boxplot() +
-  facet_wrap(~ icc) +
-  labs(title = "SE Intercept Level 2")
-
-ggplot(data = test_lvl2, mapping = aes(y = SE_beta_treatment, fill = method))+
-  geom_boxplot() +
-  facet_wrap( ~ icc) +
-  labs(title = "SE Treatment Level 2")
-
 
 # Parameter Efficacy for Treatment at bot levels and for every ICC
 mean_parameters <- function(df){
@@ -368,11 +324,15 @@ return(se_efficacy_df)
 se_efficacy_lvl1 <- se_efficacy(test_lvl1)
 se_efficacy_lvl2 <- se_efficacy(test_lvl2)
 
+uzh_colors <- c("#3353B7", "#E38052")
+
+
 ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
+  scale_fill_manual(values = uzh_colors) + 
   labs(title = "SE Efficacy Intercept fo Treatment at Level 1")
 
 ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
@@ -380,6 +340,7 @@ ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
+  scale_fill_manual(values = uzh_colors) + 
   labs(title = "SE Efficacy Treatment fo Treatment at Level 1")
 
 ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = method))+
@@ -387,6 +348,7 @@ ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
+  scale_fill_manual(values = uzh_colors) + 
   labs(title = "SE Efficacy Intercept fo Treatment at Level 2")
 
 ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
@@ -394,6 +356,7 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
+  scale_fill_manual(values = uzh_colors) + 
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
 
 # Power of Models
@@ -427,24 +390,6 @@ power_model <- function(df){
 power_lvl1 <- power_model(test_lvl1)
 power_lvl2 <- power_model(test_lvl2)
 
-ggplot(data = power_lvl1, mapping = aes(y = power_intercept, x = icc, fill = method))+
-  geom_col(position = "dodge2")+
-  labs(title = "Change in Power Intercept Level 1")
-
-ggplot(data = power_lvl1, mapping = aes(y = power_treatment, x = icc, fill = method))+
-  geom_col(position = "dodge2")+
-  labs(title = "Power Treatment Level 1")
-
-ggplot(data = power_lvl2, mapping = aes(y = power_intercept, x = icc, fill = method))+
-  geom_col(position = "dodge2")+
-  labs(title = "Power Intercept Level 2")
-
-ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = icc, fill = method))+
-  geom_col(position = "dodge2")+
-  labs(title = "Power Treatment Level 2")
-
-
-# Small Sample
 se_eff_lvl1_small <- se_efficacy(test_lvl1_small)
 se_eff_lvl2_small <- se_efficacy(test_lvl2_small)
 
@@ -457,6 +402,7 @@ ggplot(data = se_eff_lvl1_small, mapping = aes(y = treatment_efficacy, x = icc, 
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
+  scale_fill_manual(values = uzh_colors) + 
   labs(title = "SE Efficacy Treatment Level 1 Small")
 
 ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, group = method, col = method))+
@@ -469,6 +415,7 @@ ggplot(data = se_eff_lvl2_small, mapping = aes(y = treatment_efficacy, x = icc, 
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
+  scale_fill_manual(values = uzh_colors) + 
   labs(title = "SE Efficacy Treatment Level 2 Small")
 
 ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, group = method, col = method))+
