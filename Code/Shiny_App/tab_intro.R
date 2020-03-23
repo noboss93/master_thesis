@@ -1,1 +1,4 @@
-"Hier gibt es eine kürzere einführung zu Multilevel Analyse"
+fluidRow(
+  box(width = 12, title = "Hierarchische Daten", status = "primary",
+      includeMarkdown("text_intro_ml.Rmd"))
+)

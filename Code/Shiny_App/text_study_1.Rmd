@@ -1,0 +1,20 @@
+---
+title: "text_study_1"
+author: "noah"
+date: "23 3 2020"
+output: html_document
+---
+Die Stichprobengrösse wurde in der ersten Simulationsstudie über alle Bedingungen konstant gehalten. Dabei wurden wie bei McNeish 300 Klassen mit jeweils 50 Schulkindern mit den oben besprochenen Parametern simuliert \citeyearpar{mcneish2014analyzing}. In der Multilevel Literatur wird eine Mindestanzahl von 50 Gruppen empfohlen, damit die Schätzungen der Koeffizienten mittels hierarchischen linearen Modellen genau sind \citep{maashox2005samplesize}. Mit dieser grossen Stichprobengrösse wird sichergestellt, dass Ergebnisse auf die Manipulation der Parameter und nicht auf eine ungenügende Stichprobengrösse zurückzuführen sind.
+
+Um die oben genannten Aussagen zu überprüfen, wurden zwei Kennwerte berechnet. Der erste Kennwert ist die relative Abweichung der geschätzten Regressionskoeffizienten $\widehat{\gamma}$ von den Populationsmittelwerten $\gamma$. Die Stärke dieser Abweichung wird in Prozent angegeben \citep{hooglandboosma1998robustness} und nach folgender Formel berechnet: 
+\begin{equation}
+\text{Realitve Abweichung} = \dfrac{\bar{\widehat{\gamma}} - \gamma}{\gamma}
+\end{equation}
+Dabei ist $\bar{\widehat{\gamma}}$ der Mittelwert aller Regressionskoeffizienten aus einer Bedingung. Diese relative Abweichung wurde in beiden Designs für jede Analysemethode und in jeder IKK Bedingung für den Gesamtmittelwert $\gamma_{00}$ als auch für die Gesamtsteigung $\gamma_{10}$ resp. $\gamma_{01}$ berechnet. Gemäss Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} gelten relative Abweichungen von kleiner als 5\% als akzeptabel.
+
+Der zweite Kennwert beschreibt die Wirksamkeit der Schätzung des Standardfehlers und berechnet sich aus dem Verhältnis zwischen dem mittleren Standardfehler aus jeder Bedingung und der Standardabweichung der Regressionskoeffizienten über alle 1000 Replikationen dieser Bedingung \citep{hooglandboosma1998robustness, mcneish2014analyzing}. Die Formel zur Berechnung sieht wie folgt aus:
+\begin{equation}
+\text{SE Wirksamkeit} = \dfrac{\bar{\widehat{SE}}_{\widehat{\gamma}}}{\widehat{SD}_{\widehat{\gamma}}}
+\end{equation}
+Liegen Wirksamkeitswerte über 1 gelten die Standardfehler als Überschätzt und liegen die Werte unter 1 werden Standardfehler unterschätzt.
+Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Wirksamkeitswerte, die um mehr als 0.1 von 1 abweichen als unakzeptabel. Die Wirksamkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.

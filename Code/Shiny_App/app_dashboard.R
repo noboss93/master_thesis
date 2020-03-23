@@ -9,24 +9,41 @@ library(tidyr)
 library(viridis)
 library(MASS)
 
+jscode <- "
+shinyjs.collapse = function(boxid) {
+$('#' + boxid).closest('.box').find('[data-widget=collapse]').click();
+}
+"
+
 ui <- dashboardPage(
   dashboardHeader(title = "Multilevel Analyse", titleWidth = 350),
   dashboardSidebar(width = 350,
     sidebarMenu(
-      menuItem("Was ist eine Multilevel Analyse?", tabName = "intro"),
-      menuItem("Beispiel einer Multilevel Analyse", tabName = "analysing"),
-      menuItem("Simulationsstudie", tabName = "simstudy")
+      menuItem("Einführung in Multilevel Analyse", startExpanded = TRUE,
+               menuSubItem("Was ist eine Multilevel Analyse?", tabName = "intro", selected = TRUE),
+               menuSubItem("Beispiel einer Multilevel Analyse", tabName = "analysing")
+               ),
+      menuItem("Simulationsstudie", startExpanded = FALSE,
+               menuSubItem("Forschungsfrage und Studiendesign", tabName = "studyquestion"),
+               menuSubItem("Studie 1: Wirksamkeit von Standardfehlern", tabName = "study1"),
+               menuSubItem("Studie 2: Statistische Power von HLM", tabName = "study2"))
+      
       )
   ),
   dashboardBody(
     useShinyjs(),
+    extendShinyjs(text = jscode),
     tabItems(
     tabItem(tabName = "intro",
             source("tab_intro.R", encoding = "utf8")[1]),
     tabItem(tabName = "analysing", 
             source("tab_analysing_intro.R", encoding = "utf8")[1]),
-    tabItem(tabName = "simstudy", 
-            source("tab_simstudy_app.R", encoding = "utf8")[1])
+    tabItem(tabName = "studyquestion", 
+            source("tab_simstudy_app.R", encoding = "utf8")[1]),
+    tabItem(tabName = "study1", 
+            source("tab_study_1.R", encoding = "utf8")[1]),
+    tabItem(tabName = "study2", 
+            source("tab_study_2.R", encoding = "utf8")[1])
     )
   )
 )
@@ -42,6 +59,10 @@ server <- function(input, output, session) {
     gen_ml_data(nschueler = 30, nklassen = 8, sd_intercept = input$int_sd, 
               sd_slope = input$slope_sd, corr = input$corr)
     })
+  
+  observeEvent(input$gen_data,{
+    js$collapse("gen_dat_box")
+  })
   
   # Model und Koeffizienten berechnen
   model <- eventReactive(c(input$method, input$gen_data), {
@@ -66,25 +87,6 @@ server <- function(input, output, session) {
   } else {
     coef(model())$klasse[,2]
   }
-  })
-  
-
-# Intro Summary Data ------------------------------------------------------
-  
-  
-  # Ausgabe der Tabelle
-  output$table <- renderDataTable({
-    data_model()
-  })
-  
-  # Ausgabe der Struktur
-  output$str <- renderPrint({
-    str(data_model())
-  })
-  
-  # Ausgabe der Summary
-  output$data_summary <- renderPrint({
-    summary(data_model())
   })
   
 
@@ -158,7 +160,7 @@ server <- function(input, output, session) {
   })
    
 
-# Sim Study ----------------------------------------------------------------
+# Sim Study Functions ----------------------------------------------------------------
   mean_parameters <- function(df){
     icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
     intercept_mean_lm <- c()
@@ -282,8 +284,8 @@ server <- function(input, output, session) {
   
 sim_data <- eventReactive(c(input$sim_study, input$results),{
   switch(input$sim_study,
-         "lvl1" = readRDS("test_lvl1"),
-         "lvl2" = readRDS("test_lvl2"))
+         "lvl1" = readRDS("simstudy_lvl1"),
+         "lvl2" = readRDS("simstudy_lvl2"))
 })
 
 parameter_efficacy_df <- eventReactive(input$results, {
@@ -310,6 +312,10 @@ output$se_eff <- renderPlot({
     labs(title = "Parameter Effizienz")
 })
   
+
+
+# Sim Study Intro  --------------------------------------------------------
+
 
 }
 shinyApp(ui = ui, server = server)

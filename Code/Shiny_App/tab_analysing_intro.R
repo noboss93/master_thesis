@@ -1,16 +1,5 @@
 fluidRow(
-  
-  box(width = 12, title = "Wähle eine Methode aus:", status = "primary",
-  selectInput(inputId = "method",
-              label = NULL,
-            choices = c("Lineares Regressionsmodell" = "lm", 
-                        "Random Intercept Modell" = "ri", 
-                        "Random Intercept und Slope Modell" = "rs"),
-            multiple = FALSE),
-  checkboxInput(inputId = "groupcolor",
-                label = "Gruppenfarbe anzeigen")
-  ),
-  box(width = 3, height = "500px", title = "Datensatz generieren", status = "primary",
+  box(id = "gen_dat_box", width = 12, title = "Datensatz generieren", status = "primary", collapsible = TRUE,
       sliderInput(inputId = "int_sd",
                   label = "Standardabweichung des Intercepts",
                   min = 0,
@@ -31,6 +20,17 @@ fluidRow(
       actionButton(inputId = "gen_data",
                    label = "Datensatz generieren")
   ),
+  box(width = 3, title = "Wähle eine Methode aus:", status = "primary",
+  selectInput(inputId = "method",
+              label = NULL,
+            choices = c("Lineares Regressionsmodell" = "lm", 
+                        "Random Intercept Modell" = "ri", 
+                        "Random Intercept und Slope Modell" = "rs"),
+            multiple = FALSE),
+  checkboxInput(inputId = "groupcolor",
+                label = "Gruppenfarbe anzeigen")
+  ),
+ 
   tabBox(width = 9, height = "500px",
             tabPanel(
               "Regressions Geraden",

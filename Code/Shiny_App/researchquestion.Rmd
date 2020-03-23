@@ -1,0 +1,9 @@
+---
+title: "researchquestion"
+author: "noah"
+date: "23 3 2020"
+output: html_document
+---
+In der psychologischen Forschung sind hierarchische Datenstrukturen keine Seltenheit  und es wurden einige Beispiele für solche hierarchischen Daten genannt. 
+
+Allerdings ist es oft so, dass sich Forschende dieser Datenstruktur oder den Möglichkeiten von hierarchischen linearen Modellen nicht bewusst sind. Dies kann dazu führen, dass diese hierarchischen Daten mittels normalen linearen Modellen anstelle von hierarchischen linearen Modellen analysiert wird. Das muss aber nicht zwingend ein Problem darstellen, da in einigen Studien gezeigt werden konnte, dass die Schätzung der Regressionskoeffizienten beider Analysemethoden auch bei hohem Einfluss der Klassenzugehörigkeit relativ genau ist. Das bedeutet, dass die Schätzung des Effekts einer Intervention oder des Achsenabschnitts bei beiden Methoden relativ nahe am Populationsmittelwert sind. 

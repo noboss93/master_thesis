@@ -1,0 +1,12 @@
+---
+title: "text_intro_ml"
+author: "noah"
+date: "23 3 2020"
+output: html_document
+---
+Von hierarchischen Daten wird gesprochen, wenn beispielsweise Daten von Schulkindern innerhalb verschiedener Schulklassen oder von Mitarbeitern aus mehreren Teams erhoben werden. Aber auch Daten aus Langzeitstudien
+werden als gruppiert bezeichnet, da mehrere Messzeitpunkte innerhalb einer Person gruppiert
+sind. Hierarchische Daten werden in Levels unterteilt, wobei Daten aus der niedrigsten
+Stufe als Level-1 Einheiten bezeichnet werden (Snijders & Bosker, 2012). Ein Beispiel fur
+Level-1 Einheiten sind Schulkinder. Diese Schulkinder befinden sich wiederum in Klassen,
+die in der Hierarchiestufe hoher sind und folglich als Level-2 Einheiten bezeichnet werden.
