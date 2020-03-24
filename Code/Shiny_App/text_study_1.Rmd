@@ -10,11 +10,11 @@ Um die oben genannten Aussagen zu überprüfen, wurden zwei Kennwerte berechnet.
 \begin{equation}
 \text{Realitve Abweichung} = \dfrac{\bar{\widehat{\gamma}} - \gamma}{\gamma}
 \end{equation}
-Dabei ist $\bar{\widehat{\gamma}}$ der Mittelwert aller Regressionskoeffizienten aus einer Bedingung. Diese relative Abweichung wurde in beiden Designs für jede Analysemethode und in jeder IKK Bedingung für den Gesamtmittelwert $\gamma_{00}$ als auch für die Gesamtsteigung $\gamma_{10}$ resp. $\gamma_{01}$ berechnet. Gemäss Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} gelten relative Abweichungen von kleiner als 5\% als akzeptabel.
+Dabei ist $\bar{\widehat{\gamma}}$ der Mittelwert aller Regressionskoeffizienten aus einer Bedingung. Diese relative Abweichung wurde in beiden Designs für jede Analysemethode und in jeder IKK Bedingung für den Gesamtmittelwert $\gamma_{00}$ als auch für die Gesamtsteigung $\gamma_{10}$ resp. $\gamma_{01}$ berechnet. Gemäss Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} gelten relative Abweichungen von kleiner als 5% als akzeptabel.
 
 Der zweite Kennwert beschreibt die Wirksamkeit der Schätzung des Standardfehlers und berechnet sich aus dem Verhältnis zwischen dem mittleren Standardfehler aus jeder Bedingung und der Standardabweichung der Regressionskoeffizienten über alle 1000 Replikationen dieser Bedingung \citep{hooglandboosma1998robustness, mcneish2014analyzing}. Die Formel zur Berechnung sieht wie folgt aus:
-\begin{equation}
+$$
 \text{SE Wirksamkeit} = \dfrac{\bar{\widehat{SE}}_{\widehat{\gamma}}}{\widehat{SD}_{\widehat{\gamma}}}
-\end{equation}
+$$
 Liegen Wirksamkeitswerte über 1 gelten die Standardfehler als Überschätzt und liegen die Werte unter 1 werden Standardfehler unterschätzt.
 Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Wirksamkeitswerte, die um mehr als 0.1 von 1 abweichen als unakzeptabel. Die Wirksamkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.

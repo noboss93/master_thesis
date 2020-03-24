@@ -197,8 +197,8 @@ parameter_efficacy <- function(df){
   icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
   mean_par <- mean_parameters(df)
   
-  intercept_efficacy <- mean_par$intercept_mean / 2.34
-  treatment_efficacy <- mean_par$treatment_mean / 0.12
+  intercept_efficacy <- (mean_par$intercept_mean - 2.34) / 2.34
+  treatment_efficacy <- (mean_par$treatment_mean - 0.12) / 0.12
   
   methods <- rep(c("lm", "mlm"), each = length(icc))
   icc_df <- rep(icc, times = 2)
@@ -215,6 +215,7 @@ parameter_efficacy <- function(df){
 
 parameter_efficacy_lvl1 <- parameter_efficacy(test_lvl1)
 parameter_efficacy_lvl2 <- parameter_efficacy(test_lvl2)
+parameter_full <- data.frame(parameter_efficacy_lvl1[,1:2], parameter_efficacy_lvl2)
 
 
 ggplot(data = parameter_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
@@ -333,6 +334,7 @@ ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
+  scale_y_continuous(breaks=seq(0,1.2, 0.1)) + 
   labs(title = "SE Efficacy Intercept fo Treatment at Level 1")
 
 ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
@@ -341,6 +343,7 @@ ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 1")
 
 ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = method))+
@@ -349,6 +352,7 @@ ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
+  scale_y_continuous(breaks=seq(0,1.2, 0.1)) +
   labs(title = "SE Efficacy Intercept fo Treatment at Level 2")
 
 ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
@@ -357,6 +361,7 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
+  scale_y_continuous(breaks=seq(0,1.2, 0.1)) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
 
 # Power of Models
@@ -402,13 +407,15 @@ ggplot(data = se_eff_lvl1_small, mapping = aes(y = treatment_efficacy, x = icc, 
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
-  scale_fill_manual(values = uzh_colors) + 
+  scale_fill_manual(values = uzh_colors) +
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
   labs(title = "SE Efficacy Treatment Level 1 Small")
 
-ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, group = method, col = method))+
-  geom_line(size = 1) +
-  geom_point(size = 2)+
-  labs(title = "Power Treatment Level 1 Small")
+ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  scale_fill_manual(values = uzh_colors) +
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
+  labs(title = "Power Treatment Level 1")
 
 ggplot(data = se_eff_lvl2_small, mapping = aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
@@ -416,10 +423,12 @@ ggplot(data = se_eff_lvl2_small, mapping = aes(y = treatment_efficacy, x = icc, 
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
   labs(title = "SE Efficacy Treatment Level 2 Small")
 
-ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, group = method, col = method))+
-  geom_line(size = 1) +
-  geom_point(size = 2)+
-  labs(title = "Power Treatment Level 2 Small")
+ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  scale_fill_manual(values = uzh_colors) +
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
+  labs(title = "Power Treatment Level 2 ")
 

@@ -9,6 +9,7 @@ library(tidyr)
 library(viridis)
 library(MASS)
 
+
 jscode <- "
 shinyjs.collapse = function(boxid) {
 $('#' + boxid).closest('.box').find('[data-widget=collapse]').click();
@@ -19,9 +20,9 @@ ui <- dashboardPage(
   dashboardHeader(title = "Multilevel Analyse", titleWidth = 350),
   dashboardSidebar(width = 350,
     sidebarMenu(
-      menuItem("Einführung in Multilevel Analyse", startExpanded = TRUE,
-               menuSubItem("Was ist eine Multilevel Analyse?", tabName = "intro", selected = TRUE),
-               menuSubItem("Beispiel einer Multilevel Analyse", tabName = "analysing")
+      menuItem("Einführung in Hierarchische lineare Modelle", startExpanded = TRUE,
+               menuSubItem("Theoretischer Hintergrund", tabName = "intro", selected = TRUE),
+               menuSubItem("Beispiel einer Multilevel Analyse mit HLM", tabName = "analysing")
                ),
       menuItem("Simulationsstudie", startExpanded = FALSE,
                menuSubItem("Forschungsfrage und Studiendesign", tabName = "studyquestion"),

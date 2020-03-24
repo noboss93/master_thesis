@@ -128,7 +128,7 @@ $#1{AB}^\sigma$ $#1{H}^C$ $#1{\sin z}$ $#1{W}_n$}
 \newpage
 
 
-\section{Abstract}
+\section*{Abstract}
 \newpage
 
 \pagenumbering{arabic}
@@ -755,7 +755,7 @@ Gewisse Parameter werden in beiden Simulationsstudien nicht manipuliert. Für di
 
 Neben den nicht manipulierten Parametern wurden die Intraklassen Korrelation und die Analysemethode variiert. Bei der IKK gab es insgesamt neun Bedingungen gab, die in drei Gruppen eingeteilt werden können. Die erste Gruppe entspricht einer IKK von 0.00 und beschreibt einen Datensatz bei der die Klassenzugehörigkeit keinen Einfluss hat. Die zweite Gruppe beinhaltet IKKs die typischerweise in der psychologischen Forschung angetroffen werden und reichen von 0.05 bis 0.25 mit einem Abstand von 0.05 zwischen den jeweiligen IKK Bedingungen \citep{SnijdersTomA.B2012Ma:a}. Die dritte Gruppe beinhaltet Extremwerte der IKK von 0.30, 0.40 und 0.50. Wie aus der Formel \eqref{eq:icc} zu entnehmen ist, wird die IKK alleine durch die Varianz des Residuums und durch die Varianz der zufälligen Abweichung bestimmt. Da durch das Studiendesign die Varianz des Residuums und die theoretische IKK vorgegeben ist, lässt sich durch Umformen der Formel \eqref{eq:icc} die Varianz der zufälligen Abweichung $\tau^{2}_{0}$ bestimmen. Anhand dieser Varianz wurden dann Datensätze generiert, die den theoretischen IKKs entsprechen. Für jede dieser Bedingung wurden in jedem Design jeweils 1000 Replikationen simuliert, das zu einer Gesamtanzahl von 18000 Replikationen führte. Dabei wurde jeder einzelne Replikation zum einen mit einer normalen linearen Regression und zum anderen mit einer hierarchischen linearen Regression analysiert. 
 
-\subsection{Studie 1: Standardfehler}
+\subsection{Studie 1: Wirksamkeit von Standardfehler}
 Die Stichprobengrösse wurde in der ersten Simulationsstudie über alle Bedingungen konstant gehalten. Dabei wurden wie bei McNeish 300 Klassen mit jeweils 50 Schulkindern mit den oben besprochenen Parametern simuliert \citeyearpar{mcneish2014analyzing}. In der Multilevel Literatur wird eine Mindestanzahl von 50 Gruppen empfohlen, damit die Schätzungen der Koeffizienten mittels hierarchischen linearen Modellen genau sind \citep{maashox2005samplesize}. Mit dieser grossen Stichprobengrösse wird sichergestellt, dass Ergebnisse auf die Manipulation der Parameter und nicht auf eine ungenügende Stichprobengrösse zurückzuführen sind.
 
 Um die oben genannten Aussagen zu überprüfen, wurden zwei Kennwerte berechnet. Der erste Kennwert ist die relative Abweichung der geschätzten Regressionskoeffizienten $\widehat{\gamma}$ von den Populationsmittelwerten $\gamma$. Die Stärke dieser Abweichung wird in Prozent angegeben \citep{hooglandboosma1998robustness} und nach folgender Formel berechnet: 
@@ -773,7 +773,7 @@ Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegli
 
 \subsubsection{Ergebnisse}
 
-\subsection{Studie 2: Power}
+\subsection{Studie 2: Statistische Power von HLM}
 In der zweiten Studie wurde untersucht, wie sich die Power zwischen den normalen linearen Modellen und den hierarchischen linearen Modellen unterscheidet. Die Power steht in einem direkten Zusammenhang mit der Stichprobengrösse, so dass eine steigende Stichprobengrösse zu einer höheren Power führt \citep{snijders2005samplesizepower}. Folglich würde eine so grosse Stichprobe aus Studie 1 wahrscheinlich zu keinen Unterschieden in der Power zwischen den beiden Methoden führen. Allerdings ist es in der Praxis oft nicht möglich, eine solche grosse Stichprobe von insgesamt 15000 Beobachtungen zu erheben. Daher wird in dieser zweiten Studie eine etwas reduzierte und praxisnähere Stichprobengrösse für die beiden Studiendesigns simuliert. Die Anzahl simulierter Klassen wurde folglich auf 70 und die Klassengrösse auf 12 reduziert. Diese Reduktion führte zu einer Stichprobengrösse von insgesamt 840 Beobachtungen. 
 
 Wie bereits in der Herleitung der Forschungsfrage beschrieben, wurde der Effekt des Treatments mit einem \textit{t} Test überprüft. Die Prüfgrösse berechnet sich aus folgender Formel:
