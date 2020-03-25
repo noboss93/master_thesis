@@ -772,7 +772,7 @@ Liegen Wirksamkeitswerte über 1 gelten die Standardfehler als Überschätzt und
 Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Wirksamkeitswerte, die um mehr als 0.1 von 1 abweichen als unakzeptabel. Die Wirksamkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
 
 \subsubsection{Ergebnisse}
-Bei der Berechnung der relativen Abweichung ergab sich in allen Bedingungen 
+Bei der Berechnung der relativen Abweichung ergab sich in allen Bedingungen eine relative Abweichung die kleiner als 5\% ist. 
 
 
 
