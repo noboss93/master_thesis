@@ -1,5 +1,5 @@
 fluidRow(
-  box(id = "gen_dat_box", width = 12, title = "Datensatz generieren", status = "primary", collapsible = TRUE,
+  box(id = "gen_dat_box", width = 3, title = "Datensatz generieren", status = "primary", collapsible = TRUE,
       sliderInput(inputId = "int_sd",
                   label = "Standardabweichung des Intercepts",
                   min = 0,
