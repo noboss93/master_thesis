@@ -774,61 +774,9 @@ Liegen Genauigkeitswerte über 1 gelten die Standardfehler als Überschätzt und
 Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Genauigkeitswerte, die um mehr als 0.1 von 1 abweichen als unakzeptabel. Die Genauigkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
 
 \subsubsection{Ergebnisse}
-Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Die berechneten relativen Abweichungen und die Varianz dieser Abweichungen in jeder Bedingung können aus der Tabelle \ref{tab:rel_abw} entnommen werden. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten beide Modelle jegliche Regressionskoeffizienten mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < 0.05$. Neben den Werten zur relativen Abweichung sind in Tabelle \ref{tab:rel_abw} zudem in Klammern die Varianzen der jeweiligen Regressionskoeffizienten in jeder Bedingung aufgeführt. Es zeigte sich wieder, dass bei beiden Methoden die berechneten Varianz nie grösser als $\sigma < 0.05$ (quelle) ist. 
+Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten beide Modelle jegliche Regressionskoeffizienten mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < 0.05$. Neben den Werten zur relativen Abweichung sind in Tabelle \ref{tab:rel_abw} zudem in Klammern die Varianzen der jeweiligen Regressionskoeffizienten in jeder Bedingung aufgeführt. Es zeigte sich wieder, dass bei beiden Methoden die berechneten Varianz nie grösser als $\sigma < 0.05$ (quelle) ist. 
 
-\begin{table}[ht!]
-\centering
-\caption{Relative Abweichung der geschätzten Regressionskoeffizienten und deren Varianz für lineare und hierarchisch lineare Modelle in allen Simulationsbedingungen.}
-\begin{tabular}{ccccccccc}
-	\toprule 
- 	& \multicolumn{4}{c}{Design 1} \\
- 	\cmidrule(lr){2-5} 
-  	& \multicolumn{2}{c}{LM} & \multicolumn{2}{c}{HLM}  \\
-  	\cmidrule(lr){2-3} \cmidrule(lr){4-5} 
-	IKK 
-		& $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$) 
-			& $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$)
-				& $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$)
-					& $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$) \\ 
-	\midrule
-	0 & -0.00032 (0.00013) & -0.00475 (0.00012) & -0.00032 (0.00013) & -0.00475 (0.00012)    	\\ 
-	0.05 & -0.00021 (0.00041) & 0.00255 (0.00011) & -0.00021 (0.00041) & 0.00255 (0.00011)    \\ 
-	0.1 & -0.00078 (0.00078) & 0.00145 (0.00011) & -0.00078 (0.00078) & 0.00145 (0.00011)  	 	\\ 
-	0.15 & -0.00031 (0.00111) & 0.00491 (0.00012) & -0.00031 (0.00111) & 0.00491 (0.00012)    \\ 
-	0.2 & 0.00007 (0.00148) & 0.00059 (0.00011)  & 0.00007 (0.00148) & 0.00059 (0.00011)   	 	\\ 
-	0.25 & -0.00008 (0.00203) & -0.00269 (0.00011) & -0.00008 (0.00203) & -0.00269 (0.00011)     \\ 
-	0.3 & -0.00033 (0.00263) & -0.00006 (0.00012)  & -0.00033 (0.00263) & -0.00006 (0.00012)    \\ 
-	0.4 & -0.00010 (0.00388) & -0.00188 (0.00011) & -0.00010 (0.00388) & -0.00188 (0.00011)    \\ 
-	0.5 & 0.00050 (0.00588) & -0.00557 (0.00011)  & 0.00050 (0.00588) & -0.00557 (0.00011)     \\  
-   	\bottomrule
-    \vspace{1mm}
-\end{tabular}
-\begin{tabular}{ccccccccc}
-	\toprule 
-	 & \multicolumn{4}{c}{Design 2}\\
-	\cmidrule(lr){2-5}  
-	 & \multicolumn{2}{c}{LM} & \multicolumn{2}{c}{HLM} \\
-	\cmidrule(lr){2-3} \cmidrule(lr){4-5} 
- 	 	
-	 
-		& $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$) 
-			& $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$)
-				& $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$)
-					& $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$) \\ 
-	\midrule
-... & -0.00023 (0.00012) & 0.00195 (0.00011)  & -0.00023 (0.00012) & 0.00195 (0.00011)  \\ 
-... & 0.00028 (0.00040) & 0.00539 (0.00043)  & 0.00028 (0.00040) & 0.00539 (0.00043)  \\ 
-... & 0.00024 (0.00076) & 0.00219 (0.00072)  & 0.00024 (0.00076) & 0.00219 (0.00072)  \\ 
-... & 0.00150 (0.00118) & 0.01088 (0.00112)  & 0.00150 (0.00118) & 0.01088 (0.00112)  \\ 
-... & -0.00033 (0.00143) & -0.01366 (0.00149)  & -0.00033 (0.00143) & -0.01366 (0.00149)  \\ 
-... & 0.00052 (0.00192) & -0.01280 (0.00213)  & 0.00052 (0.00192) & -0.01280 (0.00213)  \\ 
-... & 0.00121 (0.00258) & -0.01838 (0.00256)  & 0.00121 (0.00258) & -0.01838 (0.00256) \\ 
-... & 0.00144 (0.00390) & -0.00562 (0.00379)  & 0.00144 (0.00390) & -0.00562 (0.00379)  \\ 
-... & -0.00168 (0.00580) & 0.02722 (0.00540)  & -0.00168 (0.00580) & 0.02722 (0.00540)  \\  
-	\bottomrule
-\end{tabular}
-\label{tab:rel_abw}
-\end{table}
+
 
 
 

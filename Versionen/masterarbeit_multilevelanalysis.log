@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  27 MAR 2020 17:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 MAR 2020 12:52
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -970,7 +970,11 @@ Overfull \hbox (4.86143pt too wide) in paragraph at lines 910--911
 it[]atsn[]aheren si-mu-lier-ten Da-tens[]atzen
  []
 
-[39] [40] [41] [42] [43] [44] [45] (masterarbeit_multilevelanalysis.bbl
+[39] [40] [41] [42]
+
+LaTeX Warning: Reference `tab:rel_abw' on page 43 undefined on input line 955.
+
+[43] [44] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -982,7 +986,7 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
   Zu-griff auf
  []
 
-[46]) [47] (masterarbeit_multilevelanalysis.aux)
+[45]) [46] (masterarbeit_multilevelanalysis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -990,7 +994,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  19890 strings out of 492450
  376697 string characters out of 3129748
- 438675 words of memory out of 3000000
+ 433666 words of memory out of 3000000
  24011 multiletter control sequences out of 15000+200000
  543313 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1004,18 +1008,17 @@ ts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (53 pages, 502193 bytes).
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmtt12.pfb>
+Output written on masterarbeit_multilevelanalysis.pdf (52 pages, 491495 bytes).
 
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
+ 260 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
