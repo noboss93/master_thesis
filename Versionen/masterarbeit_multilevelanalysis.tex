@@ -940,19 +940,47 @@ Die Stichprobengrösse wurde in der ersten Simulationsstudie über alle Bedingun
 
 Um die oben genannten Aussagen zu überprüfen, wurden zwei Kennwerte berechnet. Der erste Kennwert ist die relative Abweichung der geschätzten Regressionskoeffizienten $\widehat{\gamma}$ von den Populationsmittelwerten $\gamma$. Die Stärke dieser Abweichung wird in Prozent angegeben \citep{hooglandboosma1998robustness} und nach folgender Formel berechnet: 
 \begin{equation}
-\text{Relative Abweichung: } \Delta\widehat{\gamma} = \dfrac{\widebar{\widehat{\gamma}} - \gamma}{\gamma}
+\Delta\widehat{\gamma} = \dfrac{\widebar{\widehat{\gamma}} - \gamma}{\gamma}
 \end{equation}
 Dabei ist $\widebar{\widehat{\gamma}}$ der Mittelwert aller Regressionskoeffizienten aus einer Bedingung. Diese relative Abweichung wurde in beiden Designs für jede Analysemethode und in jeder IKK Bedingung für den Gesamtmittelwert $\gamma_{00}$ als auch für die Gesamtsteigung $\gamma_{10}$ resp. $\gamma_{01}$ berechnet. Gemäss Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} gelten relative Abweichungen von kleiner als 5\% als akzeptabel.
 
-Der zweite Kennwert beschreibt die Genauigkeit der Schätzung des Standardfehlers und berechnet sich aus dem Verhältnis zwischen dem mittleren Standardfehler aus einer Bedingung und der Standardabweichung der Regressionskoeffizienten über alle 1000 Replikationen dieser Bedingung \citep{hooglandboosma1998robustness, mcneish2014analyzing}. Die Formel zur Berechnung sieht wie folgt aus:
+Der zweite Kennwert beschreibt die Genauigkeit der Schätzung des Standardfehlers und berechnet sich aus dem Verhältnis der Abweichung des mittleren Standardfehlers aus einer Bedingung von der Standardabweichung der Regressionskoeffizienten über alle 1000 Replikationen dieser Bedingung geteilt durch dieselbe Standardabweichung \citep{hooglandboosma1998robustness, mcneish2014analyzing}. Die Formel zur Berechnung sieht wie folgt aus:
 \begin{equation}
-\text{SE Genauigkeit} = \dfrac{\widebar{\widehat{SE}}_{\widehat{\gamma}}}{\widehat{SD}_{\widehat{\gamma}}}
+\Delta\widehat{SE}_{\widehat{\gamma}} = \dfrac{\widebar{\widehat{SE}}_{\widehat{\gamma}} - \widehat{SD}_{\widehat{\gamma}}}{\widehat{SD}_{\widehat{\gamma}}}
 \end{equation}
-Liegen Genauigkeitswerte über 1 gelten die Standardfehler als Überschätzt und liegen die Werte unter 1 werden Standardfehler unterschätzt.
-Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Genauigkeitswerte, die um mehr als 0.1 von 1 abweichen als unakzeptabel. Die Genauigkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
+Liegen Genauigkeitswerte über 0 gelten die Standardfehler als Überschätzt und liegen die Werte unter 0 werden Standardfehler unterschätzt.
+Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Genauigkeitswerte, die um mehr als 0.1 von 0 abweichen als unakzeptabel. Die Genauigkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
 
 \subsubsection{Ergebnisse}
-Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten beide Modelle jegliche Regressionskoeffizienten mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < 0.05$. Neben den Werten zur relativen Abweichung sind in Tabelle \ref{tab:rel_abw} zudem in Klammern die Varianzen der jeweiligen Regressionskoeffizienten in jeder Bedingung aufgeführt. Es zeigte sich wieder, dass bei beiden Methoden die berechneten Varianz nie grösser als $\sigma < 0.05$ (quelle) ist. 
+Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten LM als auch HLM die Regressionskoeffizienten des Achsenabschnittes und der Steigung mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < 0.05$. Die Varianz dieser relativen Abweichungen wiesen in allen Bedingungen einen Wert kleiner als $\sigma^2 < 0.01$ auf. 
+
+
+
+\begin{table}[ht!]
+\centering
+\caption{Genauigkeit der Standardfehler des Achsenabschnittes in allen IKK Bedingungen und in beiden Simulationsdesigns.}
+\begin{tabular}{ccccc}
+\toprule 
+		& 	\multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2} \\
+			\cmidrule(lr){2-3}  \cmidrule(lr){4-5}
+IKK 	& 	 $\Delta\widehat{SE}_{\widehat{\gamma}}$ LM 
+			& $\Delta\widehat{SE}_{\widehat{\gamma}}$ HLM 
+				& $\Delta\widehat{SE}_{\widehat{\gamma}}$ LM 
+					& $\Delta\widehat{SE}_{\widehat{\gamma}}$ HLM \\
+		 	\midrule
+0 		&   -0.0511490545	&	-0.0366200661		&	-0.018052943		&	-0.002747619	\\ 
+0.05 	&  	-0.4599010285	&	0.0009392243		&	-0.449410712		&	0.024359847	\\ 
+0.1 	&  	-0.5963433022	&	-0.0190936574		&	-0.590031565		&	-0.006134869	\\ 
+0.15 	&  	-0.6510292644	&	0.0083703906		&	-0.662039834		&	-0.024058024	\\ 
+0.2 	&  	-0.6893978333	&	0.0200886278		&	-0.683236488		&	0.039621603	\\ 
+0.25 	&   -0.7256592609  	&	-0.0028869031		&	-0.718001740		&	0.026611160	\\ 
+0.3 	&   -0.7505628101  	&	-0.0120051865		&	-0.748053239		&	-0.001552039	\\ 
+0.4 	&   -0.7783193757 	&	0.0057029643		&	-0.778689336		&	0.005896933	\\ 
+0.5 	&   -0.8028335323 	&	-0.0044743862		&	-0.801386362		&	0.004128496	\\  
+\bottomrule
+\end{tabular}
+\label{tab:rel_abw}
+\end{table}
 
 
 
