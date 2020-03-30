@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {3.3}Simulationsdesign}{40}%
 \contentsline {subsection}{\numberline {3.4}Studie 1: Genauigkeit von Schätzparametern}{42}%
 \contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse}{43}%
-\contentsline {subsection}{\numberline {3.5}Studie 2: Statistische Power von HLM}{44}%
+\contentsline {subsection}{\numberline {3.5}Studie 2: Statistische Power von HLM}{43}%
 \contentsline {subsubsection}{\numberline {3.5.1}Ergebnisse}{45}%
 \contentsline {subsection}{\numberline {3.6}Diskussion und Shiny App}{45}%
 \contentsline {section}{\numberline {4}Literaturverzeichnis}{46}%
