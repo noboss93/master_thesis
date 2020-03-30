@@ -145,9 +145,9 @@ for(i in 1:length(icc)){
   var_i[i] <- (icc[i] * 1.72) / (1 - icc[i])
 }
 
-# simstudy_lvl1_small <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
-#                              y00 = 2.34, y10 = 0.12, 
-#                              niter = 1000)
+# simstudy_lvl1 <- simulation_study(nschueler = 8, nklassen = 10, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
+#                               y00 = 2.34, y10 = 0.12, 
+#                               niter = 100)
 # simstudy_lvl2_small <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept = sqrt(var_i), sd_error = sqrt(1.72), 
 #                              y00 = 2.34, y10 = 0.12, 
 #                              treatment_level1 = FALSE, 
@@ -175,10 +175,10 @@ parameter_spread <- function(df){
   icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
   
   for(i in 1:length(icc)){
-    intercept_spread_lm[i] <- var(df$beta_0[df$method == "lm" & df$icc == icc[i]] - 2.23)
-    intercept_spread_mlm[i] <- var(df$beta_0[df$method == "mlm" & df$icc == icc[i]] - 2.23)
-    treatment_spread_lm[i] <- var(df$beta_treatment[df$method == "lm" & df$icc == icc[i]] - 0.12)
-    treatment_spread_mlm[i] <- var(df$beta_treatment[df$method == "mlm" & df$icc == icc[i]] - 0.12)
+    intercept_spread_lm[i] <- var((df$beta_0[df$method == "lm" & df$icc == icc[i]] - 2.23)/2.23)
+    intercept_spread_mlm[i] <- var((df$beta_0[df$method == "mlm" & df$icc == icc[i]] - 2.23)/2.23)
+    treatment_spread_lm[i] <- var((df$beta_treatment[df$method == "lm" & df$icc == icc[i]] - 0.12)/0.12)
+    treatment_spread_mlm[i] <- var((df$beta_treatment[df$method == "mlm" & df$icc == icc[i]] - 0.12)/0.12)
   }
   methods <- rep(c("lm", "mlm"), each = length(icc))
   icc_df <- rep(icc, times = 2)
@@ -220,9 +220,12 @@ mean_parameters <- function(df){
   return(mean_dataframe)
 }
 
+mean_parameters(test_lvl1)
+
 parameter_efficacy <- function(df){
   icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
   mean_par <- mean_parameters(df)
+  par_var <- parameter_spread(df)
   
   intercept_efficacy <- (mean_par$intercept_mean - 2.34) / 2.34
   treatment_efficacy <- (mean_par$treatment_mean - 0.12) / 0.12
@@ -230,19 +233,23 @@ parameter_efficacy <- function(df){
   methods <- rep(c("lm", "mlm"), each = length(icc))
   icc_df <- rep(icc, times = 2)
   
-  temp_m <- matrix(c(intercept_efficacy, treatment_efficacy, methods, icc_df), ncol = 4)
+  temp_m <- matrix(c(icc_df, intercept_efficacy, par_var$intercept_var, treatment_efficacy, 
+                     par_var$treatment_var, methods), ncol = 6)
   
   par_efficacy_df <- data.frame(temp_m)
-  colnames(par_efficacy_df) <- c("intercept_efficacy", "treatment_efficacy", "method", "icc")
-  par_efficacy_df[,1:2] <- apply(par_efficacy_df[,1:2], 2, as.character)
-  par_efficacy_df[,1:2] <- apply(par_efficacy_df[,1:2], 2, as.numeric)
+  colnames(par_efficacy_df) <- c("icc", "intercept_efficacy", "intercept_var", "treatment_efficacy", "treatment_var", "method")
+  par_efficacy_df[,2:5] <- apply(par_efficacy_df[,2:5], 2, as.character)
+  par_efficacy_df[,2:5] <- apply(par_efficacy_df[,2:5], 2, as.numeric)
   
   return(par_efficacy_df)
 }
-
+# Preparing Dataframe for table
 parameter_efficacy_lvl1 <- parameter_efficacy(test_lvl1)
 parameter_efficacy_lvl2 <- parameter_efficacy(test_lvl2)
-parameter_full <- data.frame(parameter_efficacy_lvl1[,1:2], parameter_efficacy_lvl2)
+parameter_lvl1 <- data.frame(parameter_efficacy_lvl1[1:9,], parameter_efficacy_lvl1[10:18,2:6])
+parameter_lvl2 <- data.frame(parameter_efficacy_lvl2[1:9,], parameter_efficacy_lvl2[10:18,2:6])
+parameter_full <- data.frame(parameter_lvl1, parameter_lvl2[,2:11])
+xtable(parameter_full)
 
 
 ggplot(data = parameter_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
