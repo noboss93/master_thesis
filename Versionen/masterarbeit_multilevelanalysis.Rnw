@@ -774,11 +774,10 @@ Liegen Genauigkeitswerte über 0 gelten die Standardfehler als Überschätzt und
 Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Genauigkeitswerte, die um mehr als 0.1 von 0 abweichen als unakzeptabel. Die Genauigkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
 
 \subsubsection{Ergebnisse}
-Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten LM als auch HLM die Regressionskoeffizienten des Achsenabschnittes und der Steigung mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < 0.05$. Die Varianz dieser relativen Abweichungen wiesen in allen Bedingungen einen Wert kleiner als $\sigma^2 < 0.01$ auf. 
+Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten LM als auch HLM die Regressionskoeffizienten des Achsenabschnittes und der Steigung mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < .05$. Auch die Varianzen dieser relativen Abweichungen wiesen in allen Bedingungen einen Wert kleiner als $\sigma^2 < .01$ auf. Diese Werte entsprechen ebenfalls den Ergebnissen Mundfrom und Schults \citeyearpar{mundfrom2002monte} und McNeish \citeyearpar{mcneish2014analyzing}.
 
-Die Genuaigkeit der Schätzung des Standardfehlers wurde für den 
-
-\begin{table}[ht!]
+Die Genauigkeit der Schätzung des Standardfehlers des Gesamtmittelwert $\gamma_{00}$ kann aus der Tabelle \ref{tab:se_eff_intercept} entnommen werden. Im ersten Simulationsdesign zeigten sich bei einer IKK von 0 bei beiden Methoden eine akzeptable Schätzgenauigkeit des Standardfehlers mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.051$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.036$ bei HLM. Sobald aber die IKK anstieg, wurde die Schätzung bei LM zunehmend ungenauer. Aus Tabelle \ref{tab:se_eff_intercept} ist zu entnehmen, dass bereits ab einer IKK von .1 die Anforderungen von Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} nicht mehr erfüllt sind bei Verwendung von LM. Mit Werten von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.459$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.802$ weist LM eine klare Unterschätzung des Standardfehlers auf, die zu einer erhöhten Fehler Typ 1 Rate führt. Vergleicht man die SE Genauigkeit von HLM aus dem ersten Simulationsdesign, erkennt man, dass in keiner IKK Bedingung den Grenzwert von .1 überschritten wird. 
+\begin{table}[t!]
 \centering
 \caption{Genauigkeit der Standardfehler des Achsenabschnittes in allen Bedingungen.}
 \begin{tabular}{ccccc}
@@ -792,15 +791,15 @@ IKK 	& 	  LM
 				&  LM 
 					&  HLM \\
 		 	\midrule
-0 		&   -0.051	&	-0.036		&	-0.018		&	-0.002	\\ 
-0.05 	&  	-0.459  &	 0.000		&	-0.449		&	 0.024	\\ 
-0.1 	&  	-0.596	&	-0.019		&	-0.590		&	-0.006	\\ 
-0.15 	&  	-0.651	&	 0.008		&	-0.662		&	-0.024	\\ 
-0.2 	&  	-0.689	&	 0.020		&	-0.683		&	 0.039	\\ 
-0.25 	&   -0.725  &	-0.002		&	-0.718		&	 0.026	\\ 
-0.3 	&   -0.750  &	-0.012		&	-0.748		&	-0.001	\\ 
-0.4 	&   -0.778 	&	 0.005		&	-0.778		&	 0.005	\\ 
-0.5 	&   -0.802 	&	-0.004		&	-0.801		&	 0.004	\\  
+0 		&   -.0511	&	-.0366		&	-.0181		&	-.0027	\\ 
+.05 	&  	-.4599 	&	 .0009		&	-.4494		&	 .0244	\\ 
+.1 		&  	-.5963	&	-.0191		&	-.5900		&	-.0061	\\ 
+.15 	&  	-.6510	&	 .0084		&	-.6620		&	-.0241	\\ 
+.2 		&  	-.6894	&	 .0201		&	-.6832		&	 .0396	\\ 
+.25 	&   -.7257 	&	-.0029		&	-.7180		&	 .0266	\\ 
+.3 		&   -.7506 	&	-.0120		&	-.7481		&	-.0016	\\ 
+.4 		&  	-.7783	&	 .0057		&	-.7787 		&	 .0059	\\ 
+.5 		&   -.8028 	&	-.0045		&	-.8014		&	 .0041	\\  
 \bottomrule
 \end{tabular}
 \label{tab:se_eff_intercept}
