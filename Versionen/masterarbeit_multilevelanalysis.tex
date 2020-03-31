@@ -72,10 +72,11 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{siunitx}
-\usepackage{caption}
+\usepackage[singlelinecheck=false, labelfont=bf]{caption}
 \usepackage{setspace}
 \usepackage{rotating}
 \captionsetup{font=footnotesize}
+
 
 
 \makeatletter
@@ -188,6 +189,7 @@ $#1{AB}^\sigma$ $#1{H}^C$ $#1{\sin z}$ $#1{W}_n$}
 Hierarchische Daten treten häufig in den Sozialwissenschaften auf, unter anderem auch in der Psychologie \citep{SnijdersTomA.B2012Ma:a}. Von hierarchischen Daten wird gesprochen, wenn beispielsweise Daten von Schulkindern innerhalb verschiedener Schulklassen oder von Mitarbeitern aus mehreren Teams erhoben werden. Aber auch Daten aus Langzeitstudien werden als gruppiert bezeichnet, da mehrere Messzeitpunkte innerhalb einer Person gruppiert sind. Hierarchische Daten werden in Levels unterteilt, wobei Daten aus der niedrigsten Stufe als Level-1 Einheiten bezeichnet werden \citep{SnijdersTomA.B2012Ma:a}. Ein Beispiel für Level-1 Einheiten sind Schulkinder. Diese Schulkinder befinden sich wiederum in Klassen, die in der Hierarchiestufe höher sind und folglich als Level-2 Einheiten bezeichnet werden. Würde man nun in einer Studie nicht nur Schulkinder in Schulklassen, sondern auch  die Schulen selbst berücksichtigen, würden die Schulen als Level-3 Einheit bezeichnet werden. Die Anzahl der Levels könnte man theoretisch beliebig hoch wählen, solange es das Studiendesign erlaubt und es aus der Perspektive der Forschungsfrage sinnvoll ist. Der Einfachheit halber beschränken wir uns im Laufe dieser Arbeit aber auf hierarchische Daten mit zwei Levels. In Tabelle \ref{tab:beispiele_levels} werden einige Beispiele für Level-1 und Level-2 Einheiten aufgeführt. 
 \begin{table}[h!]
 \centering
+\begin{threeparttable}
 \caption{Beispiele für Level-1 und Level-2 Einheiten}
 \begin{tabular}{ll}
 \toprule
@@ -205,6 +207,7 @@ Mehrere Messzeitpunkte 	& Person \\
 \bottomrule
 \end{tabular}
 \label{tab:beispiele_levels}
+\end{threeparttable}
 \end{table}
 Dabei ist zu beachten, dass sich das Level der selben Einheit je nach Untersuchungsgegenstand ändern kann. Wie man in der Tabelle \ref{tab:beispiele_levels} erkennen kann, sind Familien einmal als Level-1 und einmal als Level-2 Einheit aufgeführt. Daher ist es wichtig die Level Bezeichnung nicht als starr zu betrachtet. Vielmehr sollte man sich grundsätzlich an den niedrigsten Einheiten im Datensatz orientieren. Diesen Einheiten wird dann das Level-1 zugeschrieben.
 
@@ -224,6 +227,7 @@ In den folgenden Abschnitten wird die Theorie zur Analyse von hierarchischen Dat
 
 \begin{table}[ht]
 \centering
+\begin{threeparttable}
 \caption{Ausschnitt des simulierten Datensatzes} 
 \begin{tabular}{cccccccc}
   \toprule
@@ -242,6 +246,7 @@ In den folgenden Abschnitten wird die Theorie zur Analyse von hierarchischen Dat
    \bottomrule
 \end{tabular}
 \label{tab:beispiel_theorie}
+\end{threeparttable}
 \end{table}
 
 Betrachtet man die Variablen des Datensatzes, könnte man daraus schliessen, dass es sich um einen hierarchischen Datensatz mit zwei Levels handelt. Zu den Level-1 Variablen gehören alle Variablen die sich auf der Stufe der tiefsten Einheit (Schulkinder) befinden. Dazu zählen die Anzahl gelösten Übungen, die erreichte Punktzahl, das Geschlecht, der sozioökonomische Status und der IQ. Die beiden anderen Variablen Klasse und die Anzahl Fenster im Klassenzimmer gehören zur Level-2 Ebene. Um allerdings genau festzulegen, ob die hierarchische Struktur einen Einfluss auf die erreichte Punktzahl hat, benötigt es die Berechnung weiterer Kennwerte. 
@@ -279,6 +284,7 @@ Wie bereits erwähnt, werden bei der Aggregation für jede Level-2 Einheit Mitte
 
 \begin{table}[b]
 \centering
+\begin{threeparttable}
 \caption{Mittlere Anzahl gelöster Übungsaufgaben und erreichte Punktzahl}
 \begin{tabular}{ccc}
   \toprule
@@ -292,6 +298,7 @@ Klasse & Übungen & Punktzahl \\
    \bottomrule
 \end{tabular}
 \label{tab:aggregation}
+\end{threeparttable}
 \end{table}
 
 Wird nun anhand dieser aggregierter Werte überprüft, wie genau die erreichte Punktzahl eines Schulkindes mit der Anzahl an gelösten Übungsaufgaben zusammenhängt, entstehen mehrere Probleme, die zu Verzerrungen und Fehlschlüssen führen können. Zum einen verändert sich die Forschungsfrage, da sich durch die Aggregation der Daten der Fokus von der Level-1 Ebene auf die Level-2 Ebene verschiebt \citep{SnijdersTomA.B2012Ma:a, woltman2012introduction}. Die abhängige Variable ist nun nicht mehr die erreichte Punktzahl jedes einzelnen Schulkindes, sondern die durchschnittlich erreichte Punktzahl einer Schulklasse. Ein weiteres Problem ist der Verlust von Variabilität, die durch individuelle Unterschiede zwischen den Schulkindern entsteht. Dieser Verlust an Variabilität beträgt nach Raudenbush und Bryk 80-90\% und kann zu massiven Fehlschlüssen über den Zusammenhang der Variablen führen \citeyearpar{raudenbush2002hierarchical}. 
@@ -300,6 +307,7 @@ Betrachtet man die Regressionsgerade in Abbildung \ref{fig:aggregiert}, sieht ma
 
 \begin{figure}[b!]
 \centering
+\captionsetup{width=8cm}
 \includegraphics[width = 8cm, height = 8cm]{aggregation}
 \caption{Zusammenhang zwischen der durchschnittlich gelösten Anzahl an Übungsaufgaben und der durschnittlich erreichten Punktzahl pro Klasse}
 \label{fig:aggregiert}
@@ -425,6 +433,7 @@ In Abschnitt \ref{section:random_intercept_model} wurden die Residuenplots eines
  
 \begin{figure}[ht!]
 \centering
+\captionsetup{width=8cm}
 \includegraphics[width = 8cm, height = 8cm]{residuen_rism}
 \caption{Residuenplot des \textit{Random Intercept and Slope} Modells}
 \label{fig:resid_rism}
@@ -479,6 +488,7 @@ Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, be
 Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die gleiche wie bei \texttt{lm()}. Dabei wird auf zuerst die zu erklärende Variable aufgeführt und anschliessend alle Variablen, die als feste Effekte in das Modell aufgenommen werden sollen. Innerhalb der Klammern können nun die zufälligen Effekte und die variierende Gruppe festgelegt werden. Dabei kann innerhalb der Klammern eingestellt werden, ob der Achsenabschnitt und die Steigung korrelieren sollten oder nicht. In Tabelle \ref{tab:lmersyntax} findet man einen Überblick über die möglichen Interaktionen, die man innerhalb der Klammer festlegen kann und die für uns relevant sind\footnote{Weitere Funktionen und eine ausführliche Beschreibung des Paketes \texttt{lme4} können in Bates et al. \citeyearpar{batesetal2015lme4} nachgeschlagen werden.}.
 \begin{table}[ht] 
 \centering
+\begin{threeparttable}
 \caption{Mögliche Syntax für \texttt{lmer()} nach Bates et al. \citeyearpar{batesetal2015lme4}}
 \begin{tabular}{ll}
  	\toprule
@@ -490,6 +500,7 @@ Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die 
   	\bottomrule
 \end{tabular}
 \label{tab:lmersyntax}
+\end{threeparttable}
 \end{table}
 
 \subsubsection{Interpretation eines Outputs} \label{section:interpretation_output}
@@ -954,34 +965,43 @@ Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegli
 \subsubsection{Ergebnisse}
 Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten LM als auch HLM die Regressionskoeffizienten des Achsenabschnittes und der Steigung mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < .05$. Auch die Varianzen dieser relativen Abweichungen wiesen in allen Bedingungen einen Wert kleiner als $\sigma^2 < .01$ auf. Diese Werte entsprechen ebenfalls den Ergebnissen Mundfrom und Schults \citeyearpar{mundfrom2002monte} und McNeish \citeyearpar{mcneish2014analyzing}.
 
-Die Genauigkeit der Schätzung des Standardfehlers des Gesamtmittelwert $\gamma_{00}$ kann aus der Tabelle \ref{tab:se_eff_intercept} entnommen werden. Im ersten Simulationsdesign zeigten sich bei einer IKK von 0 bei beiden Methoden eine akzeptable Schätzgenauigkeit des Standardfehlers mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.051$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.036$ bei HLM. Sobald aber die IKK anstieg, wurde die Schätzung bei LM zunehmend ungenauer. Aus Tabelle \ref{tab:se_eff_intercept} ist zu entnehmen, dass bereits ab einer IKK von .1 die Anforderungen von Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} nicht mehr erfüllt sind bei Verwendung von LM. Mit Werten von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.459$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.802$ weist LM eine klare Unterschätzung des Standardfehlers auf, die zu einer erhöhten Fehler Typ 1 Rate führt. Vergleicht man die SE Genauigkeit von HLM aus dem ersten Simulationsdesign, erkennt man, dass in keiner IKK Bedingung den Grenzwert von .1 überschritten wird. 
+Die Genauigkeit der Schätzung des Standardfehlers der beiden Regressionskoeffizienten $\widehat{\gamma}_{00}$ und $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{01}$ kann für jede der beiden Methoden aus der Tabelle \ref{tab:se_eff_intercept} entnommen werden. Im ersten Simulationsdesign zeigten sich bei einer IKK von 0 bei beiden Methoden eine akzeptable Schätzgenauigkeit des Standardfehlers mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0511$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0366$ bei HLM. Sobald aber die IKK anstieg, wurde die Schätzung bei LM zunehmend ungenauer. Aus Tabelle \ref{tab:se_eff_intercept} ist zu entnehmen, dass bereits ab einer IKK von .1 die Anforderungen von Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} nicht mehr erfüllt sind bei Verwendung von LM. Mit Werten von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4599$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8028$ weist LM eine klare Unterschätzung des Standardfehlers auf, die zu einer erhöhten Fehler Typ 1 Rate führt. Vergleicht man die SE Genauigkeit von HLM aus dem ersten Simulationsdesign, erkennt man, dass in keiner IKK Bedingung den Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .1$ überschritten wird. HLM schätzten die Standardfehler sogar so genau, dass die SE Genauigkeit in keiner der Bedingungen grössere Werte als $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .05$ erreichte. Bei Verwendung von HLM lag im ersten Simulationsdesign also weder eine Unter- noch eine Überschätzung vor. Dementsprechend entstehen bei der Verwendung von HLM keine erhöhten Fehler Typ 1 und Fehler Typ 2 Raten.
 \begin{table}[t!]
 \centering
-\caption{Genauigkeit der Standardfehler des Achsenabschnittes in allen Bedingungen.}
-\begin{tabular}{ccccc}
+\begin{threeparttable}
+\caption{SE Genauigkeit beider Regressionskoeffizienten für beide Analysemethoden in beiden Simulationsdesigns und alle IKK Bedingungen.}
+\begin{tabular}{lcccccccc}
 \toprule 
-& \multicolumn{4}{c}{SE Genauigkeit $\Delta\widehat{SE}_{\widehat{\gamma}_{00}}$}\\
-\cmidrule(lr){2-5}
-		& 	\multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2} \\
-			\cmidrule(lr){2-3}  \cmidrule(lr){4-5}
-IKK 	& 	  LM 
-			&  HLM 
-				&  LM 
-					&  HLM \\
+& \multicolumn{4}{c}{$\Delta\widehat{SE}_{\widehat{\gamma}_{00}}$} 
+& \multicolumn{4}{c}{$\Delta\widehat{SE}_{\widehat{\gamma}_{10}}$ bzw. $\Delta\widehat{SE}_{\widehat{\gamma}_{10}}$}\\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+		& 	\multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2} 
+		& \multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2}\\
+			\cmidrule(lr){2-3}  \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+IKK 	& 	  LM &  HLM &  LM &  HLM  &  LM &  HLM &  LM &  HLM\\
 		 	\midrule
-0 		&   -.0511	&	-.0366		&	-.0181		&	-.0027	\\ 
-.05 	&  	-.4599 	&	 .0009		&	-.4494		&	 .0244	\\ 
-.1 		&  	-.5963	&	-.0191		&	-.5900		&	-.0061	\\ 
-.15 	&  	-.6510	&	 .0084		&	-.6620		&	-.0241	\\ 
-.2 		&  	-.6894	&	 .0201		&	-.6832		&	 .0396	\\ 
-.25 	&   -.7257 	&	-.0029		&	-.7180		&	 .0266	\\ 
-.3 		&   -.7506 	&	-.0120		&	-.7481		&	-.0016	\\ 
-.4 		&  	-.7783	&	 .0057		&	-.7787 		&	 .0059	\\ 
-.5 		&   -.8028 	&	-.0045		&	-.8014		&	 .0041	\\  
+0 	&   -.0511\tnote{a}	&	-.0366\tnote{b}	&	-.0181\tnote{b}	&	-.0027\tnote{b}	& -.0095\tnote{b} & -.0098\tnote{b}	& .0056\tnote{b}	& .0213\tnote{b}\\ 
+.05 &  	-.4599 	&	 .0009\tnote{b}	&	-.4494	&	 .0244\tnote{b}	& .0312\tnote{b}	 & .0053\tnote{b}	& -.4729	& -.0193\tnote{b}\\ 
+.1 	&  	-.5963	&	-.0191\tnote{b}	&	-.5900	&	-.0061\tnote{b}	& .0542\tnote{a}	 & .0001\tnote{b}	& -.5790	& .0207\tnote{b}\\ 
+.15 &  	-.6510	&	 .0084\tnote{b}	&	-.6620	&	-.0241\tnote{b}	& .0599\tnote{a}	 & -.0226\tnote{b}	& -.6534	& .0010\tnote{b}\\ 
+.2 	&  	-.6894	&	 .0201\tnote{b}	&	-.6832	&	 .0396\tnote{b}	& .1327	 & .0135\tnote{b}	& -.6896	& .0187\tnote{b}\\ 
+.25 &   -.7257 	&	-.0029\tnote{b}	&	-.7180	&	 .0266\tnote{b}	& .1720	 & .0159\tnote{b}	& -.7324	& -.0258\tnote{b}\\ 
+.3 	&   -.7506 	&	-.0120\tnote{b}	&	-.7481	&	-.0016\tnote{b}	& .1565	 & -.0318\tnote{b}	& -.7472	& .0016\tnote{b}\\ 
+.4 	&  	-.7783	&	 .0057\tnote{b}	&	-.7787 	&	 .0059\tnote{b}	& .3443	 & .0424\tnote{b}	& -.7758	& .0191\tnote{b}\\ 
+.5 	&   -.8028 	&	-.0045\tnote{b}	&	-.8014	&	 .0041\tnote{b}	& .4186	 & .0044\tnote{b}	& -.7943	& .0401\tnote{b}\\  
 \bottomrule
 \end{tabular}
 \label{tab:se_eff_intercept}
+\begin{tablenotes}
+\item [a] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .1$
+\item [b] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .05$
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
+
+Beim zweiten Simulationsdesign zeigte sich bezüglich der Genauigkeit der Schätzung des Standardfehlers des Gesamtmittelwertes $\widehat{\gamma}_{00}$ ein ähnliches Bild wie beim ersten Simulationsdesign. Wieder wiesen beide Methoden bei einer IKK von 0 eine genau Schätzung des Standardfehlers von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0181$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0027$ bei HLM auf. Diese Genauigkeit nahm bei erhöhter IKK und Verwendung von LM wieder stark ab. In der vierten Spalte der Tabelle \ref{tab:se_eff_intercept} kann man erkennen, dass bei einer IKK von .05 nur noch eine SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4494$ erreicht wird und schlussendlich bei einer IKK von .5 bis zu einer SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8014$ abnimmt. Auch diese Werte weisen bei der Verwendung eines LM auf eine Unterschätzung des Standardfehlers hin, die wiederum zu einer erhöhten Fehler Typ 1 Rate führt. Betrachtet man die fünfte Spalte aus Tabelle \ref{tab:se_eff_intercept}, erkennt man dass auch im zweiten Simulationsdesign die Standardfehler des Gesamtmittelwerts durch HLM genau geschätzt werden. In allen Bedingungen wurde der Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .1$ nicht überschritten. Folglich kommt es auch im zweiten Simulationsdesign zu keiner Über- oder Unterschätzung des Standardfehlers des Gesamtmittelwertes $\widehat{\gamma}_{00}$ bei Verwendung von HLM.
+
+Betrachtet man nun die SE Genauigkeiten der Gesamtsteigung $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{10}$ aus Tabelle \ref{tab:se_eff_intercept}, zeigt sich wieder dass die 
 
 
 

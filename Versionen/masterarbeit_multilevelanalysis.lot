@@ -3,4 +3,4 @@
 \contentsline {table}{\numberline {2}{\ignorespaces Ausschnitt des simulierten Datensatzes\relax }}{5}%
 \contentsline {table}{\numberline {3}{\ignorespaces Mittlere Anzahl gelöster Übungsaufgaben und erreichte Punktzahl\relax }}{9}%
 \contentsline {table}{\numberline {4}{\ignorespaces Mögliche Syntax für \texttt {lmer()} nach Bates et al. \citeyearpar {batesetal2015lme4}\relax }}{24}%
-\contentsline {table}{\numberline {5}{\ignorespaces Genauigkeit der Standardfehler des Achsenabschnittes in allen Bedingungen.\relax }}{44}%
+\contentsline {table}{\numberline {5}{\ignorespaces SE Genauigkeit beider Regressionskoeffizienten für beide Analysemethoden in beiden Simulationsdesigns und alle IKK Bedingungen.\relax }}{44}%
