@@ -959,17 +959,17 @@ Der zweite Kennwert beschreibt die Genauigkeit der Schätzung des Standardfehler
 \begin{equation}
 \Delta\widehat{SE}_{\widehat{\gamma}} = \dfrac{\widebar{\widehat{SE}}_{\widehat{\gamma}} - \widehat{SD}_{\widehat{\gamma}}}{\widehat{SD}_{\widehat{\gamma}}}
 \end{equation}
-Liegen Genauigkeitswerte über 0 gelten die Standardfehler als Überschätzt und liegen die Werte unter 0 werden Standardfehler unterschätzt.
-Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Genauigkeitswerte, die um mehr als 0.1 von 0 abweichen als unakzeptabel. Die Genauigkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
+Der berechnete Wert beschreibt also wie bei der relativen Abweichung, um wie viel Prozent der geschätzte Standardfehler vom wahren Populationswert abweicht. Liegen Genauigkeitswerte über 0 gelten die Standardfehler als Überschätzt und liegen die Werte unter 0 werden Standardfehler unterschätzt.
+Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} bezeichnen jegliche Genauigkeitswerte, die um mehr als 0.10 von 0 abweichen als unakzeptabel. Die Genauigkeit des Standardfehlers wurde wieder in beiden Designs für jede Analysemethode und in jeder IKK Bedingung berechnet.
 
 \subsubsection{Ergebnisse}
 Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regressionskoeffizienten. Sowohl bei einer Intervention auf Level-1 als auch bei einer Intervention auf Level-2 schätzten LM als auch HLM die Regressionskoeffizienten des Achsenabschnittes und der Steigung mit einer relativen Abweichung von kleiner als $|\Delta\widehat{\gamma}| < .05$. Auch die Varianzen dieser relativen Abweichungen wiesen in allen Bedingungen einen Wert kleiner als $\sigma^2 < .01$ auf. Diese Werte entsprechen ebenfalls den Ergebnissen Mundfrom und Schults \citeyearpar{mundfrom2002monte} und McNeish \citeyearpar{mcneish2014analyzing}.
 
-Die Genauigkeit der Schätzung des Standardfehlers der beiden Regressionskoeffizienten $\widehat{\gamma}_{00}$ und $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{01}$ kann für jede der beiden Methoden aus der Tabelle \ref{tab:se_eff_intercept} entnommen werden. Im ersten Simulationsdesign zeigten sich bei einer IKK von 0 bei beiden Methoden eine akzeptable Schätzgenauigkeit des Standardfehlers mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0511$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0366$ bei HLM. Sobald aber die IKK anstieg, wurde die Schätzung bei LM zunehmend ungenauer. Aus Tabelle \ref{tab:se_eff_intercept} ist zu entnehmen, dass bereits ab einer IKK von .1 die Anforderungen von Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} nicht mehr erfüllt sind bei Verwendung von LM. Mit Werten von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4599$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8028$ weist LM eine klare Unterschätzung des Standardfehlers auf, die zu einer erhöhten Fehler Typ 1 Rate führt. Vergleicht man die SE Genauigkeit von HLM aus dem ersten Simulationsdesign, erkennt man, dass in keiner IKK Bedingung den Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .1$ überschritten wird. HLM schätzten die Standardfehler sogar so genau, dass die SE Genauigkeit in keiner der Bedingungen grössere Werte als $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .05$ erreichte. Bei Verwendung von HLM lag im ersten Simulationsdesign also weder eine Unter- noch eine Überschätzung vor. Dementsprechend entstehen bei der Verwendung von HLM keine erhöhten Fehler Typ 1 und Fehler Typ 2 Raten.
+Die Genauigkeit der Schätzung des Standardfehlers der beiden Regressionskoeffizienten $\widehat{\gamma}_{00}$ und $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{01}$ kann für jede der beiden Methoden aus der Tabelle \ref{tab:se_eff_intercept} entnommen werden. Im ersten Simulationsdesign zeigten sich bei einer IKK von .00 bei beiden Methoden eine akzeptable Schätzgenauigkeit des Standardfehlers mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0511$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0366$ bei HLM. Sobald aber die IKK anstieg, wurde die Schätzung bei LM zunehmend ungenauer. Aus Tabelle \ref{tab:se_eff_intercept} ist zu entnehmen, dass bereits ab einer IKK von .10 die Anforderungen von Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} nicht mehr erfüllt sind bei Verwendung von LM. Mit Werten von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4599$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8028$ weist LM eine klare Unterschätzung des Standardfehlers auf, die zu einer erhöhten Fehler Typ 1 Rate führt. Vergleicht man die SE Genauigkeit von HLM aus dem ersten Simulationsdesign, erkennt man, dass in keiner IKK Bedingung den Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .10$ überschritten wird. Es wurde sogar ein noch strengeres Kriterium von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .05$ in allen IKK Bedingungen erfüllt. Bei Verwendung von HLM lag im ersten Simulationsdesign also weder eine Unter- noch eine Überschätzung vor. Dementsprechend entstehen bei der Verwendung von HLM keine erhöhten Fehler Typ 1 und Fehler Typ 2 Raten.
 \begin{table}[t!]
 \centering
 \begin{threeparttable}
-\caption{SE Genauigkeit beider Regressionskoeffizienten für beide Analysemethoden in beiden Simulationsdesigns und alle IKK Bedingungen.}
+\caption{SE Genauigkeit beider Regressionskoeffizienten in beiden Simulationsdesigns und für jede Analysemethode in allen IKK Bedingungen.}
 \begin{tabular}{lcccccccc}
 \toprule 
 & \multicolumn{4}{c}{$\Delta\widehat{SE}_{\widehat{\gamma}_{00}}$} 
@@ -978,52 +978,64 @@ Die Genauigkeit der Schätzung des Standardfehlers der beiden Regressionskoeffiz
 		& 	\multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2} 
 		& \multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2}\\
 			\cmidrule(lr){2-3}  \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
-IKK 	& 	  LM &  HLM &  LM &  HLM  &  LM &  HLM &  LM &  HLM\\
+IKK 	& 	  LM 			&  HLM 				&  LM 				&  HLM  			&  LM 				&  HLM 				&  LM 				&  HLM\\
 		 	\midrule
-0 	&   -.0511\tnote{a}	&	-.0366\tnote{b}	&	-.0181\tnote{b}	&	-.0027\tnote{b}	& -.0095\tnote{b} & -.0098\tnote{b}	& .0056\tnote{b}	& .0213\tnote{b}\\ 
-.05 &  	-.4599 	&	 .0009\tnote{b}	&	-.4494	&	 .0244\tnote{b}	& .0312\tnote{b}	 & .0053\tnote{b}	& -.4729	& -.0193\tnote{b}\\ 
-.1 	&  	-.5963	&	-.0191\tnote{b}	&	-.5900	&	-.0061\tnote{b}	& .0542\tnote{a}	 & .0001\tnote{b}	& -.5790	& .0207\tnote{b}\\ 
-.15 &  	-.6510	&	 .0084\tnote{b}	&	-.6620	&	-.0241\tnote{b}	& .0599\tnote{a}	 & -.0226\tnote{b}	& -.6534	& .0010\tnote{b}\\ 
-.2 	&  	-.6894	&	 .0201\tnote{b}	&	-.6832	&	 .0396\tnote{b}	& .1327	 & .0135\tnote{b}	& -.6896	& .0187\tnote{b}\\ 
-.25 &   -.7257 	&	-.0029\tnote{b}	&	-.7180	&	 .0266\tnote{b}	& .1720	 & .0159\tnote{b}	& -.7324	& -.0258\tnote{b}\\ 
-.3 	&   -.7506 	&	-.0120\tnote{b}	&	-.7481	&	-.0016\tnote{b}	& .1565	 & -.0318\tnote{b}	& -.7472	& .0016\tnote{b}\\ 
-.4 	&  	-.7783	&	 .0057\tnote{b}	&	-.7787 	&	 .0059\tnote{b}	& .3443	 & .0424\tnote{b}	& -.7758	& .0191\tnote{b}\\ 
-.5 	&   -.8028 	&	-.0045\tnote{b}	&	-.8014	&	 .0041\tnote{b}	& .4186	 & .0044\tnote{b}	& -.7943	& .0401\tnote{b}\\  
+.00 	&   -.0511\tnote{a}	&   -.0366\tnote{b} &   -.0181\tnote{b}	& 	-.0027\tnote{b} & -.0095\tnote{b} 	& -.0098\tnote{b}	&  .0056\tnote{b} 	&  .0213\tnote{b}\\ 
+.05 	&  	-.4599 			&	 .0009\tnote{b}	&	-.4494			&	 .0244\tnote{b}	&  .0312\tnote{b}	&  .0053\tnote{b}	& -.4729			& -.0193\tnote{b}\\ 
+.10 	&  	-.5963			&	-.0191\tnote{b}	&	-.5900			&	-.0061\tnote{b}	&  .0542\tnote{a}	&  .0001\tnote{b}	& -.5790			&  .0207\tnote{b}\\ 
+.15 	&  	-.6510			&	 .0084\tnote{b}	&	-.6620			&	-.0241\tnote{b}	&  .0599\tnote{a}	& -.0226\tnote{b}	& -.6534			&  .0010\tnote{b}\\ 
+.20 	&  	-.6894			&	 .0201\tnote{b}	&	-.6832			&	 .0396\tnote{b}	&  .1327	 		&  .0135\tnote{b}	& -.6896			&  .0187\tnote{b}\\ 
+.25 	&   -.7257 			&	-.0029\tnote{b}	&	-.7180			&	 .0266\tnote{b}	&  .1720	 		&  .0159\tnote{b}	& -.7324			& -.0258\tnote{b}\\ 
+.30 	&   -.7506 			&	-.0120\tnote{b}	&	-.7481			&	-.0016\tnote{b}	&  .1565	 		& -.0318\tnote{b}	& -.7472			&  .0016\tnote{b}\\ 
+.40 	&  	-.7783			&	 .0057\tnote{b}	&	-.7787 			&	 .0059\tnote{b}	&  .3443	 		&  .0424\tnote{b}	& -.7758			&  .0191\tnote{b}\\ 
+.50 	&   -.8028 			&	-.0045\tnote{b}	&	-.8014			&	 .0041\tnote{b}	&  .4186	 		&  .0044\tnote{b}	& -.7943			&  .0401\tnote{b}\\  
 \bottomrule
 \end{tabular}
 \label{tab:se_eff_intercept}
 \begin{tablenotes}
-\item [a] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .1$
+\item [a] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .10$
 \item [b] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .05$
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-Beim zweiten Simulationsdesign zeigte sich bezüglich der Genauigkeit der Schätzung des Standardfehlers des Gesamtmittelwertes $\widehat{\gamma}_{00}$ ein ähnliches Bild wie beim ersten Simulationsdesign. Wieder wiesen beide Methoden bei einer IKK von 0 eine genau Schätzung des Standardfehlers von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0181$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0027$ bei HLM auf. Diese Genauigkeit nahm bei erhöhter IKK und Verwendung von LM wieder stark ab. In der vierten Spalte der Tabelle \ref{tab:se_eff_intercept} kann man erkennen, dass bei einer IKK von .05 nur noch eine SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4494$ erreicht wird und schlussendlich bei einer IKK von .5 bis zu einer SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8014$ abnimmt. Auch diese Werte weisen bei der Verwendung eines LM auf eine Unterschätzung des Standardfehlers hin, die wiederum zu einer erhöhten Fehler Typ 1 Rate führt. Betrachtet man die fünfte Spalte aus Tabelle \ref{tab:se_eff_intercept}, erkennt man dass auch im zweiten Simulationsdesign die Standardfehler des Gesamtmittelwerts durch HLM genau geschätzt werden. In allen Bedingungen wurde der Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .1$ nicht überschritten. Folglich kommt es auch im zweiten Simulationsdesign zu keiner Über- oder Unterschätzung des Standardfehlers des Gesamtmittelwertes $\widehat{\gamma}_{00}$ bei Verwendung von HLM.
+Beim zweiten Simulationsdesign zeigte sich bezüglich der Genauigkeit der Schätzung des Standardfehlers des Gesamtmittelwertes $\widehat{\gamma}_{00}$ ein ähnliches Bild wie beim ersten Simulationsdesign. Wieder wiesen beide Methoden bei einer IKK von .00 eine genau Schätzung des Standardfehlers von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0181$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0027$ bei HLM auf. Diese Genauigkeit nahm bei erhöhter IKK und Verwendung von LM wieder stark ab. In der vierten Spalte der Tabelle \ref{tab:se_eff_intercept} kann man erkennen, dass bei einer IKK von .05 nur noch eine SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4494$ erreicht wird und schlussendlich bei einer IKK von .50 bis zu einer SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8014$ abnimmt. Auch diese Werte weisen bei der Verwendung eines LM auf eine Unterschätzung des Standardfehlers hin, die wiederum zu einer erhöhten Fehler Typ 1 Rate führt. Betrachtet man die fünfte Spalte aus Tabelle \ref{tab:se_eff_intercept}, erkennt man dass auch im zweiten Simulationsdesign die Standardfehler des Gesamtmittelwerts durch HLM genau geschätzt werden. In allen Bedingungen wurde der Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .10$ nicht überschritten. Folglich kommt es auch im zweiten Simulationsdesign zu keiner Über- oder Unterschätzung des Standardfehlers des Gesamtmittelwertes $\widehat{\gamma}_{00}$ bei Verwendung von HLM.
 
-Betrachtet man nun die SE Genauigkeiten der Gesamtsteigung $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{10}$ aus Tabelle \ref{tab:se_eff_intercept}, weisen wieder beide Analysemethoden in beiden Simulationsdesigns bei einer IKK von 0 eine genaue Schätzung des Standardfehlers auf. Im ersten Simulationsdesign verzeichnete LM wieder einen abnehmende Genauigkeit bei der Schätzung des Standardfehlers sobald die IKK zunahm, so dass der Standardfehler zunehmend überschätzt wurde. Allerdings überschritten die Schätzungen von LM bis zu einer IKK von .15 den Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}_{00}}| > .1$ nicht. Mit einer SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{10}} = .0599$ lag die SE Genauigkeit von LM bei einer IKK von .15 immer noch im von Hoogland und Boosmam \citeyearpar{hooglandboosma1998robustness} als akzeptabel definierten Bereich.
+Betrachtet man nun die SE Genauigkeiten der Gesamtsteigung $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{10}$ aus Tabelle \ref{tab:se_eff_intercept}, weisen wieder beide Analysemethoden in beiden Simulationsdesigns bei einer IKK von .00 eine genaue Schätzung des Standardfehlers auf. Im ersten Simulationsdesign verzeichnete LM wieder einen abnehmende Genauigkeit bei der Schätzung des Standardfehlers sobald die IKK zunahm, so dass der Standardfehler zunehmend überschätzt wurde. Allerdings überschritten die Schätzungen von LM bis zu einer IKK von .15 den Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .10$ nicht. Mit einer SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{10}} = .0599$ lag die SE Genauigkeit von LM bei einer IKK von .15 immer noch im von Hoogland und Boosmam \citeyearpar{hooglandboosma1998robustness} als akzeptabel definierten Bereich. Ab einer IKK von .20 wurde von LM im ersten Simulationsdesign der Standardfehler so stark überschätzt, dass er nicht mehr im akzeptablen Bereich lag. Diese Überschätzung des Standardfehlers mittels LM erreichte dann bei einer IKK von .50 mit $\Delta\widehat{SE}_{\widehat{\gamma}_{10}} = .4186$ den höchsten Wert. Grundsätzlich wies das LM also eine zunehmende Überschätzung des Standardfehlers auf, das zu einer erhöhten Fehler Typ 2 Rate führt, die schlussendlich zu einer niedrigeren Power führt. 
+\begin{figure}[t!]
+\centering
+\captionsetup{width=8cm}
+\includegraphics[width=8cm, height=8cm]{se_genauigkeit_design1}
+\caption{Genauigkeit der Schätzung des Standardfehlers für jede Methode in allen IKK Bedingungen im ersten Simulationsdesign.}
+\label{fig:se_genauigkeit_design1}
+\end{figure}
+In Abbildung \ref{fig:se_genauigkeit_design1} wird dieser Zusammenhang noch einmal graphisch dargestellt. Wie in Abbildung \ref{fig:se_genauigkeit_design1} zu erkennen und aus Tabelle \ref{tab:se_eff_intercept} zu entnehmen ist, bleiben die geschätzten Standardfehler des HLM immer hinnerhalb des akzeptablen Bereiches und erfüllen auch in allen Bedingungen das noch strengere Kriterium von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .05$. Die Schätzungen des Standardfehlers sind daher auch noch bei einer hohen IKK von .50 mit $\Delta\widehat{SE}_{\widehat{\gamma}_{10}} = .0044$ im akzeptablen Bereich. Folglich kommt es bei der Analyse mit einem HLM zu keiner Unter- oder Überschätzung des Standardfehlers und führt dementsprechend zu keiner erhöhten Fehler Typ 1 oder Fehler Typ 2 Rate, die in einer tieferen Power resultiert.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Beim zweiten Simulationsdesign weisen beide Analysemethoden wieder eine genaue Schätzung des Standardfehlers bei einer IKK von .00 auf. Betrachtet man die Entwicklung der Schätzung des Standardfehlers durch das LM, erkennt man, dass die Standardfehler wieder mit zunehmender IKK unterschätzt werden. Bei einer IKK von .05 wird mit $\Delta\widehat{SE}_{\widehat{\gamma}_{10}} = -.4729$ der Grenzwert für eine akzeptable Abweichung überschritten. Diese Unterschätzung steigt mit zunehmender IKK weiter an, bis hin zu einer SE Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{10}} = -.7943$ bei einer IKK von 0.50. 
+\begin{figure}[t!]
+\centering
+\captionsetup{width=8cm}
+\includegraphics[width=8cm, height=8cm]{se_genauigkeit_design2}
+\caption{Genauigkeit der Schätzung des Standardfehlers für jede Methode in allen IKK Bedingungen im zweiten Simulationsdesign.}
+\label{fig:se_genauigkeit_design2}
+\end{figure}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Diskussion Studie 1}
 
 
 \subsection{Studie 2: Statistische Power von HLM}
@@ -1038,10 +1050,14 @@ Dabei ist $\widehat{\gamma}$ der jeweilige geschätzte Regressionskoeffizienten 
 Um nun die Power zu berechnen, wurde in jeder Bedingung und für jede Analysemethode die Anzahl an Tests, die auf einem Signifikanzniveau von 5\% signifikant wurden, durch die Anzahl Replikationen pro Bedingung geteilt. Dies ergibt die prozentuale Häufigkeit, bei der die Analysemethode in der gegebenen IKK Bedingung einen signifikanten Effekt gefunden hat. Da im Simulationsdesign die Intervention in der Tat einen Effekt hat, entspricht diese prozentuale Häufigkeit der Power dieser Analysemethode.
 
 \subsubsection{Ergebnisse}
+\subsubsection{Diskussion Studie 2}
 
 
 \subsection{Diskussion und Shiny App}
 Powerstudie wurde nur mit fixer Stichprobengrösse und fixierter Effektgrösse durchgeführt. Interessant wäre hier eine weiterführung, bei dem stichprobengrösse und oder Effektgrösse variiert werden. (vlt. inkl. variierender IKK)
+
+
+grenzwert wieso 10%?? 5% wäre vlt. besser?
 
 \newpage
 \singlespacing
