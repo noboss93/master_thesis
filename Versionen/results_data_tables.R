@@ -83,10 +83,10 @@ library(viridis)
 
 
 # SE Plots ----------------------------------------------------------------
-simistudy_lvl1 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1")
-simistudy_lvl2 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2")
-simistudy_lvl1_small <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1_small")
-simistudy_lvl2_small <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2_small")
+simstudy_lvl1 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1")
+simstudy_lvl2 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2")
+simstudy_lvl1_small <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1_small")
+simstudy_lvl2_small <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2_small")
 
 
 
@@ -166,37 +166,14 @@ se_efficacy <- function(df){
   return(se_efficacy_df)
 }
 
-se_efficacy_lvl1 <- se_efficacy(simistudy_lvl1)
-se_efficacy_lvl2 <- se_efficacy(simistudy_lvl2)
+se_efficacy_lvl1 <- se_efficacy(simstudy_lvl1)
+se_efficacy_lvl2 <- se_efficacy(simstudy_lvl2)
 
 
 
 uzh_colors <- c("#3353B7", "#E38052")
 paper_colors <- c("darkgrey", "#B01111")
 
-
-intercept_lvl1 <- ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
-  geom_col(position = "dodge2") +
-  geom_hline(yintercept = 0)+
-  geom_hline(yintercept = 0.1, linetype = "dashed")+
-  geom_hline(yintercept = -0.1, linetype = "dashed")+
-  scale_fill_manual(values = paper_colors) + 
-  scale_y_continuous(breaks=seq(-1,1, 0.1)) + 
-  labs(title = "SE Genauigkeit des Achsenabschnittes bei Intervention auf Level-1")+
-  theme(legend.position = "none", legend.box.spacing = )
-
-
-intercept_lvl2 <- ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = method))+
-  geom_col(position = "dodge2") +
-  geom_hline(yintercept = 0)+
-  geom_hline(yintercept = 0.1, linetype = "dashed")+
-  geom_hline(yintercept = -0.1, linetype = "dashed")+
-  scale_fill_manual(values = paper_colors) + 
-  scale_y_continuous(breaks=seq(-1,1, 0.1)) +
-  labs(title = "SE Genauigkeit des Achsenabschnittes bei Intervention auf Level-2")+
-  theme(axis.title.y = element_blank())
-
-grid.arrange(intercept_lvl1,intercept_lvl2, nrow = 1)
 
 # scale to 0
 ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
@@ -228,7 +205,7 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = meth
   ylab("SE Genauigkeit")
 
 # scale to 1
-se_efficacy <- function(df){
+se_efficacy_1 <- function(df){
   icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
   
   se_means <- mean_se(df)
@@ -249,23 +226,82 @@ se_efficacy <- function(df){
   
   return(se_efficacy_df)
 }
-se_efficacy_lvl1 <- se_efficacy(simistudy_lvl1)
-se_efficacy_lvl2 <- se_efficacy(simistudy_lvl2)
+se_efficacy_lvl1 <- se_efficacy_1(simstudy_lvl1)
+se_efficacy_lvl2 <- se_efficacy_1(simstudy_lvl2)
 
 ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
-  scale_fill_manual(values = uzh_colors) + 
-  scale_y_continuous(breaks=seq(0,2, 0.1)) +
-  labs(title = "SE Efficacy Treatment fo Treatment at Level 1")
+  geom_hline(yintercept = 1.05, linetype = "dotted")+
+  geom_hline(yintercept = 0.95, linetype = "dotted")+
+  scale_fill_manual(values = paper_colors) + 
+  scale_y_continuous(breaks=seq(0,2, 0.05)) +
+  theme_gray(base_size = 15) +
+  labs(title = "SE Efficacy Treatment fo Treatment at Level 1")+
+  xlab("IKK")+
+  ylab("SE Genauigkeit")
 
 ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   geom_hline(yintercept = 1)+
   geom_hline(yintercept = 1.1, linetype = "dashed")+
   geom_hline(yintercept = 0.9, linetype = "dashed")+
-  scale_fill_manual(values = uzh_colors) + 
-  scale_y_continuous(breaks=seq(0,2, 0.1)) +
-  labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
+  geom_hline(yintercept = 1.05, linetype = "dotted")+
+  geom_hline(yintercept = 0.95, linetype = "dotted")+
+  scale_fill_manual(values = paper_colors) + 
+  scale_y_continuous(breaks=seq(0,2, 0.05)) +
+  theme_gray(base_size = 15) +
+  labs(title = "SE Efficacy Treatment fo Treatment at Level 2")+
+  xlab("IKK")+
+  ylab("SE Genauigkeit")
+
+# power
+power_model <- function(df){
+  icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+  power_intercept_lm <- c()
+  power_intercept_mlm <- c()
+  power_treatment_lm <- c()
+  power_treatment_mlm <- c()
+  
+  for(i in 1:length(icc)){
+    power_intercept_lm[i] <- length(df$p_value_0[df$method == "lm" & df$icc == icc[i] & df$p_value_0 < .05])/1000
+    power_intercept_mlm[i] <- length(df$p_value_0[df$method == "mlm" & df$icc == icc[i] & df$p_value_0 < .05])/1000
+    power_treatment_lm[i] <- length(df$p_value_treatment[df$method == "lm" & df$icc == icc[i] & df$p_value_treatment < .05])/1000
+    power_treatment_mlm[i] <- length(df$p_value_treatment[df$method == "mlm" & df$icc == icc[i] & df$p_value_treatment < .05])/1000
+    
+  }
+  
+  methods <- rep(c("lm", "mlm"), each = 9)
+  icc_df <- rep(icc, times = 2)
+  
+  temp_m <- matrix(c(power_intercept_lm, power_intercept_mlm, power_treatment_lm, power_treatment_mlm, methods, icc_df), ncol = 4)
+  power_dataframe <- data.frame(temp_m)
+  colnames(power_dataframe) <- c("power_intercept", "power_treatment", "method", "icc")
+  power_dataframe[,1:2] <- apply(power_dataframe[,1:2], 2, as.character)
+  power_dataframe[,1:2] <- apply(power_dataframe[,1:2], 2, as.numeric)
+  
+  return(power_dataframe)
+}
+
+power_lvl1_small <- power_model(simstudy_lvl1_small)
+power_lvl2_small <- power_model(simstudy_lvl2_small)
+
+ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  scale_fill_manual(values = paper_colors) +
+  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  theme_gray(base_size = 15) +
+  labs(title = "Power Design 1")+
+  xlab("IKK")+
+  ylab("Power")
+
+ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  scale_fill_manual(values = paper_colors) +
+  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  theme_gray(base_size = 15) +
+  labs(title = "Power Deisgn 2")+
+  xlab("IKK")+
+  ylab("Power")
