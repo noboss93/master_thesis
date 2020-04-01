@@ -169,36 +169,39 @@ se_efficacy <- function(df){
 se_efficacy_lvl1 <- se_efficacy(simistudy_lvl1)
 se_efficacy_lvl2 <- se_efficacy(simistudy_lvl2)
 
+
+
 uzh_colors <- c("#3353B7", "#E38052")
 paper_colors <- c("grey", "#B01111")
 
 
 intercept_lvl1 <- ggplot(data = se_efficacy_lvl1, aes(y = intercept_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
-  geom_hline(yintercept = 1)+
-  geom_hline(yintercept = 1.1, linetype = "dashed")+
-  geom_hline(yintercept = 0.9, linetype = "dashed")+
+  geom_hline(yintercept = 0)+
+  geom_hline(yintercept = 0.1, linetype = "dashed")+
+  geom_hline(yintercept = -0.1, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
-  scale_y_continuous(breaks=seq(0,1.2, 0.1)) + 
+  scale_y_continuous(breaks=seq(-1,1, 0.1)) + 
   labs(title = "SE Genauigkeit des Achsenabschnittes bei Intervention auf Level-1")+
   theme(legend.position = "none", legend.box.spacing = )
 
 
 intercept_lvl2 <- ggplot(data = se_efficacy_lvl2, aes(y = intercept_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
-  geom_hline(yintercept = 1)+
-  geom_hline(yintercept = 1.1, linetype = "dashed")+
-  geom_hline(yintercept = 0.9, linetype = "dashed")+
+  geom_hline(yintercept = 0)+
+  geom_hline(yintercept = 0.1, linetype = "dashed")+
+  geom_hline(yintercept = -0.1, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
-  scale_y_continuous(breaks=seq(0,1.2, 0.1)) +
+  scale_y_continuous(breaks=seq(-1,1, 0.1)) +
   labs(title = "SE Genauigkeit des Achsenabschnittes bei Intervention auf Level-2")+
   theme(axis.title.y = element_blank())
 
 grid.arrange(intercept_lvl1,intercept_lvl2, nrow = 1)
 
-# scale to 1
+# scale to 0
 ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
+  geom_hline(yintercept = 0)+
   geom_hline(yintercept = 0.1, linetype = "dashed")+
   geom_hline(yintercept = -0.1, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
@@ -207,25 +210,52 @@ ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = meth
 
 ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
+  geom_hline(yintercept = 0)+
   geom_hline(yintercept = 0.1, linetype = "dashed")+
   geom_hline(yintercept = -0.1, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
   scale_y_continuous(breaks=seq(-1,1, 0.1)) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
 
-# scale to 0'
+# scale to 1
+se_efficacy <- function(df){
+  icc <- c(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5)
+  
+  se_means <- mean_se(df)
+  coefs_sd <- sd_coefs(df)
+  
+  se_efficacy_intercept <- (se_means$mean_se_intercept) / coefs_sd$sd_intercept
+  se_efficacy_treatment <- (se_means$mean_se_treatment) / coefs_sd$sd_treatment
+  
+  methods <- rep(c("lm", "mlm"), each = length(icc))
+  icc_df <- rep(icc, times = 2)
+  
+  temp_m <- matrix(c(se_efficacy_intercept, se_efficacy_treatment, methods, icc_df), ncol = 4)
+  
+  se_efficacy_df <- data.frame(temp_m)
+  colnames(se_efficacy_df) <- c("intercept_efficacy", "treatment_efficacy", "method", "icc")
+  se_efficacy_df[,1:2] <- apply(se_efficacy_df[,1:2], 2, as.character)
+  se_efficacy_df[,1:2] <- apply(se_efficacy_df[,1:2], 2, as.numeric)
+  
+  return(se_efficacy_df)
+}
+se_efficacy_lvl1 <- se_efficacy(simistudy_lvl1)
+se_efficacy_lvl2 <- se_efficacy(simistudy_lvl2)
+
 ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
-  geom_hline(yintercept = 0.1, linetype = "dashed")+
-  geom_hline(yintercept = -0.1, linetype = "dashed")+
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
-  scale_y_continuous(breaks=seq(-1,1, 0.1)) +
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 1")
 
 ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = method))+
   geom_col(position = "dodge2") +
-  geom_hline(yintercept = 0.1, linetype = "dashed")+
-  geom_hline(yintercept = -0.1, linetype = "dashed")+
+  geom_hline(yintercept = 1)+
+  geom_hline(yintercept = 1.1, linetype = "dashed")+
+  geom_hline(yintercept = 0.9, linetype = "dashed")+
   scale_fill_manual(values = uzh_colors) + 
-  scale_y_continuous(breaks=seq(-1,1, 0.1)) +
+  scale_y_continuous(breaks=seq(0,2, 0.1)) +
   labs(title = "SE Efficacy Treatment fo Treatment at Level 2")
