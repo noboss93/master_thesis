@@ -790,6 +790,7 @@ Der erste Kennwert der untersucht wurde, war die relative Abweichung der Regress
 Die Genauigkeit der Schätzung des Standardfehlers der beiden Regressionskoeffizienten $\widehat{\gamma}_{00}$ und $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{01}$ kann für jede der beiden Methoden aus der Tabelle \ref{tab:se_eff_intercept} entnommen werden. Im ersten Simulationsdesign wurden die Standardfehler bei der Verwendung von LM mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0511$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8028$ geschätzt. Bei der Verwendung von HLM reichten die SE Genauigkeitswerte von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0366$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = .0201$ . Bei einer IKK von .00 zeigte sich bei beiden Methoden eine akzeptable Schätzgenauigkeit des Standardfehlers mit einer Genauigkeit von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0511$ bei LM und $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.0366$ bei HLM. Sobald aber die IKK anstieg, wurde die Schätzung bei LM zunehmend ungenauer. Aus Tabelle \ref{tab:se_eff_intercept} ist zu entnehmen, dass bereits ab einer IKK von .10 die Anforderungen von Hoogland und Boomsma \citeyearpar{hooglandboosma1998robustness} nicht mehr erfüllt sind bei Verwendung von LM. Mit Werten von $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.4599$ bis $\Delta\widehat{SE}_{\widehat{\gamma}_{00}} = -.8028$ weist LM eine klare Unterschätzung des Standardfehlers auf, die zu einer erhöhten Fehler Typ 1 Rate führt. Vergleicht man die SE Genauigkeit von HLM aus dem ersten Simulationsdesign, erkennt man, dass in keiner IKK Bedingung den Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .10$ überschritten wird. Es wurde sogar ein noch strengeres Kriterium von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .05$ in allen IKK Bedingungen erfüllt. Bei Verwendung von HLM lag im ersten Simulationsdesign also weder eine Unter- noch eine Überschätzung vor. Dementsprechend entstehen bei der Verwendung von HLM keine erhöhten Fehler Typ 1 und Fehler Typ 2 Raten.
 \begin{table}[t!]
 \centering
+\setlength{\tabcolsep}{10pt}
 \begin{threeparttable}
 \caption{SE Genauigkeit beider Regressionskoeffizienten in beiden Simulationsdesigns und für jede Analysemethode in allen IKK Bedingungen.}
 \begin{tabular}{lcccccccc}
@@ -854,7 +855,7 @@ In Abbildung \ref{fig:se_genauigkeit_design2} sind wieder beide Verläufe über 
 
 
 \subsection{Studie 2: Statistische Power von HLM}
-In der zweiten Studie wurde untersucht, wie sich die Power zwischen den normalen linearen Modellen und den hierarchischen linearen Modellen unterscheidet. Die Power steht in einem direkten Zusammenhang mit der Stichprobengrösse, so dass eine steigende Stichprobengrösse zu einer höheren Power führt \citep{snijders2005samplesizepower}. Folglich würde eine so grosse Stichprobe aus Studie 1 wahrscheinlich zu keinen Unterschieden in der Power zwischen den beiden Methoden führen. Allerdings ist es in der Praxis oft nicht möglich, eine solche grosse Stichprobe von insgesamt 15000 Beobachtungen zu erheben. Daher wird in dieser zweiten Studie eine etwas reduzierte und praxisnähere Stichprobengrösse für die beiden Studiendesigns simuliert. Die Anzahl simulierter Klassen wurde folglich auf 70 und die Klassengrösse auf 12 reduziert. Diese Reduktion führte zu einer Stichprobengrösse von insgesamt 840 Beobachtungen. 
+In der zweiten Studie wurde untersucht, wie zuverlässig LM und HLM einen Effekt einer Intervention finden, wenn dieser Effekt auch effektiv vorhanden ist. Die Fähigkeit einen Effekt zu finden, wenn er auch wirklich vorhanden ist wird Power genannt. Die Power steht in einem direkten Zusammenhang mit der Stichprobengrösse, so dass eine steigende Stichprobengrösse zu einer höheren Power führt \citep{snijders2005samplesizepower}. Folglich würde eine so grosse Stichprobe aus Studie 1 wahrscheinlich zu keinen Unterschieden in der Power zwischen den beiden Methoden führen. Allerdings ist es in der Praxis oft nicht möglich, eine solche grosse Stichprobe von insgesamt 15000 Beobachtungen zu erheben. Daher wird in dieser zweiten Studie eine etwas reduzierte und praxisnähere Stichprobengrösse für die beiden Studiendesigns simuliert. Die Anzahl simulierter Klassen wurde folglich auf 70 und die Klassengrösse auf 12 reduziert. Diese Reduktion führte zu einer Stichprobengrösse von insgesamt 840 Beobachtungen. 
 
 Wie bereits in der Herleitung der Forschungsfrage beschrieben, wurde der Effekt des Treatments mit einem \textit{t} Test überprüft. Die Prüfgrösse berechnet sich aus folgender Formel:
 \begin{equation}
@@ -865,8 +866,34 @@ Dabei ist $\widehat{\gamma}$ der jeweilige geschätzte Regressionskoeffizienten 
 Um nun die Power zu berechnen, wurde in jeder Bedingung und für jede Analysemethode die Anzahl an Tests, die auf einem Signifikanzniveau von 5\% signifikant wurden, durch die Anzahl Replikationen pro Bedingung geteilt. Dies ergibt die prozentuale Häufigkeit, bei der die Analysemethode in der gegebenen IKK Bedingung einen signifikanten Effekt gefunden hat. Da im Simulationsdesign die Intervention in der Tat einen Effekt hat, entspricht diese prozentuale Häufigkeit der Power dieser Analysemethode.
 
 \subsubsection{Ergebnisse}
-
-
+Die Ergebnisse der zweiten Simulationsstudie werden in Tabelle \ref{tab:power_study2} abgebildet. Es ist zu beachten, dass nur die Power für die Gesamtsteigung $\widehat{\gamma}_{10}$ bzw. $\widehat{\gamma}_{10}$ berechnet wurde, weil die auch den Effekt der Intervention abbildet. Im ersten Simulationsdesign reicht die Power des LM von $.44$ bis $.76$. Dabei ist zu beachten, dass die Power mit zunehmender IKK abnimmt und bei einer IKK von .00 die höchste Power erreicht wird. Die Power unter Verwendung des HLM reicht von $.75$ bis $.78$ und bleibt über alle Bedingungen relativ konstant.
+\begin{table}[t!]
+\centering
+\setlength{\tabcolsep}{10pt}
+\begin{threeparttable}
+\caption{Statistische Power in beiden Simulationsdesigns für jede Analysemethode in allen IKK Bedingungen.}
+\begin{tabular}{lcccc}
+\toprule
+	& \multicolumn{4}{c}{Statistische Power}\\
+\cmidrule(lr){2-5}
+	& \multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+IKK & LM 	& HLM 	& LM 	& HLM \\ 
+\midrule
+.00 & .76 	& .76 	& .74 	& .72 \\ 
+.05 & .72 	& .75 	& .71 	& .53 \\ 
+.10 & .73 	& .76 	& .64 	& .38 \\ 
+.15 & .72 	& .78 	& .64 	& .34 \\ 
+.20 & .67 	& .75 	& .56 	& .24 \\ 
+.25 & .69 	& .78 	& .56 	& .21 \\ 
+.30 & .62 	& .78 	& .57 	& .19 \\ 
+.40 & .54 	& .77 	& .56 	& .13 \\ 
+.50 & .44 	& .76 	& .55 	& .10 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:power_study2}
+\end{threeparttable}
+\end{table}
 
 
 

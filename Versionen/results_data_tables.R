@@ -9,79 +9,6 @@ library(gridBase)
 library(extrafont)
 library(viridis)
 
-
-# Table Old ---------------------------------------------------------------
-
-
-# \begin{table}[ht!]
-# \centering
-# \caption{Relative Abweichung der geschätzten Regressionskoeffizienten und deren Varianz für lineare und hierarchisch lineare Modelle in allen Simulationsbedingungen.}
-# \begin{tabular}{ccccccccc}
-# \toprule 
-# & \multicolumn{4}{c}{Design 1} \\
-# \cmidrule(lr){2-5} 
-# & \multicolumn{2}{c}{LM} & \multicolumn{2}{c}{HLM}  \\
-# \cmidrule(lr){2-3} \cmidrule(lr){4-5} 
-# IKK 
-# & $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$) 
-# & $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$)
-# & $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$)
-# & $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$) \\ 
-# \midrule
-# 0 & -0.00032 (0.00013) & -0.00475 (0.00012) & -0.00032 (0.00013) & -0.00475 (0.00012)    	\\ 
-# 0.05 & -0.00021 (0.00041) & 0.00255 (0.00011) & -0.00021 (0.00041) & 0.00255 (0.00011)    \\ 
-# 0.1 & -0.00078 (0.00078) & 0.00145 (0.00011) & -0.00078 (0.00078) & 0.00145 (0.00011)  	 	\\ 
-# 0.15 & -0.00031 (0.00111) & 0.00491 (0.00012) & -0.00031 (0.00111) & 0.00491 (0.00012)    \\ 
-# 0.2 & 0.00007 (0.00148) & 0.00059 (0.00011)  & 0.00007 (0.00148) & 0.00059 (0.00011)   	 	\\ 
-# 0.25 & -0.00008 (0.00203) & -0.00269 (0.00011) & -0.00008 (0.00203) & -0.00269 (0.00011)     \\ 
-# 0.3 & -0.00033 (0.00263) & -0.00006 (0.00012)  & -0.00033 (0.00263) & -0.00006 (0.00012)    \\ 
-# 0.4 & -0.00010 (0.00388) & -0.00188 (0.00011) & -0.00010 (0.00388) & -0.00188 (0.00011)    \\ 
-# 0.5 & 0.00050 (0.00588) & -0.00557 (0.00011)  & 0.00050 (0.00588) & -0.00557 (0.00011)     \\  
-# \bottomrule
-# \vspace{1mm}
-# \end{tabular}
-# \begin{tabular}{ccccccccc}
-# \toprule 
-# & \multicolumn{4}{c}{Design 2}\\
-# \cmidrule(lr){2-5}  
-# & \multicolumn{2}{c}{LM} & \multicolumn{2}{c}{HLM} \\
-# \cmidrule(lr){2-3} \cmidrule(lr){4-5} 
-# 
-# 
-# & $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$) 
-# & $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$)
-# & $\Delta\widehat{\gamma}_{00}$ ($\sigma^2_{\widehat{\gamma}_{00}}$)
-# & $\Delta\widehat{\gamma}_{10}$ ($\sigma^2_{\widehat{\gamma}_{10}}$) \\ 
-# \midrule
-# ... & -0.00023 (0.00012) & 0.00195 (0.00011)  & -0.00023 (0.00012) & 0.00195 (0.00011)  \\ 
-# ... & 0.00028 (0.00040) & 0.00539 (0.00043)  & 0.00028 (0.00040) & 0.00539 (0.00043)  \\ 
-# ... & 0.00024 (0.00076) & 0.00219 (0.00072)  & 0.00024 (0.00076) & 0.00219 (0.00072)  \\ 
-# ... & 0.00150 (0.00118) & 0.01088 (0.00112)  & 0.00150 (0.00118) & 0.01088 (0.00112)  \\ 
-# ... & -0.00033 (0.00143) & -0.01366 (0.00149)  & -0.00033 (0.00143) & -0.01366 (0.00149)  \\ 
-# ... & 0.00052 (0.00192) & -0.01280 (0.00213)  & 0.00052 (0.00192) & -0.01280 (0.00213)  \\ 
-# ... & 0.00121 (0.00258) & -0.01838 (0.00256)  & 0.00121 (0.00258) & -0.01838 (0.00256) \\ 
-# ... & 0.00144 (0.00390) & -0.00562 (0.00379)  & 0.00144 (0.00390) & -0.00562 (0.00379)  \\ 
-# ... & -0.00168 (0.00580) & 0.02722 (0.00540)  & -0.00168 (0.00580) & 0.02722 (0.00540)  \\  
-# \bottomrule
-# \end{tabular}
-# \label{tab:rel_abw}
-# \end{table}
-# 
-# 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # SE Plots ----------------------------------------------------------------
 simstudy_lvl1 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1")
 simstudy_lvl2 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2")
@@ -169,6 +96,17 @@ se_efficacy <- function(df){
 se_efficacy_lvl1 <- se_efficacy(simstudy_lvl1)
 se_efficacy_lvl2 <- se_efficacy(simstudy_lvl2)
 
+se_table <- data.frame("icc" = c(0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50),
+                         "LM" = se_efficacy_lvl1$intercept_efficacy[1:9],
+                         "HLM" = se_efficacy_lvl1$intercept_efficacy[10:18],
+                         "LM" = se_efficacy_lvl2$intercept_efficacy[1:9],
+                         "HLM" = se_efficacy_lvl2$intercept_efficacy[10:18],
+                       "LM" = se_efficacy_lvl1$treatment_efficacy[1:9],
+                       "HLM" = se_efficacy_lvl1$treatment_efficacy[10:18],
+                       "LM" = se_efficacy_lvl2$treatment_efficacy[1:9],
+                       "HLM" = se_efficacy_lvl2$treatment_efficacy[10:18])
+
+
 
 
 uzh_colors <- c("#3353B7", "#E38052")
@@ -183,7 +121,7 @@ ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = -0.1, linetype = "dashed")+
   geom_hline(yintercept = 0.05, linetype = "dotted")+
   geom_hline(yintercept = -0.05, linetype = "dotted")+
-  scale_fill_manual(values = paper_colors) + 
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) + 
   scale_y_continuous(breaks=seq(-1,1, 0.05)) +
   theme_gray(base_size = 15) +
   labs(title = "SE Genauigkeit Design 1")+
@@ -197,7 +135,7 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = -0.1, linetype = "dashed")+
   geom_hline(yintercept = 0.05, linetype = "dotted")+
   geom_hline(yintercept = -0.05, linetype = "dotted")+
-  scale_fill_manual(values = paper_colors) + 
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) + 
   scale_y_continuous(breaks=seq(-1,1, 0.05)) +
   theme_gray(base_size = 15) +
   labs(title = "SE Genauigkeit Design 2")+
@@ -236,10 +174,10 @@ ggplot(data = se_efficacy_lvl1, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   geom_hline(yintercept = 1.05, linetype = "dotted")+
   geom_hline(yintercept = 0.95, linetype = "dotted")+
-  scale_fill_manual(values = paper_colors) + 
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) + 
   scale_y_continuous(breaks=seq(0,2, 0.05)) +
   theme_gray(base_size = 15) +
-  labs(title = "SE Efficacy Treatment fo Treatment at Level 1")+
+  labs(title = "SE Genauigkeit Design 1")+
   xlab("IKK")+
   ylab("SE Genauigkeit")
 
@@ -250,10 +188,10 @@ ggplot(data = se_efficacy_lvl2, aes(y = treatment_efficacy, x = icc, fill = meth
   geom_hline(yintercept = 0.9, linetype = "dashed")+
   geom_hline(yintercept = 1.05, linetype = "dotted")+
   geom_hline(yintercept = 0.95, linetype = "dotted")+
-  scale_fill_manual(values = paper_colors) + 
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) + 
   scale_y_continuous(breaks=seq(0,2, 0.05)) +
   theme_gray(base_size = 15) +
-  labs(title = "SE Efficacy Treatment fo Treatment at Level 2")+
+  labs(title = "SE Genauigkeit Design 2")+
   xlab("IKK")+
   ylab("SE Genauigkeit")
 
@@ -290,7 +228,7 @@ power_lvl2_small <- power_model(simstudy_lvl2_small)
 
 ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
-  scale_fill_manual(values = paper_colors) +
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
   scale_y_continuous(breaks=seq(0,1, 0.05)) +
   theme_gray(base_size = 15) +
   labs(title = "Power Design 1")+
@@ -299,9 +237,20 @@ ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill
 
 ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
-  scale_fill_manual(values = paper_colors) +
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
   scale_y_continuous(breaks=seq(0,1, 0.05)) +
   theme_gray(base_size = 15) +
   labs(title = "Power Deisgn 2")+
   xlab("IKK")+
   ylab("Power")
+
+#table
+powertable <- data.frame("icc" = c(0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50),
+                          "LM" = power_lvl1_small$power_treatment[1:9],
+                          "HLM" = power_lvl1_small$power_treatment[10:18],
+                          "LM" = power_lvl2_small$power_treatment[1:9],
+                          "HLM" = power_lvl2_small$power_treatment[10:18])
+
+
+sd(powertable$LM)
+sd(powertable$HLM)
