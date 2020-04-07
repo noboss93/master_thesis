@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  2 APR 2020 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  7 APR 2020 12:06
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -984,25 +984,26 @@ File: se_genauigkeit_design2.png Graphic file (type png)
 <use se_genauigkeit_design2.png>
 Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1019.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [46 <./se_genauigkeit_design1.png>] [47 <./se_genauigkeit_design2.png>] [48]
-<power_design1.png, id=217, 542.025pt x 542.025pt>
+ [46 <./se_genauigkeit_design1.png>] [47 <./se_genauigkeit_design2.png>] [48] [
+49]
+<power_design1.png, id=221, 542.025pt x 542.025pt>
 File: power_design1.png Graphic file (type png)
 <use power_design1.png>
-Package pdftex.def Info: power_design1.png  used on input line 1079.
+Package pdftex.def Info: power_design1.png  used on input line 1091.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [49]
-<power_design2.png, id=222, 542.025pt x 542.025pt>
+ [50]
+<power_design2.png, id=225, 542.025pt x 542.025pt>
 File: power_design2.png Graphic file (type png)
 <use power_design2.png>
-Package pdftex.def Info: power_design2.png  used on input line 1088.
+Package pdftex.def Info: power_design2.png  used on input line 1100.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [50 <./power_design1.png>]
-Overfull \hbox (26.53343pt too wide) in paragraph at lines 1107--1108
+ [51] [52 <./power_design1.png>]
+Overfull \hbox (26.53343pt too wide) in paragraph at lines 1108--1109
 []\OT1/cmr/m/n/12 Abnahme der Power bei in-ter-ven-ti-on auf le-vel 2 k[]onnte 
 auf feh-ler-haf-tes de-sign zur[]uckzuf[]uhren
  []
 
-[51 <./power_design2.png>] [52] (masterarbeit_multilevelanalysis.bbl
+[53 <./power_design2.png>] [54] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -1014,16 +1015,16 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
   Zu-griff auf
  []
 
-[53]) [54] (masterarbeit_multilevelanalysis.aux)
+[55]) [56] (masterarbeit_multilevelanalysis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 19931 strings out of 492450
- 377612 string characters out of 3129748
- 441731 words of memory out of 3000000
- 24051 multiletter control sequences out of 15000+200000
+ 19934 strings out of 492450
+ 377699 string characters out of 3129748
+ 441770 words of memory out of 3000000
+ 24054 multiletter control sequences out of 15000+200000
  543621 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,20n,67p,2244b,639s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1045,10 +1046,10 @@ blic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.
 pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (60 pages, 565362 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (62 pages, 569604 bytes).
 
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
+ 308 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

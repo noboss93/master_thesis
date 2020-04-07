@@ -25,10 +25,10 @@
 \contentsline {subsection}{\numberline {3.4}Studie 1: Genauigkeit von Schätzparametern}{42}%
 \contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse Studie 1}{43}%
 \contentsline {subsubsection}{\numberline {3.4.2}Diskussion Studie 1}{48}%
-\contentsline {subsection}{\numberline {3.5}Studie 2: Statistische Power von HLM}{48}%
-\contentsline {subsubsection}{\numberline {3.5.1}Ergebnisse Studie 2}{49}%
-\contentsline {subsubsection}{\numberline {3.5.2}Diskussion Studie 2}{51}%
-\contentsline {subsection}{\numberline {3.6}Diskussion und Shiny App}{52}%
-\contentsline {section}{\numberline {4}Literaturverzeichnis}{53}%
-\contentsline {section}{\numberline {5}Anhang}{54}%
-\contentsline {section}{\numberline {A}R Code}{54}%
+\contentsline {subsection}{\numberline {3.5}Studie 2: Statistische Power von HLM}{49}%
+\contentsline {subsubsection}{\numberline {3.5.1}Ergebnisse Studie 2}{50}%
+\contentsline {subsubsection}{\numberline {3.5.2}Diskussion Studie 2}{53}%
+\contentsline {subsection}{\numberline {3.6}Abschliessende Diskussion}{53}%
+\contentsline {section}{\numberline {4}Literaturverzeichnis}{55}%
+\contentsline {section}{\numberline {5}Anhang}{56}%
+\contentsline {section}{\numberline {A}R Code}{56}%

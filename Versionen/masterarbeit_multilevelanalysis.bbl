@@ -401,6 +401,30 @@ Mundfrom, D\BPBI J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Osborne%
+}{%
+Osborne%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+osborne2000advantages}
+\APACinsertmetastar {%
+osborne2000advantages}%
+\begin{APACrefauthors}%
+Osborne, J\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Advantages of hierarchical linear modeling} {Advantages
+  of hierarchical linear modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Practical Assessment, Research, and
+  Evaluation}{7}{1}{1}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Peugh%
 }{%
 Peugh%

@@ -223,6 +223,9 @@ power_model <- function(df){
   return(power_dataframe)
 }
 
+se_efficacy_lvl1_small <- se_efficacy(simstudy_lvl1_small)
+se_efficacy_lvl2_small <- se_efficacy(simstudy_lvl2_small)
+
 power_lvl1_small <- power_model(simstudy_lvl1_small)
 power_lvl2_small <- power_model(simstudy_lvl2_small)
 
