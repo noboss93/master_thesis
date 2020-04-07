@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  7 APR 2020 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  7 APR 2020 15:51
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -967,7 +967,7 @@ Package xcolor Warning: Incompatible color definition on input line 809.
 Package xcolor Warning: Incompatible color definition on input line 867.
 
 [35] [36] [37] [38]
-Overfull \hbox (4.86143pt too wide) in paragraph at lines 921--922
+Overfull \hbox (4.86143pt too wide) in paragraph at lines 925--926
 []\OT1/cmr/m/n/12 In ei-ner zwei-ten Si-mu-la-ti-ons-stu-die wird an-hand rea-l
 it[]atsn[]aheren si-mu-lier-ten Da-tens[]atzen
  []
@@ -976,34 +976,35 @@ it[]atsn[]aheren si-mu-lier-ten Da-tens[]atzen
 <se_genauigkeit_design1.png, id=201, 542.025pt x 542.025pt>
 File: se_genauigkeit_design1.png Graphic file (type png)
 <use se_genauigkeit_design1.png>
-Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 1009.
+Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 1013.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [45]
 <se_genauigkeit_design2.png, id=205, 542.025pt x 542.025pt>
 File: se_genauigkeit_design2.png Graphic file (type png)
 <use se_genauigkeit_design2.png>
-Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1019.
+Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1023.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [46 <./se_genauigkeit_design1.png>] [47 <./se_genauigkeit_design2.png>] [48] [
-49]
-<power_design1.png, id=221, 542.025pt x 542.025pt>
+49] [50]
+<power_design1.png, id=224, 542.025pt x 542.025pt>
 File: power_design1.png Graphic file (type png)
 <use power_design1.png>
-Package pdftex.def Info: power_design1.png  used on input line 1091.
+Package pdftex.def Info: power_design1.png  used on input line 1084.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [50]
-<power_design2.png, id=225, 542.025pt x 542.025pt>
+ [51]
+<power_design2.png, id=228, 542.025pt x 542.025pt>
 File: power_design2.png Graphic file (type png)
 <use power_design2.png>
-Package pdftex.def Info: power_design2.png  used on input line 1100.
+Package pdftex.def Info: power_design2.png  used on input line 1093.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [51] [52 <./power_design1.png>]
-Overfull \hbox (26.53343pt too wide) in paragraph at lines 1108--1109
+ [52 <./power_design1.png>]
+[53 <./power_design2.png>]
+Overfull \hbox (26.53343pt too wide) in paragraph at lines 1105--1106
 []\OT1/cmr/m/n/12 Abnahme der Power bei in-ter-ven-ti-on auf le-vel 2 k[]onnte 
 auf feh-ler-haf-tes de-sign zur[]uckzuf[]uhren
  []
 
-[53 <./power_design2.png>] [54] (masterarbeit_multilevelanalysis.bbl
+[54] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -1046,7 +1047,7 @@ blic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.
 pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (62 pages, 569604 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (62 pages, 570987 bytes).
 
 PDF statistics:
  308 PDF objects out of 1000 (max. 8388607)
