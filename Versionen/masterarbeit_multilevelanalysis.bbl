@@ -66,6 +66,41 @@ Chang, W.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Cleary%
+, Gross%
+, Zaslavsky%
+\BCBL {}\ \BBA {} Taplin%
+}{%
+Cleary%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+cleary2012studydesign}
+\APACinsertmetastar {%
+cleary2012studydesign}%
+\begin{APACrefauthors}%
+Cleary, P\BPBI D.%
+, Gross, C\BPBI P.%
+, Zaslavsky, A\BPBI M.%
+\BCBL {}\ \BBA {} Taplin, S\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{05}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Multilevel Interventions: Study Design and Analysis
+  Issues}} {{Multilevel Interventions: Study Design and Analysis
+  Issues}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{JNCI Monographs}{2012}{44}{49-55}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1093/jncimonographs/lgs010}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1093/jncimonographs/lgs010} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Donner%
 , Birkett%
 \BCBL {}\ \BBA {} Buck%
@@ -370,6 +405,36 @@ Moerbeek, M.%
 \newblock
 \begin{APACrefDOI} \doi{https://doi.org/10.1016/S0895-4356(03)00007-6}
   \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Moerbeek%
+, van Breukelen%
+\BCBL {}\ \BBA {} Berger%
+}{%
+Moerbeek%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2000}}%
+}]{%
+moerbeek2000design}
+\APACinsertmetastar {%
+moerbeek2000design}%
+\begin{APACrefauthors}%
+Moerbeek, M.%
+, van Breukelen, G\BPBI J\BPBI P.%
+\BCBL {}\ \BBA {} Berger, M\BPBI P\BPBI F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Design Issues for Experiments in Multilevel Populations}
+  {Design issues for experiments in multilevel populations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Educational and Behavioral
+  Statistics}{25}{3}{271-284}.
+\newblock
+\begin{APACrefDOI} \doi{10.3102/10769986025003271} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
