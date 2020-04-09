@@ -29,7 +29,7 @@
 \contentsline {subsubsection}{\numberline {3.5.1}Ergebnisse Studie 2}{51}%
 \contentsline {subsubsection}{\numberline {3.5.2}Diskussion Studie 2}{53}%
 \contentsline {subsection}{\numberline {3.6}Abschliessende Diskussion}{55}%
-\contentsline {subsection}{\numberline {3.7}Shiny App zur Simulationsstudie}{55}%
-\contentsline {section}{\numberline {4}Literaturverzeichnis}{56}%
-\contentsline {section}{\numberline {5}Anhang}{58}%
-\contentsline {section}{\numberline {A}R Code}{58}%
+\contentsline {subsection}{\numberline {3.7}Shiny App zur Simulationsstudie}{56}%
+\contentsline {section}{\numberline {4}Literaturverzeichnis}{57}%
+\contentsline {section}{\numberline {5}Anhang}{59}%
+\contentsline {section}{\numberline {A}R Code}{59}%

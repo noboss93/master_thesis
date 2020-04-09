@@ -229,6 +229,9 @@ se_efficacy_lvl2_small <- se_efficacy(simstudy_lvl2_small)
 power_lvl1_small <- power_model(simstudy_lvl1_small)
 power_lvl2_small <- power_model(simstudy_lvl2_small)
 
+power_lvl1 <- power_model(simstudy_lvl1)
+power_lvl2 <- power_model(simstudy_lvl2)
+
 ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
@@ -239,6 +242,25 @@ ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill
   ylab("Power")
 
 ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
+  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  theme_gray(base_size = 15) +
+  labs(title = "Power Deisgn 2")+
+  xlab("IKK")+
+  ylab("Power")
+
+
+ggplot(data = power_lvl1, mapping = aes(y = power_treatment, x = icc, fill = method))+
+  geom_col(position = "dodge2") +
+  scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
+  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  theme_gray(base_size = 15) +
+  labs(title = "Power Design 1")+
+  xlab("IKK")+
+  ylab("Power")
+
+ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
   scale_y_continuous(breaks=seq(0,1, 0.05)) +
