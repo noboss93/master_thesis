@@ -210,34 +210,6 @@ Gelman, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Hardin%
-}{%
-Hardin%
-}{%
-{\protect \APACyear {2005}}%
-}]{%
-hardin2005gee}
-\APACinsertmetastar {%
-hardin2005gee}%
-\begin{APACrefauthors}%
-Hardin, J\BPBI W.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2005}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Generalized Estimating Equations (GEE)} {Generalized
-  estimating equations (gee)}.{\BBCQ}
-\newblock
-\BIn{} \APACrefbtitle {Encyclopedia of Statistics in Behavioral Science.}
-  {Encyclopedia of statistics in behavioral science.}
-\newblock
-\APACaddressPublisher{}{American Cancer Society}.
-\newblock
-\begin{APACrefDOI} \doi{10.1002/0470013192.bsa250} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Hedges%
 \ \BBA {} Hedberg%
 }{%
@@ -349,38 +321,6 @@ Kuznetsova, A.%
 \APACjournalVolNumPages{Journal of Statistical Software}{82}{13}{1--26}.
 \newblock
 \begin{APACrefDOI} \doi{10.18637/jss.v082.i13} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Liang%
-\ \BBA {} Zeger%
-}{%
-Liang%
-\ \BBA {} Zeger%
-}{%
-{\protect \APACyear {1986}}%
-}]{%
-liang1986gee}
-\APACinsertmetastar {%
-liang1986gee}%
-\begin{APACrefauthors}%
-Liang, K\BHBI Y.%
-\BCBT {}\ \BBA {} Zeger, S\BPBI L.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1986}{04}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Longitudinal data analysis using generalized linear
-  models}} {{Longitudinal data analysis using generalized linear
-  models}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Biometrika}{73}{1}{13-22}.
-\newblock
-\begin{APACrefURL} \url{https://doi.org/10.1093/biomet/73.1.13}
-  \end{APACrefURL}
-\newblock
-\begin{APACrefDOI} \doi{10.1093/biomet/73.1.13} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

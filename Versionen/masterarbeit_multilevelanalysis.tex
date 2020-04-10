@@ -1106,78 +1106,16 @@ Zum andren sollte grundsätzlich ein HLM zur Analyse von hierarchischen Daten ve
 
 In der folgenden abschlissenden Diskussion dieser Arbeit werden die bereits besprochenen Ergebnisse noch einmal kurz aufgegriffen und es werden mögliche weitere Forschungsfragen, sowie Limitationen dieser Simulationsstudie besprochen.
 
-\subsection{Abschliessende Diskussion}
+\subsection{Abschliessende Diskussion und Shiny App}
 Mit diesen beiden Studien wurde das Ziel verfolgt, die Unterschiede zwischen der Schätz-genauigkeit von Regressionskoeffizienten und deren Standardfehlern sowie die daraus resultierende Power von LM und HLM zu untersuchen. Auch wenn die Regressionskoeffizienten von beiden Methoden genau geschätzt wurden, konnten die Studien zeigen, dass HLM auch bei hoher Abhängigkeit der Gruppenzugehörigkeit genaue Schätzungen der Standardfehler liefern, wohingegen ein LM bei steigender IKK eine immer stärkere Verzerrung der Schätzung aufweist. Dementsprechend führten Analysen mittels HLM auch zu keiner Verzerrung der Power bei der Testung von Interventionseffekten.
 
 Die aus dieser Simulationsstudie resultierende Erkenntnis, dass HLM einen klaren Vorteil gegenüber LM bei der Analyse von hierarchischen Daten vorweisen, ist keine Neuheit und wurde in einigen Studien bereits gefunden \citep{mcneish2014analyzing, MOERBEEK2003341, mundfrom2002monte, osborne2000advantages}. Dennoch konnte diese Studie, die in Moerbeek et al. \citeyearpar{MOERBEEK2003341} verwendeten Studiendesigns, in eine Simulationsstudie integrieren, um den Einfluss dieser beiden Interventionsformen auf die Schätzgenauigkeit von LM und HLM zu untersuchen. Damit können klare Empfehlungen für die Forschung mit hierarchischen Daten abgeleitet werden. Beispielsweise sollte wenn immer möglich eine Intervention auf Level-1 durchgeführt werden, um Effekte der Gruppenzugehörigkeit von Effekten der Intervention trennen zu können. 
 
-In manchen Fällen ist es allerdings nicht möglich die Intervention auf Level-1 durchzuführen und benötigen daher eine Intervention auf Level-2, um eine Kontamination der Interventionsgruppe zu vermeiden. Wie man in der zweiten Studie beobachten konnte, verringerte sich die Power des HLM bei einer Intervention auf Level-2 bei einer Zunahme der IKK enorm. Weiterführende Simulationsstudien könnten nun untersuchen, welche Möglichkeiten es gibt diese Power zu verbessern. Da in der aktuellen Simulationsstudie nur die IKK variiert wurde und bekanntlicher weise die Power mit steigender Stichprobengrösse zunimmt, könnten weitere Studien untersuchen, wie gross eine Stichprobe sein müsste, damit ein HLM auch bei einer Intervention auf Level-2 eine akzeptable Power hat. Allgemein wäre es interessant zu untersuchen, wie sich eine variierende Stichprobengrösse auf die Schätzgenauigkeit oder auf die Power von HLM auswirkt und ob es eine Interaktion zwischen IKK und Stichprobengrösse gibt.
+In manchen Fällen ist es allerdings nicht möglich die Intervention auf Level-1 durchzuführen und benötigen daher eine Intervention auf Level-2, um eine Kontamination der Interventionsgruppe zu vermeiden. Wie man in der zweiten Studie beobachten konnte, verringerte sich die Power des HLM bei einer Intervention auf Level-2 bei einer Zunahme der IKK enorm. Weiterführende Simulationsstudien könnten nun untersuchen, welche Möglichkeiten es gibt diese Power zu verbessern. Da in der aktuellen Simulationsstudie nur die IKK variiert wurde und bekanntlicher weise die Power mit steigender Stichprobengrösse zunimmt, könnten weitere Studien untersuchen, wie gross eine Stichprobe sein müsste, damit ein HLM auch bei einer Intervention auf Level-2 eine akzeptable Power liefert. 
 
-Es gibt natürlich auch weitere Methoden als HLM die zur Analyse von hierarchischen Daten geeignet sind. Zu diesen Methoden gehört unter anderem GEE (engl. \textit{Generalised Estimating Equation}), die oft für Längsschnittstudien verwendet wird \citep{hardin2005gee, liang1986gee}. 
+Die aktuelle Studie unterlag mehreren Limitationen. Es wurde nur ein sehr einfaches Modell zur Simulation der Daten verwendet. Dabei gab es keinen \textit{Cross-Level} Interaktion zwischen der Intervention und der Gruppenzugehörigkeit. Da in realen Datensätzen solche \textit{Cross-Level} Interaktion wahrscheinlich vorhanden sind, können Ergebnisse aus dieser Simulationsstudie nicht auf solche Situationen angewandt werden. Daher wäre es interessant, wenn weitere Simulationsstudien diese \textit{Cross-Level} Interaktionen und diese Aufteilung in zwei Interventionsdesigns untersuchen könnten. Eine weitere Limitation dieser Simulationsstudie ist, dass nur die IKK variiert wurde. So erhält man zwar einen Einblick, wie sich die Messmethode über verschiedene Einflussstärken der Gruppenzugehörigkeit verhält, es gibt aber keine Einsicht darüber, wie gross Stichproben gewählt werden sollten, um genaue Schätzungen und eine akzeptable Power zu erhalten. Da es in der Forschung oft auch eine Kostenfrage ist, wie gross Stichproben sind, könnte durch eine weitere Simulationsstudie die Effektstärke der Intervention und verschieden grosse Stichproben berücksichtigt klare Empfehlungen erarbeitet werden, mit welcher Mindeststichprobe eine gute Power erreicht wird. Als abschliessende Limitation kann die Wahl des Grenzwertes für die Schätzgenauigkeit des Standardfehlers genannt werden. Dieser Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .10$ wurde von Hoogland und Boosma \citeyearpar{hooglandboosma1998robustness} festgelegt. Wie man aber in Abbildung \ref{fig:power_design1} erkennen kann, sinkt die Power von LM bereits bei einer IKK von .05. Bei Dieser IKK wird bereits die Schätzgenauigkeit von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .05$ überschritten. Weitere Simulationsstudien könnten untersuchen, ob dieser Grenzwert von $|\Delta\widehat{SE}_{\widehat{\gamma}}| > .10$ gerechtfertigt ist oder ob ein strengerer Grenzwert nötig ist, um genaue von ungenauen Analysemethoden zu trennen.
 
-
-
-
-Powerstudie wurde nur mit fixer Stichprobengrösse und fixierter Effektgrösse durchgeführt. Interessant wäre hier eine weiterführung, bei dem stichprobengrösse und oder Effektgrösse variiert werden. (vlt. inkl. variierender IKK)
-
-grenzwert wieso 10 prozent? 5prozent besser? in power studie hat man gesehen, dass auch schon eine 5prozentige abweichung zu einer verschlechterung der power geführt hatte.
-
-
-\subsection{Shiny App zur Simulationsstudie}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Die aktuelle Studie konnte also zeigen, dass es sich bei hierarchischen Daten und geeignetem Interventionsdesign lohnt ein HLM anstelle eines LM zu verwenden, da diese Modelle die nötigen Parameter genau schätzen und zu einer konstanten Power führen. Diese Ergebnisse und eine kleine Einführung zu HLM können in einer interaktiven Form in der im Laufe dieser Arbeit programmierten Shiny App abgerufen werden. Die im Anhang aufgeführten Screenshots der Shiny App geben eine Übersicht über den Aufbau und Inhalt. 
 
 
 \newpage
@@ -1188,6 +1126,7 @@ grenzwert wieso 10 prozent? 5prozent besser? in power studie hat man gesehen, da
 
 \section{Anhang}
 \appendix
+\section{Shiny App Screenshots}
 \section{R Code}
 
 
