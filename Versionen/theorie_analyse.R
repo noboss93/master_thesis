@@ -126,14 +126,14 @@ xtable(data_aggr, digits = 1)
 
 # Regressionsmodelle ------------------------------------------------------
 
-lm0 <- lmer(punktzahl ~ (1|klasse), data = test)
+lm0 <- lmer(punktzahl ~ (1|klasse), data = test, REML = FALSE)
 lm2<- lmer(punktzahl ~ uebung + (1|klasse), data = test)
 lm3 <- lmer(punktzahl ~ uebung + (uebung || klasse), data = test)
 
 as0 <- lm(data = test, punktzahl ~ 1)
-as1 <- lm(data = test, punktzahl ~ math_lektionen)
-as2 <- lm(data = test, punktzahl ~ math_lektionen + klasse)
-as3 <- lm(data = test, punktzahl ~ math_lektionen * klasse)
+as1 <- lm(data = test, punktzahl ~ uebung)
+as2 <- lm(data = test, punktzahl ~ uebung + klasse)
+as3 <- lm(data = test, punktzahl ~ uebung * klasse)
 
 lm_aggr <- lm(data = data_aggr, punktzahl ~ uebung)
 
@@ -141,6 +141,22 @@ summary(lm0)
 summary(lm2)
 anova(lm2, dis_lm)
 summary(as0)
+
+ranef(lm2)
+coef(as2)
+
+var_between <- VarCorr(lm2)$klasse[1,1]
+var_within <- sigma(lm2)^2
+var_tot <- var_between + var_within
+
+icc <- var_between / (var_tot)
+
+mean_tot <- mean(test$punktzahl)
+mean_1 <- 15.6074582
+
+weight <- var_between / (var_between + (var_within / 30))
+
+beta_01 <- weight * mean_1 + (1-weight) * mean_tot
 
 
 # Theory Plots LM ---------------------------------------------------------
@@ -178,7 +194,7 @@ intercept <- as.numeric(ranef(lm2)$klasse[,1]) + as.numeric(fixef(lm2)[1])
 fix_slope <- rep(as.numeric(fixef(lm2)[2]), times = 5)
 klasse <- c(1:5)
 coef_data <- data.frame(intercept, fix_slope, klasse)
-colors <- c("Gesamtgerade" = "red", "Klassengerade" = "black")
+colors <- c("LM (Disaggregation)" = "red", "HLM" = "black")
 
 a <- ggplot(data = test, mapping = aes(x = uebung, y = punktzahl)) + 
   geom_point(size = 2) +
@@ -190,8 +206,8 @@ a <- ggplot(data = test, mapping = aes(x = uebung, y = punktzahl)) +
 
 b <- ggplot(data = test, mapping = aes(x = uebung, y = punktzahl))+
   geom_point()+
-  geom_abline(data = coef_data, aes(intercept = intercept, slope = fix_slope, group = klasse, color = "Klassengerade"), size = 1)+
-  geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(fix_slope), color = "Gesamtgerade"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = intercept, slope = fix_slope, group = klasse, color = "HLM"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(fix_slope), color = "LM (Disaggregation)"), size = 1)+
   facet_wrap(~klasse)+
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für jede Klasse") +
   theme_gray(base_size = 15) +
@@ -225,7 +241,7 @@ intercept <- as.numeric(ranef(lm3)$klasse[,1]) + as.numeric(fixef(lm3)[1])
 slope <- as.numeric(ranef(lm3)$klasse[,2]) + as.numeric(fixef(lm3)[2])
 klasse <- c(1:5)
 coef_data <- data.frame(intercept, slope, klasse)
-colors <- c("Gesamtgerade" = "red", "Klassengerade" = "black")
+colors <- c("LM (Disaggregation)" = "red", "HLM" = "black")
 
 e <- ggplot(data = test, mapping = aes(x = uebung, y = punktzahl)) + 
   geom_point(size = 2) +
@@ -237,8 +253,8 @@ e <- ggplot(data = test, mapping = aes(x = uebung, y = punktzahl)) +
 
 f <- ggplot(data = test, mapping = aes(x = uebung, y = punktzahl))+
   geom_point()+
-  geom_abline(data = coef_data, aes(intercept = intercept, slope = slope, group = klasse, color = "Klassengerade"), size = 1)+
-  geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(slope), color = "Gesamtgerade"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = intercept, slope = slope, group = klasse, color = "HLM"), size = 1)+
+  geom_abline(data = coef_data, aes(intercept = mean(intercept), slope = mean(slope), color = "LM (Disaggregation)"), size = 1)+
   facet_wrap(~klasse)+
   labs(x = "Anzahl gelöster Übungsaufgaben", y = "Punktzahl", title = "Modell für jede Klasse") +
   theme_gray(base_size = 15) +

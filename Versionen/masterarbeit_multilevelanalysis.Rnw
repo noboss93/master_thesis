@@ -310,27 +310,28 @@ options(digits = 2)
 ml_data <- readRDS(file = "dataset_theory")
 model <- lmer(punktzahl ~ uebung + (1|klasse), data = ml_data)
 
-u03 <- ranef(model)$klasse[3,1]
+u02 <- ranef(model)$klasse[2,1]
 u01 <- ranef(model)$klasse[1,1]
+u01_pos <- ranef(model)$klasse[1,1]*-1
 gamma00 <- fixef(model)[1]
-beta03 <- gamma00 + u03
+beta02 <- gamma00 + u02
 beta01 <- gamma00 + u01
 @
-Das \textit{Random Intercept} Modell ermöglicht es für jede Gruppe unterschiedliche Achsenabschnitte zu schätzen. Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
+Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
 \begin{equation}
 \begin{split}	
 \text{Level 1:} & \qquad y_{ji} 	= \beta_{0j} + \epsilon_{ij}\\
 \text{Level 2:} & \qquad \beta_{0j} = \gamma_{00} + U_{0j}
 \end{split}	
 \end{equation} 
-Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt und folglich für jede Klasse einen anderen Wert einnimmt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1 gelangt man zur flachen Notation dieses \textit{Random Interceot} Modells:
+Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt und folglich für jede Klasse einen anderen Wert annimmt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1, gelangt man zu einer Notation des \textit{Random Intercept} Modells, die mehr der Notation eines linearen Regressionsmodells entspricht:
 \begin{equation}
 \begin{split}
 y_{ji} 	& = \beta_{0j} + \epsilon_{ij}\\
 		& = \gamma_{00} + U_{0j} + \epsilon_{ij}
 \end{split}
 \end{equation}
-Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die Intraklassen Korrelation berechnet. Ähnlich wie bei der normalen linearen Regression können diesem Modell nun weitere Variablen hinzugefügt werden, um die Varianz in der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. In unserem Beispiel ergänzen wir das Modell mit nur einer weiteren Varialbe $x_{ij}$, die der Anzahl gelöster Übungsaufgaben entspricht:
+Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, anhand dessen man die IKK berechnet. Ähnlich wie bei der linearen Regression können diesem Modell weitere Variablen hinzugefügt werden, um die Varianz der erreichten Punktzahl des Schulkindes $i$ aus der Klasse $j$ zu erklären. In unserem Beispiel ergänzen wir das Modell mit nur einer weiteren Variable $x_{ij}$, die der Anzahl gelöster Übungsaufgaben entspricht:
 \begin{equation} \label{eq:random_intercept_model}
 \begin{split}	
  \text{Level 1:}  	\qquad 	y_{ji} 		& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
@@ -338,7 +339,7 @@ Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, an
  							\beta_{1} 	& = \gamma_{10}
 \end{split}	
 \end{equation} 
-Da es sich hier um ein \textit{Random Interceot} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun aus \eqref{eq:random_intercept_model} die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, gelangen wir wieder zur flachen Notation des \textit{Random Intercept} Modells:
+Da es sich hier um ein \textit{Random Intercept} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun aus \eqref{eq:random_intercept_model} die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, gelangen wir wieder zur Notation des \textit{Random Intercept} Modells, die einer linearen Regression ähnelt:
 \begin{equation}
 \begin{split}
 y_{ji} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij} \\
@@ -347,16 +348,16 @@ y_{ji} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij} \\
 \end{split}
 \end{equation}
 
-In Abbildung \ref{fig:random_intercept} kann man nun die Graden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und wird hier als Vergleichswert zu den anderen Geraden verwendet. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. Werden die Geraden für jede einzelne Klasse betrachtet, erhält man einen Überblick über das Leistungslevel der verschiedenen Klassen. Beispielsweise kann man erkennen, dass die Klassen eins und fünf eher tiefere und die Klassen zwei und drei eher höhere Punktzahlen erreichen. Diese Unterschiede kommen durch die unterschiedliche Ausprägungen der zufälligen Abweichungen $U_{0j}$ zustande. Für die Klasse 3 ergibt sich beispielsweise aus unserem \textit{Random Intercept} Modell einen Schätzer für die zufällige Abweichung von $U_{03} = \Sexpr{u03}$ und für den Gesamtmittelwert $\gamma_{00} = \Sexpr{gamma00}$. Setzt man diese beiden Werte in die Gleichung aus \eqref{eq:random_intercept_model} erhält man den klassenspezifischen Achsenabschnitt $\beta_{03}$:
+In Abbildung \ref{fig:random_intercept} kann man nun die Geraden für jede einzelne Klasse erkennen. Die rote Gerade entspricht der linearen Regressionsgerade, die durch die Disaggregation entsteht und wird hier als Vergleichswert zu den anderen Geraden verwendet. Auf der linken Seite der Abbildung erkennt man relativ schnell, dass es bedeutende Unterschiede zwischen den Klassen gibt. Werden die Geraden für jede einzelne Klasse betrachtet, erhält man einen Überblick über das Leistungsniveau der verschiedenen Klassen. Beispielsweise kann man erkennen, dass die Klassen 1 und 5 eher tiefere und die Klassen 2 und 3 eher höhere Punktzahlen erreichen. Diese Unterschiede kommen durch die unterschiedliche Ausprägungen der zufälligen Abweichungen $U_{0j}$ zustande. Für die Klasse 1 ergibt sich beispielsweise aus unserem \textit{Random Intercept} Modell einen Schätzer für die zufällige Abweichung von $U_{01} = \Sexpr{u01}$ und für den Gesamtmittelwert $\gamma_{00} = \Sexpr{gamma00}$. Setzt man diese beiden Werte in die Gleichung aus \eqref{eq:random_intercept_model} erhält man den klassenspezifischen Achsenabschnitt $\beta_{01}$:
 \begin{equation}
-\beta_{03} = \Sexpr{gamma00} + \Sexpr{u03} = \Sexpr{beta03}
+\beta_{01} = \Sexpr{gamma00} - \Sexpr{u01_pos} = \Sexpr{beta01}
 \end{equation} 
-Schulkinder der Klasse 3 erreichen bei $0$ gelösten Übungsaufgaben im Mittel eine Punktzahl von $\Sexpr{beta03}$. Für Klasse 1 lässt sich ihr Achsenabschnitt $\beta_{01}$ genau gleich bestimmen. Aus der klassenspezifischen Abweichung $U_{01} = \Sexpr{u01}$ und dem Gesamtmittelwert von $\gamma_{00} = \Sexpr{gamma00}$ ergibt sich ein Achsenabschnitt von $\beta_{01} = \Sexpr{beta01}$. Schulkinder aus Klasse eins erreichen bei 0 gelösten Übungsaufgaben im Mittel also eine tiefere Punktzahl als Schulkinder aus Klasse 3. Diese Aussage stimmt ebenfalls mit den Geraden aus Abbildung \ref{fig:random_intercept} überein. Das Prinzip des Zusammenhangs zwischen der zufälligen Abweichung $U_{0j}$ und dem Gesamtmittelwert $\gamma_{00}$ kann also ähnlich wie bei einer Dummy-Kodierung verstanden werden. Dabei ist der Gesamtmittelwert die Referenzkategorie, von der jede Klasse um $U_{0j}$ abweicht.
+Schulkinder der Klasse 1 erreichen bei $0$ gelösten Übungsaufgaben im Mittel eine Punktzahl von $\Sexpr{beta01}$. Für Klasse 2 lässt sich ihr Achsenabschnitt $\beta_{02}$ genau gleich bestimmen. Aus der klassenspezifischen Abweichung $U_{02} = \Sexpr{u02}$ und dem Gesamtmittelwert von $\gamma_{00} = \Sexpr{gamma00}$ ergibt sich ein Achsenabschnitt von $\beta_{02} = \Sexpr{beta02}$. Schulkinder aus Klasse 2 erreichen bei 0 gelösten Übungsaufgaben im Mittel also eine höhere Punktzahl als Schulkinder aus Klasse 1. Diese Aussage stimmt ebenfalls mit den Geraden aus Abbildung \ref{fig:random_intercept} überein. 
 
 \begin{figure}[t!]
 \centering
 \includegraphics[width = \textwidth]{random_intercept}
-\caption{Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl unter Berücksichtigung der Klassenzugehörigkeit}
+\caption{Zusammenhang zwischen der Anzahl gelöster Übungsaufgaben und der erreichten Punktzahl unter Berücksichtigung der Klassenzugehörigkeit.}
 \label{fig:random_intercept}
 \end{figure}
 
