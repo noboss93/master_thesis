@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  13 APR 2020 16:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  14 APR 2020 11:20
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -849,67 +849,68 @@ File: disaggregation_combined.png Graphic file (type png)
 <use disaggregation_combined.png>
 Package pdftex.def Info: disaggregation_combined.png  used on input line 327.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [11] [12 <./disaggregation_combined.png>] [13] [14]
-<random_intercept.png, id=90, 1053.9375pt x 526.96875pt>
+ [11] [12 <./disaggregation_combined.png>] [13] [14] [15]
+<random_intercept.png, id=93, 1053.9375pt x 526.96875pt>
 File: random_intercept.png Graphic file (type png)
 <use random_intercept.png>
-Package pdftex.def Info: random_intercept.png  used on input line 380.
+Package pdftex.def Info: random_intercept.png  used on input line 382.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [15] [16 <./random_intercept.png>]
+ [16 <./random_intercept.png>]
 <residuen_lm_rim.png, id=98, 1053.9375pt x 526.96875pt>
 File: residuen_lm_rim.png Graphic file (type png)
 <use residuen_lm_rim.png>
-Package pdftex.def Info: residuen_lm_rim.png  used on input line 389.
+Package pdftex.def Info: residuen_lm_rim.png  used on input line 391.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [17 <./residuen_lm_rim.png>]
 <random_intercept_slope.png, id=104, 1053.9375pt x 526.96875pt>
 File: random_intercept_slope.png Graphic file (type png)
 <use random_intercept_slope.png>
-Package pdftex.def Info: random_intercept_slope.png  used on input line 415.
+Package pdftex.def Info: random_intercept_slope.png  used on input line 417.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
 
 [18] [19 <./random_intercept_slope.png>]
 <corr_s_i.png, id=113, 1053.9375pt x 526.96875pt>
 File: corr_s_i.png Graphic file (type png)
 <use corr_s_i.png>
-Package pdftex.def Info: corr_s_i.png  used on input line 429.
+Package pdftex.def Info: corr_s_i.png  used on input line 431.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
-<residuen_rism.png, id=114, 526.96875pt x 526.96875pt>
+ [20 <./corr_s_i.png>]
+<residuen_rism.png, id=118, 526.96875pt x 526.96875pt>
 File: residuen_rism.png Graphic file (type png)
 <use residuen_rism.png>
-Package pdftex.def Info: residuen_rism.png  used on input line 439.
+Package pdftex.def Info: residuen_rism.png  used on input line 441.
 (pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
- [20 <./corr_s_i.png>] [21 <./residuen_rism.png>] [22]
+ [21 <./residuen_rism.png>] [22]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 469.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 471.
 
-Overfull \hbox (4.39088pt too wide) in paragraph at lines 470--471
+Overfull \hbox (4.39088pt too wide) in paragraph at lines 472--473
 \OT1/cmr/m/n/12 Mit dem Pa-ket \OT1/cmtt/m/n/12 lme4 \OT1/cmr/m/n/12 las-sen si
 ch ver-schie-den-ste For-men von hier-ar-chi-schen Mo-del-len sch[]atzen
  []
 
-
-Package xcolor Warning: Incompatible color definition on input line 473.
-
 [23]
 
-Package xcolor Warning: Incompatible color definition on input line 483.
+Package xcolor Warning: Incompatible color definition on input line 475.
 
 
-Overfull \hbox (14.754pt too wide) in paragraph at lines 485--485
+Package xcolor Warning: Incompatible color definition on input line 485.
+
+
+Overfull \hbox (14.754pt too wide) in paragraph at lines 487--487
 [][]\OT1/cmtt/m/n/12 lmer[](Abhangige Variable ~ Feste Effekte + (Zufallige E
 ffekte | Gruppe), ... )[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 513.
+Package xcolor Warning: Incompatible color definition on input line 515.
 
 [24]
 
-Package xcolor Warning: Incompatible color definition on input line 526.
+Package xcolor Warning: Incompatible color definition on input line 528.
 
 [25]
-Overfull \hbox (35.11824pt too wide) in paragraph at lines 572--573
+Overfull \hbox (35.11824pt too wide) in paragraph at lines 574--575
 []\OT1/cmr/m/n/12 Die er-war-te-te Zu-nah-me der Punkt-zahl be-tr[]agt $0\OML/c
 mm/m/it/12 :\OT1/cmr/m/n/12 45 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 2 \OMS/cmsy/m
 /n/12  \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 19$ pro gel[]oste []
@@ -918,47 +919,45 @@ Ubungsaufgabe.
 
 [26]
 
-Package xcolor Warning: Incompatible color definition on input line 590.
+Package xcolor Warning: Incompatible color definition on input line 592.
 
 [27]
 
-Package xcolor Warning: Incompatible color definition on input line 627.
+Package xcolor Warning: Incompatible color definition on input line 629.
 
 [28]
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 663.
 
 
-Package xcolor Warning: Incompatible color definition on input line 682.
+Package xcolor Warning: Incompatible color definition on input line 684.
 
-
-Overfull \hbox (4.45027pt too wide) in paragraph at lines 694--695
+[29]
+Overfull \hbox (4.45027pt too wide) in paragraph at lines 696--697
 []\OT1/cmr/m/n/12 Wir ha-ben hier gleich zwei Va-ri-an-ten ei-nes \OT1/cmr/m/it
 /12 Ran-dom In-ter-cept and Slo-pe \OT1/cmr/m/n/12 Mo-dell gesch[]atzt.
  []
 
-[29]
 
-Package xcolor Warning: Incompatible color definition on input line 702.
+Package xcolor Warning: Incompatible color definition on input line 704.
 
-[30]
+[30] [31]
 
-Package xcolor Warning: Incompatible color definition on input line 748.
+Package xcolor Warning: Incompatible color definition on input line 750.
 
-[31]
 
-Package xcolor Warning: Incompatible color definition on input line 764.
+Package xcolor Warning: Incompatible color definition on input line 766.
 
 [32] [33]
 
-Package xcolor Warning: Incompatible color definition on input line 811.
+Package xcolor Warning: Incompatible color definition on input line 813.
 
 [34]
 
-Package xcolor Warning: Incompatible color definition on input line 869.
+Package xcolor Warning: Incompatible color definition on input line 871.
 
 [35] [36] [37] [38]
-Overfull \hbox (4.86143pt too wide) in paragraph at lines 927--928
+Overfull \hbox (4.86143pt too wide) in paragraph at lines 929--930
 []\OT1/cmr/m/n/12 In ei-ner zwei-ten Si-mu-la-ti-ons-stu-die wird an-hand rea-l
 it[]atsn[]aheren si-mu-lier-ten Da-tens[]atzen
  []
@@ -967,26 +966,25 @@ it[]atsn[]aheren si-mu-lier-ten Da-tens[]atzen
 <se_genauigkeit_design1.png, id=201, 542.025pt x 542.025pt>
 File: se_genauigkeit_design1.png Graphic file (type png)
 <use se_genauigkeit_design1.png>
-Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 1015.
+Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 1017.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [45]
-<se_genauigkeit_design2.png, id=205, 542.025pt x 542.025pt>
+ [45] [46 <./se_genauigkeit_design1.png>]
+<se_genauigkeit_design2.png, id=209, 542.025pt x 542.025pt>
 File: se_genauigkeit_design2.png Graphic file (type png)
 <use se_genauigkeit_design2.png>
-Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1025.
+Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1027.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [46 <./se_genauigkeit_design1.png>] [47 <./se_genauigkeit_design2.png>] [48] [
-49] [50]
+ [47 <./se_genauigkeit_design2.png>] [48] [49] [50]
 <power_design1.png, id=224, 542.025pt x 542.025pt>
 File: power_design1.png Graphic file (type png)
 <use power_design1.png>
-Package pdftex.def Info: power_design1.png  used on input line 1086.
+Package pdftex.def Info: power_design1.png  used on input line 1088.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [51]
 <power_design2.png, id=228, 542.025pt x 542.025pt>
 File: power_design2.png Graphic file (type png)
 <use power_design2.png>
-Package pdftex.def Info: power_design2.png  used on input line 1095.
+Package pdftex.def Info: power_design2.png  used on input line 1097.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [52 <./power_design1.png>]
 [53 <./power_design2.png>] [54] [55] [56] [57]
@@ -1029,7 +1027,7 @@ msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (66 pages, 580758 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (66 pages, 580833 bytes).
 
 PDF statistics:
  320 PDF objects out of 1000 (max. 8388607)
