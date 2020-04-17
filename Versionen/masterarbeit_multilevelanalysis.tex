@@ -266,9 +266,9 @@ In unserem Beispiel ist die Varianz der erreichten Punktzahl zwischen den versch
 
 Um nun zu überprüfen, ob in unserem Datensatz überhaupt abhängige hierarchische Strukturen vorhanden sind, können wir die IKK für unser Datensatz berechnen. Da die Populationswerte oft nicht bekannt sind, gibt es viele statistische Verfahren, um Schätzer für die nötigen Varianzen zu berechnen. Da diese Verfahren den Umfang dieser Arbeit sprengen würden und es viele Statistikprogramme gibt, die diese Berechnungen mit präziseren Methoden durchführen können, werden in dieser Arbeit nur die computerbasierten Verfahren behandelt. Die restlichen Verfahren können aber in der gängigen Literatur zur Multilevel Analyse nachgeschlagen werden \citep[z.B.][]{SnijdersTomA.B2012Ma:a}. Mit Hilfe des Statistikprogramms R wurden nun alle nötigen Varianzen unseres generierten Datensatzes geschätzt und in die Formel \eqref{eq:icc} eingesetzt\footnote{Die Berechnung dieser Schätzer in R werden in Abschnitt \ref{section:ml_in_R} erläutert.}:
 \begin{equation} \label{eq:icc_calc}
-\rho_{I} = \dfrac{9.57}{9.57 + 44} = 0.18
+\rho_{I} = \dfrac{12.33}{12.33 + 44} = 0.22
 \end{equation}
-Die daraus resultierende IKK von $\rho_{I} = 0.18$ weist darauf hin, dass 18\% der Varianz in der erreichten Punktzahl in der Mathematikprüfung durch die Klassenzugehörigkeit erklärt wird. Eine IKK von $\rho_{I} > 0$ bedeutet aber noch nicht, dass die Varianz, die durch die Klassenzugehörigkeit entsteht, auch zu signifikanten Unterschieden zwischen den Klassen führt. Unter der Annahme, dass die zufällige Abweichungen der Schulkinder $R_{ij}$ normalverteilt sind, kann gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} eine Varianzanalyse durchgeführt werden, um zu untersuchen, ob Gruppenunterschiede vorhanden sind. In unserem Fall führte die Varianzanalyse zu einem hoch signifikantem Ergebnis ($p<.001$) und es bestehen folglich Unterschiede zwischen den Klassen. Wir wissen nun nicht nur, wie viel Varianz durch die Klassen erklärt wird sondern auch, dass diese sich signifikant Unterscheiden. 
+Die daraus resultierende IKK von $\rho_{I} = 0.22$ weist darauf hin, dass 22\% der Varianz in der erreichten Punktzahl in der Mathematikprüfung durch die Klassenzugehörigkeit erklärt wird. Eine IKK von $\rho_{I} > 0$ bedeutet aber noch nicht, dass die Varianz, die durch die Klassenzugehörigkeit entsteht, auch zu signifikanten Unterschieden zwischen den Klassen führt. Unter der Annahme, dass die zufällige Abweichungen der Schulkinder $R_{ij}$ normalverteilt sind, kann gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} eine Varianzanalyse durchgeführt werden, um zu untersuchen, ob Gruppenunterschiede vorhanden sind. In unserem Fall führte die Varianzanalyse zu einem hoch signifikantem Ergebnis ($p<.001$) und es bestehen folglich Unterschiede zwischen den Klassen. Wir wissen nun nicht nur, wie viel Varianz durch die Klassen erklärt wird sondern auch, dass diese sich signifikant Unterscheiden. 
 
 Mit Hilfe der IKK kann man also den Einfluss der Gruppenzugehörigkeit quantifizieren und man erhält einen Einblick darin, wie stark dieser Einfluss ist. Im folgenden Abschnitt wird nun besprochen, was für Probleme entstehen wenn lineare Modelle zur Analyse verwendet werden und man den Einfluss von Gruppen missachtet.
 
@@ -460,7 +460,7 @@ Auch wenn es in der hierarchischen Notation einfacher ist zu erkennen, welche Va
 In den letzten Abschnitten wurden zwei verschiedene HLMs besprochen und das Prinzip ihrer Anwendung etwas näher gebracht. Es ist dabei zu berücksichtigen, dass hier nur die Grundlagen zu den HLMs behandelt wurden. Für eine weitere Vertiefung dieses Themas wird auf die gängige Literatur zur Multilevel Analyse mittels HLMs verwiesen \citep{andrew_data, raudenbush2002hierarchical, SnijdersTomA.B2012Ma:a, twisk_2006}. Im anschliessenden Abschnitt wird die praktische Anwendung von HLMs in R mit dem Paket \texttt{lme4} \citep{batesetal2015lme4} besprochen.
 
 \subsection{Anwendung von HLM in R} \label{section:ml_in_R}
-Das Konzept von hierarchischen linearen Modellen wurde in den letzten Abschnitten ausführlich besprochen. In den nächsten Abschnitten wird vor allem die Anwendung dieser Modelle behandelt. Dabei wird der Fokus auf die Programmiersprache R gelegt und dessen Zusatzpaket \texttt{lme4} \citep{batesetal2015lme4}, das neben weiteren Paketen die Analyse mittels HLMs ermöglicht. Dabei wird davon ausgegangen, dass die Grundlagen dieser Programmiersprache verstanden wurden. Zuerst werden allgemeine Informationen und die Syntax von \texttt{lme4} besprochen. Anschliessend wird anhand unseres Beispiels ein erstes Modell geschätzt und dessen \texttt{summary()}-Output interpretiert. Dabei werden noch weitere Möglichkeiten besprochen, wie man Ergebnisse eines Geschätzten Modells präsentieren kann. Nachdem die Syntax und Interpretation des Modells besprochen wurden, wird Schritt für Schritt eine Multilevel Analyse unseres Beispiels durchgeführt. Hierbei wird aufgezeigt, wie HLMs aufgebaut und miteinander verglichen werden, um das geeignetste Modell zu identifizieren. Am Ende dieses Abschnittes werden Effektsterkemasse besprochen, die bei der Auswertung und Berichterstattung von HLMs wichtig sind.  
+Das Konzept von hierarchischen linearen Modellen wurde in den letzten Abschnitten ausführlich besprochen. In den nächsten Abschnitten wird vor allem die Anwendung dieser Modelle behandelt. Dabei wird der Fokus auf die Programmiersprache R gelegt und dessen Zusatzpaket \texttt{lme4} \citep{batesetal2015lme4}, das neben weiteren Paketen die Analyse mittels HLMs ermöglicht. Dabei wird davon ausgegangen, dass die Grundlagen dieser Programmiersprache verstanden wurden. Zuerst werden allgemeine Informationen und die Syntax von \texttt{lme4} besprochen. Anschliessend wird Schritt für Schritt ein HLM erstellt und der \texttt{summary()}-Output wird interpretiert. Hierbei wird aufgezeigt, wie HLMs aufgebaut und miteinander verglichen werden, um das geeignetste Modell zu identifizieren. Am Ende dieses Abschnittes werden Effektsterkemasse besprochen, die bei der Auswertung und Berichterstattung von HLMs wichtig sind.  
 
 \subsubsection{Informationen und Syntax von \texttt{lme4}}
 Mit dem Paket \texttt{lme4} lassen sich verschiedenste Formen von hierarchischen Modellen schätzen und analysieren. Dabei werden wir uns hier hauptsächlich auf die Funktion \texttt{lmer()} beschränken. Diese Funktion wird verwendet, um hierarchische lineare Modelle zu schätzen und dessen Syntax ist relativ ähnlich mit der Syntax des Befehls für die Berechnung normaler linearer Modelle \texttt{lm()}. Sie ist wie folgt aufgebaut:
@@ -468,13 +468,16 @@ Mit dem Paket \texttt{lme4} lassen sich verschiedenste Formen von hierarchischen
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{lmer}\hlstd{(formula, data, REML)}
+\hlkwd{lmer}\hlstd{(formula, data, REML, ...)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 
-Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, bei \texttt{data} wird der Datensatz festgelegt anhand das Modell geschätzt werden soll und bei \texttt{REML} wird durch einen logischen Operator (\textit{TRUE} oder \textit{FALSE}) eingestellt, ob das Modell mit \textit{Restricted Maximum Likelihood} (REML) oder mit \textit{Maximum Likelihood} (ML) geschätzt werden soll. In unserem Fall ist diese Einstellung vor allem beim Vergleich von Modellen wichtig. Bei Modellen die mit REML geschätzt wurden, können nur die zufälligen Effekte miteinander verglichen werden. Wenn man also feste als auch zufällige Effekte vergleichen möchte, sollte man Modelle mit ML schätzen \citep{PEUGH201085}. 
+Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, bei \texttt{data} wird der Datensatz festgelegt anhand das Modell geschätzt werden soll und bei \texttt{REML} wird durch einen logischen Operator (\textit{TRUE} oder \textit{FALSE}) eingestellt, ob das Modell mit \textit{Restricted Maximum Likelihood} (REML) oder mit \textit{Maximum Likelihood} (ML) geschätzt werden soll. Beide dieser Methoden erzeugen eine \textit{Log-Likelihood} aus der die \textit{Deviance} berechnet werden kann. Die \textit{Deviance} gibt die relative Passung eines Modells zu den Daten an und kann folglich genutzt werden, um zwei Modelle miteinander zu vergleichen \citep{SnijdersTomA.B2012Ma:a}. Allerdings unterscheidet sich die Bedeutung der \textit{Deviance} zwischen ML und REML. Unter ML gibt die \textit{Deviance} an, wie gut die geschätzten Regressionskoeffizienten und die geschätzte Varianz zu den Daten passt. Wohingegen die \textit{Deviance} unter REML nur angibt, wie gut die geschätzten Varianzen zu den Daten passen. Dieses Argument ist also vor allem dann wichtig, wenn man Modelle vergleichen möchte. Dabei sollte ML für den Vergleich von festen Effekten und REML für den Vergleich von zufälligen Effekten verwendet werden \citep{PEUGH201085}. Die drei Punkte in der Funktion stehen für weitere Argumente, die in \texttt{lmer()} eingegeben werden können. Diese Argumente werden aber hier nicht weiter behandelt, da sie für eine erweiterte Anwendung verwendet werden und den Rahmen dieser Arbeit sprengen würden\footnote{Mit dem Befehl \texttt{?lmer} kann die gesamte Dokumentation von \texttt{lmer()} angezeigt werden.}
 
+Der folgende Code zeigt exemplarische Darstellung, wie eine Formel in \texttt{lmer()} eingegeben wird:
+
+\singlespacing
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -482,97 +485,34 @@ Dabei wird in \texttt{formula} die gewünschte Formel des Modells eingegeben, be
 \end{alltt}
 \end{kframe}
 \end{knitrout}
+\setstretch{1.5}
 
-Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die gleiche wie bei \texttt{lm()}. Dabei wird auf zuerst die zu erklärende Variable aufgeführt und anschliessend alle Variablen, die als feste Effekte in das Modell aufgenommen werden sollen. Innerhalb der Klammern können nun die zufälligen Effekte und die variierende Gruppe festgelegt werden. Dabei kann innerhalb der Klammern eingestellt werden, ob der Achsenabschnitt und die Steigung korrelieren sollten oder nicht. In Tabelle \ref{tab:lmersyntax} findet man einen Überblick über die möglichen Interaktionen, die man innerhalb der Klammer festlegen kann und die für uns relevant sind\footnote{Weitere Funktionen und eine ausführliche Beschreibung des Paketes \texttt{lme4} können in Bates et al. \citeyearpar{batesetal2015lme4} nachgeschlagen werden.}.
+Bis zum Term innerhalb der Klammer ist die Syntax von \texttt{lmer()} genau die gleiche wie bei \texttt{lm()}. Dabei wird auf zuerst die zu erklärende Variable aufgeführt und anschliessend alle Variablen, die als feste Effekte in das Modell aufgenommen werden sollen. Innerhalb der Klammern können nun die zufälligen Effekte und die variierende Gruppe festgelegt werden. Dabei gibt es viele Möglichkeiten, wie zufällige Effekte und Gruppen in das Modell aufgenommen werden können. Beispielsweise können mehrere Gruppen definiert werden für die der Achsenabschnitt variiert oder dass sich nur die Steigung zwischen den Gruppen unterscheidet. Da es in diesem Abschnitt nur um die grundlegende Anwendung von \texttt{lmer()} geht, werden diese Möglichkeiten hier nicht behandelt. Eine Ausführliche Beschreibung der Anwendung von \texttt{lmer()} und dem gesamten Paket von \texttt{lme4} kann in Bates et al. \citeyearpar{batesetal2015lme4} nachgeschlagen werden. In Tabelle \ref{tab:lmersyntax} ist nun die Syntax für die drei Möglichkeiten aufgeführt, die auch in diesem Abschnitt besprochen sind.
 \begin{table}[ht] 
 \centering
 \begin{threeparttable}
-\caption{Mögliche Syntax für \texttt{lmer()} nach Bates et al. \citeyearpar{batesetal2015lme4}}
-\begin{tabular}{ll}
+\caption{Auswahl der möglichen Syntax für \texttt{lmer()} nach Bates et al. \citeyearpar{batesetal2015lme4}. Der Buchstabe \textit{g} beschreibt hier den Gruppenfaktor und \textit{x} die weiteren zufälligen Effekte.}
+\begin{tabular}{lll}
  	\toprule
-	Formel & Bedeutung\\ 
+	Formel & Alternative & Bedeutung\\ 
   	\midrule
-	(1 $|$ Gruppe)	& Zufälliger Achsenabschnitt \\
-	(x $|$ Gruppe) & Korrelierter Achsenabschnitt und Steigung \\
-	(x $||$ Gruppe) & Unkorrelierter Achsenabschnitt und Steigung\\
+	(1 $|$ g)	& - 		& Zufälliger Achsenabschnitt \\
+	(x $|$ g) 	& (1 + x $|$ g)	& Korrelierter Achsenabschnitt und Steigung \\
+	(x $||$ g) & (1 $|$ g) + (0 + x $|$ g)	& Unkorrelierter Achsenabschnitt und Steigung\\
   	\bottomrule
 \end{tabular}
 \label{tab:lmersyntax}
 \end{threeparttable}
 \end{table}
 
-\subsubsection{Interpretation eines Outputs} \label{section:interpretation_output}
-Wir haben nun den groben Aufbau von \texttt{lmer()} besprochen und schätzen nun ein erstes Modell. Dafür muss zuerst das Paket \texttt{lme4} und unser Beispieldatensatz geladen werden.
-
+\subsubsection{Aufbau und Vergleich von HLMs} \label{section:hlm_r}
 \singlespacing
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{library}\hlstd{(lme4)}
-\hlstd{beispiel_data} \hlkwb{<-} \hlkwd{readRDS}\hlstd{(}\hlkwc{file} \hlstd{=} \hlstr{"dataset_theory"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+
 \setstretch{1.5}
+Wir gelangen nun zur Analyse unseres Beispieldatensatzes. Bevor wir mit der Analyse starten können ist es wichtig, dass wir das Level unserer Forschungsfrage klar definieren. In unserem Fall möchten wir herausfinden, wie genau sich die Prüfungsleistung von Schulkindern mit der Anzahl gelöster Übungsaufgaben unter Berücksichtigung der Klassenzugehörigkeit verändert. Das bedeutet, dass sich unsere abhängige Variable auf Level-1 befindet. Ebenfalls sollte berücksichtigt werden, dass es zu Interaktionen zwischen Level-1 und Level-2 variablen kommen kann.
 
-Anschliessend wird ein Modell mit der Anzahl gelösten Übungen als fester Effekt und mit variierenden Achsenabschnitten und Steigungen geschätzt und mittels \texttt{summary()} übersichtlich ausgegeben.
+Als Erstes berechnen wir die IKK, um den Einfluss der Klassenzugehörigkeit zu quantifizieren. Wie bereits im Abschnitt \ref{section:icc} besprochen, lässt sich die IKK aus den Varianzen des leeren Modells berechnen, das hier noch einmal kurz aufgeführt ist:
 
-\singlespacing
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{beispiel_model} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(uebung} \hlopt{|} \hlstd{klasse),}
-    \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
-\hlkwd{summary}\hlstd{(beispiel_model)}
-\end{alltt}
-\begin{verbatim}
-## Linear mixed model fit by maximum likelihood  ['lmerMod']
-## Formula: punktzahl ~ uebung + (uebung | klasse)
-##    Data: beispiel_data
-## 
-##      AIC      BIC   logLik deviance df.resid 
-##      944      963     -466      932      144 
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -2.1080 -0.8358  0.0364  0.7288  2.9172 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev. Corr
-##  klasse   (Intercept)  0.9191  0.959        
-##           uebung       0.0349  0.187    1.00
-##  Residual             26.5996  5.157        
-## Number of obs: 150, groups:  klasse, 5
-## 
-## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)  19.9971     0.9360   21.36
-## uebung        0.4481     0.0973    4.61
-## 
-## Correlation of Fixed Effects:
-##        (Intr)
-## uebung 0.000 
-## convergence code: 0
-## boundary (singular) fit: see ?isSingular
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\setstretch{1.5}
-
-Dabei kann man im Output direkt die geschätzten Werte für die zufälligen und festen Effekte ablesen. Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen, die Standardabweichungen, als auch die Korrelation dieser beiden angegeben. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. Es werden hier aber keine $p$-Werte angezeigt, da man sich in der Forschung noch uneinig darüber ist, wie genau die Anzahl der Freiheitsgrade geschätzt werden soll \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}\footnote{Möchte man $p$-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
-\begin{quote}
-Die erwartete erreichte Punktzahl in der Mathematikprüfung ist $20 \pm 2 \cdot 0.96$ Punkte, wenn keine einzige Übungsaufgabe gelöst wurde.
-\end{quote}
-Und für die Steigung:
-\begin{quote}
-Die erwartete Zunahme der Punktzahl beträgt $0.45 \pm 2 \cdot 0.19$ pro gelöste Übungsaufgabe.
-\end{quote}
-Dabei ist 0.96 die Standardabweichung des Achsenabschnittes und 0.19 die Standardabweichung der Steigung. Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit (Punktzahl) entspricht. 
-
-\subsubsection{Berechnung der Intraklassen Korrelation in R} \label{section:icc_r}
-Wir gelangen nun zur Analyse unseres Beispieldatensatzes. Bevor wir mit der Analyse starten können ist es wichtig, dass wir das Level unserer Forschungsfrage klar definieren. In unserem Fall möchten wir herausfinden, wie genau sich die Prüfungsleistung von Schulkindern mit der Anzahl gelöster Übungsaufgaben unter Berücksichtigung der Klassenzugehörigkeit verändert. Das bedeutet, dass sich unsere abhängige Variable auf Level-1 befindet. Ebenfalls sollte berücksichtigt werden, dass es zu Interaktionen zwischen Level-1 und Level-2 variablen kommen kann. Da wir sehr wahrscheinlich nicht nur feste Effekte sondern auch zufällige Effekte miteinander Vergleichen möchten, müssen wir zudem die Modelle mit ML schätzen \citep{PEUGH201085}. 
-
-Als Erstes sollte immer geprüft werden, ob eine Multilevel Analyse überhaupt nötig ist. Dies geschieht zum einen durch die Berechnung der Intraklassen Korrelation und der Überprüfung, ob überhaupt mittlere Unterschiede zwischen den Klassen bestehen. Wie bereits im Abschnitt \ref{section:icc} besprochen, lässt sich die IKK aus den Varianzen des leeren Modells berechnen, das hier noch einmal kurz aufgeführt ist:
 \begin{equation}
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \epsilon_{ij}\\
@@ -586,63 +526,23 @@ Dieses Modell wird wie folgt in R mittels der Funktion \texttt{lmer()} geschätz
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{m_leer} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{(}\hlnum{1} \hlopt{|} \hlstd{klasse),} \hlkwc{data} \hlstd{= beispiel_data,}
-    \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+    \hlkwc{REML} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 
-\hlkwd{summary}\hlstd{(m_leer)}
+\hlkwd{print}\hlstd{(}\hlkwd{VarCorr}\hlstd{(m_leer),} \hlkwc{comp} \hlstd{=} \hlstr{"Variance"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## Linear mixed model fit by maximum likelihood  ['lmerMod']
-## Formula: punktzahl ~ (1 | klasse)
-##    Data: beispiel_data
-## 
-##      AIC      BIC   logLik deviance df.resid 
-##     1009     1018     -502     1003      147 
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -2.0308 -0.7713 -0.0074  0.6433  2.9282 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  klasse   (Intercept)  9.57    3.09    
-##  Residual             44.00    6.63    
-## Number of obs: 150, groups:  klasse, 5
-## 
-## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)    26.36       1.49    17.7
+##  Groups   Name        Variance
+##  klasse   (Intercept) 12.3    
+##  Residual             44.0
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
 \setstretch{1.5}
 
-Aus dem Output können nun die Varianzen für den Achsenabschnitt und das Residuum abgelesen und in die Formel \eqref{eq:icc} eingesetzt werden. Daraus ergibt sich die bereits berechnete intraklassen Korrelation von $\rho_I = 0.18$. Folglich werden 18\% der Variabilität in der erreichten Punktzahl durch die Klassenzugehörigkeit erklärt. Um nun noch herauszufinden, ob diese Klassenunterschiede auch signifikant sind, kann eine Varianzanalyse durchgeführt werden \citep{SnijdersTomA.B2012Ma:a}. Dies geschieht indem man ein normales lineares Modell schätzt, das nur anhand der Klasse Leistungsunterschiede erklären möchte. Wie ebenfalls aus Abschnitt \ref{section:icc} bekannt, ergibt sich aus der Varianzanalyse einen hoch signifikanten $p$-Wert. Es bestehen folglich mittlere Klassenunterschiede in der erreichten Punktzahl, die in der Analyse zu berücksichtigen sind. 
+Aus diesem Modell können nun die Varianzen für den Achsenabschnitt $\tau^2 = 12.33$ und das Residuum $\sigma^2 = 44$ ausgelesen und in die Formel \eqref{eq:icc} eingesetzt werden. Daraus ergibt sich die bereits in Abschnitt \ref{section:icc} berechnete IKK von $\rho_I = 0.22$. Folglich werden 22\% der Variabilität in der erreichten Punktzahl durch die Klassenzugehörigkeit erklärt.
 
-\singlespacing
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{m_linear} \hlkwb{<-} \hlkwd{lm}\hlstd{(punktzahl} \hlopt{~} \hlstd{klasse,} \hlkwc{data} \hlstd{= beispiel_data)}
+Wir können nun damit anfangen unser leeres Modell mit weitere Prädiktoren aufzubauen, um mehr Variabilität in der abhängigen Variablen zu erklären. In unserem Beispiel fügen wir die Anzahl gelöste Übungsaufgaben als festen Effekt dem Modell hinzu. Natürlich könnten hier noch weitere feste Effekte hinzugefügt werden, damit das Beispiel aber übersichtlich bleibt, ist das Modell hier auf einen festen Effekt beschränkt:
 
-\hlkwd{anova}\hlstd{(m_linear)}
-\end{alltt}
-\begin{verbatim}
-## Analysis of Variance Table
-## 
-## Response: punktzahl
-##            Df Sum Sq Mean Sq F value  Pr(>F)    
-## klasse      4   1656     414    9.41 8.7e-07 ***
-## Residuals 145   6381      44                    
-## ---
-## Signif. codes:  
-## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\setstretch{1.5}
-
-\subsubsection{Aufbau und Vergleich von Modellen}
-Da nun die Frage geklärt ist, ob unser Datensatz eine Multilevel Analyse verlangt, können wir damit anfangen unser leeres Modell mit weitere Prädiktoren aufzubauen. In unserem Beispiel fügen wir die Anzahl gelöste Übungsaufgaben als festen Effekt dem Modell hinzu. Natürlich könnten hier noch weitere feste Effekte hinzugefügt werden, damit das Beispiel aber übersichtlich bleibt, ist das Modell hier auf einen festen Effekt beschränkt:
 \begin{equation}
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
@@ -657,13 +557,44 @@ In der oberen Gleichung kann man erkennen, dass es sich hier um ein einfaches \t
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{m_intercept} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(}\hlnum{1} \hlopt{|} \hlstd{klasse),}
-        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 \setstretch{1.5}
 
-Dabei ist zu beachten, dass der Term innerhalb der Klammern der Vorgabe aus Tabelle \ref{tab:lmersyntax} entspricht, um ein \textit{Random Intercept} Modellzu schätzen. Möchte man nun zusätzlich ein \textit{Random Intercept and Slope} Modell schätzen wird entsprechend des Abschnittes \ref{section:random_intercept_slope_model} der Gleichung von $\beta_{1j}$ eine zufällige Abweichung von der mittleren Steigung hinzugefügt: 
+Dabei ist zu beachten, dass der Term innerhalb der Klammern der Vorgabe aus Tabelle \ref{tab:lmersyntax} entspricht, um ein \textit{Random Intercept} Modell zu schätzen. Wir haben nun also ein leeres Modell und ein \textit{Random Intercept} Modell mit einem Prädiktor. Möchten wir jetzt überprüfen, ob unser grösseres Modell besser zu den Daten passt als das leere Modell und mehr Varianz aufklärt, kann man wie beim Vergleich von normalen LMs mit dem Befehl \texttt{anova()} die Modelle miteinander Vergleichen. 
+
+\singlespacing
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{anova}\hlstd{(m_leer, m_intercept,} \hlkwc{method} \hlstd{=} \hlstr{"LRT"}\hlstd{)}
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# refitting model(s) with ML (instead of REML)}}\begin{verbatim}
+## Data: beispiel_data
+## Models:
+## m_leer: punktzahl ~ (1 | klasse)
+## m_intercept: punktzahl ~ uebung + (1 | klasse)
+##             Df  AIC  BIC logLik deviance Chisq Chi Df
+## m_leer       3 1009 1018   -502     1003             
+## m_intercept  4  952  964   -472      944  59.1      1
+##             Pr(>Chisq)    
+## m_leer                    
+## m_intercept    1.5e-14 ***
+## ---
+## Signif. codes:  
+## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\setstretch{1.5}
+
+Da sich zwischen diesen beiden Modellen nur feste Effekte unterscheiden, sie aber mittels REML geschätzt wurden, schätzt \texttt{anova()} die beiden Modelle nochmals neu mit der ML Methode. Ausserdem ist zu Beachten, dass beim Vergleich von zwei HLMs nicht wie bei normalen LMs ein \textit{F} Test sondern ein \textit{Likelihood Ratio Test} verwendet wird \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}. Dieser Test verwendet die Differenz der \textit{Deviance} als Prüfgrösse einer $\chi^2$-Verteilung. Bei einem signifikanten Ergebnis passt das komplexere Modell mit mehr Parametern besser zu den Daten und bei einem nicht-signifikaten Test wird das einfachere Modell beibehalten, da es bereits genügend gut zu den Daten passt.
+
+Im oberen Output ist also zu entnehmen, dass unser \textit{Random Intercept} Modell auf einem Signifikanzniveau von 5\% besser zu den Daten passt als das leere Modell. Wir möchten nun zusätzlich ein \textit{Random Intercept and Slope} Modell schätzen. Entsprechend des Abschnittes \ref{section:random_intercept_slope_model} wird der Gleichung von $\beta_{1j}$ eine zufällige Abweichung von der mittleren Steigung hinzugefügt: 
 \begin{equation} 
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
@@ -671,48 +602,38 @@ Dabei ist zu beachten, dass der Term innerhalb der Klammern der Vorgabe aus Tabe
  \beta_{j1} & = \gamma_{10 }+ U_{1j}\\
 \end{split}	
 \end{equation} 
-Dieser zufällige Effekt wird nun auch in der Formel in R gemäss Tabelle \ref{tab:lmersyntax} hinzugefügt:
+Diese zufällige Abweichung der Steigung wird nun auch in der Formel in R hinzugefügt:
 
 \singlespacing
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{m_uncorr} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(uebung} \hlopt{||} \hlstd{klasse),}
-        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
-
-\hlstd{m_corr} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(uebung} \hlopt{|} \hlstd{klasse),}
-        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 \setstretch{1.5}
 
-Wir haben hier gleich zwei Varianten eines \textit{Random Intercept and Slope} Modell geschätzt. Zum einen eines bei dem der Achsenabschnitt und die Steigung unkorreliert sind und zum anderen ein Modell, bei dem beide Koeffizienten miteinander korrelieren. Um das Modell zu identifizieren, das am meisten erklärte Varianz aufweist, kann man wie beim Vergleich von normalen linearen Modellen mit dem Befehl \texttt{anova()} die Modelle vergleichen. Dabei wird hier nicht wie für normale lineare Modelle üblich ein \textit{F} Test sondern ein \textit{Likelihood Ration Test} verwendet \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}. 
-
-Wenn Modelle mit einer \textit{Maximum Likelihood} Methode geschätzt werden, wird immer eine \textit{Likelihood} des Modells angegeben, die wiederum in einen sogenannten \textit{Deviance} Wert umgewandelt werden kann. Betrachtet man den Output aus Abschnitt \ref{section:interpretation_output}, findet man den \textit{Deviance} Wert in der oberen Hälfte des Outputs. Dieser \textit{Deviance} Wert gibt an, wie genau das Modell zu den Daten passt und kann folglich verwendet Werden, um Modelle zu vergleichen \citep{SnijdersTomA.B2012Ma:a}. Die Differenz des \textit{Deviance} Werts zweier Modelle kann als Testwert einer $\chi^2$-Verteilung verwendet werden. 
-
-Betrachtet man nun den folgenden Outputs wird klar, dass ein \textit{Random Intercept and Slope} Modell mit unkorrelierten Achsenabschnitten und Steigungen am besten zu unseren Daten passt. 
+Dabei ist zu beachten, dass hier keine Korrelation zwischen Achsenabschnitt und Steigung angenommen wird, da man erst einmal einfach überprüfen möchte, ob überhaupt ein Modell mit einer variierenden Steigung besser zu den Daten passt als eines ohne. Werden nun zwei Modelle miteinander Verglichen, die sich nur in ihren zufälligen Effekten unterscheiden, können beide Modelle mittels REML geschätzt werden \citep{PEUGH201085}. Um sicherzustellen, dass \texttt{anova()} die Modelle nicht nochmals neu mit ML schätzt, kann ihr das Argument \texttt{refit = FALSE} hinzugefügt werden. Im folgenden Output ist das Ergebnis des \textit{Likelihood Ratio Tests} aufgeführt:
 
 \singlespacing
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{anova}\hlstd{(m_intercept, m_corr, m_uncorr,} \hlkwc{method} \hlstd{=} \hlstr{"LRT"}\hlstd{)}
+\hlkwd{anova}\hlstd{(m_intercept, m_uncorr,} \hlkwc{method} \hlstd{=} \hlstr{"LRT"}\hlstd{,} \hlkwc{refit} \hlstd{=} \hlnum{FALSE}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
 ## Data: beispiel_data
 ## Models:
 ## m_intercept: punktzahl ~ uebung + (1 | klasse)
 ## m_uncorr: punktzahl ~ uebung + ((1 | klasse) + (0 + uebung | klasse))
-## m_corr: punktzahl ~ uebung + (uebung | klasse)
 ##             Df AIC BIC logLik deviance Chisq Chi Df
-## m_intercept  4 952 964   -472      944             
-## m_uncorr     5 944 959   -467      934 10.46      1
-## m_corr       6 945 963   -466      933  1.31      1
+## m_intercept  4 953 965   -473      945             
+## m_uncorr     5 945 960   -467      935  10.7      1
 ##             Pr(>Chisq)   
 ## m_intercept              
-## m_uncorr        0.0012 **
-## m_corr          0.2529   
+## m_uncorr        0.0011 **
 ## ---
 ## Signif. codes:  
 ## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -721,7 +642,33 @@ Betrachtet man nun den folgenden Outputs wird klar, dass ein \textit{Random Inte
 \end{knitrout}
 \setstretch{1.5}
 
-Bis jetzt haben wir uns nur mit Level-1 Variablen beschäftigt. Möchten wir dem Modell die Anzahl Fenster im Klassenzimmer als Level-2 Variable hinzufügen, kann man diese Variable mit \textit{Cross-Level} Interaktion oder ohne hinzufügen. Ebenfalls ist zu beachten, dass Level-2 Variablen in einem hierarchischen linearen Modell mit zwei Level nur mit festen Effekten hinzugefügt werden können. Da es in einem zwei Level Modell nicht noch ein drittes höheres Level gibt, von dem eine Level-2 Variable abhängen könnte. Mathematisch würde das Hinzufügen einer Level-2 Variable ohne \textit{Cross-Level} Interaktion wie folgt aussehen:
+Der \textit{Likelihood Ratio Test} kommt also zum Ergebnis, dass ein Modell, das eine zufällige Abweichung der Steigung zulässt bei einem Signifikanzniveau von 5\% besser zu den Daten passt. Vergleicht man die beiden Abbildungen \ref{fig:random_intercept} und \ref{fig:random_intercept_slope} scheint dieses Ergebnis des \textit{Likelihood Ratio Test} glaubhaft zu sein. Wir möchten nun auch noch herausfinden, ob ein Modell, das eine Korrelation zwischen Achsenabschnitt und Steigung annimmt, besser ist als unser unkorreliertes Modell. Dazu wird gemäss der Tabelle \ref{tab:lmersyntax} ein weiteres Modell geschätzt und mit unserem unkorrelierten Modell verglichen.
+
+\singlespacing
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{m_corr} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(uebung} \hlopt{|} \hlstd{klasse),} \hlkwc{data} \hlstd{= beispiel_data,}
+    \hlkwc{REML} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+
+\hlkwd{anova}\hlstd{(m_uncorr, m_corr,} \hlkwc{method} \hlstd{=} \hlstr{"LRT"}\hlstd{,} \hlkwc{refit} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## Data: beispiel_data
+## Models:
+## m_uncorr: punktzahl ~ uebung + ((1 | klasse) + (0 + uebung | klasse))
+## m_corr: punktzahl ~ uebung + (uebung | klasse)
+##          Df AIC BIC logLik deviance Chisq Chi Df Pr(>Chisq)
+## m_uncorr  5 945 960   -467      935                        
+## m_corr    6 946 964   -467      934  1.19      1       0.27
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\setstretch{1.5}
+
+Das Ergebnis des \textit{Likelihood Ratio Tests} zeigt, dass auf einem Signifikanzniveau von 5\% das Modell mit einer Korrelation nicht besser zu den Daten passt. Folglich wird in diesem Fall ein \textit{Random Intercept and Slope} Modell beibehalten, das von keiner Korrelation zwischen Achsenabschnitt und Steigung ausgeht.
+
+Bis jetzt haben wir uns nur mit Level-1 Variablen oder der zufälligen Abweichung beschäftigt. Möchten wir dem Modell die Anzahl Fenster im Klassenzimmer als Level-2 Variable hinzufügen, kann man diese Variable mit einer \textit{Cross-Level} Interaktion oder ohne hinzufügen. Ebenfalls ist zu beachten, dass Level-2 Variablen in einem hierarchischen linearen Modell mit zwei Level nur mit festen Effekten hinzugefügt werden können. Da es in einem zwei Level Modell nicht noch ein drittes höheres Level gibt, in dem eine Level-2 Variable noch zwischen Level-3 Einheiten variieren könnte. In der Formel würde das Hinzufügen einer Level-2 Variable ohne \textit{Cross-Level} Interaktion wie folgt aussehen:
 \begin{equation} 
 \begin{split}	
  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
@@ -729,54 +676,42 @@ Bis jetzt haben wir uns nur mit Level-1 Variablen beschäftigt. Möchten wir dem
  \beta_{j1} & = \gamma_{1j} + U_{1j}\\
 \end{split}	
 \end{equation} 
-In Abschnitt \ref{section:variability} wurde allerdings mathematisch gezeigt, dass \textit{Cross-Level} Interaktionen wichtig für die Erklärung von Steigungsvarianz sind. In der folgenden Gleichung wurde die Variable dementsprechend mit einer \textit{Cross-Level} Interaktion hinzugefügt:
-\begin{equation} 
-\begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
- \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + \gamma_{01} \cdot \text{fenster}_{j} + U_{0j}\\
- \beta_{j1} & = \gamma_{1j} + \gamma_{11} \cdot \text{fenster}_{j} + U_{1j}\\
-\end{split}	
-\end{equation} 
-In R ist das Hinzufügen von Level-2 Variablen relativ einfach, da eine Level-2 Variable in unserem Fall nur als fester Effekt hinzugefügt werden kann, wird sie einfach in die Gleichung vor dem Term in der Klammer eingefügt. Folgend wurden die beiden Modelle geschätzt, eines ohne und eines mit \textit{Cross-Level} Interaktion.
+
+In R ist das Hinzufügen von Level-2 Variablen relativ einfach, da eine Level-2 Variable in unserem Fall nur als fester Effekt hinzugefügt werden kann, wird sie einfach in die Gleichung vor dem Term in der Klammer eingefügt. Möchte man die Level-2 Variable als \textit{Cross-Level} Interaktion hinzufügen, kann für das $+$ einfach ein $*$ eingesetzt werden. In diesem Modell wird aber die Level-2 Variable einfach als fester Effekt hinzugefügt.
 
 \singlespacing
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{m_lvl2} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{fenster} \hlopt{+} \hlstd{(uebung} \hlopt{||} \hlstd{klasse),}
-        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
-
-\hlstd{m_cross} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{*} \hlstd{fenster} \hlopt{+} \hlstd{(uebung} \hlopt{||} \hlstd{klasse),}
-        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{m_fix_lvl2} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{fenster} \hlopt{+} \hlstd{(uebung} \hlopt{||} \hlstd{klasse),}
+        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 \setstretch{1.5}
 
-Diese Modelle werden nun wieder mit unserem unkorrelierten \textit{Random Intercept and Slope} Modell verglichen, um herauszufinden, ob das Hinzufügen einer Level-2 Variable das Modell verbessert hat:
+Nachdem das neue Modell geschätzt wurde, kann es wieder mit dem sparsameren Modell verglichen werden. Da sich zwischen den beiden Modellen wieder nur die festen Effekte unterscheiden, werden von \texttt{anova()} die Modelle wieder neu mit ML geschätzt. Im folgenden Output ist zu erkennen, dass das komplexere Modell mit einer Level-2 Variable auf einem Signifikanzniveau von 5\% nicht besser zu den Daten passt als unser vorheriges Modell. Die Level-2 Variable Anzahl Fenster kann also aus dem Modell ausgeschlossen werden.
 
 \singlespacing
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{anova}\hlstd{(m_uncorr, m_lvl2, m_cross,} \hlkwc{method} \hlstd{=} \hlstr{"LRT"}\hlstd{)}
+\hlkwd{anova}\hlstd{(m_uncorr, m_fix_lvl2,} \hlkwc{method} \hlstd{=} \hlstr{"LRT"}\hlstd{)}
 \end{alltt}
-\begin{verbatim}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# refitting model(s) with ML (instead of REML)}}\begin{verbatim}
 ## Data: beispiel_data
 ## Models:
 ## m_uncorr: punktzahl ~ uebung + ((1 | klasse) + (0 + uebung | klasse))
-## m_lvl2: punktzahl ~ uebung + fenster + ((1 | klasse) + (0 + uebung | 
-## m_lvl2:     klasse))
-## m_cross: punktzahl ~ uebung * fenster + ((1 | klasse) + (0 + uebung | 
-## m_cross:     klasse))
-##          Df AIC BIC logLik deviance Chisq Chi Df Pr(>Chisq)
-## m_uncorr  5 944 959   -467      934                        
-## m_lvl2    6 942 960   -465      930  3.39      1      0.066
-## m_cross   7 944 965   -465      930  0.10      1      0.754
-##           
-## m_uncorr  
-## m_lvl2   .
-## m_cross   
+## m_fix_lvl2: punktzahl ~ uebung + fenster + ((1 | klasse) + (0 + uebung | 
+## m_fix_lvl2:     klasse))
+##            Df AIC BIC logLik deviance Chisq Chi Df
+## m_uncorr    5 944 959   -467      934             
+## m_fix_lvl2  6 942 960   -465      930  3.37      1
+##            Pr(>Chisq)  
+## m_uncorr               
+## m_fix_lvl2      0.066 .
 ## ---
 ## Signif. codes:  
 ## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -785,9 +720,65 @@ Diese Modelle werden nun wieder mit unserem unkorrelierten \textit{Random Interc
 \end{knitrout}
 \setstretch{1.5}
 
-Wie man erkennen kann, ist keines der neuen Modelle besser als das unkorrelierte \textit{Random Intercept and Slope} Modell. Folglich wird für die weiteren Abschnitte dieses Modell verwendet, da es anscheinend am meisten Varianz aufklärt.
+\subsubsection{Interpretation eines HLMs}
+Im letzten Abschnitt wurde ein HLM von Grund auf aufgebaut, mit dem Versucht wurde den Zusammenhang zwischen der Anzahl gelösten Übungsaufgaben und der erreichten Punktzahl in einer Mathematikprüfung unter Berücksichtigung der Klassenzugehörigkeit zu erklären. Dabei ergab sich nach mehreren Modellvergleichen, dass ein \textit{Random Intercept and Slope} Modell mit unkorrelierten Achsenabschnitten und Steigungen unter Berücksichtigung der Modellkomplexität am besten zu unseren Daten passt.
 
-\subsubsection{Auswertung von Modellen}
+Nun geht es darum dieses Modell zu interpretieren. Als erstes kann man mit dem \texttt{summary()} Befehl eine Zusammenfassung ausgeben, die man für eine erste Interpretation unseres Modells verwenden kann. Der \textit{summary()}-Output des HLMs ähnelt dem eines LMs. Dabei werden aber die zufälligen und die festen Effekte getrennt aufgeführt. 
+
+\singlespacing
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{summary}\hlstd{(m_uncorr)}
+\end{alltt}
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## punktzahl ~ uebung + ((1 | klasse) + (0 + uebung | klasse))
+##    Data: beispiel_data
+## 
+## REML criterion at convergence: 935
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.1103 -0.8016  0.0542  0.7212  2.8707 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev.
+##  klasse   (Intercept)  0.8560  0.925   
+##  klasse.1 uebung       0.0646  0.254   
+##  Residual             26.8972  5.186   
+## Number of obs: 150, groups:  klasse, 5
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)   20.036      0.933   21.47
+## uebung         0.446      0.124    3.59
+## 
+## Correlation of Fixed Effects:
+##        (Intr)
+## uebung -0.312
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\setstretch{1.5}
+
+
+Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen und die Standardabweichungen. Da in unserem Modell keine Korrelationen geschätzt wurden, wird diese hier nicht angezeigt. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. Es werden hier aber keine $p$-Werte angezeigt, da man sich in der Forschung noch nicht einig darüber ist, wie genau die Anzahl der Freiheitsgrade geschätzt werden soll \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}\footnote{Möchte man $p$-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. 
+
+
+Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit, in unserem Beispiel der Punktzahl, entspricht. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
+\begin{quote}
+Die erreichte Punktzahl in der Mathematikprüfung von 95\% der Schulkinder liegt zwischen  $20.04 \pm 1.96 \cdot 0.93$ Punkten, wenn keine einzige Übungsaufgabe gelöst wurde.
+\end{quote}
+Und für die Steigung:
+\begin{quote}
+Die Zunahme der Punktzahl liegt bei 95\% der Schulkinder zwischen $0.45 \pm 1.96 \cdot 0.25$ Punkten pro gelöste Übungsaufgabe.
+\end{quote}
+Dabei ist 0.93 die Standardabweichung des Achsenabschnittes und 0.25 die Standardabweichung der Steigung. Die Zahl 1.96 ist eine Aproximation für das 97.5te Perzentil einer Standardnormalverteilung und wird hier verwendet, um den Bereich zu berechnen, der 95\% aller Beobachtungen enthält. 
+
+\subsubsection{Auswertung eines HLMs}
+
 Bis jetzt wurden nur Modelle miteinander verglichen und herausgefunden, dass ein unkorreliertes \textit{Random Intercept and Slope} Modell am meisten Varianz aufklärt. In der normalen linearen Regression gibt es viele verschieden Effektstärkemasse, die genutzt werden können, um Aussagen über Modelle zu treffen. Beispielsweise gibt es das Bestimmtheitsmass $R^2$ oder das Cohen's $d$, die den meisten ein Begriff sind. In den hierarchischen linearen Modell ist das Berechnen von Effektstärkemassen etwas komplizierter und es herrscht aktuell keinen Konsens darüber, was für Effektstärkemasse genau verwendet werden sollen \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}. 
 
 Dabei werden Effektstärkemasse von hierarchischen linearen Modellen in globale und lokale Effektstärkemasse getrennt \citep{PEUGH201085}. Bei den globalen Effektstärkemasse gibt es mehrere Formen von Bestimmtheitsmassen $R^2$, von denen hier nur dasjenige von Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} behandelt wird. Die beiden Autoren sprechen davon, dass bei hierarchischen linearen Modellen auf mehreren Levels die proportional erklärte Varianz berechnet werden kann. Ausgehend von unserem Beispiel mit zwei Level kann man proportional erklärte Varianz auf Stufe des Individuums und auf Stufe der Gruppe berechnen. Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} geben an, dass vor allem die proportionale erklärte Varianz des Individuums von praktischer Relevanz ist und wird durch $R_{1}^2$ gekennzeichnet. Die Berechnung von $R_{1}^2$ erfolgt dann mit:

@@ -14,22 +14,21 @@
 \contentsline {subsubsection}{\numberline {2.4.3}\textit {Intercept} und \textit {Slope} Variabilität}{21}%
 \contentsline {subsection}{\numberline {2.5}Anwendung von HLM in R}{23}%
 \contentsline {subsubsection}{\numberline {2.5.1}Informationen und Syntax von \texttt {lme4}}{23}%
-\contentsline {subsubsection}{\numberline {2.5.2}Interpretation eines Outputs}{24}%
-\contentsline {subsubsection}{\numberline {2.5.3}Berechnung der Intraklassen Korrelation in R}{27}%
-\contentsline {subsubsection}{\numberline {2.5.4}Aufbau und Vergleich von Modellen}{29}%
-\contentsline {subsubsection}{\numberline {2.5.5}Auswertung von Modellen}{33}%
+\contentsline {subsubsection}{\numberline {2.5.2}Aufbau und Vergleich von HLMs}{25}%
+\contentsline {subsubsection}{\numberline {2.5.3}Interpretation eines HLMs}{31}%
+\contentsline {subsubsection}{\numberline {2.5.4}Auswertung eines HLMs}{33}%
 \contentsline {section}{\numberline {3}Simulationsstudie zur Multilevel Analyse}{37}%
-\contentsline {subsection}{\numberline {3.1}Herleitung der Forschungsfrage}{37}%
-\contentsline {subsection}{\numberline {3.2}Studiendesign}{39}%
-\contentsline {subsection}{\numberline {3.3}Simulationsdesign}{40}%
-\contentsline {subsection}{\numberline {3.4}Studie 1: Genauigkeit von Schätzparametern}{42}%
-\contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse Studie 1}{43}%
+\contentsline {subsection}{\numberline {3.1}Herleitung der Forschungsfrage}{38}%
+\contentsline {subsection}{\numberline {3.2}Studiendesign}{40}%
+\contentsline {subsection}{\numberline {3.3}Simulationsdesign}{41}%
+\contentsline {subsection}{\numberline {3.4}Studie 1: Genauigkeit von Schätzparametern}{43}%
+\contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse Studie 1}{44}%
 \contentsline {subsubsection}{\numberline {3.4.2}Diskussion Studie 1}{48}%
 \contentsline {subsection}{\numberline {3.5}Studie 2: Statistische Power von HLM}{50}%
 \contentsline {subsubsection}{\numberline {3.5.1}Ergebnisse Studie 2}{51}%
 \contentsline {subsubsection}{\numberline {3.5.2}Diskussion Studie 2}{54}%
 \contentsline {subsection}{\numberline {3.6}Abschliessende Diskussion und Shiny App}{55}%
-\contentsline {section}{\numberline {4}Literaturverzeichnis}{58}%
-\contentsline {section}{\numberline {5}Anhang}{60}%
-\contentsline {section}{\numberline {A}Shiny App Screenshots}{60}%
-\contentsline {section}{\numberline {B}R Code}{60}%
+\contentsline {section}{\numberline {4}Literaturverzeichnis}{59}%
+\contentsline {section}{\numberline {5}Anhang}{61}%
+\contentsline {section}{\numberline {A}Shiny App Screenshots}{61}%
+\contentsline {section}{\numberline {B}R Code}{61}%
