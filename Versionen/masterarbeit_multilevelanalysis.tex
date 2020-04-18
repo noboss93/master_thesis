@@ -459,7 +459,7 @@ Auch wenn es in der hierarchischen Notation einfacher ist zu erkennen, welche Va
 
 In den letzten Abschnitten wurden zwei verschiedene HLMs besprochen und das Prinzip ihrer Anwendung etwas näher gebracht. Es ist dabei zu berücksichtigen, dass hier nur die Grundlagen zu den HLMs behandelt wurden. Für eine weitere Vertiefung dieses Themas wird auf die gängige Literatur zur Multilevel Analyse mittels HLMs verwiesen \citep{andrew_data, raudenbush2002hierarchical, SnijdersTomA.B2012Ma:a, twisk_2006}. Im anschliessenden Abschnitt wird die praktische Anwendung von HLMs in R mit dem Paket \texttt{lme4} \citep{batesetal2015lme4} besprochen.
 
-\subsection{Anwendung von HLM in R} \label{section:ml_in_R}
+\subsection{Anwendung von HLMs in R} \label{section:ml_in_R}
 Das Konzept von hierarchischen linearen Modellen wurde in den letzten Abschnitten ausführlich besprochen. In den nächsten Abschnitten wird vor allem die Anwendung dieser Modelle behandelt. Dabei wird der Fokus auf die Programmiersprache R gelegt und dessen Zusatzpaket \texttt{lme4} \citep{batesetal2015lme4}, das neben weiteren Paketen die Analyse mittels HLMs ermöglicht. Dabei wird davon ausgegangen, dass die Grundlagen dieser Programmiersprache verstanden wurden. Zuerst werden allgemeine Informationen und die Syntax von \texttt{lme4} besprochen. Anschliessend wird Schritt für Schritt ein HLM erstellt und der \texttt{summary()}-Output wird interpretiert. Hierbei wird aufgezeigt, wie HLMs aufgebaut und miteinander verglichen werden, um das geeignetste Modell zu identifizieren. Am Ende dieses Abschnittes werden Effektsterkemasse besprochen, die bei der Auswertung und Berichterstattung von HLMs wichtig sind.  
 
 \subsubsection{Informationen und Syntax von \texttt{lme4}}
@@ -666,7 +666,7 @@ Der \textit{Likelihood Ratio Test} kommt also zum Ergebnis, dass ein Modell, das
 \end{knitrout}
 \setstretch{1.5}
 
-Das Ergebnis des \textit{Likelihood Ratio Tests} zeigt, dass auf einem Signifikanzniveau von 5\% das Modell mit einer Korrelation nicht besser zu den Daten passt. Folglich wird in diesem Fall ein \textit{Random Intercept and Slope} Modell beibehalten, das von keiner Korrelation zwischen Achsenabschnitt und Steigung ausgeht.
+Das Ergebnis des \textit{Likelihood Ratio Tests} zeigt, dass bei einem Signifikanzniveau von 5\% das Modell mit einer Korrelation nicht besser zu den Daten passt. Folglich wird in diesem Fall ein \textit{Random Intercept and Slope} Modell beibehalten, das von keiner Korrelation zwischen Achsenabschnitt und Steigung ausgeht.
 
 Bis jetzt haben wir uns nur mit Level-1 Variablen oder der zufälligen Abweichung beschäftigt. Möchten wir dem Modell die Anzahl Fenster im Klassenzimmer als Level-2 Variable hinzufügen, kann man diese Variable mit einer \textit{Cross-Level} Interaktion oder ohne hinzufügen. Ebenfalls ist zu beachten, dass Level-2 Variablen in einem hierarchischen linearen Modell mit zwei Level nur mit festen Effekten hinzugefügt werden können. Da es in einem zwei Level Modell nicht noch ein drittes höheres Level gibt, in dem eine Level-2 Variable noch zwischen Level-3 Einheiten variieren könnte. In der Formel würde das Hinzufügen einer Level-2 Variable ohne \textit{Cross-Level} Interaktion wie folgt aussehen:
 \begin{equation} 
@@ -690,7 +690,7 @@ In R ist das Hinzufügen von Level-2 Variablen relativ einfach, da eine Level-2 
 \end{knitrout}
 \setstretch{1.5}
 
-Nachdem das neue Modell geschätzt wurde, kann es wieder mit dem sparsameren Modell verglichen werden. Da sich zwischen den beiden Modellen wieder nur die festen Effekte unterscheiden, werden von \texttt{anova()} die Modelle wieder neu mit ML geschätzt. Im folgenden Output ist zu erkennen, dass das komplexere Modell mit einer Level-2 Variable auf einem Signifikanzniveau von 5\% nicht besser zu den Daten passt als unser vorheriges Modell. Die Level-2 Variable Anzahl Fenster kann also aus dem Modell ausgeschlossen werden.
+Nachdem das neue Modell mit der Level-2 Variable geschätzt wurde, kann es wieder mit dem sparsameren Modell \texttt{m\_uncorr} verglichen werden. Da sich zwischen den beiden Modellen wieder nur die festen Effekte unterscheiden, werden von \texttt{anova()} die Modelle wieder neu mit ML geschätzt. Im folgenden Output ist zu erkennen, dass das komplexere Modell mit einer Level-2 Variable auf einem Signifikanzniveau von 5\% nicht besser zu den Daten passt als unser vorheriges Modell. Die Level-2 Variable Anzahl Fenster kann also aus dem Modell ausgeschlossen werden.
 
 \singlespacing
 \begin{knitrout}
@@ -723,7 +723,7 @@ Nachdem das neue Modell geschätzt wurde, kann es wieder mit dem sparsameren Mod
 \subsubsection{Interpretation eines HLMs}
 Im letzten Abschnitt wurde ein HLM von Grund auf aufgebaut, mit dem Versucht wurde den Zusammenhang zwischen der Anzahl gelösten Übungsaufgaben und der erreichten Punktzahl in einer Mathematikprüfung unter Berücksichtigung der Klassenzugehörigkeit zu erklären. Dabei ergab sich nach mehreren Modellvergleichen, dass ein \textit{Random Intercept and Slope} Modell mit unkorrelierten Achsenabschnitten und Steigungen unter Berücksichtigung der Modellkomplexität am besten zu unseren Daten passt.
 
-Nun geht es darum dieses Modell zu interpretieren. Als erstes kann man mit dem \texttt{summary()} Befehl eine Zusammenfassung ausgeben, die man für eine erste Interpretation unseres Modells verwenden kann. Der \textit{summary()}-Output des HLMs ähnelt dem eines LMs. Dabei werden aber die zufälligen und die festen Effekte getrennt aufgeführt. 
+Nun geht es darum dieses Modell zu interpretieren. Als erstes kann man mit dem \texttt{summary()} Befehl eine Zusammenfassung ausgeben, die man für eine erste Interpretation unseres Modells verwenden kann. Der \texttt{summary()}-Output des HLMs ähnelt dem eines LMs. Dabei werden aber die zufälligen und die festen Effekte getrennt aufgeführt. 
 
 \singlespacing
 \begin{knitrout}
@@ -764,7 +764,7 @@ Nun geht es darum dieses Modell zu interpretieren. Als erstes kann man mit dem \
 \setstretch{1.5}
 
 
-Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen und die Standardabweichungen. Da in unserem Modell keine Korrelationen geschätzt wurden, wird diese hier nicht angezeigt. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output der Funktion \texttt{lm()} und lässt sich auch dementsprechend interpretieren. Es werden hier aber keine $p$-Werte angezeigt, da man sich in der Forschung noch nicht einig darüber ist, wie genau die Anzahl der Freiheitsgrade geschätzt werden soll \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}\footnote{Möchte man $p$-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. 
+Bei den zufälligen Effekten werden für den Achsenabschnitt als auch für die Steigung die geschätzte Varianzen und die Standardabweichungen. Da in unserem Modell keine Korrelationen geschätzt wurden, wird diese hier nicht angezeigt. Ebenfalls werden direkt unterhalb der zufälligen Effekte aufgeführt wie gross die verwendete Stichprobe war und wie viele Gruppen für die Schätzung verwendet wurden. In unserem Fall waren das 150 Schulkinder, verteilt auf 5 Klassen. Der Abschnitt zu den festen Effekten ähnelt stark dem Output eines LMs und lässt sich auch dementsprechend interpretieren. Es werden hier aber keine $p$-Werte angezeigt, da man sich in der Forschung noch nicht einig darüber ist, wie genau die Anzahl der Freiheitsgrade geschätzt werden soll \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}\footnote{Möchte man $p$-Werte anzeigen lassen, kann man das mit dem Paket \texttt{lmerTEST} \citep{lmertest}.}. 
 
 
 Bei der Interpretation ist es von Vorteil die Standardabweichung zu verwenden, da diese nicht wie die Varianz quadriert ist und somit der Masseinheit, in unserem Beispiel der Punktzahl, entspricht. Eine Interpretation des Achsenabschnittes unter Berücksichtigung der zufälligen Effekte würde dann wie folgt lauten: 
@@ -777,11 +777,8 @@ Die Zunahme der Punktzahl liegt bei 95\% der Schulkinder zwischen $0.45 \pm 1.96
 \end{quote}
 Dabei ist 0.93 die Standardabweichung des Achsenabschnittes und 0.25 die Standardabweichung der Steigung. Die Zahl 1.96 ist eine Aproximation für das 97.5te Perzentil einer Standardnormalverteilung und wird hier verwendet, um den Bereich zu berechnen, der 95\% aller Beobachtungen enthält. 
 
-\subsubsection{Auswertung eines HLMs}
-
-Bis jetzt wurden nur Modelle miteinander verglichen und herausgefunden, dass ein unkorreliertes \textit{Random Intercept and Slope} Modell am meisten Varianz aufklärt. In der normalen linearen Regression gibt es viele verschieden Effektstärkemasse, die genutzt werden können, um Aussagen über Modelle zu treffen. Beispielsweise gibt es das Bestimmtheitsmass $R^2$ oder das Cohen's $d$, die den meisten ein Begriff sind. In den hierarchischen linearen Modell ist das Berechnen von Effektstärkemassen etwas komplizierter und es herrscht aktuell keinen Konsens darüber, was für Effektstärkemasse genau verwendet werden sollen \citep{PEUGH201085,SnijdersTomA.B2012Ma:a}. 
-
-Dabei werden Effektstärkemasse von hierarchischen linearen Modellen in globale und lokale Effektstärkemasse getrennt \citep{PEUGH201085}. Bei den globalen Effektstärkemasse gibt es mehrere Formen von Bestimmtheitsmassen $R^2$, von denen hier nur dasjenige von Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} behandelt wird. Die beiden Autoren sprechen davon, dass bei hierarchischen linearen Modellen auf mehreren Levels die proportional erklärte Varianz berechnet werden kann. Ausgehend von unserem Beispiel mit zwei Level kann man proportional erklärte Varianz auf Stufe des Individuums und auf Stufe der Gruppe berechnen. Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} geben an, dass vor allem die proportionale erklärte Varianz des Individuums von praktischer Relevanz ist und wird durch $R_{1}^2$ gekennzeichnet. Die Berechnung von $R_{1}^2$ erfolgt dann mit:
+\subsubsection{Effektstärkemasse von HLMs}
+Effektstärkemasse gibt es für normale lineare Regressionsmodelle einige, wie zum Beispiel das Bestimmtheitsmass $R^2$ oder das Cohen's $d$. Bei HLMs werden Effektstärkemasse in globale und lokale Effektstärkemasse getrennt \citep{PEUGH201085}. Dabei gibt es bei den globalen Effektstärkemasse mehrere Formen zur Berechnung eines Bestimmtheitsmasses $R^2$. Allerdings herrscht hier keinen Konsens über die bestmögliche Berechnungsform \citep{raudenbush2002hierarchical,SnijdersTomA.B2012Ma:a}. In diesem Abschnitt wird die Berechnung des Bestimmtheitsmasses $R^2$ von Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} behandelt. Bei dieser Berechnungsform wird davon ausgegangen, dass bei HLMs auf mehreren Levels die proportional erklärte Varianz berechnet werden kann. Ausgehend von unserem Beispiel mit zwei Levels kann man proportional erklärte Varianz auf Stufe des Individuums und auf Stufe der Gruppe berechnen. Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} geben an, dass vor allem die proportionale erklärte Varianz des Individuums von praktischer Relevanz ist und wird durch $R_{1}^2$ gekennzeichnet. Die Berechnung von $R_{1}^2$ erfolgt mit folgender Formel:
 \begin{equation} 
 \begin{split}	
  R_{1}^2 & = 1 - \dfrac{\text{Gesamtvarianz des Modells mit Prädiktoren}}{\text{Gesamtvarianz des leeren Modells}} \\
@@ -789,59 +786,39 @@ Dabei werden Effektstärkemasse von hierarchischen linearen Modellen in globale 
  & = 1 - \dfrac{\sigma^2 + \tau_{0}^2}{\sigma_{leer}^2 + \tau_{0leer}^2}
 \end{split}	
 \end{equation}
-Dabei ist $\sigma^2$ die jeweilige Varianz des Residuums und $\tau_{0}^2$ die Varianz des Achsenabschnittes des jeweiligen Modelles. Da in der Berechnung von $R_{1}^2$ die Varianz der Steigung nicht berücksichtigt wird, kann dieses Effektstärkemass nur für \textit{Random Intercept} Modelle berechnet werden. Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} empfehlen für \textit{Random Intercept and Slope} Modelle, dass diese mit den selben festen Effekten als \textit{Random Intercept} Modell geschätzt werden, um anschliessend das $R_{1}^2$ zu berechnen. Diese Methode ist viel einfacher als andere gängige Methoden zur Berechnung von $R_{1}^2$ für \textit{Random Intercept and Slope} Modelle und sollte normalerweise zu $R_{1}^2$ Werte führen, die sehr nahe an den Werten für ein \textit{Random Intercept and Slope} Modell liegen.
+Dabei ist $\sigma^2$ die jeweilige Varianz des Residuums und $\tau_{0}^2$ die Varianz des Achsenabschnittes des jeweiligen Modelles. Da in der Berechnung von $R_{1}^2$ die Varianz der Steigung nicht berücksichtigt wird, kann dieses Effektstärkemass nur für \textit{Random Intercept} Modelle berechnet werden. Die Berechnung von $R_{1}^2$ für \textit{Random Intercept and Slope} Modellen ist viel aufwändiger, da in diesem Fall auch noch die Varianz der Steigung miteinbezogen werden muss. Gemäss Snijders und Bosker liegen aber die $R_{1}^2$ Werte von einem \textit{Random Intercept} Modell normalerweise sehr nahe an den $R_{1}^2$ Werten eines \textit{Random Intercept and Slope} Modells, wenn in beiden Modellen die selben festen Effekten vorhanden sind \citep{SnijdersTomA.B2012Ma:a}. Daher reicht es in dem meisten Fällen völlig aus, die einfache Berechnung von $R_{1}^2$ für \textit{Random Intercept} Modelle zu verwenden.
 
-Möchten wir nun $R_{1}^2$ für unser Beispiel berechnen müssen wir zuerst unser Modell als \textit{Random Intercept} Modell schätzten.
+Für unser Beispiel würde das nun bedeuten, dass die Varianzen aus dem \textit{Random Intercept} Modell verwendet werden können, um ein $R_{1}^2$ zu berechnen, dass nahe am $R_{1}^2$ des \textit{Random Intercept and Slope} Modells \texttt{m\_uncorr} liegt. Das \textit{Random Intercept} Modell wurde bereits in Abschnitt \ref{section:hlm_r} geschätzt und ist hier zur Übersicht noch einmal aufgeführt:
 
 \singlespacing
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{m_i} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(}\hlnum{1} \hlopt{|} \hlstd{klasse),}
-        \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{m_intercept} \hlkwb{<-} \hlkwd{lmer}\hlstd{(punktzahl} \hlopt{~} \hlstd{uebung} \hlopt{+} \hlstd{(}\hlnum{1} \hlopt{|} \hlstd{klasse),}
+                \hlkwc{data} \hlstd{= beispiel_data,} \hlkwc{REML} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 
-\hlkwd{summary}\hlstd{(m_i)}
+\hlkwd{print}\hlstd{(}\hlkwd{VarCorr}\hlstd{(m_intercept),} \hlkwc{comp} \hlstd{=} \hlstr{"Variance"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## Linear mixed model fit by maximum likelihood  ['lmerMod']
-## Formula: punktzahl ~ uebung + (1 | klasse)
-##    Data: beispiel_data
-## 
-##      AIC      BIC   logLik deviance df.resid 
-##      952      964     -472      944      146 
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -2.0508 -0.8023 -0.0412  0.7507  3.0677 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  klasse   (Intercept) 12.2     3.49    
-##  Residual             29.1     5.39    
-## Number of obs: 150, groups:  klasse, 5
-## 
-## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)  19.9079     1.7874   11.14
-## uebung        0.4453     0.0519    8.58
-## 
-## Correlation of Fixed Effects:
-##        (Intr)
-## uebung -0.421
+##  Groups   Name        Variance
+##  klasse   (Intercept) 15.5    
+##  Residual             29.3
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
+\setstretch{1.5}
+
 
 
 \setstretch{1.5}
 
-Im Output aus Abschnitt \ref{section:icc_r} können die Varianzen des leeren Modells abgelesen werden und mit den Varianzen aus dem Outupt für das \textit{Random Intercept} Modells in die Formel eingesetzt werden:
+Die Varianzen des leeren Modells können im Abschnitt \ref{section:hlm_r} entnommen und mit den Varianzen für das \textit{Random Intercept} Modells aus dem oberen Output in die Formel eingesetzt werden:
 \begin{equation} 
 \begin{split}	
- R_{1}^2 & = 1 - \dfrac{29.09 + 12.17}{44 + 9.57} = 0.23
+ R_{1}^2 & = 1 - \dfrac{29.29 + 15.46}{44 + 12.33} = 0.21
 \end{split}	
 \end{equation}
-Folglich kann man nun die Aussage treffen, dass unser Modell 23\% der Varianz in der erreichten Punktzahl von Schulkindern erklärt.
+Folglich kann man nun die Aussage treffen, dass das \textit{Random Intercept} Modell \texttt{m\_intercept} 21\% der Varianz in der erreichten Punktzahl von Schulkindern erklärt. Gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} entspricht dieser Wert ungefähr der Varianzaufklärung unseres \textit{Random Intercept and Slope} Modells \texttt{m\_uncorr}. 
 
 Es gibt aber auch Situationen in denen man genau wissen möchte, wie viel Varianz durch die Hinzunahme eines bestimmten Prädiktors im Modell erklärt wird. Dies kann man mit der proportionalen Reduktion der Varianz (PRV) erklären, die als eines der lokale Effektstärkemasse von hierarchischen linearen Modellen gilt \citep{PEUGH201085, woltman2012introduction}. Die Berechnung der proportionalen Reduktion der Varianz wird für jede einzelne Varianz des Modells durchgeführt. Das bedeutet, dass die PRV für die Varianz des Residuums, des Achsenabschnittes und für die der Steigung berechnet werden kann. Die Formel zur Berechnung der PRV bleibt aber für alle Fälle die gleiche:
 \begin{equation} \label{eq:prv}
