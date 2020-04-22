@@ -94,40 +94,7 @@ Cleary, P\BPBI D.%
 \newblock
 \APACjournalVolNumPages{JNCI Monographs}{2012}{44}{49-55}.
 \newblock
-\begin{APACrefURL} \url{https://doi.org/10.1093/jncimonographs/lgs010}
-  \end{APACrefURL}
-\newblock
 \begin{APACrefDOI} \doi{10.1093/jncimonographs/lgs010} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Donner%
-, Birkett%
-\BCBL {}\ \BBA {} Buck%
-}{%
-Donner%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {1981}}%
-}]{%
-donnerbirkettbuck1981randomization}
-\APACinsertmetastar {%
-donnerbirkettbuck1981randomization}%
-\begin{APACrefauthors}%
-Donner, A.%
-, Birkett, N.%
-\BCBL {}\ \BBA {} Buck, C.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1981}{12}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Randomization by clusters: Sample size requirements and
-  analysis}} {{Randomization by clusters: Sample size requirements and
-  analysis}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Journal of Epidemiology}{114}{6}{906-914}.
-\newblock
-\begin{APACrefDOI} \doi{10.1093/oxfordjournals.aje.a113261} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -210,6 +177,31 @@ Gelman, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Guo%
+}{%
+Guo%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+guo2005groupeddatahlm}
+\APACinsertmetastar {%
+guo2005groupeddatahlm}%
+\begin{APACrefauthors}%
+Guo, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Analyzing grouped data with hierarchical linear
+  modeling} {Analyzing grouped data with hierarchical linear modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Children and Youth Services Review}{27}{6}{637 - 652}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.childyouth.2004.11.017} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hedges%
 \ \BBA {} Hedberg%
 }{%
@@ -269,29 +261,63 @@ Hoogland, J\BPBI J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Hsieh%
+James%
+, Witten%
+, Hastie%
+\BCBL {}\ \BBA {} Tibshirani%
 }{%
-Hsieh%
-}{%
-{\protect \APACyear {1988}}%
+James%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
 }]{%
-hsieh1988samplesize}
+james2013introduction}
 \APACinsertmetastar {%
-hsieh1988samplesize}%
+james2013introduction}%
 \begin{APACrefauthors}%
-Hsieh, F\BPBI Y.%
+James, G.%
+, Witten, D.%
+, Hastie, T.%
+\BCBL {}\ \BBA {} Tibshirani, R.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{1988}{}{}.
+\APACrefYear{2013}.
 \newblock
-{\BBOQ}\APACrefatitle {Sample size formulae for intervention studies with the
-  cluster as unit of randomization} {Sample size formulae for intervention
-  studies with the cluster as unit of randomization}.{\BBCQ}
+\APACrefbtitle {An introduction to statistical learning} {An introduction to
+  statistical learning}\ (\BVOL~112).
 \newblock
-\APACjournalVolNumPages{Statistics in Medicine}{7}{11}{1195-1201}.
+\APACaddressPublisher{}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Krull%
+\ \BBA {} MacKinnon%
+}{%
+Krull%
+\ \BBA {} MacKinnon%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+krullmackinnon2010mediation}
+\APACinsertmetastar {%
+krullmackinnon2010mediation}%
+\begin{APACrefauthors}%
+Krull, J\BPBI L.%
+\BCBT {}\ \BBA {} MacKinnon, D\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
 \newblock
-\begin{APACrefDOI} \doi{10.1002/sim.4780071113} \end{APACrefDOI}
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Multilevel Modeling of Individual and Group Level
+  Mediated Effects} {Multilevel modeling of individual and group level mediated
+  effects}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Multivariate Behavioral Research}{36}{2}{249-277}.
+\newblock
+\APACrefnote{PMID: 26822111}
+\newblock
+\begin{APACrefDOI} \doi{10.1207/S15327906MBR3602\_06} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -403,8 +429,7 @@ Moerbeek, M.%
 \newblock
 \APACjournalVolNumPages{Journal of Clinical Epidemiology}{56}{4}{341 - 350}.
 \newblock
-\begin{APACrefDOI} \doi{https://doi.org/10.1016/S0895-4356(03)00007-6}
-  \end{APACrefDOI}
+\begin{APACrefDOI} \doi{10.1016/S0895-4356(03)00007-6} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -511,8 +536,7 @@ Peugh, J\BPBI L.%
 \newblock
 \APACjournalVolNumPages{Journal of School Psychology}{48}{1}{85-112}.
 \newblock
-\begin{APACrefDOI} \doi{https://doi.org/10.1016/j.jsp.2009.09.002}
-  \end{APACrefDOI}
+\begin{APACrefDOI} \doi{10.1016/j.jsp.2009.09.002} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -613,7 +637,7 @@ Satterthwaite, F\BPBI E.%
 \newblock
 \APACjournalVolNumPages{Psychometrika}{6}{5}{309 - 316}.
 \newblock
-\begin{APACrefDOI} \doi{https://doi.org/10.1007/BF02288586} \end{APACrefDOI}
+\begin{APACrefDOI} \doi{10.1007/BF02288586} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -672,6 +696,34 @@ Snijders, T\BPBI A\BPBI B.%
 \APACaddressPublisher{}{American Cancer Society}.
 \newblock
 \begin{APACrefDOI} \doi{10.1002/0470013192.bsa492} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Snijders%
+\ \BBA {} Bosker%
+}{%
+Snijders%
+\ \BBA {} Bosker%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+snijdersbosker1993SEcalc}
+\APACinsertmetastar {%
+snijdersbosker1993SEcalc}%
+\begin{APACrefauthors}%
+Snijders, T\BPBI A\BPBI B.%
+\BCBT {}\ \BBA {} Bosker, R\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Standard Errors and Sample Sizes for Two-Level Research}
+  {Standard errors and sample sizes for two-level research}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Educational Statistics}{18}{3}{237-259}.
+\newblock
+\begin{APACrefDOI} \doi{10.3102/10769986018003237} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
