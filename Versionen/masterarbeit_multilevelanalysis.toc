@@ -18,13 +18,13 @@
 \contentsline {subsubsection}{\numberline {2.5.3}Interpretation eines HLMs}{31}%
 \contentsline {subsubsection}{\numberline {2.5.4}Effektstärkemasse von HLMs}{33}%
 \contentsline {section}{\numberline {3}Simulationsstudie zur Multilevel Analyse}{37}%
-\contentsline {subsection}{\numberline {3.1}Herleitung der Forschungsfrage und Studiendesign}{37}%
+\contentsline {subsection}{\numberline {3.1}Herleitung der Forschungsfrage}{37}%
 \contentsline {subsection}{\numberline {3.2}Simulationsdesign}{42}%
 \contentsline {subsection}{\numberline {3.3}Studie 1: Genauigkeit von Schätzparametern}{44}%
-\contentsline {subsubsection}{\numberline {3.3.1}Ergebnisse Studie 1}{45}%
+\contentsline {subsubsection}{\numberline {3.3.1}Ergebnisse Studie 1}{46}%
 \contentsline {subsubsection}{\numberline {3.3.2}Diskussion Studie 1}{50}%
 \contentsline {subsection}{\numberline {3.4}Studie 2: Statistische Power von HLM}{52}%
-\contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse Studie 2}{53}%
+\contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse Studie 2}{54}%
 \contentsline {subsubsection}{\numberline {3.4.2}Diskussion Studie 2}{55}%
 \contentsline {subsection}{\numberline {3.5}Abschliessende Diskussion und Shiny App}{57}%
 \contentsline {section}{\numberline {4}Literaturverzeichnis}{60}%

@@ -149,6 +149,39 @@ Field, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Flay%
+\ \protect \BOthers {.}}{%
+Flay%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1995}}%
+}]{%
+FLAY1995smoking}
+\APACinsertmetastar {%
+FLAY1995smoking}%
+\begin{APACrefauthors}%
+Flay, B.%
+, Miller, T.%
+, Hedeker, D.%
+, Siddiqui, O.%
+, Britton, C.%
+, Brannon, B.%
+\BDBL {}Dent, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Television, School, and Family Smoking Prevention
+  and Cessation Project: VIII. Student Outcomes and Mediating Variables} {The
+  television, school, and family smoking prevention and cessation project:
+  Viii. student outcomes and mediating variables}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Preventive Medicine}{24}{1}{29 - 40}.
+\newblock
+\begin{APACrefDOI} \doi{10.1006/pmed.1995.1005} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Gelman%
 \ \BBA {} Hill%
 }{%
