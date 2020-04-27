@@ -165,9 +165,9 @@ In der Forschung ist es aus Kostengründen oder aus Gründen des Studiendesigns 
 
 Nach Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} gibt es unterschiedliche Formen, wie diese Einheiten zueinander in Beziehung stehen können. Ein Beispiel für einen Zusammenhang auf Level-1 wäre, dass die Lernmotivation eines Schulkindes sich auf seine schulische Leistung auswirkt. Aber auch Level-2 Einheiten können sich gegenseitig beeinflussen. Das Klima der Schulklasse könnte sich beispielsweise auf das Stressempfinden der Lehrperson auswirken. Hier wird von einem Zusammenhang innerhalb des Levels gesprochen, weil die unabhängige Variable (z.B. Lernmotivation, Klima der Schulklasse) auf dem gleichen Level wie die abhängige Variable (z.B. schulische Leistung, Stressempfinden) ist. Häufig ist es allerdings der Fall, dass es levelübergreifende Zusammenhänge zwischen den Einheiten gibt. So können beispielsweise die didaktischen Fähigkeiten einer Lehrperson (Level-2) und die Lernmotivation der Schulkinder (Level-1) die individuelle Leistung (Level-1) beeinflussen. Dieser Zusammenhang muss nicht zwingend direkt sein. Es kann auch vorkommen, dass die didaktischen Fähigkeiten den Zusammenhang zwischen Lernmotivation und individueller Leistung moderiert. In diesem Fall wird gemäss Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} von einer \textit{Cross-Level} Interaktion gesprochen.
 
-Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies unter anderem zu einer erhöhten Fehler Typ 1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer Unabhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt. Missachten dieser Abhängigkeiten kann aber nicht nur zu einer erhöhten Fehler Typ 1 Rate führen, sondern auch die Fehler Typ 2 Rate erhöhen \citep{MOERBEEK2003341}. Eine erhöhte Fehler Typ 2 Rate resultiert in einer niedrigeren Power einen Effekt zu entdecken, wenn dieser auch effektiv vorhanden ist. Das Vorhandensein von hierarchischen Daten ist allerdings kein unlösbares Problem. Mit Analyseansätzen, die diese hierarchische Struktur der Daten berücksichtigen, lassen sich solche erhöhten Fehler Typ 1 und 2 Raten vermeiden. Einer dieser Ansätze ist die Multilevel Analyse, die im Fokus dieser Arbeit steht.
+Werden diese Abhängigkeiten in der Analyse nicht berücksichtigt, kann dies unter anderem zu einer erhöhten Fehler Typ 1 Rate führen \citep{dorman2008effect, mcneish2014analyzing}. Das heisst, dass Forschende vermehrt zu Fehlschlüssen bezüglich des Einflusses ihrer unabhängigen Variablen gelangen und irrtümlich annehmen, einen Effekt eines Verfahren gefunden zu haben, obwohl es diesen Effekt gar nicht gibt. Missachten dieser Abhängigkeiten kann aber nicht nur zu einer erhöhten Fehler Typ 1 Rate führen, sondern auch die Fehler Typ 2 Rate erhöhen \citep{MOERBEEK2003341}. Eine erhöhte Fehler Typ 2 Rate resultiert in einer niedrigeren Power einen Effekt zu entdecken, wenn dieser auch effektiv vorhanden ist. Das Vorhandensein von hierarchischen Daten ist allerdings kein unlösbares Problem. Mit Analyseansätzen, die diese hierarchische Struktur der Daten berücksichtigen, lassen sich solche erhöhten Fehler Typ 1 und 2 Raten vermeiden. Einer dieser Ansätze der Multilevel Analyse ist das hierarchische lineare Modell, das im Fokus dieser Arbeit steht.
 
-Diese Arbeit ist in zwei Teile unterteilt. Im ersten Teil wird das Konzept und die Theorie der Multilevel Analyse behandelt. Dabei wird kurz auf die verschiedenen Methoden eingegangen, wie man Daten auf ihre hierarchische Struktur überprüfen kann. Anschliessend wird das zugrundeliegende statistische Modell der Multlilevel Analyse vorgestellt und wie genau solche Modelle aufgebaut sind. Darauf folgend wird die Anwendung dieser Methoden in der Statistikumgebung R besprochen \citep{R}. Im zweiten Abschnitt dieser Arbeit wird eine Simulationsstudie durchgeführt, deren Ziel es ist, bereits vorhandene Ergebnisse in der Literatur zu replizieren und zu illustrieren, dass eine Multilevel Analyse bei hierarchischen Daten verlässliche Resultate liefert. Begleitend zu dieser Studie wird eine Shiny App programmiert \citep{shiny}, die zum einen das Konzept der Multilevel Analyse visualisiert und die Ergebnisse der hier durchgeführten Simulationsstudie interaktiv abbildet.
+Diese Arbeit ist in zwei Teile unterteilt. Im ersten Teil wird das Konzept und die Theorie der Multilevel Analyse behandelt. Dabei wird kurz auf die verschiedenen Methoden eingegangen, wie man Daten auf ihre hierarchische Struktur überprüfen kann. Anschliessend wird das hierarchische lineare Modell vorgestellt und wie genau solche Modelle aufgebaut sind. Darauf folgend wird die Anwendung dieser Methoden in der Statistikumgebung R besprochen \citep{R}. Im zweiten Abschnitt dieser Arbeit wird eine Simulationsstudie durchgeführt, deren Ziel es ist, bereits vorhandene Ergebnisse in der Literatur zu replizieren und zu illustrieren, dass eine Multilevel Analyse bei hierarchischen Daten verlässliche Resultate liefert. Begleitend zu dieser Studie wird eine Shiny App programmiert \citep{shiny}, die zum einen das Konzept der Multilevel Analyse visualisiert und die Ergebnisse der hier durchgeführten Simulationsstudie interaktiv abbildet.
 
 \section{Konzept und Anwendung von Multilevel Analyse}
 Wie in der Einleitung erläutert wurde, gibt es viele Situationen in denen hierarchische Daten vorhanden sind und man zu Fehlschlüssen gelangen kann, wenn man diese Strukturen nicht berücksichtigt. In diesem Abschnitt wird nun etwas genauer auf das Konzept und die dahintersteckende Theorie der Multilevel Analyse eingegangen. Dazu wird zuerst ein simulierter Beispieldatensatz vorgestellt, anhand dessen die besprochenen Modelle erklärt werden. Als erstes wird auf die Probleme eingegangen, die durch die Verwendung von einfachen linearen Modellen (LM) entstehen. Anschliessend wird das hierarchische lineare Modell (HLM) als das zugrundeliegende statistische Modell der Multilevel Analyse eingeführt. Das HLM gilt als eine Erweiterung der einfachen LM \citep{SnijdersTomA.B2012Ma:a}. Dabei werden bei HLM in \textit{Random Intercept} und \textit{Random Intercept and Slope} Modelle unterschieden. Es werden beide Modellformen besprochen und dabei wird erläutert wie die beiden Faktoren Achsenabschnitt (engl. \textit{Intercept}) und Steigung (engl. \textit{Slope}) zusammenhängen. Nachdem die verschiedenen Formen von HLM besprochen worden sind, wird in einem etwas praktischeren Teil die Anwendung von Multilevel Analyse in R anhand von Beispielen etwas näher gebracht.
@@ -320,14 +320,14 @@ beta01 <- gamma00 + u01
 Die einfachste Form eines \textit{Random Intercept} Modells ist ein Modell, das nur den Koeffizienten für den Achsenabschnitt $\beta_{0j}$ und das Residuum $\epsilon_i$ enthält. Dieses Modell wird wie folgt beschrieben:
 \begin{equation}
 \begin{split}	
-\text{Level 1:} & \qquad y_{ji} 	= \beta_{0j} + \epsilon_{ij}\\
+\text{Level 1:} & \qquad y_{ij} 	= \beta_{0j} + \epsilon_{ij}\\
 \text{Level 2:} & \qquad \beta_{0j} = \gamma_{00} + U_{0j}
 \end{split}	
 \end{equation} 
 Bei dieser Darstellung handelt es sich um die hierarchische Notation der Gleichung, da die einzelnen Gleichungen gleich dem dazugehörigen Level zugeordnet werden. Dies wird klarer, wenn man es in Bezug zu unserem Beispiel betrachtet. Auf Level-1 befindet sich die Regressionsgleichung für die erreichte Punktzahl jedes einzelnen Schulkindes $i$ aus der Klasse $j$. Dabei kann man erkennen, dass der Regressionskoeffizient $\beta_{0j}$ von der Klasse $j$ abhängt und folglich für jede Klasse einen anderen Wert annimmt. Da die Klasse eine Level-2 Variable ist, befindet sich die Gleichung für $\beta_{0j}$ auf Level-2. Dabei ist $\gamma_{00}$ der Gesamtmittelwert und $U_{0j}$ die zufällige Abweichung der Klasse $j$ vom Gesamtmittelwert. Substituiert man die Gleichung von Level-2 in die Gleichung von Level-1, erhält man folgende Darstellung des \textit{Random Intercept} Modells:
 \begin{equation}
 \begin{split}
-y_{ji} 	& = \beta_{0j} + \epsilon_{ij}\\
+y_{ij} 	& = \beta_{0j} + \epsilon_{ij}\\
 		& = \gamma_{00} + U_{0j} + \epsilon_{ij}
 \end{split}
 \end{equation}
@@ -335,7 +335,7 @@ Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, an
 
 \begin{equation} \label{eq:random_intercept_model}
 \begin{split}	
- \text{Level 1:}  	\qquad 	y_{ji} 		& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  	\qquad 	y_{ij} 		& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
  \text{Level 2:} 	\qquad 	\beta_{0j} 	& = \gamma_{00} + U_{0j}\\
  							\beta_{1} 	& = \gamma_{10}
 \end{split}	
@@ -343,7 +343,7 @@ Diese Gleichung entspricht dem leeren Modell aus Abschnitt \ref{section:icc}, an
 Da es sich hier um ein \textit{Random Intercept} Modell handelt, bleibt die Steigung für alle Klassen gleich. Dies kann man an der Gleichung des Koeffizienten $\beta_{1}$ erkennen, da es keine zufällige Abweichung in Abhängigkeit der Klasse $j$ von der Gesamtsteigung $\gamma_{10}$ gibt. Werden nun aus \eqref{eq:random_intercept_model} die beiden Gleichungen auf Level-2 in die Gleichung auf Level-1 eingesetzt, können wir das \textit{Random Intercept} Modell wieder mit nur einer Gleichung beschreiben:
 \begin{equation}
 \begin{split}
-y_{ji} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij} \\
+y_{ij} 	& = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij} \\
 		& = \gamma_{00} + U_{0j} + \gamma_{10}x_{ij} + \epsilon_{ij} \\
 		& = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + \epsilon_{ij}
 \end{split}
@@ -385,7 +385,7 @@ beta12 <- gamma10 + u12
 Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und aufgezeigt, dass man durch die Hinzunahme von variierenden Achsenabschnitten eine bessere Passung zwischen dem Modell und den Daten erreicht. Um eine noch bessere Passung zu erreichen und genauere Vorhersagen zu treffen kann man nun nicht nur den Achsenabschnitt, sondern auch die Steigung variieren lassen. Dies führt zum \textit{Random Intercept and Slope} Modell, das sowohl Unterschiede in der abhängige Variablen zwischen den Klassen als auch Unterschiede im Einfluss der unabhängigen Variablen auf die abhängige Variable zwischen den Klassen berücksichtigt. Der Regressionskoeffizient $\beta_{1}$ aus dem \textit{Random Intercept} Modell \eqref{eq:random_intercept_model} ist nun spezifisch für jede Klasse $j$ und wird durch die zufällige Abweichung $U_{1j}$ erweitert. Dies führt zum folgenden Modell in der hierarchischen Notation:
 \begin{equation} \label{eq:random_intercept_slope_model}
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{1j} & = \gamma_{10} + U_{1j}
 \end{split}	
@@ -393,7 +393,7 @@ Im letzten Abschnitt wurde das \textit{Random Intercept} Modell besprochen und a
 Durch Einsetzen der Gleichungen aus Level-2 in die Gleichung aus Level-1, erhaltet man die folgende Gleichung des \textit{Random Intercept and Slope} Modells:
 \begin{equation} \label{eq:flat_random_intercept_slope_model}
 \begin{split}	
-y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+y_{ij} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
 & = \gamma_{00} + U_{0j} + (\gamma_{10} + U_{1j})x_{ij} + \epsilon_{ij}\\
 & = \gamma_{00} + \gamma_{10}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{ij}
 \end{split}	
@@ -430,7 +430,7 @@ In diesem Abschnitt wurde das \textit{Random Intercept and Slope} Modell besproc
 Wie bei linearen Regressionsmodellen wird auch bei hierarchischen linearen Regressionsmodellen versucht die Variabilität einer bestimmten abhängigen Variablen zu erklären. Diese unerklärte Variabilität hängt in HLMs nicht nur von der Varianz des Residuums $\epsilon_{ij}$ ab, sondern auch von der Varianz der zufälligen Abweichung des Achsenabschnittes $U_{0j}$ und der Steigung $U_{1j}$ \citep{SnijdersTomA.B2012Ma:a}. Um nun unerklärte Variabilität in HLMs zu beschreiben, können die Varianzen all dieser Komponenten verringert werden. Um die Varianz des Residuums zu verringern können, wie bei der linearen Regression, weitere Level-1 Variablen in das Modell aufgenommen werden. Da die Varianzen der zufälligen Abweichungen nicht durch Unterschiede innerhalb der Gruppen sondern zwischen den Gruppen entstehen, können diese nicht durch das Hinzufügen von Level-1 Variablen reduziert werden, sondern erfordern das Hinzufügen von Level-2 Variablen. Snijders und Bosker \citeyearpar{SnijdersTomA.B2012Ma:a} erweitern hierfür die beiden Gleichungen für die Regressionskoeffizienten $\beta_{0j}$ und $\beta_{1j}$:
 \begin{equation} \label{eq:variance}
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + \gamma_{01}z_{j} + U_{0j}\\
  \beta_{1j} & = \gamma_{10} + \gamma_{11}z_{j} + U_{1j}
 \end{split}	
@@ -438,7 +438,7 @@ Wie bei linearen Regressionsmodellen wird auch bei hierarchischen linearen Regre
 Dabei ist $z_{j}$ eine Level-2 Variable, die sich zwischen den Gruppen unterscheidet. Auf unser Beispiel bezogen, könnte die Variable $z_{j}$ die Anzahl Fenster im Klassenzimmer sein. Durch das Hinzufügen dieser Level-2 Variablen werden die Regressionskoeffizienten selbst zu einer abhängigen Variablen eines Regressionmodells. Substituiert man die beiden Koeffizienten in die Level-1 Gleichung erhält man folgende Darstellung dieses HLMs:
 \begin{equation} \label{eq:flat_variance}
 \begin{split}	
-y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+y_{ij} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
 & = \gamma_{00} + \gamma_{01}z_{j} + U_{0j} + (\gamma_{10} + \gamma_{11}z_{j} + U_{1j})x_{ij} + \epsilon_{ij}\\
 & = \gamma_{00} + \gamma_{01}z_{j} + U_{0j} + \gamma_{10}x_{ij} + \gamma_{11}z_{j}x_{ij} + U_{1j}x_{ij} + \epsilon_{ij}\\
 & = \gamma_{00} + \gamma_{01}z_{j} + \gamma_{10}x_{ij} + \gamma_{11}z_{j}x_{ij} + U_{0j} + U_{1j}x_{ij} + \epsilon_{ij}\\
@@ -499,7 +499,7 @@ Als Erstes berechnen wir die IKK, um den Einfluss der Klassenzugehörigkeit zu q
 
 \begin{equation}
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
 \end{split}	
 \end{equation} 
@@ -519,7 +519,7 @@ Wir können nun damit anfangen unser leeres Modell mit weitere Prädiktoren aufz
 
 \begin{equation}
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{1} & = \gamma_{10}\\
 \end{split}	
@@ -546,7 +546,7 @@ Da sich zwischen diesen beiden Modellen nur feste Effekte unterscheiden, sie abe
 Im oberen Output ist also zu entnehmen, dass unser \textit{Random Intercept} Modell auf einem Signifikanzniveau von 5\% besser zu den Daten passt als das leere Modell. Wir möchten nun zusätzlich ein \textit{Random Intercept and Slope} Modell schätzen. Entsprechend des Abschnittes \ref{section:random_intercept_slope_model} wird der Gleichung von $\beta_{1j}$ eine zufällige Abweichung von der mittleren Steigung hinzugefügt: 
 \begin{equation} 
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{j1} & = \gamma_{10 }+ U_{1j}\\
 \end{split}	
@@ -584,7 +584,7 @@ Das Ergebnis des \textit{Likelihood Ratio Tests} zeigt, dass bei einem Signifika
 Bis jetzt haben wir uns nur mit Level-1 Variablen oder der zufälligen Abweichung beschäftigt. Möchten wir dem Modell die Anzahl Fenster im Klassenzimmer als Level-2 Variable hinzufügen, kann man diese Variable mit einer \textit{Cross-Level} Interaktion oder ohne hinzufügen. Ebenfalls ist zu beachten, dass Level-2 Variablen in einem hierarchischen linearen Modell mit zwei Level nur mit festen Effekten hinzugefügt werden können. Da es in einem zwei Level Modell nicht noch ein drittes höheres Level gibt, in dem eine Level-2 Variable noch zwischen Level-3 Einheiten variieren könnte. In der Formel würde das Hinzufügen einer Level-2 Variable ohne \textit{Cross-Level} Interaktion wie folgt aussehen:
 \begin{equation} 
 \begin{split}	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \beta_{1} \cdot \text{uebungen}_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + \gamma_{01} \cdot \text{fenster}_{j} + U_{0j}\\
  \beta_{j1} & = \gamma_{1j} + U_{1j}\\
 \end{split}	
@@ -732,7 +732,7 @@ Im letzten Abschnitt wurde anhand eines einfachen Beispiels aufgezeigt, wie man 
 Der Einfluss von hierarchischen Datenstrukturen auf die Analyse wurden konzeptionell in den letzten Abschnitten diskutiert und vorgestellt. Im folgenden Abschnitt geht es nun, um die wissenschaftliche Replikation und Überprüfung dieses Einflusses. Dabei wird vor allem der Fokus auf die Unterschiede zwischen der Analyse mittels normalen linearen Modellen (LM) und hierarchischen linearen Modellen (HLM) gelegt. Um diese beide Methoden zu vergleichen, wird eine Simulationsstudie durchgeführt. Anschliessend an die Simulationsstudie wird eine Shiny App \citep{shiny} vorgestellt, die im Laufe dieser Arbeit programmiert wurde und mit der es Nutzern möglich ist, zum einen das Konzept der HLM zu verstehen und zum anderen werden die Ergebnisse dieser Simulationsstudie interaktiv für die Nutzer dargestellt.
 
 \subsection{Herleitung der Forschungsfrage}
-In der Einleitung wurde bereits erwähnt, dass in der psychologischen Forschung hierarchische Datenstrukturen keine Seltenheit sind und in Tabelle \ref{tab:beispiele_levels} wurden einige Beispiele für solche hierarchischen Daten genannt \citep{raudenbush2002hierarchical,SnijdersTomA.B2012Ma:a,woltman2012introduction}. Allerdings ist es oft so, dass sich Forschende dieser Datenstruktur oder den Möglichkeiten von HLMs nicht bewusst sind \citep{mcneish2014analyzing}. Dies kann dazu führen, dass diese hierarchischen Daten mittels normalen LMs anstelle von HLMs analysiert werden. Simulationsstudien haben aber gezeigt, dass dies nicht zwingend ein Problem darstellen muss \citep{mcneish2014analyzing, mundfrom2002monte}. In diesen Simulationsstudien wurden systematisch Datensätze mit unterschiedlichen IKKs generiert, um den Einfluss der Gruppenzugehörigkeit zu variieren. Basierend auf diesen Datensätzen wurden von LMs und HLMs die Regressionskoeffizienten geschätzt und miteinander verglichen. Diese Vergleiche ergaben, dass sowohl HLMs als auch normale LMs die grösse des Regressionskoeffizienten relativ genau schätzen konnten, unabhängig davon wie gross der Einfluss der Gruppenzugehörigkeit auf die abhängige Variable war  \citep{mcneish2014analyzing, mundfrom2002monte}. Diese Ergebnisse deuten also darauf hin, dass die Schätzung der Grösse des Effekts einer Intervention oder des Achsenabschnitts bei beiden Methoden relativ nahe am Populationsmittelwert liegt.
+In der Einleitung wurde bereits erwähnt, dass in der psychologischen Forschung hierarchische Datenstrukturen keine Seltenheit sind und in Tabelle \ref{tab:beispiele_levels} wurden einige Beispiele für solche hierarchischen Daten genannt \citep{raudenbush2002hierarchical,SnijdersTomA.B2012Ma:a,woltman2012introduction}. Allerdings ist es oft so, dass sich Forschende dieser Datenstruktur oder den Möglichkeiten von HLMs nicht bewusst sind \citep{mcneish2014analyzing}. Dies kann dazu führen, dass diese hierarchischen Daten mittels normalen LMs anstelle von HLMs analysiert werden. Simulationsstudien haben aber gezeigt, dass dies nicht zwingend ein Problem darstellen muss \citep{mcneish2014analyzing, mundfrom2002monte}. In diesen Simulationsstudien wurden systematisch Datensätze mit unterschiedlichen IKKs generiert, um den Einfluss der Gruppenzugehörigkeit zu variieren. Basierend auf diesen Datensätzen wurden von LMs und HLMs die Regressionskoeffizienten geschätzt und miteinander verglichen. Diese Vergleiche ergaben, dass sowohl HLMs als auch normale LMs die Grösse des Regressionskoeffizienten relativ genau schätzen konnten, unabhängig davon wie gross der Einfluss der Gruppenzugehörigkeit auf die abhängige Variable war  \citep{mcneish2014analyzing, mundfrom2002monte}. Diese Ergebnisse deuten also darauf hin, dass die Schätzung der Grösse des Effekts einer Intervention oder des Achsenabschnitts bei beiden Methoden relativ nahe am Populationsmittelwert liegt.
 
 Allerdings ist eine genaue Schätzung der Regressionskoeffizienten nicht ausreichend, um zu bestimmen, ob der Effekt einer Intervention auch signifikant ist. Um zu überprüfen, ob eine Intervention auch effektiv einen Einfluss auf die Ausprägung der abhängige Variable hat, werden üblicherweise \textit{t} Tests durchgeführt \citep{SnijdersTomA.B2012Ma:a}. Die Prüfgrösse des \textit{t} Tests wird über das Verhältnis zwischen dem geschätzten Regressionskoeffizienten und dessen Standardfehlers bestimmt. Wird beispielsweise ein Standardfehler zu klein geschätzt, steigt die Prüfgrösse an und die Rate mit der die Nullhypothese abgelehnt wird, nimmt zu. Wird der Standardfehler zu gross geschätzt, verkleinert sich die Prüfgrösse und die Rate mit der die Alternativhypothese abgelehnt wird, nimmt zu. Folglich führt eine Unterschätzung des Standardfehlers zu einer erhöhten Fehler Typ 1 Rate und eine Überschätzung zu einer erhöhten Fehler Typ 2 Rate und somit zu einer geringeren Power \citep{SnijdersTomA.B2012Ma:a}. Unter Power wird die Wahrscheinlichkeit verstanden, einen Effekt zu finden, wenn dieser auch effektiv in der Population vorhanden ist \citep{scherbaumferreter2009powersample}. Daher ist eine genaue Schätzung des Standardfehlers umso wichtiger, da dieser massgeblich zur Power des Tests beiträgt. Da der Standardfehler in einem direkten Zusammenhang mit der Stichprobengrösse steht und grössere Stichproben zu kleineren Standardfehlern führen, ist die Wahl der Stichprobengrösse ein entscheidender Faktor \citep{james2013introduction, SnijdersTomA.B2012Ma:a}. Bei hierarchischen Daten sind Beobachtungen aus derselben Gruppe ähnlicher zueinander als zu anderen Beobachtungen aus anderen Gruppen. Folglich verkleinert sich die effektive Stichprobengrösse \citep{raudenbush2002hierarchical}. Wie stark sich die effektive Stichprobengrösse in einem hierarchischen Datensatz mit zwei Levels verkleinert, hängt zum einen von der Gruppengrösse und der Grösse des Einflusses der Gruppenzugehörigkeit ab. Dies kann mit dem sogenannten \textit{Design Effect} quantifiziert werden und wird mit der folgenden Formel berechnet \citep{raudenbush2002hierarchical,SnijdersTomA.B2012Ma:a}:
 \begin{equation}
@@ -759,7 +759,7 @@ Um diese Annahmen zu überprüfen werden in beiden Simulationsstudien Daten basi
 \begin{equation} 
 \begin{split}
 \text{Design 1:}\\	
- \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
+ \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \beta_{1}x_{ij} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + U_{0j}\\
  \beta_{1} & = \gamma_{10}\\
  \end{split}	
@@ -771,7 +771,7 @@ Das zweite Design berücksichtigt Interventionen auf Stufe der Klassen. Dabei we
 \begin{equation} 
 \begin{split}
  \text{Design 2:}\\
-  \text{Level 1:}  \qquad y_{ji} & = \beta_{0j} + \epsilon_{ij}\\
+  \text{Level 1:}  \qquad y_{ij} & = \beta_{0j} + \epsilon_{ij}\\
  \text{Level 2:} \qquad \beta_{0j} & = \gamma_{00} + \gamma_{01}z_{j} + U_{0j}\\
 \end{split}	
 \end{equation} 
