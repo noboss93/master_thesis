@@ -5,3 +5,6 @@ date: "24 3 2020"
 output: html_document
 ---
 
+* Snijders, T. A., & Bosker, R. J. (2012). *Multilevel analysis: An introduction to basic and advanced multilevel modeling* (2. Aufl.). Los Angeles: SAGE.
+
+* Raudenbush, S. W., & Bryk, A. S. (2002). *Hierarchical linear models: Applications and data analysis methods* (1. Aufl.). SAGE.

@@ -21,7 +21,7 @@ ui <- dashboardPage(
                ),
       menuItem("Simulationsstudie", startExpanded = FALSE,
                menuSubItem("Forschungsfrage und Studiendesign", tabName = "studyquestion"),
-               menuSubItem("Studie 1: Wirksamkeit von Standardfehlern", tabName = "study1"),
+               menuSubItem("Studie 1: Genauigkeit von Schätzparametern", tabName = "study1"),
                menuSubItem("Studie 2: Statistische Power von HLM", tabName = "study2"))
       
       )
@@ -97,7 +97,7 @@ server <- function(input, output, session) {
         geom_point(size = 2) +
         scale_color_viridis_d() +
         geom_abline(slope = slope(), intercept = intercept(), col = "red", size = 1) +
-        labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte")
+        labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte", color = "Klasse")
           
       } else {
         ggplot(data = data_model(), mapping = aes(x = uebung, y = punktzahl)) + 
@@ -111,10 +111,11 @@ server <- function(input, output, session) {
       ggplot(data = data_model(), mapping = aes(x = uebung, y = punktzahl, color = klasse)) + 
         geom_point(size = 2) +
         scale_color_viridis_d() +
+        scale_fill_discrete(name = "Gruppe") +
         geom_abline(slope = slope(), intercept = intercept(), col = viridis(n = 8), size = 1) +
         geom_abline(slope = mean(slope()), 
                     intercept = mean(intercept()), col = "red", size = 1) +
-        labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte")
+        labs(x = "Anzahl gelöste Übungen", y = "Anzahl Punkte", color = "Klasse")
       } else {
         ggplot(data = data_model(), mapping = aes(x = uebung, y = punktzahl)) + 
           geom_point(size = 2) +

@@ -1,0 +1,15 @@
+---
+title: "text_sim_intro"
+author: "noah"
+date: "27 4 2020"
+output: html_document
+---
+
+In diesem Abschnitt der App können nun selbst einzelne hierarchische Datensätze simuliert und analysiert werden, um die Vorteile von HLMs gegenüber von normalen linearen Modellen zu visualisieren.
+
+
+**1. Daten simulieren:** Hier kann festgelegt werden, wie stark der Achsenabschnitt oder die Steigung zwischen den Klassen variiert und wie stark diese beiden Koeffizienten miteinander korreliert sind.
+
+**2. Analysemethode auswühlen:** Hier kann das Modell ausgewählt werden, mit dem der neu simulierte Datensatz analysiert werden soll. Dabei kann über die Checkbox *Gruppenfarbe anzeigen* die Gruppenzugehörigkeit im Plot angezeigt werden.
+
+**3. Modelle Vergleichen:** Es werden drei Outputs generiert, die man zwischen den drei verschiedenen Analysemethoden vergleichen kann: Regressions Geraden, Residuen Plot und Q-Q Plot. 
