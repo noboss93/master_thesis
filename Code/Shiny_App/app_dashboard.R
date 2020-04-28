@@ -136,7 +136,7 @@ server <- function(input, output, session) {
     colnames(residual_df) <- c("residuals", "fitted", "klasse")
     
     ggplot(residual_df, aes(x = fitted, y = residuals, color = klasse)) +
-      geom_point(shape = 16, size = 3) +
+      geom_point(shape = 16, size = 2) +
       scale_color_viridis_d() +
       geom_hline(yintercept = 0, col = "black") + 
       geom_smooth(method = "loess", se = FALSE, col = "red") +
@@ -146,7 +146,7 @@ server <- function(input, output, session) {
         colnames(residual_df) <- c("residuals", "fitted", "klasse")
         
         ggplot(residual_df, aes(x = fitted, y = residuals)) +
-          geom_point(shape = 16, size = 3) +
+          geom_point(shape = 16, size = 2) +
           scale_color_viridis_d() +
           geom_hline(yintercept = 0, col = "black") + 
           geom_smooth(method = "loess", se = FALSE, col = "red") +
@@ -158,7 +158,7 @@ server <- function(input, output, session) {
       colnames(residual_df) <- c("residuals", "fitted", "klasse")
       
       ggplot(residual_df, aes(x = fitted, y = residuals, color = klasse)) +
-        geom_point(shape = 16, size = 3) +
+        geom_point(shape = 16, size = 2) +
         scale_color_viridis_d() +
         geom_hline(yintercept = 0, col = "black") + 
         geom_smooth(method = "loess", se = FALSE, col = "red") +
@@ -168,7 +168,7 @@ server <- function(input, output, session) {
         colnames(residual_df) <- c("residuals", "fitted", "klasse")
         
         ggplot(residual_df, aes(x = fitted, y = residuals)) +
-          geom_point(shape = 16, size = 3) +
+          geom_point(shape = 16, size = 2) +
           geom_hline(yintercept = 0, col = "black") + 
           geom_smooth(method = "loess", se = FALSE, col = "red") +
           labs(x = "Angepasster Wert", y = "Residuen")
@@ -380,13 +380,17 @@ server <- function(input, output, session) {
  
 
 # Study 1 -----------------------------------------------------------------
-  sim_data_1 <- eventReactive(input$show_results_1,{
+  outcomeNames <- c("Relative Abweichung" = "rel_bias", "SE Genauigkeit" = "se_eff")
+  designNames <- c("bei einer Intervention auf Level-1" = "lvl1", "bei einer Intervention auf Level-2" = "lvl2")
+  coefNames <- c("des Achsenabschnitts" = "intercept", "der Steigung (Intervention)" = "treatment")
+  
+  sim_data_1 <- reactive({
     switch(input$design_cond_1,
            "lvl1" = simstudy_lvl1,
            "lvl2" = simstudy_lvl2)
   })
   
-  plot_data <- eventReactive(input$show_results_1,{
+  coef_data <- reactive({
     if (input$outcomes_1 == "se_eff"){
       se_efficacy(sim_data_1())
     }else{
@@ -394,9 +398,19 @@ server <- function(input, output, session) {
     }
   })
   
+  
+  results_study1 <- reactive({
+      switch(input$outcomes_1,
+             "rel_bias" = "results_coefs_1.Rmd",
+             "se_eff" = "results_se_1.Rmd")
+  })
+  
+  output$mrkdwn <- renderUI({
+    withMathJax(includeMarkdown(results_study1()))
+  })
 
   output$se_eff <- renderPlot({
-   ggplot(data = plot_data(), aes_string(y = paste(input$coef_cond_1, "_efficacy", sep = ""), 
+   ggplot(data = coef_data(), aes_string(y = paste(input$coef_cond_1, "_efficacy", sep = ""), 
                                               x = "icc", 
                                               fill = "method"))+
     geom_col(position = "dodge2") +
@@ -408,19 +422,37 @@ server <- function(input, output, session) {
     scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) + 
     scale_y_continuous(breaks=seq(-1,1, 0.05)) +
     theme_gray(base_size = 15) +
-    labs(title = "SE Genauigkeit Design 1")+
+    labs(title = paste(names(outcomeNames)[outcomeNames == input$outcomes_1], 
+                       names(coefNames)[coefNames == input$coef_cond_1], 
+                       names(designNames)[designNames == input$design_cond_1]))+
     xlab("IKK")+
-    ylab("SE Genauigkeit")
+    ylab(paste(names(outcomeNames)[outcomeNames == input$outcomes_1]))
   })
-
-
-  
 
 
 # Study 2  --------------------------------------------------------
 
-
-
+  sim_data_small <- reactive({
+    switch(input$design_cond_2,
+           "lvl1" = simstudy_lvl1_small,
+           "lvl2" = simstudy_lvl2_small)
+  })
+  
+  power_data <- reactive({
+   power_model(sim_data_small())
+  })
+  
+  output$power <- renderPlot({
+    ggplot(data = power_data(), mapping = aes(y = power_treatment, x = icc, fill = method))+
+    geom_col(position = "dodge2") +
+    scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
+    scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+    geom_hline(yintercept = 0.8, linetype = "dashed")+
+    theme_gray(base_size = 15) +
+    labs(title = "Power beider Analysemethoden")+
+    xlab("IKK")+
+    ylab("Power")
+  })
 
 
 }

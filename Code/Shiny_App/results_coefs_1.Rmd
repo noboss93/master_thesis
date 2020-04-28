@@ -1,0 +1,11 @@
+---
+title: "results_coefs_1"
+author: "noah"
+date: "28 4 2020"
+output: html_document
+---
+Beide Methoden (LM & HLM) weisen bei der Schätzung der Regressionskoeffizienten in allen Bedingungen eine relative Abweichung von $\Delta\beta < \pm  .05$ auf und gelten gemäss Hoogland und Boomsma (1998) als akzeptabel.
+
+**Schlussfolgerung:**
+* Die Ergebnisse von McNeish (2014) und Mundfrom & Schults (2002) konnten repliziert werden.
+* Ist lediglich die Ausprägung der Regressionskoeffizienten von Interesse, spielt die Wahl der Methode auch bei hohem Einfluss der Gruppenzugehörigkeit eher eine geringe Rolle.

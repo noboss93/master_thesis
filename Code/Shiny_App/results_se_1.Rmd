@@ -1,0 +1,22 @@
+---
+title: "results_se_1"
+author: "noah"
+date: "28 4 2020"
+output: html_document
+---
+**Erkenntnis bezüglich LM:**
+* SE Schätzer wird bei zunehmender IKK ungenauer.
+* SE Schätzer des **Achsenabschnittes** wird in beiden Studiendesigns **unterschätzt**.
+* SE Schätzer der **Steigung (Intervention)** wird bei einer Intervention auf Level-1 **überschätzt**.
+* SE Schätzer der **Steigung (Intervention)** wird bei einer Intervention auf Level-2 **unterschätzt**.
+
+**Erkenntnis bezüglich HLM:**
+* SE Schätzer bleibt auch bei zunehmender IKK genau.
+* SE Schätzer wird in allen Studiendesigns genau geschätzt.
+
+**Schlussfolgerung:**
+* Werden hierarchische Daten mittels LM analysiert, besteht die Gefahr, dass durch die Unterschätzung des Standardfehlers eine erhöhte Fehler Typ 1 Rate entsteht. Eine erhöhte Fehler Typ 1 Rate könnte zu falschen Schlussfolgerungen über die untersuchten Variablen führen. So dass Variablen als signifikant bezeichnet werden, obwohl sie das in Wirklichkeit nicht sind.
+
+* Ebenfalls besteht die Gefahr, dass LM die Standardfehler auch Überschätzt. Vor allem wenn die Intervention auf dem Level des Individuums durchgeführt wurde ist mit einer verringerten Power zu rechnen, wenn die Daten mittels LM analysiert werden.
+
+* Grundsätzlich sollte bei der Analyse von hierarchischen Daten ein HLM verwendet werden, da dieses Modell die Struktur der Daten berücksichtigt und konstant genaue Schätzungen des Standardfehlers und somit zu keiner erhöhten Fehler Typ 1 oder Fehler Typ 2 Rate führt.
