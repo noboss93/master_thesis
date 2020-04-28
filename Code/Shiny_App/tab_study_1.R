@@ -3,8 +3,8 @@ fluidRow(
       
       selectInput(inputId = "outcomes_1", 
                   label = "Wähle ein Kennwert:",
-                  choices = c("Relative Abweichung" = "rel_bias", "
-                              SE Wirksamkeit" = "se_eff")),
+                  choices = c("Relative Abweichung" = "rel_bias", 
+                              "SE Genauigkeit" = "se_eff")),
       
       selectInput(inputId = "design_cond_1", 
                   label = "Wähle das Level der Intervention:",
@@ -13,7 +13,7 @@ fluidRow(
       
       selectInput(inputId = "coef_cond_1", 
                   label = "Wähle den Koeffizienten:",
-                  choices = c("Intercept" = "intercept", 
+                  choices = c("Achsenabschnitt" = "intercept", 
                               "Intervention" = "treatment")),
       
       selectInput(inputId = "icc_cond_1", 
@@ -33,3 +33,4 @@ fluidRow(
   
   box(width = 12, title = "Infobox", height = "300px", status = "primary", collapsible = TRUE, collapsed = TRUE)
 )
+

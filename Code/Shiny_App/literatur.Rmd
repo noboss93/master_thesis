@@ -5,6 +5,27 @@ date: "24 3 2020"
 output: html_document
 ---
 
-* Snijders, T. A., & Bosker, R. J. (2012). *Multilevel analysis: An introduction to basic and advanced multilevel modeling* (2. Aufl.). Los Angeles: SAGE.
+
+
+
+
+
+* Flay, B. R., Miller, T. Q., Hedeker, D., Siddiqui, O., Britton, C. F., Brannon, B. R., ... & Dent, C. (1995). The television, school, and family smoking prevention and cessation project: VIII. Student outcomes and mediating variables. *Preventive Medicine*, 24(1), 29-40. doi: 10.1006/pmed.1995.1005
+
+* Guo, S. (2005). Analyzing grouped data with hierarchical linear modeling. *Children and Youth Services Review*, 27(6), 637-652. doi: 10.1016/j.childyouth.2004.11.017 
+
+* Hoogland, J. J., & Boomsma, A. (1998). Robustness studies in covariance structure modeling: An overview and a meta-analysis. *Sociological Methods & Research*, 26(3), 329-367. doi: 10.1177/0049124198026003003
+
+* Krull, J. L., & MacKinnon, D. P. (2001). Multilevel modeling of individual and group level mediated effects. *Multivariate behavioral research*, 36(2), 249-277. doi: 10.1207/S15327906MBR3602_06
+
+* McNeish, D. M. (2014). Analyzing clustered data with OLS regression: The effect of a hierarchical data structure. *Multiple Linear Regression Viewpoints*, 40(1), 11-16.
+
+* Moerbeek, M., van Breukelen, G. J., & Berger, M. P. (2003). A comparison between traditional methods and multilevel regression for the analysis of multicenter intervention studies. *Journal of clinical epidemiology*, 56(4), 341-350. doi: 10.1016/S0895-4356(03)00007-6
+
+* Mundfrom, D. J., & Schults, M. R. (2002). A Monte Carlo simulation comparing parameter estimates from multiple linear regression and hierarchical linear modeling. *Multiple Regression Viewpoints*, 28, 18-21.
 
 * Raudenbush, S. W., & Bryk, A. S. (2002). *Hierarchical linear models: Applications and data analysis methods* (1. Aufl.). SAGE.
+
+* Snijders, T. A., & Bosker, R. J. (2012). *Multilevel analysis: An introduction to basic and advanced multilevel modeling* (2. Aufl.). Los Angeles: SAGE.
+
+* Satterthwaite, F. E. (1941). Synthesis of variance. *Psychometrika*, 6(5), 309-316. doi: 10.1007/BF02288586
