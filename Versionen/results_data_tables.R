@@ -8,13 +8,16 @@ library(gridExtra)
 library(gridBase)
 library(extrafont)
 library(viridis)
+uzh_colors <- c("#3353B7", "#E38052")
+paper_colors <- c("darkgrey", "#B01111")
 
 # SE Plots ----------------------------------------------------------------
 simstudy_lvl1 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1")
 simstudy_lvl2 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2")
 simstudy_lvl1_small <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1_small")
 simstudy_lvl2_small <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2_small")
-
+simstudy_lvl1_small_h0 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl1_small_h0")
+simstudy_lvl2_small_h0 <- readRDS(file = "../Code/Simulationsstudie/simstudy_lvl2_small_h0")
 
 
 
@@ -223,58 +226,69 @@ power_model <- function(df){
   return(power_dataframe)
 }
 
-se_efficacy_lvl1_small <- se_efficacy(simstudy_lvl1_small)
-se_efficacy_lvl2_small <- se_efficacy(simstudy_lvl2_small)
-
 power_lvl1_small <- power_model(simstudy_lvl1_small)
 power_lvl2_small <- power_model(simstudy_lvl2_small)
 
-power_lvl1 <- power_model(simstudy_lvl1)
-power_lvl2 <- power_model(simstudy_lvl2)
-
-ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+plvl1 <- ggplot(data = power_lvl1_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
-  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+  geom_hline(yintercept = 0.8, linetype = "dashed")+
   theme_gray(base_size = 15) +
-  labs(title = "Power Design 1")+
+  theme(legend.position = "none")+
+  labs(title = "Power bei einer Intervention auf Level-1")+
   xlab("IKK")+
   ylab("Power")
 
-ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
+plvl2 <- ggplot(data = power_lvl2_small, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
-  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+  geom_hline(yintercept = 0.8, linetype = "dashed")+
   theme_gray(base_size = 15) +
-  labs(title = "Power Deisgn 2")+
-  xlab("IKK")+
-  ylab("Power")
+  theme(axis.title.y = element_blank(), legend.position = c(0.89,0.89))+
+  labs(title = "Power bei einer Intervention auf Level-2")+
+  xlab("IKK")
 
+grid.arrange(plvl1, plvl2, nrow = 1)
 
-ggplot(data = power_lvl1, mapping = aes(y = power_treatment, x = icc, fill = method))+
+type1error_lvl1 <- power_model(simstudy_lvl1_small_h0)
+type1error_lvl2 <- power_model(simstudy_lvl2_small_h0)
+
+ggplot(data = type1error_lvl1, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
-  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+  geom_hline(yintercept = 0.05, linetype = "dashed")+
   theme_gray(base_size = 15) +
-  labs(title = "Power Design 1")+
+  theme(legend.position = "none")+
+  labs(title = "Typ 1 Fehler Rate bei einer Intervention auf Level-1")+
   xlab("IKK")+
-  ylab("Power")
+  ylab("Typ 1 Fehler")
 
-ggplot(data = power_lvl2, mapping = aes(y = power_treatment, x = icc, fill = method))+
+ggplot(data = type1error_lvl2, mapping = aes(y = power_treatment, x = icc, fill = method))+
   geom_col(position = "dodge2") +
   scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
-  scale_y_continuous(breaks=seq(0,1, 0.05)) +
+  scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+  geom_hline(yintercept = 0.05, linetype = "dashed")+
   theme_gray(base_size = 15) +
-  labs(title = "Power Deisgn 2")+
+  labs(title = "Typ 1 Fehler Rate bei einer Intervention auf Level-2")+
   xlab("IKK")+
-  ylab("Power")
+  ylab("Typ 1 Fehler")
+
 
 #table
 powertable <- data.frame("icc" = c(0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50),
                           "LM" = power_lvl1_small$power_treatment[1:9],
                           "HLM" = power_lvl1_small$power_treatment[10:18],
                           "LM" = power_lvl2_small$power_treatment[1:9],
-                          "HLM" = power_lvl2_small$power_treatment[10:18])
+                          "HLM" = power_lvl2_small$power_treatment[10:18],
+                         "LM" = type1error_lvl1$power_treatment[1:9],
+                         "HLM" = type1error_lvl1$power_treatment[10:18],
+                         "LM" = type1error_lvl2$power_treatment[1:9],
+                         "HLM" = type1error_lvl2$power_treatment[10:18])
+
+powertable <- round(powertable, digits = 2)
 
 
 sd(powertable$LM)

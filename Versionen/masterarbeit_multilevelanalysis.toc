@@ -1,6 +1,6 @@
 \babel@toc {german}{}
 \contentsline {section}{Abbildungsverzeichnis}{III}%
-\contentsline {section}{Tabellenverzeichnis}{IV}%
+\contentsline {section}{Tabellenverzeichnis}{V}%
 \contentsline {section}{\numberline {1}Einleitung}{1}%
 \contentsline {section}{\numberline {2}Konzept und Anwendung von Multilevel Analyse}{4}%
 \contentsline {subsection}{\numberline {2.1}Beispiel zur Theorie}{4}%
@@ -23,11 +23,11 @@
 \contentsline {subsection}{\numberline {3.3}Studie 1: Genauigkeit von Schätzparametern}{44}%
 \contentsline {subsubsection}{\numberline {3.3.1}Ergebnisse Studie 1}{46}%
 \contentsline {subsubsection}{\numberline {3.3.2}Diskussion Studie 1}{50}%
-\contentsline {subsection}{\numberline {3.4}Studie 2: Statistische Power von HLM}{52}%
+\contentsline {subsection}{\numberline {3.4}Studie 2: Auswirkungen auf Fehlerrate und Power}{52}%
 \contentsline {subsubsection}{\numberline {3.4.1}Ergebnisse Studie 2}{54}%
-\contentsline {subsubsection}{\numberline {3.4.2}Diskussion Studie 2}{55}%
-\contentsline {subsection}{\numberline {3.5}Abschliessende Diskussion und Shiny App}{57}%
-\contentsline {section}{\numberline {4}Literaturverzeichnis}{60}%
-\contentsline {section}{\numberline {5}Anhang}{62}%
-\contentsline {section}{\numberline {A}Shiny App Screenshots}{62}%
-\contentsline {section}{\numberline {B}R Code}{62}%
+\contentsline {subsubsection}{\numberline {3.4.2}Diskussion Studie 2}{57}%
+\contentsline {subsection}{\numberline {3.5}Abschliessende Diskussion und Shiny App}{59}%
+\contentsline {section}{\numberline {4}Literaturverzeichnis}{62}%
+\contentsline {section}{\numberline {5}Anhang}{64}%
+\contentsline {section}{\numberline {A}Shiny App Screenshots}{64}%
+\contentsline {section}{\numberline {B}R Code}{64}%

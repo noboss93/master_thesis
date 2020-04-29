@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  28 APR 2020 10:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  29 APR 2020 18:55
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -832,37 +832,37 @@ n An-zahl an []Ubungsaufgaben
 \tf@lof=\write4
 \openout4 = `masterarbeit_multilevelanalysis.lof'.
 
- [3] (masterarbeit_multilevelanalysis.lot)
+ [3] [4] (masterarbeit_multilevelanalysis.lot)
 \tf@lot=\write5
 \openout5 = `masterarbeit_multilevelanalysis.lot'.
 
- [4] [5] [1] [2] [3] [4] [5]
-[6] [7] [8] [9]
-<aggregation.png, id=69, 526.96875pt x 526.96875pt>
+ [5] [6] [1] [2] [3] [4]
+[5] [6] [7] [8] [9]
+<aggregation.png, id=72, 526.96875pt x 526.96875pt>
 File: aggregation.png Graphic file (type png)
 <use aggregation.png>
 Package pdftex.def Info: aggregation.png  used on input line 313.
 (pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
  [10 <./aggregation.png>]
-<disaggregation_combined.png, id=74, 1053.9375pt x 526.96875pt>
+<disaggregation_combined.png, id=77, 1053.9375pt x 526.96875pt>
 File: disaggregation_combined.png Graphic file (type png)
 <use disaggregation_combined.png>
 Package pdftex.def Info: disaggregation_combined.png  used on input line 327.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [11] [12 <./disaggregation_combined.png>] [13] [14]
-<random_intercept.png, id=90, 1053.9375pt x 526.96875pt>
+<random_intercept.png, id=93, 1053.9375pt x 526.96875pt>
 File: random_intercept.png Graphic file (type png)
 <use random_intercept.png>
 Package pdftex.def Info: random_intercept.png  used on input line 379.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [15] [16 <./random_intercept.png>] [17] [18]
-<random_intercept_slope.png, id=104, 1053.9375pt x 526.96875pt>
+<random_intercept_slope.png, id=108, 1053.9375pt x 526.96875pt>
 File: random_intercept_slope.png Graphic file (type png)
 <use random_intercept_slope.png>
 Package pdftex.def Info: random_intercept_slope.png  used on input line 416.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [19 <./random_intercept_slope.png>]
-<corr_s_i.png, id=110, 1053.9375pt x 526.96875pt>
+<corr_s_i.png, id=113, 1053.9375pt x 526.96875pt>
 File: corr_s_i.png Graphic file (type png)
 <use corr_s_i.png>
 Package pdftex.def Info: corr_s_i.png  used on input line 431.
@@ -949,32 +949,38 @@ Package xcolor Warning: Incompatible color definition on input line 795.
 Package xcolor Warning: Incompatible color definition on input line 833.
 
 [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
-<se_genauigkeit_design1.png, id=207, 542.025pt x 542.025pt>
+<se_genauigkeit_design1.png, id=213, 542.025pt x 542.025pt>
 File: se_genauigkeit_design1.png Graphic file (type png)
 <use se_genauigkeit_design1.png>
-Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 988.
+Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 989.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
-<se_genauigkeit_design2.png, id=208, 542.025pt x 542.025pt>
+<se_genauigkeit_design2.png, id=214, 542.025pt x 542.025pt>
 File: se_genauigkeit_design2.png Graphic file (type png)
 <use se_genauigkeit_design2.png>
-Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 998.
+Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 999.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [48] [49 <./se_genauigkeit_design1.png>] [50 <./se_genauigkeit_design2.png>] [
 51] [52]
-<power_design1.png, id=227, 542.025pt x 542.025pt>
-File: power_design1.png Graphic file (type png)
-<use power_design1.png>
-Package pdftex.def Info: power_design1.png  used on input line 1060.
-(pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
-
 [53]
-<power_design2.png, id=231, 542.025pt x 542.025pt>
-File: power_design2.png Graphic file (type png)
-<use power_design2.png>
-Package pdftex.def Info: power_design2.png  used on input line 1069.
-(pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [54] [55 <./power_design1.png>] [56 <./power_design2.png>] [57] [58]
-[59] (masterarbeit_multilevelanalysis.bbl
+<results_power.png, id=236, 1053.9375pt x 526.96875pt>
+File: results_power.png Graphic file (type png)
+<use results_power.png>
+Package pdftex.def Info: results_power.png  used on input line 1072.
+(pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
+ [54] [55] [56 <./results_power.png>]
+<results_error_lvl2.png, id=248, 602.25pt x 526.96875pt>
+File: results_error_lvl2.png Graphic file (type png)
+<use results_error_lvl2.png>
+Package pdftex.def Info: results_error_lvl2.png  used on input line 1086.
+(pdftex.def)             Requested size: 227.62596pt x 227.62137pt.
+ [57 <./results_error_lvl2.png>]
+[58]
+Overfull \hbox (36.29158pt too wide) in paragraph at lines 1103--1104
+\OT1/cmr/m/n/12 Mit die-sen bei-den Stu-di-en wur-de das Ziel ver-folgt, die Un
+-ter-schie-de zwi-schen der Sch[]atzgenauigkeit
+ []
+
+[59] [60] [61] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -986,12 +992,12 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
   Zu-griff auf
  []
 
-[60] [61]) [62] (masterarbeit_multilevelanalysis.aux) ) 
+[62] [63]) [64] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 19940 strings out of 492450
- 377827 string characters out of 3129748
- 442070 words of memory out of 3000000
- 24057 multiletter control sequences out of 15000+200000
+ 19941 strings out of 492450
+ 377885 string characters out of 3129748
+ 444102 words of memory out of 3000000
+ 24058 multiletter control sequences out of 15000+200000
  544490 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,20n,67p,2294b,639s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1000,24 +1006,27 @@ Here is how much of TeX's memory you used:
 ts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmitt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (68 pages, 578779 bytes).
+ts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+mextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+itt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmtt12.pfb>
+Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 619345 bytes).
 
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
+ 348 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

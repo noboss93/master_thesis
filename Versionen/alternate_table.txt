@@ -1,0 +1,33 @@
+\begin{table}[t!]
+\centering
+\setlength{\tabcolsep}{10pt}
+\begin{threeparttable}
+\caption{SE Genauigkeit beider Regressionskoeffizienten in beiden Simulationsdesigns und für jede Analysemethode in allen IKK Bedingungen.}
+\begin{tabular}{lcccccccc}
+\toprule 
+& \multicolumn{4}{c}{$\Delta\widehat{SE}_{\widehat{\gamma}_{00}}$} 
+& \multicolumn{4}{c}{$\Delta\widehat{SE}_{\widehat{\gamma}_{1}}$}\\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+		& 	\multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2} 
+		& 	\multicolumn{2}{c}{Design 1} & \multicolumn{2}{c}{Design 2}\\
+			\cmidrule(lr){2-3}  \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+IKK 	& 	  LM 			&  HLM 				&  LM 				&  HLM  			&  LM 				&  HLM 				&  LM 				&  HLM\\
+		 	\midrule
+.00 	&   -.0511\tnote{a}	&   -.0366\tnote{b} &   -.0181\tnote{b}	& 	-.0027\tnote{b} & -.0095\tnote{b} 	& -.0098\tnote{b}	&  .0056\tnote{b} 	&  .0213\tnote{b}\\ 
+.05 	&  	-.4599 			&	 .0009\tnote{b}	&	-.4494			&	 .0244\tnote{b}	&  .0312\tnote{b}	&  .0053\tnote{b}	& -.4729			& -.0193\tnote{b}\\ 
+.10 	&  	-.5963			&	-.0191\tnote{b}	&	-.5900			&	-.0061\tnote{b}	&  .0542\tnote{a}	&  .0001\tnote{b}	& -.5790			&  .0207\tnote{b}\\ 
+.15 	&  	-.6510			&	 .0084\tnote{b}	&	-.6620			&	-.0241\tnote{b}	&  .0599\tnote{a}	& -.0226\tnote{b}	& -.6534			&  .0010\tnote{b}\\ 
+.20 	&  	-.6894			&	 .0201\tnote{b}	&	-.6832			&	 .0396\tnote{b}	&  .1327	 		&  .0135\tnote{b}	& -.6896			&  .0187\tnote{b}\\ 
+.25 	&   -.7257 			&	-.0029\tnote{b}	&	-.7180			&	 .0266\tnote{b}	&  .1720	 		&  .0159\tnote{b}	& -.7324			& -.0258\tnote{b}\\ 
+.30 	&   -.7506 			&	-.0120\tnote{b}	&	-.7481			&	-.0016\tnote{b}	&  .1565	 		& -.0318\tnote{b}	& -.7472			&  .0016\tnote{b}\\ 
+.40 	&  	-.7783			&	 .0057\tnote{b}	&	-.7787 			&	 .0059\tnote{b}	&  .3443	 		&  .0424\tnote{b}	& -.7758			&  .0191\tnote{b}\\ 
+.50 	&   -.8028 			&	-.0045\tnote{b}	&	-.8014			&	 .0041\tnote{b}	&  .4186	 		&  .0044\tnote{b}	& -.7943			&  .0401\tnote{b}\\  
+\bottomrule
+\end{tabular}
+\label{tab:se_eff_intercept}
+\begin{tablenotes}
+\item [a] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .10$
+\item [b] $|\Delta\widehat{SE}_{\widehat{\gamma}}| < .05$
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
