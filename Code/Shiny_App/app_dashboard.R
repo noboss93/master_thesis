@@ -199,6 +199,8 @@ server <- function(input, output, session) {
   simstudy_lvl2 <- readRDS("simstudy_lvl2")
   simstudy_lvl1_small <- readRDS("simstudy_lvl1_small")
   simstudy_lvl2_small <- readRDS("simstudy_lvl2_small")
+  simstudy_lvl1_small_h0 <- readRDS("simstudy_lvl1_small_h0")
+  simstudy_lvl2_small_h0 <- readRDS("simstudy_lvl2_small_h0")
   paper_colors <- c("darkgrey", "#B01111")
   
   
@@ -431,27 +433,58 @@ server <- function(input, output, session) {
 
 
 # Study 2  --------------------------------------------------------
-
+  designNames2 <- c(" Level-1" = "lvl1", " Level-2" = "lvl2")
+  
   sim_data_small <- reactive({
+    if(input$outcomes_2 == "power"){
     switch(input$design_cond_2,
            "lvl1" = simstudy_lvl1_small,
            "lvl2" = simstudy_lvl2_small)
+    }else{
+      switch(input$design_cond_2,
+             "lvl1" = simstudy_lvl1_small_h0,
+             "lvl2" = simstudy_lvl2_small_h0)
+    }
   })
   
-  power_data <- reactive({
-   power_model(sim_data_small())
+  study2_plot <- reactive({
+    power_model(sim_data_small())
   })
+  
+  
+  results_study2 <- reactive({
+    switch(input$outcomes_2,
+           "power" = "results_power.Rmd",
+           "error" = "results_error.Rmd")
+  })
+  
+  output$study2results <- renderUI({
+    withMathJax(includeMarkdown(results_study2()))
+  })
+  
   
   output$power <- renderPlot({
-    ggplot(data = power_data(), mapping = aes(y = power_treatment, x = icc, fill = method))+
-    geom_col(position = "dodge2") +
-    scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
-    scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
-    geom_hline(yintercept = 0.8, linetype = "dashed")+
-    theme_gray(base_size = 15) +
-    labs(title = "Power beider Analysemethoden")+
-    xlab("IKK")+
-    ylab("Power")
+    if(input$outcomes_2 == "power"){
+      ggplot(data = study2_plot(), mapping = aes(y = power_treatment, x = icc, fill = method))+
+        geom_col(position = "dodge2") +
+        scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
+        scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+        geom_hline(yintercept = 0.8, linetype = "dashed")+
+        theme_gray(base_size = 15) +
+        labs(title = paste("Statistische Power bei einer Intervention auf", names(designNames2)[designNames == input$design_cond_2]))+
+        xlab("IKK")+
+        ylab("Statistische Power")
+    }else{
+      ggplot(data = study2_plot(), mapping = aes(y = power_treatment, x = icc, fill = method))+
+        geom_col(position = "dodge2") +
+        scale_fill_manual(values = paper_colors, name = "Methode", labels = c("LM", "HLM")) +
+        scale_y_continuous(breaks=seq(0,1, 0.05), limits = c(0,1)) +
+        geom_hline(yintercept = 0.05, linetype = "dashed")+
+        theme_gray(base_size = 15) +
+        labs(title = paste("Fehler Typ 1 Rate bei einer Intervention auf", names(designNames2)[designNames == input$design_cond_2]))+
+        xlab("IKK")+
+        ylab("Fehler Typ 1 Rate")
+    }
   })
 
 
