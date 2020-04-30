@@ -4,5 +4,14 @@ author: "noah"
 date: "29 4 2020"
 output: html_document
 ---
+**Erkenntnis bezüglich LM:**
+* Die Fehler Typ 1 Rate **nimmt** bei einer Intervention auf **Level-1** bei zunehmender IKK **ab**.
+* Die Fehler Typ 1 Rate **nimmt** bei einer Intervention auf **Level-2** bei zunehmender IKK stark **zu**.
 
-Results Error
+**Erkenntnis bezüglich HLM:**
+* Die Fehler Typ 1 Rate bleibt bei beiden Interventionsdesigns konstant in einem Bereich um das Signifikanzniveau von 5%.
+
+**Schlussfolgerung:**
+* Die Überschätzung des Standardfehlers bei einer Intervention auf Level-1 führte zu einer ungewöhnlich kleinen Fehler Typ 1 Rate bei der Analyse mit einem LM. 
+* Die Stark erhöhten Fehler Typ 1 Raten des LMs bei einer Intervention auf Level-2 zeigen auf, dass ein LM bei zunhemender IKK den Standardfehler immer schlechter geschätzt hat. So dass bei einer IKK von .50 fast in der Hälfte aller Fälle fälschlicherweise einen Effekt gefunden wird.
+* Folglich sollten Forschende wenn immer möglich ein HLM bei der Analyse von hierarchischen Daten verwenden, um zu verhinden, dass fehlerhafte Schlussfolgerungen getroffen werden.

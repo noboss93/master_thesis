@@ -22,7 +22,7 @@ ui <- dashboardPage(
       menuItem("Simulationsstudie", startExpanded = FALSE,
                menuSubItem("Forschungsfrage und Studiendesign", tabName = "studyquestion"),
                menuSubItem("Studie 1: Genauigkeit von Schätzparametern", tabName = "study1"),
-               menuSubItem("Studie 2: Statistische Power von HLM", tabName = "study2"))
+               menuSubItem("Studie 2: Zuverlässigkeit von LM und HLM", tabName = "study2"))
       
       )
   ),

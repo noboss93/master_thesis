@@ -1,7 +1,19 @@
 ---
-title: "results_pwer"
+title: "results_power"
 author: "noah"
 date: "29 4 2020"
 output: html_document
 ---
-Results Power
+**Erkenntnis bezüglich LM:**
+* Power **nimmt** bei eienr Intervention auf **Level-1** bei zunehmender IKK **ab**.
+* Power **nimmt** bei eienr Intervention auf **Level-2** bei zunehmender IKK **ab**.
+* Bei einer Intervention auf **Level-2** ist die **Abnahme** der Power **geringer** als bei HLM.
+
+**Erkenntnis bezüglich HLM:**
+* Power bleibt bei einer Intervention auf **Level-1** über alle IKK Bedingungen relativ **Konstant**.
+* Power **nimmt** bei eienr Intervention auf **Level-2** bei zunehmender IKK stark **ab**.
+
+**Schlussfolgerung:**
+* Bei einer Intervention auf Level-1 behält ein HLM eine konstante Power und sollte einem LM bei der Analyse vorgezogen werden.
+* Da keine Power von 80% erreicht wurde, könnte die Stichprobe oder der Effekt der Intervention bei gegebener hierarchischer Struktur zu klein sein.
+* Auf Level-2 scheint es so, als ob, ein LM eine besser Power aufweisst. Aus der ersten Simulationsstudie wissen wir aber, dass ein LM in dieser Situation den Standardfehler stark unterschätzt und dies folglich zu einer Inflation der Prüfgrösse führt, woraus diese "Pseudo-Power" resultiert. Folglich sollte auch hier kein LM verwendet werden, da man der Power des HLMs mehr Vertrauen schenken kann.

@@ -28,7 +28,7 @@ $$
 Der Regressionskoeffizient der Steigung $\beta_{1j}$ enthält nun ebenfalls eine zufällige Abweichung $U_{1j}$ von der die Gruppe $j$ von der Gesamtsteigung $\gamma_{10}$ abweicht. Bei einem *Random Intercept and Slope* Modell kann es sein, dass ein erhöhter Achsenabschnitt mit einer erhöhten Steigung einhergeht. In diesem Fall spricht man von einer positiven Korrelation zwischen Achsenabschnitt und Steigung. Diese beiden Koeffizienten müssen aber nicht zwingend positiv miteinander korreliert sein. Es gibt auch Situationen in denen sie beispielsweise unkorreliert sind oder eine gar negative Korrelation aufweisen. In der folgenden Abbildung sind diese Zusammenhänge noch einmal visualisiert.
 
 <center>
-<img src="corr_uncorr_for_app.png" style="width:75%;height:auto;">
+<img src="corr_uncorr_for_app.png" style="width:600px;height:300px;">
 </center>
 
 HLMs können also die Gruppenzugehörigkeit sowohl im Achsenabschnitt als auch in der Steigung berücksichtigen und können dementsprechend eine effiziente Methode sein um hierarchische Daten zu analysieren. In meiner Masterarbeit werden HLMs noch weiter anhand eines Beispieles erklärt. Für eine ausführliche Einführung in HLMs empfiehle ich das Lehrbuch von Snijders und Bosker (2012).
