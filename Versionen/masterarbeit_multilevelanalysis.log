@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  29 APR 2020 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 APR 2020 11:54
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -961,21 +961,21 @@ Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 999.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [48] [49 <./se_genauigkeit_design1.png>] [50 <./se_genauigkeit_design2.png>] [
 51] [52]
-[53]
-<results_power.png, id=236, 1053.9375pt x 526.96875pt>
+[53] [54] [55]
+<results_power.png, id=243, 1053.9375pt x 526.96875pt>
 File: results_power.png Graphic file (type png)
 <use results_power.png>
-Package pdftex.def Info: results_power.png  used on input line 1072.
+Package pdftex.def Info: results_power.png  used on input line 1071.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [54] [55] [56 <./results_power.png>]
+ [56 <./results_power.png>]
 <results_error_lvl2.png, id=248, 602.25pt x 526.96875pt>
 File: results_error_lvl2.png Graphic file (type png)
 <use results_error_lvl2.png>
-Package pdftex.def Info: results_error_lvl2.png  used on input line 1086.
+Package pdftex.def Info: results_error_lvl2.png  used on input line 1083.
 (pdftex.def)             Requested size: 227.62596pt x 227.62137pt.
  [57 <./results_error_lvl2.png>]
 [58]
-Overfull \hbox (36.29158pt too wide) in paragraph at lines 1103--1104
+Overfull \hbox (36.29158pt too wide) in paragraph at lines 1100--1101
 \OT1/cmr/m/n/12 Mit die-sen bei-den Stu-di-en wur-de das Ziel ver-folgt, die Un
 -ter-schie-de zwi-schen der Sch[]atzgenauigkeit
  []
@@ -1023,7 +1023,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 619345 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 620401 bytes).
 
 PDF statistics:
  348 PDF objects out of 1000 (max. 8388607)

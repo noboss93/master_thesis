@@ -274,7 +274,7 @@ ggplot(data = type1error_lvl2, mapping = aes(y = power_treatment, x = icc, fill 
   theme_gray(base_size = 15) +
   labs(title = "Typ 1 Fehler Rate bei einer Intervention auf Level-2")+
   xlab("IKK")+
-  ylab("Typ 1 Fehler")
+  ylab("Typ 1 Fehler Rate")
 
 
 #table
