@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 APR 2020 11:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 APR 2020 13:39
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -841,123 +841,123 @@ n An-zahl an []Ubungsaufgaben
 <aggregation.png, id=72, 526.96875pt x 526.96875pt>
 File: aggregation.png Graphic file (type png)
 <use aggregation.png>
-Package pdftex.def Info: aggregation.png  used on input line 313.
+Package pdftex.def Info: aggregation.png  used on input line 318.
 (pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
  [10 <./aggregation.png>]
 <disaggregation_combined.png, id=77, 1053.9375pt x 526.96875pt>
 File: disaggregation_combined.png Graphic file (type png)
 <use disaggregation_combined.png>
-Package pdftex.def Info: disaggregation_combined.png  used on input line 327.
+Package pdftex.def Info: disaggregation_combined.png  used on input line 332.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [11] [12 <./disaggregation_combined.png>] [13] [14]
 <random_intercept.png, id=93, 1053.9375pt x 526.96875pt>
 File: random_intercept.png Graphic file (type png)
 <use random_intercept.png>
-Package pdftex.def Info: random_intercept.png  used on input line 379.
+Package pdftex.def Info: random_intercept.png  used on input line 384.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [15] [16 <./random_intercept.png>] [17] [18]
 <random_intercept_slope.png, id=108, 1053.9375pt x 526.96875pt>
 File: random_intercept_slope.png Graphic file (type png)
 <use random_intercept_slope.png>
-Package pdftex.def Info: random_intercept_slope.png  used on input line 416.
+Package pdftex.def Info: random_intercept_slope.png  used on input line 421.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [19 <./random_intercept_slope.png>]
 <corr_s_i.png, id=113, 1053.9375pt x 526.96875pt>
 File: corr_s_i.png Graphic file (type png)
 <use corr_s_i.png>
-Package pdftex.def Info: corr_s_i.png  used on input line 431.
+Package pdftex.def Info: corr_s_i.png  used on input line 436.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [20 <./corr_s_i.png>] [21] [22]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 465.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 470.
 
-Overfull \hbox (4.39088pt too wide) in paragraph at lines 466--467
+Overfull \hbox (4.39088pt too wide) in paragraph at lines 471--472
 \OT1/cmr/m/n/12 Mit dem Pa-ket \OT1/cmtt/m/n/12 lme4 \OT1/cmr/m/n/12 las-sen si
 ch ver-schie-den-ste For-men von hier-ar-chi-schen Mo-del-len sch[]atzen
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 469.
+Package xcolor Warning: Incompatible color definition on input line 474.
 
 [23]
 
-Package xcolor Warning: Incompatible color definition on input line 482.
+Package xcolor Warning: Incompatible color definition on input line 487.
 
 
-Overfull \hbox (14.754pt too wide) in paragraph at lines 484--484
+Overfull \hbox (2.40399pt too wide) in paragraph at lines 489--489
 [][]\OT1/cmtt/m/n/12 lmer[](Abhangige Variable ~ Feste Effekte + (Zufallige E
-ffekte | Gruppe), ... )[] 
+ffekte | Gruppe),...)[] 
  []
 
 [24] [25]
 
-Package xcolor Warning: Incompatible color definition on input line 526.
+Package xcolor Warning: Incompatible color definition on input line 531.
 
 [26]
 
-Package xcolor Warning: Incompatible color definition on input line 557.
+Package xcolor Warning: Incompatible color definition on input line 562.
 
 
-Package xcolor Warning: Incompatible color definition on input line 570.
+Package xcolor Warning: Incompatible color definition on input line 575.
 
 
-Package xcolor Warning: Incompatible color definition on input line 576.
+Package xcolor Warning: Incompatible color definition on input line 581.
 
 [27]
 
-Package xcolor Warning: Incompatible color definition on input line 609.
+Package xcolor Warning: Incompatible color definition on input line 614.
 
 
-Package xcolor Warning: Incompatible color definition on input line 622.
+Package xcolor Warning: Incompatible color definition on input line 627.
 
 [28]
 
-Package xcolor Warning: Incompatible color definition on input line 649.
+Package xcolor Warning: Incompatible color definition on input line 654.
 
 
-Overfull \hbox (8.579pt too wide) in paragraph at lines 651--651
+Overfull \hbox (8.579pt too wide) in paragraph at lines 656--656
 [][]\OT1/cmtt/m/n/12 m_corr[] []<-[] []lmer[][](punktzahl[] []~[] []uebung[] []
 +[] [](uebung[] []|[] []klasse),[] []data[] []= beispiel_data,[][] 
  []
 
 [29]
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 689.
 
 
-Package xcolor Warning: Incompatible color definition on input line 697.
+Package xcolor Warning: Incompatible color definition on input line 702.
 
 [30]
 
-Package xcolor Warning: Incompatible color definition on input line 703.
+Package xcolor Warning: Incompatible color definition on input line 708.
 
 
-Overfull \hbox (2.40399pt too wide) in paragraph at lines 718--718
+Overfull \hbox (2.40399pt too wide) in paragraph at lines 723--723
 []\OT1/cmtt/m/n/12 ## m_fix_lvl2: punktzahl ~ uebung + fenster + ((1 | klasse) 
 + (0 + uebung |[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 730.
+Package xcolor Warning: Incompatible color definition on input line 735.
 
 [31] [32] [33]
 
-Package xcolor Warning: Incompatible color definition on input line 795.
+Package xcolor Warning: Incompatible color definition on input line 800.
 
 [34]
 
-Package xcolor Warning: Incompatible color definition on input line 833.
+Package xcolor Warning: Incompatible color definition on input line 838.
 
 [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
 <se_genauigkeit_design1.png, id=213, 542.025pt x 542.025pt>
 File: se_genauigkeit_design1.png Graphic file (type png)
 <use se_genauigkeit_design1.png>
-Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 989.
+Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 994.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
 <se_genauigkeit_design2.png, id=214, 542.025pt x 542.025pt>
 File: se_genauigkeit_design2.png Graphic file (type png)
 <use se_genauigkeit_design2.png>
-Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 999.
+Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1004.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [48] [49 <./se_genauigkeit_design1.png>] [50 <./se_genauigkeit_design2.png>] [
 51] [52]
@@ -965,17 +965,17 @@ Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 999.
 <results_power.png, id=243, 1053.9375pt x 526.96875pt>
 File: results_power.png Graphic file (type png)
 <use results_power.png>
-Package pdftex.def Info: results_power.png  used on input line 1071.
+Package pdftex.def Info: results_power.png  used on input line 1076.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [56 <./results_power.png>]
 <results_error_lvl2.png, id=248, 602.25pt x 526.96875pt>
 File: results_error_lvl2.png Graphic file (type png)
 <use results_error_lvl2.png>
-Package pdftex.def Info: results_error_lvl2.png  used on input line 1083.
+Package pdftex.def Info: results_error_lvl2.png  used on input line 1088.
 (pdftex.def)             Requested size: 227.62596pt x 227.62137pt.
  [57 <./results_error_lvl2.png>]
 [58]
-Overfull \hbox (36.29158pt too wide) in paragraph at lines 1100--1101
+Overfull \hbox (36.29158pt too wide) in paragraph at lines 1105--1106
 \OT1/cmr/m/n/12 Mit die-sen bei-den Stu-di-en wur-de das Ziel ver-folgt, die Un
 -ter-schie-de zwi-schen der Sch[]atzgenauigkeit
  []
@@ -1023,7 +1023,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 620401 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 622096 bytes).
 
 PDF statistics:
  348 PDF objects out of 1000 (max. 8388607)
