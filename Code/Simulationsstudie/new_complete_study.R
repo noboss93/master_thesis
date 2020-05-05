@@ -153,9 +153,8 @@ simstudy_lvl2_h0 <- simulation_study(nschueler = 12, nklassen = 70, sd_intercept
                              treatment_level1 = FALSE, 
                               niter = 1000)
 
-saveRDS(simstudy_lvl1_h0, file = "simstudy_lvl1_small_h0")
-saveRDS(simstudy_lvl2_h0, file = "simstudy_lvl2_small_h0")
-
+#saveRDS(simstudy_lvl1_h0, file = "simstudy_lvl1_small_h0")
+#saveRDS(simstudy_lvl2_h0, file = "simstudy_lvl2_small_h0")
 #saveRDS(simstudy_lvl1, file = "simstudy_lvl1")
 #saveRDS(simstudy_lvl2, file = "simstudy_lvl2")
 #saveRDS(simstudy_lvl1_small, file = "simstudy_lvl1_small")

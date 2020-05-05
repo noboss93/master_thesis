@@ -8,6 +8,7 @@ library(dplyr)
 library(tidyr)
 library(viridis)
 library(MASS)
+library(markdown)
 
 
 
@@ -30,15 +31,15 @@ ui <- dashboardPage(
     useShinyjs(),
     tabItems(
     tabItem(tabName = "intro",
-            source("tab_intro.R", encoding = "utf8")[1]),
+            source("tabs/tab_intro.R", encoding = "utf8")[1]),
    tabItem(tabName = "analysing", 
-            source("tab_analysing_intro.R", encoding = "utf8")[1]),
+            source("tabs/tab_analysing_intro.R", encoding = "utf8")[1]),
     tabItem(tabName = "studyquestion", 
-            source("tab_simstudy_app.R", encoding = "utf8")[1]),
+            source("tabs/tab_simstudy_app.R", encoding = "utf8")[1]),
     tabItem(tabName = "study1", 
-            source("tab_study_1.R", encoding = "utf8")[1]),
+            source("tabs/tab_study_1.R", encoding = "utf8")[1]),
     tabItem(tabName = "study2", 
-            source("tab_study_2.R", encoding = "utf8")[1])
+            source("tabs/tab_study_2.R", encoding = "utf8")[1])
     )
   )
 )
@@ -47,7 +48,7 @@ ui <- dashboardPage(
 server <- function(input, output, session) {
   
   # Laden der richtigen Funktion
-  source("dgp_app.R")
+  source("functions/dgp_app.R")
   
   # Generieren des Datensatzes
   data_model  <- eventReactive(input$gen_data, {
@@ -195,12 +196,12 @@ server <- function(input, output, session) {
    
 
 # Sim Study Functions and Data ----------------------------------------------------------------
-  simstudy_lvl1 <- readRDS("simstudy_lvl1")
-  simstudy_lvl2 <- readRDS("simstudy_lvl2")
-  simstudy_lvl1_small <- readRDS("simstudy_lvl1_small")
-  simstudy_lvl2_small <- readRDS("simstudy_lvl2_small")
-  simstudy_lvl1_small_h0 <- readRDS("simstudy_lvl1_small_h0")
-  simstudy_lvl2_small_h0 <- readRDS("simstudy_lvl2_small_h0")
+  simstudy_lvl1 <- readRDS(file = "datasets/simstudy_lvl1")
+  simstudy_lvl2 <- readRDS(file = "datasets/simstudy_lvl2")
+  simstudy_lvl1_small <- readRDS(file = "datasets/simstudy_lvl1_small")
+  simstudy_lvl2_small <- readRDS(file = "datasets/simstudy_lvl2_small")
+  simstudy_lvl1_small_h0 <- readRDS(file = "datasets/simstudy_lvl1_small_h0")
+  simstudy_lvl2_small_h0 <- readRDS(file = "datasets/simstudy_lvl2_small_h0")
   paper_colors <- c("darkgrey", "#B01111")
   
   
@@ -403,8 +404,8 @@ server <- function(input, output, session) {
   
   results_study1 <- reactive({
       switch(input$outcomes_1,
-             "rel_bias" = "results_coefs_1.Rmd",
-             "se_eff" = "results_se_1.Rmd")
+             "rel_bias" = "texts/results_coefs_1.Rmd",
+             "se_eff" = "texts/results_se_1.Rmd")
   })
   
   output$mrkdwn <- renderUI({
@@ -454,8 +455,8 @@ server <- function(input, output, session) {
   
   results_study2 <- reactive({
     switch(input$outcomes_2,
-           "power" = "results_power.Rmd",
-           "error" = "results_error.Rmd")
+           "power" = "texts/results_power.Rmd",
+           "error" = "texts/results_error.Rmd")
   })
   
   output$study2results <- renderUI({

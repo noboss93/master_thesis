@@ -11,7 +11,7 @@ fluidRow(
   box(width = 9, title = "Studienergebniss", status = "primary",
       plotOutput(outputId = "power")
       ),
-  box(width = 12, title = "Infobox", status = "primary", 
+  box(width = 12, title = "Interpretation der Ergebnisse", status = "primary", 
       uiOutput(outputId = "study2results")
       )
 )

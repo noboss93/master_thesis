@@ -1,0 +1,12 @@
+name: master_thesis_app
+title: master_thesis_app
+username:
+account: noboss
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2216969
+bundleId: 3085720
+url: https://noboss.shinyapps.io/master_thesis_app/
+when: 1588249587.49908
+asMultiple: FALSE
+asStatic: FALSE
