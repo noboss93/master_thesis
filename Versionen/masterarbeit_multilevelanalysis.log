@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 APR 2020 13:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 APR 2020 15:30
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -974,13 +974,7 @@ File: results_error_lvl2.png Graphic file (type png)
 Package pdftex.def Info: results_error_lvl2.png  used on input line 1088.
 (pdftex.def)             Requested size: 227.62596pt x 227.62137pt.
  [57 <./results_error_lvl2.png>]
-[58]
-Overfull \hbox (36.29158pt too wide) in paragraph at lines 1105--1106
-\OT1/cmr/m/n/12 Mit die-sen bei-den Stu-di-en wur-de das Ziel ver-folgt, die Un
--ter-schie-de zwi-schen der Sch[]atzgenauigkeit
- []
-
-[59] [60] [61] (masterarbeit_multilevelanalysis.bbl
+[58] [59] [60] [61] (masterarbeit_multilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -1023,7 +1017,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 622096 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 622095 bytes).
 
 PDF statistics:
  348 PDF objects out of 1000 (max. 8388607)
