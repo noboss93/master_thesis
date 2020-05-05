@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  30 APR 2020 15:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  5 MAY 2020 10:24
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -797,32 +797,35 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package epstopdf Info: Source file: <uzh_logo.eps>
+Package epstopdf Info: Source file: <./figures/uzh_logo.eps>
 (epstopdf)                    date: 2019-07-24 14:32:54
 (epstopdf)                    size: 509174 bytes
-(epstopdf)             Output file: <uzh_logo-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-10-18 10:31:27
-(epstopdf)                    size: 42683 bytes
-(epstopdf)             Command: <epstopdf --outfile=uzh_logo-eps-converted-to.p
-df uzh_logo.eps>
+(epstopdf)             Output file: <./figures/uzh_logo-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-05-05 10:19:07
+(epstopdf)                    size: 42695 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figures/uzh_logo-eps-conv
+erted-to.pdf ./figures/uzh_logo.eps>
 (epstopdf)             \includegraphics on input line 166.
 Package epstopdf Info: Output file is already uptodate.
-<uzh_logo-eps-converted-to.pdf, id=1, 142.5325pt x 49.18375pt>
-File: uzh_logo-eps-converted-to.pdf Graphic file (type pdf)
-<use uzh_logo-eps-converted-to.pdf>
-Package pdftex.def Info: uzh_logo-eps-converted-to.pdf  used on input line 166.
 
+
+pdfTeX warning: pdflatex (file ./figures/uzh_logo-eps-converted-to.pdf): PDF in
+clusion: found PDF version <1.7>, but at most version <1.5> allowed
+<./figures/uzh_logo-eps-converted-to.pdf, id=1, 142.5325pt x 49.18375pt>
+File: ./figures/uzh_logo-eps-converted-to.pdf Graphic file (type pdf)
+<use ./figures/uzh_logo-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/uzh_logo-eps-converted-to.pdf  used on input
+ line 166.
 (pdftex.def)             Requested size: 227.62204pt x 78.54547pt.
-
 [1
 
-{C:/Users/nboss/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./uzh_logo-
-eps-converted-to.pdf>] (masterarbeit_multilevelanalysis.toc [1])
+{C:/Users/nboss/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figures/u
+zh_logo-eps-converted-to.pdf>] (masterarbeit_multilevelanalysis.toc [1])
 \tf@toc=\write3
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
- [2]
-(masterarbeit_multilevelanalysis.lof
+
+[2] (masterarbeit_multilevelanalysis.lof
 Overfull \hbox (30.6765pt too wide) in paragraph at lines 2--2
  [][] []\OT1/cmr/m/n/12 Zusammenhang zwi-schen der durch-schnitt-lich gel[]oste
 n An-zahl an []Ubungsaufgaben 
@@ -838,36 +841,40 @@ n An-zahl an []Ubungsaufgaben
 
  [5] [6] [1] [2] [3] [4]
 [5] [6] [7] [8] [9]
-<aggregation.png, id=72, 526.96875pt x 526.96875pt>
-File: aggregation.png Graphic file (type png)
-<use aggregation.png>
-Package pdftex.def Info: aggregation.png  used on input line 318.
+<./figures/aggregation.png, id=72, 526.96875pt x 526.96875pt>
+File: ./figures/aggregation.png Graphic file (type png)
+<use ./figures/aggregation.png>
+Package pdftex.def Info: ./figures/aggregation.png  used on input line 318.
 (pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
- [10 <./aggregation.png>]
-<disaggregation_combined.png, id=77, 1053.9375pt x 526.96875pt>
-File: disaggregation_combined.png Graphic file (type png)
-<use disaggregation_combined.png>
-Package pdftex.def Info: disaggregation_combined.png  used on input line 332.
+ [10 <./figures/aggregation.png>]
+<./figures/disaggregation_combined.png, id=77, 1053.9375pt x 526.96875pt>
+File: ./figures/disaggregation_combined.png Graphic file (type png)
+<use ./figures/disaggregation_combined.png>
+Package pdftex.def Info: ./figures/disaggregation_combined.png  used on input l
+ine 332.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [11] [12 <./disaggregation_combined.png>] [13] [14]
-<random_intercept.png, id=93, 1053.9375pt x 526.96875pt>
-File: random_intercept.png Graphic file (type png)
-<use random_intercept.png>
-Package pdftex.def Info: random_intercept.png  used on input line 384.
+ [11] [12 <./figures/disaggregation_combined.png>] [13] [14]
+<./figures/random_intercept.png, id=93, 1053.9375pt x 526.96875pt>
+File: ./figures/random_intercept.png Graphic file (type png)
+<use ./figures/random_intercept.png>
+Package pdftex.def Info: ./figures/random_intercept.png  used on input line 384
+.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [15] [16 <./random_intercept.png>] [17] [18]
-<random_intercept_slope.png, id=108, 1053.9375pt x 526.96875pt>
-File: random_intercept_slope.png Graphic file (type png)
-<use random_intercept_slope.png>
-Package pdftex.def Info: random_intercept_slope.png  used on input line 421.
+ [15] [16 <./figures/random_intercept.png>]
+[17] [18]
+<./figures/random_intercept_slope.png, id=108, 1053.9375pt x 526.96875pt>
+File: ./figures/random_intercept_slope.png Graphic file (type png)
+<use ./figures/random_intercept_slope.png>
+Package pdftex.def Info: ./figures/random_intercept_slope.png  used on input li
+ne 421.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [19 <./random_intercept_slope.png>]
-<corr_s_i.png, id=113, 1053.9375pt x 526.96875pt>
-File: corr_s_i.png Graphic file (type png)
-<use corr_s_i.png>
-Package pdftex.def Info: corr_s_i.png  used on input line 436.
+ [19 <./figures/random_intercept_slope.png>]
+<./figures/corr_s_i.png, id=113, 1053.9375pt x 526.96875pt>
+File: ./figures/corr_s_i.png Graphic file (type png)
+<use ./figures/corr_s_i.png>
+Package pdftex.def Info: ./figures/corr_s_i.png  used on input line 436.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [20 <./corr_s_i.png>] [21] [22]
+ [20 <./figures/corr_s_i.png>] [21] [22]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 470.
 
@@ -949,32 +956,35 @@ Package xcolor Warning: Incompatible color definition on input line 800.
 Package xcolor Warning: Incompatible color definition on input line 838.
 
 [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
-<se_genauigkeit_design1.png, id=213, 542.025pt x 542.025pt>
-File: se_genauigkeit_design1.png Graphic file (type png)
-<use se_genauigkeit_design1.png>
-Package pdftex.def Info: se_genauigkeit_design1.png  used on input line 994.
+<./figures/se_genauigkeit_design1.png, id=213, 542.025pt x 542.025pt>
+File: ./figures/se_genauigkeit_design1.png Graphic file (type png)
+<use ./figures/se_genauigkeit_design1.png>
+Package pdftex.def Info: ./figures/se_genauigkeit_design1.png  used on input li
+ne 994.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
-<se_genauigkeit_design2.png, id=214, 542.025pt x 542.025pt>
-File: se_genauigkeit_design2.png Graphic file (type png)
-<use se_genauigkeit_design2.png>
-Package pdftex.def Info: se_genauigkeit_design2.png  used on input line 1004.
+<./figures/se_genauigkeit_design2.png, id=214, 542.025pt x 542.025pt>
+File: ./figures/se_genauigkeit_design2.png Graphic file (type png)
+<use ./figures/se_genauigkeit_design2.png>
+Package pdftex.def Info: ./figures/se_genauigkeit_design2.png  used on input li
+ne 1004.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
- [48] [49 <./se_genauigkeit_design1.png>] [50 <./se_genauigkeit_design2.png>] [
-51] [52]
-[53] [54] [55]
-<results_power.png, id=243, 1053.9375pt x 526.96875pt>
-File: results_power.png Graphic file (type png)
-<use results_power.png>
-Package pdftex.def Info: results_power.png  used on input line 1076.
+ [48] [49 <./figures/se_genauigkeit_design1.png>] [50 <./figures/se_genauigkeit
+_design2.png>]
+[51] [52] [53] [54] [55]
+<./figures/results_power.png, id=243, 1053.9375pt x 526.96875pt>
+File: ./figures/results_power.png Graphic file (type png)
+<use ./figures/results_power.png>
+Package pdftex.def Info: ./figures/results_power.png  used on input line 1076.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [56 <./results_power.png>]
-<results_error_lvl2.png, id=248, 602.25pt x 526.96875pt>
-File: results_error_lvl2.png Graphic file (type png)
-<use results_error_lvl2.png>
-Package pdftex.def Info: results_error_lvl2.png  used on input line 1088.
+ [56 <./figures/results_power.png>]
+<./figures/results_error_lvl2.png, id=248, 602.25pt x 526.96875pt>
+File: ./figures/results_error_lvl2.png Graphic file (type png)
+<use ./figures/results_error_lvl2.png>
+Package pdftex.def Info: ./figures/results_error_lvl2.png  used on input line 1
+088.
 (pdftex.def)             Requested size: 227.62596pt x 227.62137pt.
- [57 <./results_error_lvl2.png>]
-[58] [59] [60] [61] (masterarbeit_multilevelanalysis.bbl
+ [57 <./figures/results_error_lvl2.png>] [58] [59] [60] [61] (masterarbeit_mult
+ilevelanalysis.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 49--67
 []\OT1/cmr/m/n/12 Chang, W., Cheng, J., Al-laire, J., Xie, Y. & Mc-Pher-son, J.
   (2019).  shi-
@@ -988,10 +998,10 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
 
 [62] [63]) [64] (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 19941 strings out of 492450
- 377885 string characters out of 3129748
+ 19927 strings out of 492450
+ 378518 string characters out of 3129748
  444102 words of memory out of 3000000
- 24058 multiletter control sequences out of 15000+200000
+ 24044 multiletter control sequences out of 15000+200000
  544490 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,20n,67p,2294b,639s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1017,7 +1027,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 622095 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 621899 bytes).
 
 PDF statistics:
  348 PDF objects out of 1000 (max. 8388607)
