@@ -29,4 +29,3 @@
 \contentsline {subsection}{\numberline {3.5}Abschliessende Diskussion und Shiny App}{59}%
 \contentsline {section}{\numberline {4}Literaturverzeichnis}{62}%
 \contentsline {section}{\numberline {5}Anhang}{64}%
-\contentsline {section}{\numberline {A}Shiny App Screenshots}{64}%

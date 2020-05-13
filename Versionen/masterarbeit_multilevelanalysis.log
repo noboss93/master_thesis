@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  5 MAY 2020 10:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  13 MAY 2020 15:13
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -805,7 +805,7 @@ Package epstopdf Info: Source file: <./figures/uzh_logo.eps>
 (epstopdf)                    size: 42695 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/uzh_logo-eps-conv
 erted-to.pdf ./figures/uzh_logo.eps>
-(epstopdf)             \includegraphics on input line 166.
+(epstopdf)             \includegraphics on input line 167.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -815,7 +815,7 @@ clusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: ./figures/uzh_logo-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/uzh_logo-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/uzh_logo-eps-converted-to.pdf  used on input
- line 166.
+ line 167.
 (pdftex.def)             Requested size: 227.62204pt x 78.54547pt.
 [1
 
@@ -825,148 +825,150 @@ zh_logo-eps-converted-to.pdf>] (masterarbeit_multilevelanalysis.toc [1])
 \openout3 = `masterarbeit_multilevelanalysis.toc'.
 
 
-[2] (masterarbeit_multilevelanalysis.lof
-Overfull \hbox (30.6765pt too wide) in paragraph at lines 2--2
- [][] []\OT1/cmr/m/n/12 Zusammenhang zwi-schen der durch-schnitt-lich gel[]oste
-n An-zahl an []Ubungsaufgaben 
- []
-
-)
+[2] (masterarbeit_multilevelanalysis.lof)
 \tf@lof=\write4
 \openout4 = `masterarbeit_multilevelanalysis.lof'.
 
- [3] [4] (masterarbeit_multilevelanalysis.lot)
+ [3] [4]
+(masterarbeit_multilevelanalysis.lot)
 \tf@lot=\write5
 \openout5 = `masterarbeit_multilevelanalysis.lot'.
 
- [5] [6] [1] [2] [3] [4]
-[5] [6] [7] [8] [9]
+ [5] [6] [1] [2] [3] [4] [5] [6] [7]
+[8] [9]
 <./figures/aggregation.png, id=72, 526.96875pt x 526.96875pt>
 File: ./figures/aggregation.png Graphic file (type png)
 <use ./figures/aggregation.png>
-Package pdftex.def Info: ./figures/aggregation.png  used on input line 318.
+Package pdftex.def Info: ./figures/aggregation.png  used on input line 319.
 (pdftex.def)             Requested size: 227.62137pt x 227.62137pt.
  [10 <./figures/aggregation.png>]
 <./figures/disaggregation_combined.png, id=77, 1053.9375pt x 526.96875pt>
 File: ./figures/disaggregation_combined.png Graphic file (type png)
 <use ./figures/disaggregation_combined.png>
 Package pdftex.def Info: ./figures/disaggregation_combined.png  used on input l
-ine 332.
+ine 333.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [11] [12 <./figures/disaggregation_combined.png>] [13] [14]
 <./figures/random_intercept.png, id=93, 1053.9375pt x 526.96875pt>
 File: ./figures/random_intercept.png Graphic file (type png)
 <use ./figures/random_intercept.png>
-Package pdftex.def Info: ./figures/random_intercept.png  used on input line 384
+Package pdftex.def Info: ./figures/random_intercept.png  used on input line 385
 .
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [15] [16 <./figures/random_intercept.png>]
-[17] [18]
+ [15] [16 <./figures/random_intercept.png>] [17] [18]
 <./figures/random_intercept_slope.png, id=108, 1053.9375pt x 526.96875pt>
 File: ./figures/random_intercept_slope.png Graphic file (type png)
 <use ./figures/random_intercept_slope.png>
 Package pdftex.def Info: ./figures/random_intercept_slope.png  used on input li
-ne 421.
+ne 422.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [19 <./figures/random_intercept_slope.png>]
+
+[19 <./figures/random_intercept_slope.png>]
 <./figures/corr_s_i.png, id=113, 1053.9375pt x 526.96875pt>
 File: ./figures/corr_s_i.png Graphic file (type png)
 <use ./figures/corr_s_i.png>
-Package pdftex.def Info: ./figures/corr_s_i.png  used on input line 436.
+Package pdftex.def Info: ./figures/corr_s_i.png  used on input line 437.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
- [20 <./figures/corr_s_i.png>] [21] [22]
+ [20 <./figures/corr_s_i.png>]
+[21] [22]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 470.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 473.
 
-Overfull \hbox (4.39088pt too wide) in paragraph at lines 471--472
+Overfull \hbox (4.39088pt too wide) in paragraph at lines 474--475
 \OT1/cmr/m/n/12 Mit dem Pa-ket \OT1/cmtt/m/n/12 lme4 \OT1/cmr/m/n/12 las-sen si
 ch ver-schie-den-ste For-men von hier-ar-chi-schen Mo-del-len sch[]atzen
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 474.
+Package xcolor Warning: Incompatible color definition on input line 477.
 
 [23]
 
-Package xcolor Warning: Incompatible color definition on input line 487.
+Package xcolor Warning: Incompatible color definition on input line 490.
 
 
-Overfull \hbox (2.40399pt too wide) in paragraph at lines 489--489
+Overfull \hbox (2.40399pt too wide) in paragraph at lines 492--492
 [][]\OT1/cmtt/m/n/12 lmer[](Abhangige Variable ~ Feste Effekte + (Zufallige E
 ffekte | Gruppe),...)[] 
  []
 
 [24] [25]
 
-Package xcolor Warning: Incompatible color definition on input line 531.
+Package xcolor Warning: Incompatible color definition on input line 534.
 
 [26]
 
-Package xcolor Warning: Incompatible color definition on input line 562.
+Package xcolor Warning: Incompatible color definition on input line 565.
 
 
-Package xcolor Warning: Incompatible color definition on input line 575.
+Package xcolor Warning: Incompatible color definition on input line 578.
 
 
-Package xcolor Warning: Incompatible color definition on input line 581.
+Package xcolor Warning: Incompatible color definition on input line 584.
 
 [27]
 
-Package xcolor Warning: Incompatible color definition on input line 614.
+Package xcolor Warning: Incompatible color definition on input line 617.
 
 
-Package xcolor Warning: Incompatible color definition on input line 627.
+Package xcolor Warning: Incompatible color definition on input line 630.
 
 [28]
 
-Package xcolor Warning: Incompatible color definition on input line 654.
+Package xcolor Warning: Incompatible color definition on input line 657.
 
 
-Overfull \hbox (8.579pt too wide) in paragraph at lines 656--656
+Overfull \hbox (8.579pt too wide) in paragraph at lines 659--659
 [][]\OT1/cmtt/m/n/12 m_corr[] []<-[] []lmer[][](punktzahl[] []~[] []uebung[] []
 +[] [](uebung[] []|[] []klasse),[] []data[] []= beispiel_data,[][] 
  []
 
 [29]
 
-Package xcolor Warning: Incompatible color definition on input line 689.
+Package xcolor Warning: Incompatible color definition on input line 692.
 
 
-Package xcolor Warning: Incompatible color definition on input line 702.
+Package xcolor Warning: Incompatible color definition on input line 705.
 
 [30]
 
-Package xcolor Warning: Incompatible color definition on input line 708.
+Package xcolor Warning: Incompatible color definition on input line 711.
 
 
-Overfull \hbox (2.40399pt too wide) in paragraph at lines 723--723
+Overfull \hbox (2.40399pt too wide) in paragraph at lines 726--726
 []\OT1/cmtt/m/n/12 ## m_fix_lvl2: punktzahl ~ uebung + fenster + ((1 | klasse) 
 + (0 + uebung |[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 735.
+Package xcolor Warning: Incompatible color definition on input line 738.
 
 [31] [32] [33]
 
-Package xcolor Warning: Incompatible color definition on input line 800.
+Package xcolor Warning: Incompatible color definition on input line 803.
 
 [34]
 
-Package xcolor Warning: Incompatible color definition on input line 838.
+Package xcolor Warning: Incompatible color definition on input line 841.
 
-[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[35]
+Overfull \hbox (18.98717pt too wide) in paragraph at lines 878--879
+[]\OT1/cmr/m/n/12 Wir ha-ben nun zwei Ef-fektst[]arkemasse von HLMs be-spro-che
+n. Das glo-ba-le Ef-fektst[]arkemass
+ []
+
+[36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
 <./figures/se_genauigkeit_design1.png, id=213, 542.025pt x 542.025pt>
 File: ./figures/se_genauigkeit_design1.png Graphic file (type png)
 <use ./figures/se_genauigkeit_design1.png>
 Package pdftex.def Info: ./figures/se_genauigkeit_design1.png  used on input li
-ne 994.
+ne 995.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
 <./figures/se_genauigkeit_design2.png, id=214, 542.025pt x 542.025pt>
 File: ./figures/se_genauigkeit_design2.png Graphic file (type png)
 <use ./figures/se_genauigkeit_design2.png>
 Package pdftex.def Info: ./figures/se_genauigkeit_design2.png  used on input li
-ne 1004.
+ne 1005.
 (pdftex.def)             Requested size: 227.62413pt x 227.62413pt.
  [48] [49 <./figures/se_genauigkeit_design1.png>] [50 <./figures/se_genauigkeit
 _design2.png>]
@@ -974,14 +976,14 @@ _design2.png>]
 <./figures/results_power.png, id=243, 1053.9375pt x 526.96875pt>
 File: ./figures/results_power.png Graphic file (type png)
 <use ./figures/results_power.png>
-Package pdftex.def Info: ./figures/results_power.png  used on input line 1076.
+Package pdftex.def Info: ./figures/results_power.png  used on input line 1077.
 (pdftex.def)             Requested size: 460.72124pt x 230.36331pt.
  [56 <./figures/results_power.png>]
 <./figures/results_error_lvl2.png, id=248, 602.25pt x 526.96875pt>
 File: ./figures/results_error_lvl2.png Graphic file (type png)
 <use ./figures/results_error_lvl2.png>
 Package pdftex.def Info: ./figures/results_error_lvl2.png  used on input line 1
-088.
+089.
 (pdftex.def)             Requested size: 227.62596pt x 227.62137pt.
  [57 <./figures/results_error_lvl2.png>] [58] [59] [60] [61] (masterarbeit_mult
 ilevelanalysis.bbl
@@ -996,41 +998,86 @@ Underfull \hbox (badness 6396) in paragraph at lines 49--67
   Zu-griff auf
  []
 
-[62] [63]) [64] (masterarbeit_multilevelanalysis.aux) ) 
+[62] [63])
+<./figures/app_theory.png, id=272, 922.94812pt x 510.40688pt>
+File: ./figures/app_theory.png Graphic file (type png)
+<use ./figures/app_theory.png>
+Package pdftex.def Info: ./figures/app_theory.png  used on input line 1132.
+(pdftex.def)             Requested size: 461.47293pt x 255.2028pt.
+
+Overfull \hbox (0.7517pt too wide) in paragraph at lines 1132--1133
+ [] 
+ []
+
+<./figures/app_beispiel.png, id=274, 922.94812pt x 776.9025pt>
+File: ./figures/app_beispiel.png Graphic file (type png)
+<use ./figures/app_beispiel.png>
+Package pdftex.def Info: ./figures/app_beispiel.png  used on input line 1136.
+(pdftex.def)             Requested size: 461.47293pt x 388.45029pt.
+
+Overfull \hbox (0.7517pt too wide) in paragraph at lines 1136--1137
+ [] 
+ []
+
+[64 <./figures/app_theory.png>]
+<./figures/app_forschungsfrage.png, id=279, 916.1728pt x 436.63126pt>
+File: ./figures/app_forschungsfrage.png Graphic file (type png)
+<use ./figures/app_forschungsfrage.png>
+Package pdftex.def Info: ./figures/app_forschungsfrage.png  used on input line 
+1140.
+(pdftex.def)             Requested size: 458.08528pt x 218.3151pt.
+<./figures/app_study1.png, id=280, 918.43124pt x 601.4972pt>
+File: ./figures/app_study1.png Graphic file (type png)
+<use ./figures/app_study1.png>
+Package pdftex.def Info: ./figures/app_study1.png  used on input line 1144.
+(pdftex.def)             Requested size: 459.2145pt x 300.74786pt.
+ [65 <./figures/app_beispiel.png> <./figures/app_forschungsfrage.png>]
+<./figures/app_study2.png, id=286, 922.94812pt x 526.21594pt>
+File: ./figures/app_study2.png Graphic file (type png)
+<use ./figures/app_study2.png>
+Package pdftex.def Info: ./figures/app_study2.png  used on input line 1149.
+(pdftex.def)             Requested size: 461.47293pt x 263.10733pt.
+
+Overfull \hbox (0.7517pt too wide) in paragraph at lines 1149--1150
+ [] 
+ []
+
+[66 <./figures/app_study1.png> <./figures/app_study2.png>]
+(masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 19927 strings out of 492450
- 378518 string characters out of 3129748
+ 19967 strings out of 492450
+ 379591 string characters out of 3129748
  444102 words of memory out of 3000000
- 24044 multiletter control sequences out of 15000+200000
+ 24079 multiletter control sequences out of 15000+200000
  544490 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,20n,67p,2294b,639s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-mextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-itt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (71 pages, 621899 bytes).
+ 52i,20n,67p,2296b,639s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex7
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmtt12.pfb>
+Output written on masterarbeit_multilevelanalysis.pdf (73 pages, 882733 bytes).
 
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
+ 367 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
