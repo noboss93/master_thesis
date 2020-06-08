@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  13 MAY 2020 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.14)  14 MAY 2020 11:03
 entering extended mode
 **./masterarbeit_multilevelanalysis.tex
 (masterarbeit_multilevelanalysis.tex
@@ -1045,10 +1045,10 @@ Overfull \hbox (0.7517pt too wide) in paragraph at lines 1149--1150
 [66 <./figures/app_study1.png> <./figures/app_study2.png>]
 (masterarbeit_multilevelanalysis.aux) ) 
 Here is how much of TeX's memory you used:
- 19967 strings out of 492450
- 379591 string characters out of 3129748
- 444102 words of memory out of 3000000
- 24079 multiletter control sequences out of 15000+200000
+ 19969 strings out of 492450
+ 379609 string characters out of 3129748
+ 444118 words of memory out of 3000000
+ 24080 multiletter control sequences out of 15000+200000
  544490 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,20n,67p,2296b,639s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1074,7 +1074,7 @@ ype1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmtt12.pfb>
-Output written on masterarbeit_multilevelanalysis.pdf (73 pages, 882733 bytes).
+Output written on masterarbeit_multilevelanalysis.pdf (73 pages, 882967 bytes).
 
 PDF statistics:
  367 PDF objects out of 1000 (max. 8388607)

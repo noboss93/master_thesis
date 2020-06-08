@@ -119,6 +119,8 @@ Dorman, J\BPBI P.%
   statistical tests: an illustration using classroom environment data}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Educational Psychology}{28}{5}{583--595}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/01443410801954201} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -143,7 +145,7 @@ Field, A.%
 \APACrefYear{2013}.
 \newblock
 \APACrefbtitle {Discovering statistics using R} {Discovering statistics using
-  r}\ (\PrintOrdinal{Reprinted}\ \BEd).
+  r}.
 \newblock
 \APACaddressPublisher{Los Angeles}{Sage}.
 \PrintBackRefs{\CurrentBib}
@@ -205,8 +207,6 @@ Gelman, A.%
   Models} {Data analysis using regression and multilevel/hierarchical models}.
 \newblock
 \APACaddressPublisher{United Kingdom}{Cambridge University Press}.
-\newblock
-\APACrefnote{Includes bibliographical references (pages 575-600) and indexes}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -348,8 +348,6 @@ Krull, J\BPBI L.%
 \newblock
 \APACjournalVolNumPages{Multivariate Behavioral Research}{36}{2}{249-277}.
 \newblock
-\APACrefnote{PMID: 26822111}
-\newblock
 \begin{APACrefDOI} \doi{10.1207/S15327906MBR3602\_06} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
@@ -460,7 +458,7 @@ Moerbeek, M.%
   comparison between traditional methods and multilevel regression for the
   analysis of multicenter intervention studies}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{Journal of Clinical Epidemiology}{56}{4}{341 - 350}.
+\APACjournalVolNumPages{Journal of Clinical Epidemiology}{56}{4}{341-350}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/S0895-4356(03)00007-6} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -647,6 +645,8 @@ Robinson, W\BPBI S.%
 \newblock
 \APACjournalVolNumPages{International journal of
   epidemiology}{38}{2}{337--341}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/ije/dyn357} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -840,6 +840,8 @@ Woltman, H.%
 \newblock
 \APACjournalVolNumPages{Tutorials in quantitative methods for
   psychology}{8}{1}{52--69}.
+\newblock
+\begin{APACrefDOI} \doi{10.20982/tqmp.08.1.p052} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}
