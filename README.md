@@ -11,4 +11,4 @@ Results showed that HLM had good SE Efficacy even with high ICC. Wheres MLM show
 
 In combination with this master theses a Shiny App was written for an easy and more interactive way for students to understand Multilevel Analysis. Additionally the results of my simulation study are also presented in the Shiny App.
 
-https://noboss.shinyapps.io/master_thesis_app/
+Link to the Shiny App: https://noboss.shinyapps.io/master_thesis_app/
