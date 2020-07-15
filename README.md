@@ -1,3 +1,5 @@
+**Link to the Shiny App:** https://noboss.shinyapps.io/master_thesis_app/
+
 ## Standard Error efficacy and its influence on reliability in clustered data - Comparing linear models and hierarchical linear Models
 This Master thesis is split in two parts. In the first part multilevel theory is explained on a very basic level. Goal of this part is that psychology students can get an easy understanding of multilevel analysis and it's application. 
 
