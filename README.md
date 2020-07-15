@@ -12,5 +12,3 @@ Two outcome measures where calculated for each condition:
 Results showed that HLM had good SE Efficacy even with high ICC. Wheres MLM showed under- and overestimating of SE with increasing ICCs. Concerning Statistical Power HLM showed again better power as MLM. The difference in power grew with increasing ICC.
 
 In combination with this master theses a Shiny App was written for an easy and more interactive way for students to understand Multilevel Analysis. Additionally the results of my simulation study are also presented in the Shiny App.
-
-Link to the Shiny App: https://noboss.shinyapps.io/master_thesis_app/
